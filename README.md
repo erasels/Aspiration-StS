@@ -6,3 +6,6 @@ A hub for my current and future mods.
 "The Dark Mirror is an event similar to the Golden Idol event built around the Prismatic Shard relic.
 You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains spoilers obviously)
 
+
+## Dependecnies:
+BaseMod: https://github.com/daviscook477/BaseMod/releases
