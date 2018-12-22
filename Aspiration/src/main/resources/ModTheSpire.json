@@ -1,0 +1,11 @@
+{
+  "modid": "aspiration",
+  "name": "Aspiration",
+  "author_list": ["erasels"],
+  "description": "A mod containing my first attempts at modding. \n \nCurrently includes: \nAn based on a reddit thread. (The Dark Mirror)",
+  "version": "0.01",
+  "sts_version": "12-20-2018",
+  "mts_version": "3.6.0",
+  "dependencies": ["basemod"],
+  "update_json": ""
+}
