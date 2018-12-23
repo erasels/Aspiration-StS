@@ -15,7 +15,7 @@ import aspiration.relics.abstracts.AspirationRelic;
 public class VileToxins extends AspirationRelic {
 	public static final String ID = "aspiration:VileToxins";
 	
-    private static final int DEBUFF_STACK = 1;
+    private static final int DEBUFF_STACK = 2;
 
     public VileToxins() {
         super(ID, "VileToxins.png", RelicTier.UNCOMMON, LandingSound.FLAT);
@@ -27,7 +27,7 @@ public class VileToxins extends AspirationRelic {
     }
 
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
-        if (p.ID.equals(PoisonPower.POWER_ID) && target != AbstractDungeon.player && !target.hasPower(ArtifactPower.POWER_ID) && source == AbstractDungeon.player) {
+        if (p.ID.equals(PoisonPower.POWER_ID) && target != AbstractDungeon.player && !target.hasPower(ArtifactPower.POWER_ID) && !target.hasPower(PoisonPower.POWER_ID) && source == AbstractDungeon.player) {
         	AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new WeakPower(target, DEBUFF_STACK, false), DEBUFF_STACK));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new VulnerablePower(target, DEBUFF_STACK, false), DEBUFF_STACK));
         }

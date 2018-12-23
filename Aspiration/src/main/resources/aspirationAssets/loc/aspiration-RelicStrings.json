@@ -3,8 +3,8 @@
     "NAME": "Vile Toxins",
     "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yPoison, apply #b",
-	  " stack of #yVulnerable and #yWeak."
+      "Whenever you apply #yPoison to an enemy that wasn't poisoned, apply #b",
+	  " stacks of #yVulnerable and #yWeak."
     ]
   }
  }
