@@ -10,6 +10,8 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import aspiration.events.TheDarkMirror;
+import aspiration.relics.InfernalBlood;
+import aspiration.relics.RingOfOuroboros;
 import aspiration.relics.VileToxins;
 import aspiration.relics.abstracts.AspirationRelic;
 
@@ -59,6 +61,11 @@ public class Aspiration implements
     @Override
     public void receiveEditRelics()
     {
+    	//All Characters
+    	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);
+    	BaseMod.addRelic(new InfernalBlood(), RelicType.SHARED);
+    	
+    	//The Silent
         BaseMod.addRelic(new VileToxins(), RelicType.GREEN);
     }
 

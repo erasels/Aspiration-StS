@@ -6,5 +6,27 @@
       "Whenever you apply #yPoison to an enemy that wasn't poisoned, apply #b",
 	  " stacks of #yVulnerable and #yWeak."
     ]
+  },
+  "aspiration:RingOfOuroboros": {
+    "NAME": "Ring of Ouroboros",
+    "FLAVOR": "Your ring suddenly came alive and started eating itself. Prodding it, hurts you as much as it helps you focus.",
+    "DESCRIPTIONS": [
+      "Take #r",
+	  " damage and draw #b",
+	  " card.",
+	  "Replaces #gRing #gof #gthe #gSnake. "
+    ]
+  },
+  "aspiration:InfernalBlood": {
+    "NAME": "Infernal Blood",
+    "FLAVOR": "Your thirst for destruction has turned your blood into something wholely more sinister.",
+    "DESCRIPTIONS": [
+      "Lose #b",
+	  " HP for every #yskill, heal #b",
+	  " for every #yattack and #b",
+	  " for every #ypower you play.",
+	  "Replaces #rBurning #rBlood. "
+    ]
   }
  }
+ 

@@ -79,8 +79,8 @@ public class TheDarkMirror extends AbstractImageEvent {
                 		imageEventText.loadImage(Aspiration.assetPath("img/events/event1_Shatter.jpg"));
                 		CardCrawlGame.sound.play("THUNDERCLAP");
                 	    AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT, DamageInfo.DamageType.HP_LOSS));
+
                 	    AbstractRelic r = new PrismaticShard();
-                	    
                 	    AbstractDungeon.getCurrRoom().rewards.clear();
                 	    AbstractDungeon.getCurrRoom().addRelicToRewards(r);
                 	    AbstractDungeon.combatRewardScreen.open();

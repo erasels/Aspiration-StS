@@ -26,6 +26,13 @@
             <systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>
         </dependency>
         <dependency>
+            <groupId>com.megacrit.cardcrawl</groupId>
+            <artifactId>StSLib</artifactId>
+            <version>1.9.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/StSLib.jar</systemPath>
+        </dependency>
+        <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>BaseMod</artifactId>
             <version>5.0.0</version>
