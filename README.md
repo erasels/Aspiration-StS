@@ -7,7 +7,7 @@ A hub for my current and future mods.
 You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains spoilers obviously)
 
 ### 1 Relic:
-"Vile Toxins" is an uncommon relic for the Silent that applies 1 stack of Weak and Vulnerable everytime you poison an enemy. A screenshot of it in action can be found here: https://i.imgur.com/CnKjiLs.png
+"Vile Toxins" is an uncommon relic for the Silent that applies 2 stacks of Weak and Vulnerable everytime you poison an enemy that wasn't poisoned. A screenshot of (an older version of) it in action can be found here: https://i.imgur.com/CnKjiLs.png
 
 
 ## Dependecnies:
