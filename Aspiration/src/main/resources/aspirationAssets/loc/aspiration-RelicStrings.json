@@ -27,6 +27,48 @@
 	  " for every #ypower you play.",
 	  "Replaces #rBurning #rBlood. "
     ]
+  },
+  "aspiration:BursterCore": {
+    "NAME": "Burster Core",
+    "FLAVOR": "The nonoptimal fix to your core has caused it to switch between lightning fast and sluggishly slow computing on regular intervals.",
+    "DESCRIPTIONS": [
+      "#yChannel #b",
+	  " #yLightning for every empty orb slot every #b",
+	  " turns.",
+	  "Replaces #bCracked #bCore. "
+    ]
+  },
+  "aspiration:Contagion": {
+    "NAME": "Contagion",
+    "FLAVOR": "You've contracted a mysterious illness, it ails you if you don't pass it along.",
+    "DESCRIPTIONS": [
+      "Gain [E] every time you apply #b",
+	  " #yPoison. If no enemy is #ypoisoned at the end of your turn, inflict #b",
+	  " #yPoison on yourself."
+    ]
+  },
+  "aspiration:SneckoTail": {
+    "NAME": "Snecko Tail",
+    "FLAVOR": "The tail of a fearsome Snecko. The fluids it secretes are excellent for transferring your toxins.",
+    "DESCRIPTIONS": [
+      "#yPoison is doubled on #yWeak or #yVulnerable enemies."
+    ]
+  },
+  "aspiration:HummingbirdHeart": {
+    "NAME": "Hummingbird Heart",
+    "FLAVOR": "A thousand beats a minute, the power of your heart is incredible but wanes fast.",
+    "DESCRIPTIONS": [
+      "Start each combat with #b",
+	  " #yStrength, but lose #b1 #yStrength each turn for three turns."
+    ]
+  },
+  "aspiration:Headhunter": {
+    "NAME": "Headhunter",
+    "FLAVOR": "A belt of severed heads, the first step on the path of exiling yourself from this place of the damned.",
+    "DESCRIPTIONS": [
+      "Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
+	  " battles."
+    ]
   }
- }
+}
  

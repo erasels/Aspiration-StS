@@ -18,7 +18,7 @@ public class VileToxins extends AspirationRelic {
     private static final int DEBUFF_STACK = 2;
 
     public VileToxins() {
-        super(ID, "VileToxins.png", RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, "VileToxins.png", RelicTier.UNCOMMON, LandingSound.CLINK);
     }
 
     @Override
@@ -26,11 +26,18 @@ public class VileToxins extends AspirationRelic {
         return DESCRIPTIONS[0] + DEBUFF_STACK + DESCRIPTIONS[1];
     }
 
+    @Override
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
         if (p.ID.equals(PoisonPower.POWER_ID) && target != AbstractDungeon.player && !target.hasPower(ArtifactPower.POWER_ID) && !target.hasPower(PoisonPower.POWER_ID) && source == AbstractDungeon.player) {
         	AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new WeakPower(target, DEBUFF_STACK, false), DEBUFF_STACK));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new VulnerablePower(target, DEBUFF_STACK, false), DEBUFF_STACK));
         }
+    }
+    
+    @Override
+    public boolean canSpawn() //Checked when?
+    {
+    	return deckDescriptionSearch("poison");
     }
 
     public AbstractRelic makeCopy() {

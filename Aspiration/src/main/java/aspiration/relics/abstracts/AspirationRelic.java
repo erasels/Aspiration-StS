@@ -1,6 +1,8 @@
 package aspiration.relics.abstracts;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -33,6 +35,16 @@ public abstract class AspirationRelic extends AbstractRelic
                 largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgUrl));
             }
         }
+    }
+    
+    public boolean deckDescriptionSearch(String keyword)
+    {
+    	for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+    		if(c.rawDescription.toLowerCase().contains(keyword)) {
+    			return true;
+    		}
+    	}
+    	return false;
     }
     
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) { }

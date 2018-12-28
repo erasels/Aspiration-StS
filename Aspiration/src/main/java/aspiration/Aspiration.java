@@ -4,24 +4,34 @@ import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import aspiration.events.TheDarkMirror;
+import aspiration.relics.BursterCore;
+import aspiration.relics.Contagion;
+import aspiration.relics.Headhunter;
+import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
 import aspiration.relics.RingOfOuroboros;
+import aspiration.relics.SneckoTail;
 import aspiration.relics.VileToxins;
 import aspiration.relics.abstracts.AspirationRelic;
 
+import com.megacrit.cardcrawl.audio.Sfx;
+import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.Properties;
 
 @SpireInitializer
@@ -56,17 +66,31 @@ public class Aspiration implements
     @Override
     public void receivePostInitialize() {
         BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class);
+        
+        this.loadAudio();
+    }
+
+    public void loadAudio() {
+		HashMap<String, Sfx> map = (HashMap<String, Sfx>)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
+        map.put("ASP-BLOODPUMP", new Sfx(assetPath("audio/BloodPump.ogg"), false));
     }
     
     @Override
     public void receiveEditRelics()
     {
-    	//All Characters
+    	//"Normal" Relics
+    	BaseMod.addRelic(new HummingbirdHeart(), RelicType.SHARED);
+    	BaseMod.addRelic(new Headhunter(), RelicType.SHARED);
+    	
+    	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);
     	BaseMod.addRelic(new InfernalBlood(), RelicType.SHARED);
+    	BaseMod.addRelic(new BursterCore(), RelicType.SHARED);
     	
-    	//The Silent
-        BaseMod.addRelic(new VileToxins(), RelicType.GREEN);
+    	//If poison card in deck
+        BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
+        BaseMod.addRelic(new Contagion(), RelicType.SHARED);
+        BaseMod.addRelic(new SneckoTail(), RelicType.SHARED);
     }
 
     @Override

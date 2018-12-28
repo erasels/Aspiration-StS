@@ -1,6 +1,8 @@
 package aspiration.relics;
 
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -64,9 +66,9 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
 
 	@Override
 	public void onRightClick() {
-		if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && BaseMod.MAX_HAND_SIZE != AbstractDungeon.player.hand.size() && !AbstractDungeon.player.isDead && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.actionManager.turnHasEnded) {
+		if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && BaseMod.MAX_HAND_SIZE != AbstractDungeon.player.hand.size() && !AbstractDungeon.player.isDead && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.player.isEndingTurn && !AbstractDungeon.actionManager.turnHasEnded) {
 			CardCrawlGame.sound.play("ATTACK_FAST");
-			AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT, DamageInfo.DamageType.NORMAL));
+			AbstractDungeon.actionManager.addToTop(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, DAMAGE_AMOUNT, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 			flash();
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, CARD_DRAW_AMOUNT));

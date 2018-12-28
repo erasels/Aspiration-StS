@@ -1,6 +1,10 @@
 package aspiration.relics;
 
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
+//import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -63,16 +67,22 @@ public class InfernalBlood extends AspirationRelic {
     
 	@Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-		flash();
-		AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        if(c.type == CardType.ATTACK) {
-        	AbstractDungeon.player.heal(ATTACK_HEAL);
-        }
-        if(c.type == CardType.SKILL) {
-        	AbstractDungeon.player.damage(new DamageInfo(null, SKILL_DAMAGE, DamageInfo.DamageType.HP_LOSS));
-        }
-        if(c.type == CardType.POWER) {
-        	AbstractDungeon.player.heal(POWER_HEAL);
-        }
+		if(c.type == CardType.POWER || c.type == CardType.SKILL || c.type == CardType.ATTACK)
+		{
+			flash();
+			//AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+			//CardCrawlGame.sound.play("ASP-BLOODPUMP");
+			AbstractDungeon.actionManager.addToBottom(new SFXAction("HEART_SIMPLE"));
+			
+			if(c.type == CardType.ATTACK) {
+        		AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, ATTACK_HEAL));
+        	}
+        	if(c.type == CardType.SKILL) {
+        		AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, SKILL_DAMAGE, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE));
+        	}
+        	if(c.type == CardType.POWER) {
+        		AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, POWER_HEAL));
+        	}
+		}
     }
 }
