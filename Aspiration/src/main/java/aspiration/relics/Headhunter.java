@@ -140,7 +140,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     		}
     	}
     	if(AbstractDungeon.getCurrRoom() instanceof MonsterRoomBoss || jump) {
-    		int i = rng.random(Boss_buffs.size());
+    		int i = rng.random(Boss_buffs.size() - 1);
     		buff_list.add(new timedPower(Boss_buffs.get(i), 3));
 			Boss_buffs.remove(i);
     	}
