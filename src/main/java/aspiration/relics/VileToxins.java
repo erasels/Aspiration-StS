@@ -18,7 +18,7 @@ public class VileToxins extends AspirationRelic {
     private static final int DEBUFF_STACK = 2;
 
     public VileToxins() {
-        super(ID, "VileToxins.png", RelicTier.UNCOMMON, LandingSound.CLINK);
+        super(ID, "VileToxins.png", RelicTier.COMMON, LandingSound.CLINK);
     }
 
     @Override

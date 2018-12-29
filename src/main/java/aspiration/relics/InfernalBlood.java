@@ -20,8 +20,8 @@ public class InfernalBlood extends AspirationRelic {
 	public static final String ID = "aspiration:InfernalBlood";
 	
 	private static final int SKILL_DAMAGE = 1;
-	private static final int ATTACK_HEAL = 2;
-	private static final int POWER_HEAL = 1;
+	private static final int ATTACK_HEAL = 1;
+	private static final int POWER_HEAL = 3;
 	
     public InfernalBlood() {
         super(ID, "InfernalBlood.png", RelicTier.BOSS, LandingSound.MAGICAL);

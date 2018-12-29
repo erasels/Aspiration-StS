@@ -6,6 +6,7 @@ import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.SuperRareRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -251,6 +252,12 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     	}
     	
     	return tmp.substring(0, tmp.length() - 3);
+    }
+    
+    @Override
+    public boolean canSpawn()
+    {
+    	return ((AbstractDungeon.floorNum <= 48) && (!Settings.isEndless));
     }
     
     @Override
