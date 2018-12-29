@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.BursterCore;
 import aspiration.relics.Contagion;
+import aspiration.relics.Headhunter;
 import aspiration.relics.Legacy_Headhunter;
 import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
@@ -81,6 +82,7 @@ public class Aspiration implements
     	//"Normal" Relics
     	BaseMod.addRelic(new HummingbirdHeart(), RelicType.SHARED);
     	BaseMod.addRelic(new Legacy_Headhunter(), RelicType.SHARED);
+    	BaseMod.addRelic(new Headhunter(), RelicType.SHARED);
     	
     	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);

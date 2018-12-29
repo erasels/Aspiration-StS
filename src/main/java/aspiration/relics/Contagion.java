@@ -20,7 +20,7 @@ public class Contagion extends AspirationRelic implements CustomSavable<Integer>
 	
     private static final int ENERGY_GAIN = 1;
     private static final int POISON_THRESHOLD = 6;
-    private static final int POISON_AMOUNT = 1;
+    private static final int POISON_AMOUNT = 2;
     
     private static int poison_counter = 0;
 

@@ -29,7 +29,7 @@ public abstract class AspirationRelic extends AbstractRelic
     {
         if (largeImg == null) {
             if (imgUrl.startsWith("test")) {
-                largeImg = ImageMaster.loadImage("images/largeRelics/" + imgUrl);
+                largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgUrl));
             }
             if (largeImg == null) {
                 largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgUrl));

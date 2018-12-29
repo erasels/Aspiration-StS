@@ -66,8 +66,7 @@
     "NAME": "Headhunter",
     "FLAVOR": "A belt of severed heads, the first step on the path of exiling yourself from this place of the damned.",
     "DESCRIPTIONS": [
-      "Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
-	  " battles."
+      "Gain #yCharges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored #yCharges. Visiting non-monster rooms makes #yCharges decay based on the type of room. #gRight-click #gto #gsee #gmore #ginformation."
     ]
   },
   "aspiration:Legacy_Headhunter": {

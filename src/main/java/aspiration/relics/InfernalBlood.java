@@ -72,7 +72,10 @@ public class InfernalBlood extends AspirationRelic {
 			flash();
 			//AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 			//CardCrawlGame.sound.play("ASP-BLOODPUMP");
-			AbstractDungeon.actionManager.addToBottom(new SFXAction("HEART_SIMPLE"));
+			java.util.Random r = new java.util.Random();
+			if(r.nextInt(6) > 4) {
+				AbstractDungeon.actionManager.addToBottom(new SFXAction("HEART_SIMPLE"));
+			}
 			
 			if(c.type == CardType.ATTACK) {
         		AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, ATTACK_HEAL));
