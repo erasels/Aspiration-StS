@@ -1,0 +1,82 @@
+{
+  "aspiration:VileToxins": {
+    "NAME": "Vile Toxins",
+    "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
+    "DESCRIPTIONS": [
+      "Whenever you apply #yPoison to an enemy that wasn't poisoned, apply #b",
+	  " stacks of #yVulnerable and #yWeak."
+    ]
+  },
+  "aspiration:RingOfOuroboros": {
+    "NAME": "Ring of Ouroboros",
+    "FLAVOR": "Your ring suddenly came alive and started eating itself. Prodding it, hurts you as much as it helps you focus.",
+    "DESCRIPTIONS": [
+      "Take #r",
+	  " damage and draw #b",
+	  " card.",
+	  "Replaces #gRing #gof #gthe #gSnake. "
+    ]
+  },
+  "aspiration:InfernalBlood": {
+    "NAME": "Infernal Blood",
+    "FLAVOR": "Your thirst for destruction has turned your blood into something wholely more sinister.",
+    "DESCRIPTIONS": [
+      "Lose #b",
+	  " HP for every #yskill, heal #b",
+	  " for every #yattack and #b",
+	  " for every #ypower you play.",
+	  "Replaces #rBurning #rBlood. "
+    ]
+  },
+  "aspiration:BursterCore": {
+    "NAME": "Burster Core",
+    "FLAVOR": "The nonoptimal fix to your core has caused it to switch between lightning fast and sluggishly slow computing on regular intervals.",
+    "DESCRIPTIONS": [
+      "#yChannel #b",
+	  " #yLightning for every empty orb slot every #b",
+	  " turns.",
+	  "Replaces #bCracked #bCore. "
+    ]
+  },
+  "aspiration:Contagion": {
+    "NAME": "Contagion",
+    "FLAVOR": "You've contracted a mysterious illness, it ails you if you don't pass it along.",
+    "DESCRIPTIONS": [
+      "Gain [E] every time you apply #b",
+	  " #yPoison. If no enemy is #ypoisoned at the end of your turn, inflict #b",
+	  " #yPoison on yourself."
+    ]
+  },
+  "aspiration:SneckoTail": {
+    "NAME": "Snecko Tail",
+    "FLAVOR": "The tail of a fearsome Snecko. The fluids it secretes are excellent for transferring your toxins.",
+    "DESCRIPTIONS": [
+      "#yPoison is doubled on #yWeak or #yVulnerable enemies."
+    ]
+  },
+  "aspiration:HummingbirdHeart": {
+    "NAME": "Hummingbird Heart",
+    "FLAVOR": "A thousand beats a minute, the power of your heart is incredible but wanes fast.",
+    "DESCRIPTIONS": [
+      "Gain #b",
+	  " #yBlock for every card played on your first turn, reduce the effect by #b1 for every turn after until it's #b0."
+    ]
+  },
+  "aspiration:Headhunter": {
+    "NAME": "Headhunter",
+    "FLAVOR": "A belt of severed heads, the first step on the path of exiling yourself from this place of the damned.",
+    "DESCRIPTIONS": [
+      "Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
+	  " battles."
+    ]
+  },
+  "aspiration:Legacy_Headhunter": {
+    "NAME": "Legacy Headhunter",
+    "FLAVOR": "Such a lucky find! A rarity amongst rarities will surely lead to an exalted run.",
+    "DESCRIPTIONS": [
+      "[Unbalanced and broken, but useable.] Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
+	  " battles."
+    ]
+  }
+}
+ 

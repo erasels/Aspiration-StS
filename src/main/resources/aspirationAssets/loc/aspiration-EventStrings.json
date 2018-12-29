@@ -1,0 +1,19 @@
+{
+  "aspiration:TheDarkMirror" : {
+    "NAME": "The Dark Mirror",
+    "DESCRIPTIONS": [
+      "The path ahead is blocked by an enormous mirror. NL Through its jagged spike-laden frame you spy no way of passage, however the reflection contained wihtin seems to flicker in a way that hints at its evanescent nature.",
+	  " NL NL This isn't worth your time. Or that is what you tell yourself, however in the deepest recesses of your mind, you know the #b@truth.@ ",
+	  " NL NL A #y@bedazzling@ #y@light@ emits from your person, you find that it is the #rshard #gcontaining #ba #brainbow. Holding it out to inspect it, you hear the foul apparition within the mirror #r@screech@ as the construct loses its lustre and dissapates.",
+	  " NL NL The mirror #r@shrieks@ as your appendage shatters it to infinitesimally small pieces. The apparition within #rstrikes #rout #rin #panger and when all is said and done, you find #ra #gcolourful #bshard in your wounds."
+    ],
+    "OPTIONS": [
+      "[Flee] #rBecome #rCursed #r- #rShame",
+      "[Reflect Back] #gObtain: #gApotheosis+",
+      "[Smash Mirror] #rLose #r",
+	  "[LOCKED] Requires: Prismatic Shard.",
+	  " #rHP and #rObtain: #gPrismatic #bShard.",
+	  "Continue on with your adventure."
+    ]
+  }
+}

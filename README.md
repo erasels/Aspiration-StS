@@ -19,9 +19,9 @@ You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains s
 
 "Contagion": Gain 1 energy for every 6 poison applied if no enemy is poisoned at the end of your turn, apply 1 poison to yourself.
 
-"Hummingbird Heart": Gain 3 Strength at the start of combat and lose 1 at the end of your turn for three turns.
+"Hummingbird Heart": Gain 4 Block for every card played on your first turn, reduce the effect by 1 for every turn after until it's 0.
 
-"Headhunter": Gain a random buff after winning a battle, each buff you gain this way is applied at the start of each battle for the next 4 battles. CAREFUL: Increases and decreases to the buffs carry over.
+"Legacy Headhunter": Gain a random buff after winning a battle, each buff you gain this way is applied at the start of each battle for the next 7 battles. CAREFUL: Increases and decreases to the buffs carry over.
 
 
 ## Dependencies:
