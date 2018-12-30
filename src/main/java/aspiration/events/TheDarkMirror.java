@@ -84,6 +84,13 @@ public class TheDarkMirror extends AbstractImageEvent {
                 			AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT - 4, DamageInfo.DamageType.HP_LOSS));
                 		}
 
+                		/*//Testing canSpawn
+                		AbstractDungeon.getCurrRoom().rewards.clear();
+                		for(int i = 0; i < 7; i++) {
+                			AbstractRelic r = AbstractDungeon.returnRandomRelic(AbstractRelic.RelicTier.COMMON);
+                    		AbstractDungeon.getCurrRoom().addRelicToRewards(r);
+                		}*/
+                		
                 	    AbstractRelic r = new PrismaticShard();
                 	    AbstractDungeon.getCurrRoom().rewards.clear();
                 	    AbstractDungeon.getCurrRoom().addRelicToRewards(r);

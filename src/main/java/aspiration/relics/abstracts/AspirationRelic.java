@@ -40,7 +40,7 @@ public abstract class AspirationRelic extends AbstractRelic
     public boolean deckDescriptionSearch(String keyword)
     {
     	for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
-    		if(c.rawDescription.toLowerCase().contains(keyword)) {
+    		if(c.rawDescription.toLowerCase().contains(keyword.toLowerCase())) {
     			return true;
     		}
     	}

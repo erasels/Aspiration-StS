@@ -1,5 +1,6 @@
 package aspiration.relics;
 
+import com.megacrit.cardcrawl.powers.PoisonPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import aspiration.relics.abstracts.AspirationRelic;
@@ -26,9 +27,9 @@ public class SneckoTail extends AspirationRelic {
     }*/
     
     @Override
-    public boolean canSpawn() //Checked when?
+    public boolean canSpawn() //Checked when? AbstractDungeon.returnRandomRelicKey
     {
-    	return deckDescriptionSearch("poison");
+    	return deckDescriptionSearch(PoisonPower.NAME);
     }
 
     public AbstractRelic makeCopy() {

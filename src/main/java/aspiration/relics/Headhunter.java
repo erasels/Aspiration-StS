@@ -21,6 +21,7 @@ import com.megacrit.cardcrawl.powers.BerserkPower;
 import com.megacrit.cardcrawl.powers.BufferPower;
 import com.megacrit.cardcrawl.powers.BurstPower;
 import com.megacrit.cardcrawl.powers.CombustPower;
+import com.megacrit.cardcrawl.powers.ConfusionPower;
 import com.megacrit.cardcrawl.powers.CreativeAIPower;
 import com.megacrit.cardcrawl.powers.DarkEmbracePower;
 import com.megacrit.cardcrawl.powers.DemonFormPower;
@@ -30,7 +31,6 @@ import com.megacrit.cardcrawl.powers.DoubleTapPower;
 import com.megacrit.cardcrawl.powers.DrawPower;
 import com.megacrit.cardcrawl.powers.EchoPower;
 import com.megacrit.cardcrawl.powers.EnvenomPower;
-import com.megacrit.cardcrawl.powers.EvolvePower;
 import com.megacrit.cardcrawl.powers.FeelNoPainPower;
 import com.megacrit.cardcrawl.powers.FireBreathingPower;
 import com.megacrit.cardcrawl.powers.GrowthPower;
@@ -225,21 +225,40 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     		buffList.add(new EchoPower(AbstractDungeon.player, 2));									//Every turn, the first two cards you play are played twice
     		buffList.add(new DoubleDamagePower(AbstractDungeon.player, 2, false));					//Deal double damage for the next 2 turns
     	} else if (40 <= charge && charge <=42) {
-    		buffList.add(new CreativeAIPower(AbstractDungeon.player, 1));							//Add random power into your hand at start of turn
+    		buffList.add(new CreativeAIPower(AbstractDungeon.player, 2));							//Add 2 random powers into your hand at start of turn
+    		buffList.add(new MagnetismPower(AbstractDungeon.player, 1));							//At the start of your turn ad a random colorless card to your hand.
+    		buffList.add(new HeatsinkPower(AbstractDungeon.player, 1));								//Draw a card if you play a power
+    		buffList.add(new AmplifyPower(AbstractDungeon.player, 3)); 								//This turn Next 3 powers played twice
+    	} else if (43 <= charge && charge <=45) {
+    		buffList.add(new JuggernautPower(AbstractDungeon.player, 6));							//Deal 6 damage for each time you gain defense this turn
+    		buffList.add(new MetallicizePower(AbstractDungeon.player, 5));							//Every turn, Gain 5 block at the end of your turn
+    		buffList.add(new BufferPower(AbstractDungeon.player, 3));								//Next 3 times you'd take health damage, don't
+    		buffList.add(new AfterImagePower(AbstractDungeon.player, 2));							//Gain 2 block when playing a card
+    	} else if (46 <= charge && charge <=48) {
+    		buffList.add(new DrawPower(AbstractDungeon.player, 2)); 								//Draw 2 more cards every turn
+        	buffList.add(new InvinciblePower(AbstractDungeon.player, AbstractDungeon.player.maxHealth /10));	//Cannot take more than 1/10th of your max health as damage per turn
+    	} else if (49 <= charge && charge <=51) {
+    		buffList.add(new DemonFormPower(AbstractDungeon.player, 5));							//Gain 3 strength at the start of your turn
+    		buffList.add(new PlatedArmorPower(AbstractDungeon.player, 10));							//Gain 10 plated armor	
+    		buffList.add(new DexterityPower(AbstractDungeon.player, 5));
+    	} else if (52 <= charge && charge <=54) {
+    		buffList.add(new InfiniteBladesPower(AbstractDungeon.player, 3));						//At the start of your turn, add 3 Shivs to your hand
     		buffList.add(new DarkEmbracePower(AbstractDungeon.player, 1));							//Draw 1 card when you exhaust a card
     		buffList.add(new FeelNoPainPower(AbstractDungeon.player, 5));							//Gain 5 block when exhausting a card
-    		buffList.add(new EvolvePower(AbstractDungeon.player, 1));								//Whenever you draw a status/curse draw 1 card
-    		buffList.add(new MagnetismPower(AbstractDungeon.player, 1));							//At the start of your turn ad a random colorless card to your hand.
-    	}
-    	else if (charge > 42) {
-    		buffList.add(new JuggernautPower(AbstractDungeon.player, 3));							//Deal 3 damage for each time you gain defense this turn
-    		buffList.add(new MetallicizePower(AbstractDungeon.player, 3));							//Every turn, Gain 3 block at the end of your turn
-    		buffList.add(new BufferPower(AbstractDungeon.player, 2));								//Next two times you'd take health damage, don't
-        	buffList.add(new DrawPower(AbstractDungeon.player, 2)); 								//Draw 2 more cards every turn
-        	buffList.add(new InvinciblePower(AbstractDungeon.player, AbstractDungeon.player.maxHealth /10));	//Cannot take more than 1/10th of your max health as damage per turn
-        	buffList.add(new DemonFormPower(AbstractDungeon.player, 3));							//Gain 3 strength at the start of your turn
-        	buffList.add(new InfiniteBladesPower(AbstractDungeon.player, (BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.masterHandSize)));	//At the start of your turn, add as many Shivs as you can have in your hand
-        	
+    		buffList.add(new DoubleTapPower(AbstractDungeon.player, 3));							//This turn Next 3 Attacks played twice
+    	} else if (55 <= charge && charge <=57) {
+    		buffList.add(new DrawPower(AbstractDungeon.player, 3)); 								//Draw 3 more cards every turn
+    		buffList.add(new BerserkPower("Energized", AbstractDungeon.player, 2));					//2 more energy gain at start of turn
+    	} else if (58 <= charge && charge <=60) {
+    		buffList.add(new EchoPower(AbstractDungeon.player, 10));								//Every turn, the first 10 cards you play are played twice
+    		buffList.add(new BerserkPower("Energized", AbstractDungeon.player, 4));					//4 more energy gain at start of turn
+    		buffList.add(new DrawPower(AbstractDungeon.player, (BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.masterHandSize))); 	//Draw cards boi
+    		buffList.add(new ConfusionPower(AbstractDungeon.player));								//Randomized card costs
+    	} else if (charge > 60) {
+    		buffList.add(new StrengthPower(AbstractDungeon.player, charge));
+    		buffList.add(new DexterityPower(AbstractDungeon.player, charge));
+    		buffList.add(new TheBombPower(AbstractDungeon.player, 1, charge));							//Deal 100 damage to all enemies after 6 turns
+    		buffList.add(new MayhemPower(AbstractDungeon.player, Math.round(charge/25)));							//At the start of your turn play the 2 top most cards in your draw pile
     	}
     	
     	return buffList;

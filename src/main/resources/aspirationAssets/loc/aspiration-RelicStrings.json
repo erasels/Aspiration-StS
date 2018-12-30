@@ -76,6 +76,14 @@
       "[Unbalanced and broken, but useable.] Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
 	  " battles."
     ]
+  },
+  "aspiration:AnachronicSnailShell": {
+    "NAME": "Anachronic Snail Shell",
+    "FLAVOR": "This piece of a snail's shell resists the flow of time, slowly tumbling along its own path.",
+    "DESCRIPTIONS": [
+      "All damage resulting in #rHP loss from attacks against you is delayed by #b1 turn. NL ",
+	  "Warning: Time gets confused about who attacked when multiple enemies are present."
+    ]
   }
 }
  

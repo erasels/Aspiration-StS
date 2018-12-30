@@ -1,7 +1,7 @@
 # Aspiration-StS
 A hub for my current and future mods. Contains a few poison-based relics, starter relic upgrade alternatives and more.
 
-## Currently contains:
+## Currently contains (as in the current source code, releases may lag behind a bit):
 ### 1 Event: 
 "The Dark Mirror is an event similar to the Golden Idol event built around the Prismatic Shard relic.
 You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains spoilers obviously)
@@ -26,6 +26,8 @@ Relics that interact with poison only spawn if you have a card with poison in it
 "Headhunter": Gain Charges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored Charges. Visiting non-monster rooms makes Charges decay based on the type of room.
 
 "Legacy Headhunter": Gain a random buff after winning a battle, each buff you gain this way is applied at the start of each battle for the next 7 battles. CAREFUL: Increases and decreases to the buffs carry over.
+
+"Anachronic Snail Shell": All damage resulting in HP loss from attacks against you is delayed by 1 turn.
 
 
 ## Dependencies:

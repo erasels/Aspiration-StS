@@ -82,9 +82,9 @@ public class Contagion extends AspirationRelic implements CustomSavable<Integer>
     }
      
     @Override
-    public boolean canSpawn() //Checked when?
+    public boolean canSpawn() //Checked when? AbstractDungeon.returnRandomRelicKey
     {
-    	return deckDescriptionSearch("poison");
+    	return deckDescriptionSearch(PoisonPower.NAME);
     }
 
     public AbstractRelic makeCopy() {

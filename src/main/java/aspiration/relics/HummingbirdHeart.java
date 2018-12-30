@@ -2,7 +2,9 @@ package aspiration.relics;
 
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AfterImagePower;
@@ -38,11 +40,11 @@ public class HummingbirdHeart extends AspirationRelic {
     	if(GameActionManager.turn <= STARTING_BLOCK_PER_CARD) {
     		flash();
     		//AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AfterImagePower(AbstractDungeon.player, -1)));
-    		AbstractDungeon.player.getPower(AfterImagePower.POWER_ID).reducePower(1);
+    		AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(AfterImagePower.POWER_ID), 1));
     		AbstractDungeon.player.getPower(AfterImagePower.POWER_ID).updateDescription();
     		
     		if(AbstractDungeon.player.getPower(AfterImagePower.POWER_ID) != null && AbstractDungeon.player.getPower(AfterImagePower.POWER_ID).amount <= 0) {
-    			AbstractDungeon.player.powers.remove(AbstractDungeon.player.getPower(AfterImagePower.POWER_ID));
+    			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(AfterImagePower.POWER_ID)));
     		}
     	}
     }
