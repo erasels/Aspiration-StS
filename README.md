@@ -2,11 +2,11 @@
 A hub for my current and future mods. Contains a few poison-based relics, starter relic upgrade alternatives and more.
 
 ## Currently contains (as in the current source code, releases may lag behind a bit):
-### 1 Event: 
+### Event: 
 "The Dark Mirror is an event similar to the Golden Idol event built around the Prismatic Shard relic.
 You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains spoilers obviously)
 
-### 9 Relics:
+### Relics:
 Relics that interact with poison only spawn if you have a card with poison in its description in your deck.
 
 "Vile Toxins" is a common relic that applies 2 stacks of Weak and Vulnerable everytime you poison an enemy that wasn't poisoned. A screenshot of (an older version of) it in action can be found here: https://i.imgur.com/CnKjiLs.png
