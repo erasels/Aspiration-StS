@@ -1,17 +1,13 @@
 package aspiration.relics;
 
-import java.util.ArrayList;
-
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
-import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
@@ -23,7 +19,7 @@ public class AnachronicSnailShell extends AspirationRelic {
 	private static final int START_CHARGE = 0;
 
     public AnachronicSnailShell() {
-        super(ID, "AnachronicSnailShell.png", RelicTier.UNCOMMON, LandingSound.MAGICAL);
+        super(ID, "AnachronicSnailShell.png", RelicTier.RARE, LandingSound.MAGICAL);
     }
 
     @Override
@@ -48,29 +44,7 @@ public class AnachronicSnailShell extends AspirationRelic {
     public void onPlayerEndTurn()
     {
     	if(counter > 0) {
-    		if(!(AbstractDungeon.getMonsters().monsters.size() > 1)) {
-    			AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().monsters.get(0), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
-    		} else {
-    			ArrayList<AbstractCreature> ml_g = new ArrayList<AbstractCreature>();
-				ArrayList<AbstractCreature> ml = new ArrayList<AbstractCreature>();
-				Random rng = AbstractDungeon.miscRng;
-				
-    			for(AbstractCreature m : AbstractDungeon.getMonsters().monsters) {
-    				if(!m.isDead && !m.isDying) {
-    					ml_g.add(m);
-    				} else if (!m.isDead) {
-    					ml.add(m);
-    				}
-    			}
-    			if(!ml_g.isEmpty()) {
-    				AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(ml_g.get(rng.random(ml_g.size() - 1)), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
-    			} else if (!ml.isEmpty()) {
-    				AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(ml.get(rng.random(ml.size() - 1)), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
-    			} else {
-    				AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().monsters.get(rng.random(AbstractDungeon.getMonsters().monsters.size() - 1)), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
-    			}
-    		}
-    	
+    		AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
     		startingCharges();
     	}
     }

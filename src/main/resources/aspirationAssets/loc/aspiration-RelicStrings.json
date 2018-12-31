@@ -14,7 +14,8 @@
       "Take #r",
 	  " damage and draw #b",
 	  " card.",
-	  "Replaces #gRing #gof #gthe #gSnake. "
+	  "Replaces #gRing #gof #gthe #gSnake. NL ",
+	  "#yOn #yRight-click: "
     ]
   },
   "aspiration:InfernalBlood": {
@@ -83,6 +84,17 @@
     "DESCRIPTIONS": [
       "All damage resulting in #rHP loss from attacks against you is delayed by #b1 turn. NL ",
 	  "Warning: Time gets confused about who attacked when multiple enemies are present."
+    ]
+  },
+  "aspiration:SupercapacitiveCoin": {
+    "NAME": "Supercapacitive Coin",
+    "FLAVOR": "A mysterious arcade coin that can store large amounts of electricity. If enough is stored, maybe you could create a railgun?",
+    "DESCRIPTIONS": [
+	  "#yThunder strikes a random enemy for each charge you have. NL ",
+      "Gain #b",
+	  " #yCharge everytime you gain gold. NL ",
+	  "#yOn #yRight-click: NL ",
+	  "Useable once per combat."
     ]
   }
 }

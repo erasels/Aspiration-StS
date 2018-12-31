@@ -20,6 +20,7 @@ import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
 import aspiration.relics.RingOfOuroboros;
 import aspiration.relics.SneckoTail;
+import aspiration.relics.SupercapacitiveCoin;
 import aspiration.relics.VileToxins;
 import aspiration.relics.abstracts.AspirationRelic;
 
@@ -85,6 +86,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new Legacy_Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new AnachronicSnailShell(), RelicType.SHARED);
+    	BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
     	
     	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);

@@ -5,8 +5,8 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -30,13 +30,13 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
 	public void onEquip() {
     	this.description = getUpdatedDescription();
         this.tips.clear();
-        this.tips.add(new PowerTip(this.name, DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2]));
+        this.tips.add(new PowerTip(this.name, DESCRIPTIONS[4] + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2]));
         this.initializeTips();
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[3] + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2];
+        return DESCRIPTIONS[3] + DESCRIPTIONS[4] + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2];
     }
     
     @Override
@@ -67,7 +67,7 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
 	@Override
 	public void onRightClick() {
 		if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && BaseMod.MAX_HAND_SIZE != AbstractDungeon.player.hand.size() && !AbstractDungeon.player.isDead && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.player.isEndingTurn && !AbstractDungeon.actionManager.turnHasEnded) {
-			CardCrawlGame.sound.play("ATTACK_FAST");
+			AbstractDungeon.actionManager.addToTop(new SFXAction("ATTACK_FAST"));
 			AbstractDungeon.actionManager.addToTop(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, DAMAGE_AMOUNT, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 			flash();
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));

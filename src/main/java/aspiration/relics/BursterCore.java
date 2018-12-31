@@ -2,7 +2,7 @@ package aspiration.relics;
 
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.orbs.Lightning;
@@ -75,7 +75,7 @@ public static final String ID = "aspiration:BursterCore";
 		{
 			int channel_amount = AbstractDungeon.player.maxOrbs - AbstractDungeon.player.filledOrbCount();
 			
-			CardCrawlGame.sound.play("THUNDERCLAP");
+			AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 			for(int i = 0;i<channel_amount;i++)
 			{

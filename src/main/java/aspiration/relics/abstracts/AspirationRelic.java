@@ -47,5 +47,15 @@ public abstract class AspirationRelic extends AbstractRelic
     	return false;
     }
     
+    public boolean deckDescriptionSearch(String keyword1, String keyword2)
+    {
+    	for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+    		if(c.rawDescription.toLowerCase().contains(keyword1.toLowerCase()) || c.rawDescription.toLowerCase().contains(keyword2.toLowerCase())) {
+    			return true;
+    		}
+    	}
+    	return false;
+    }
+    
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) { }
 }

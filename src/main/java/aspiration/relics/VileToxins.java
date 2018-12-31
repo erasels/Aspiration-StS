@@ -37,7 +37,7 @@ public class VileToxins extends AspirationRelic {
     @Override
     public boolean canSpawn() //Checked when? AbstractDungeon.returnRandomRelicKey
     {
-    	return deckDescriptionSearch(PoisonPower.NAME);
+    	return deckDescriptionSearch(PoisonPower.NAME, PoisonPower.POWER_ID);
     }
 
     public AbstractRelic makeCopy() {
