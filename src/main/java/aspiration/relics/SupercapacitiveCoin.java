@@ -1,10 +1,9 @@
 package aspiration.relics;
 
-import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
+import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.ThunderStrikeAction;
@@ -73,7 +72,8 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
 	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));
 	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 2, DamageInfo.DamageType.NORMAL)));
-	                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new StunMonsterPower(m)));
+	                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new StunMonsterPower(m)));
+	                AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, AbstractDungeon.player));
 	            }
 			}
 			startingCharges();
