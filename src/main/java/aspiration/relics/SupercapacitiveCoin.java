@@ -1,6 +1,11 @@
 package aspiration.relics;
 
+import com.evacipated.cardcrawl.mod.stslib.powers.StunMonsterPower;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
+import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.ThunderStrikeAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -9,9 +14,13 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Ectoplasm;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
+import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
+import com.megacrit.cardcrawl.vfx.combat.MindblastEffect;
 
 import aspiration.relics.abstracts.AspirationRelic;
 
@@ -27,7 +36,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
         super(ID, "SupercapacitiveCoin.png", RelicTier.COMMON, LandingSound.CLINK);
         this.tips.clear();
         this.tips.add(new PowerTip(name, description));
-        this.tips.add(new PowerTip("Thunder", "Deals #b3 + #b1 * ( #yCharges / #b10 ) damage."));
+        this.tips.add(new PowerTip("Thunder", "Deals #b3 + #b1 * ( #yCharges / #b5 ) damage."));
         this.tips.add(new PowerTip("Synergy: Ectoplasm", "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm."));
         this.initializeTips();
     }
@@ -52,8 +61,21 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 			AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 			
-			lightning_damage += Math.round(counter/10);
-			AbstractDungeon.actionManager.addToBottom(new ThunderStrikeAction(AbstractDungeon.getMonsters().getRandomMonster(true), new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), lightning_damage, DamageType.THORNS), counter));
+			if(counter < 21) {
+				lightning_damage += Math.round(counter/5);
+				AbstractDungeon.actionManager.addToBottom(new ThunderStrikeAction(AbstractDungeon.getMonsters().getRandomMonster(true), new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), lightning_damage, DamageType.THORNS), counter));
+			} else {
+				AbstractDungeon.actionManager.addToBottom(new VFXAction(AbstractDungeon.player, new MindblastEffect(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, AbstractDungeon.player.flipHorizontal), 0.1f));
+	            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
+	            	m.damageFlash = true;
+	                m.damageFlashFrames = 4;
+	            	AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
+	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
+	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));
+	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 2, DamageInfo.DamageType.NORMAL)));
+	                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new StunMonsterPower(m)));
+	            }
+			}
 			startingCharges();
 			pulse = false;
 			used = true;
@@ -89,6 +111,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
         if(counter > 0) {
         	pulse = false;
         }
+        used = false;
     }
 	
 	@Override
