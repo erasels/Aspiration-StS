@@ -279,6 +279,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     	return ((AbstractDungeon.floorNum <= 48) && (!Settings.isEndless));
     }
     
+    //counter is saved automatically, this can be replaced by RNG number for which Buffset to choose once implemented
     @Override
     public Integer onSave() {
     	return counter;

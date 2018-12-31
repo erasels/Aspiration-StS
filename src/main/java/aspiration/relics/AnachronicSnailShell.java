@@ -33,6 +33,7 @@ public class AnachronicSnailShell extends AspirationRelic {
     		flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new SFXAction("POWER_TIME_WARP"));
+            pulse = true;
             
             manipCharge(damageAmount - AbstractDungeon.player.currentBlock);
             return 0;
@@ -46,6 +47,7 @@ public class AnachronicSnailShell extends AspirationRelic {
     	if(counter > 0) {
     		AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
     		startingCharges();
+    		pulse = false;
     	}
     }
     
