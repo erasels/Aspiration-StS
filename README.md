@@ -29,6 +29,8 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Anachronic Snail Shell": All damage resulting in HP loss from attacks against you is delayed by 1 turn.
 
+"Supercapacitive Coin": Once per combat: On Right-click: Thunder strikes a random enemy for each charge you have. Charges are gained by gaining gold or traveling floors if you have Ectoplasm.
+
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  
