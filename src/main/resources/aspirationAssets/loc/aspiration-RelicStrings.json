@@ -33,7 +33,7 @@
     "NAME": "Burster Core",
     "FLAVOR": "The nonoptimal fix to your core has caused it to switch between lightning fast and sluggishly slow computing on regular intervals.",
     "DESCRIPTIONS": [
-      "#yChannel #b",
+      "At the end of your turn, #yChannel #b",
 	  " #yLightning for every empty orb slot every #b",
 	  " turns.",
 	  "Replaces #bCracked #bCore. "
@@ -95,6 +95,34 @@
 	  " #yCharge everytime you gain gold. NL ",
 	  "#yOn #yRight-click: NL ",
 	  "Useable once per combat."
+    ]
+  },
+  "aspiration:PoetsPen": {
+    "NAME": "Poet's Pen",
+    "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
+    "DESCRIPTIONS": [
+	  "Play the top card of your draw pile when you play an attack. NL Start combat with #r",
+	  " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
+	  "#b1 for every #b",
+	  " floors visited with the associated relic in hand and every boss killed before pickup."
+    ]
+  },
+  "aspiration:EnhancedActuators": {
+    "NAME": "Enhanced Actuators",
+    "FLAVOR": "Big actuators... equal big... gains?",
+    "DESCRIPTIONS": [
+	  "Gain #b",
+	  " #yStrength for every #b",
+	  " orb slots."
+    ]
+  },
+  "aspiration:MysteriousAuxiliaryCore": {
+    "NAME": "Mysterious Auxiliary Core",
+    "FLAVOR": "Secondary systems have reported anamalous charge generation. Observation recommended.",
+    "DESCRIPTIONS": [
+	  "At the end of your turn, #yChannel #b",
+	  " #yRandom orb every #b",
+	  " turns."
     ]
   }
 }

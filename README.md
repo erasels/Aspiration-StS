@@ -31,6 +31,12 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Supercapacitive Coin": Once per combat: On Right-click: Thunder strikes a random enemy for each charge you have. Charges are gained by gaining gold or traveling floors if you have Ectoplasm.
 
+"Poet's Pen": Play the top card of your draw pile when you play an attack. Start combat with 6 stacks of Weak, Frail and Vulnerable on you, reduced by 1 for every 7 floors visited with the associated relic in hand and every boss killed before pickup.
+
+"Enhanced Actuators": Defect only. Gain 1 Strength for every 2 orb slots.
+
+"Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 1 Random orb every 3 turns, beginning with the first.
+
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  

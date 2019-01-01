@@ -16,6 +16,7 @@ public static final String ID = "aspiration:BursterCore";
 	
 	private static final int LIGHTNING_AMOUNT = 1;
 	private static final int TURN_INTERVAL = 3;
+	private static final int START_CHARGE = 0;
 	
     public BursterCore() {
         super(ID, "BursterCore.png", RelicTier.BOSS, LandingSound.CLINK);
@@ -27,6 +28,7 @@ public static final String ID = "aspiration:BursterCore";
         this.tips.clear();
         this.tips.add(new PowerTip(this.name, DESCRIPTIONS[0] + LIGHTNING_AMOUNT + DESCRIPTIONS[1] + TURN_INTERVAL + DESCRIPTIONS[2]));
         this.initializeTips();
+        startingCharges();
     }
 
     @Override
@@ -64,6 +66,10 @@ public static final String ID = "aspiration:BursterCore";
     {
     	if(((GameActionManager.turn - 1) % TURN_INTERVAL) == 0) {
     		channelToFull();
+    		startingCharges();
+    	} else {
+    		flash();
+    		manipCharge(1);
     	}
     }
     
@@ -82,5 +88,17 @@ public static final String ID = "aspiration:BursterCore";
 				AbstractDungeon.player.channelOrb(new Lightning());
 			}
 		}
+    }
+    
+    private void startingCharges()
+    {
+        setCounter(START_CHARGE);
+    }
+    
+    private void manipCharge(int amt) {
+        if (counter < 0) {
+            counter = 0;
+        }
+        setCounter(counter + amt);
     }
 }

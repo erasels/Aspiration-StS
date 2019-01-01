@@ -14,8 +14,11 @@ import aspiration.events.TheDarkMirror;
 import aspiration.relics.AnachronicSnailShell;
 import aspiration.relics.BursterCore;
 import aspiration.relics.Contagion;
+import aspiration.relics.EnhancedActuators;
 import aspiration.relics.Headhunter;
 import aspiration.relics.Legacy_Headhunter;
+import aspiration.relics.MysteriousAuxiliaryCore;
+import aspiration.relics.PoetsPen;
 import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
 import aspiration.relics.RingOfOuroboros;
@@ -87,11 +90,16 @@ public class Aspiration implements
     	BaseMod.addRelic(new Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new AnachronicSnailShell(), RelicType.SHARED);
     	BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
+    	BaseMod.addRelic(new PoetsPen(), RelicType.SHARED);
     	
     	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);
     	BaseMod.addRelic(new InfernalBlood(), RelicType.SHARED);
     	BaseMod.addRelic(new BursterCore(), RelicType.SHARED);
+    	
+    	//Defect Only
+    	BaseMod.addRelic(new EnhancedActuators(), RelicType.BLUE);
+    	BaseMod.addRelic(new MysteriousAuxiliaryCore(), RelicType.BLUE);
     	
     	//If poison card in deck
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
