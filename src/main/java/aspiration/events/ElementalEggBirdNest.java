@@ -1,6 +1,7 @@
 package aspiration.events;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Wound;
@@ -15,7 +16,9 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.FrozenEgg2;
 import com.megacrit.cardcrawl.relics.MoltenEgg2;
 import com.megacrit.cardcrawl.relics.ToxicEgg2;
+import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
+import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import aspiration.Aspiration;
 
@@ -32,8 +35,8 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
    
     private State state;
     private int chosen_option1 = 0;
-    //private int chosen_option2 = 0;
     private String story_so_far = "";
+    private AbstractCard.CardType to_upgrade;
     
     private ArrayList<AbstractRelic> eggs = new ArrayList<AbstractRelic>();
     ArrayList<AbstractRelic> tmp = new ArrayList<AbstractRelic>();
@@ -100,12 +103,15 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
                 switch (chosen_option1) {
                 	case 0:
                 		cgroup = "#gSkills";
+                		to_upgrade = AbstractCard.CardType.SKILL;
                 		break;
                 	case 1:
                 		cgroup = "#gAttacks";
+                		to_upgrade = AbstractCard.CardType.ATTACK;
                 		break;
                 	case 2:
                 		cgroup = "#gPowers";
+                		to_upgrade = AbstractCard.CardType.POWER;
                 		break;
                 }
                 
@@ -138,7 +144,35 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             			System.out.println("Is in");
             			AbstractDungeon.player.loseRelic(tmp.get(rng.random(tmp.size()-1)).relicId);
             		}
-            		AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, eggs.get(chosen_option1));
+
+            		ArrayList<AbstractCard> upgradableCards = new ArrayList<AbstractCard>();
+            	    for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            	      if ((c.canUpgrade()) && (c.type == to_upgrade)) {
+            	        upgradableCards.add(c);
+            	      }
+            	    }
+            	    Collections.shuffle(upgradableCards, new java.util.Random(AbstractDungeon.miscRng.randomLong()));
+            	    if (!upgradableCards.isEmpty()) {
+            	      if (upgradableCards.size() == 1)
+            	      {
+            	        ((AbstractCard)upgradableCards.get(0)).upgrade();
+            	        AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(0));
+            	        AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect((upgradableCards.get(0)).makeStatEquivalentCopy()));
+            	        AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+            	      }
+            	      else
+            	      {
+            	    	  java.util.Random rand = new java.util.Random();
+            	    	  
+            	    	  for(AbstractCard c : upgradableCards) {
+            	    		  c.upgrade();
+            	    		  AbstractDungeon.player.bottledCardUpgradeCheck(c);
+            	    		  AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), ((Settings.WIDTH / 2.0F * Settings.scale)* rand.nextFloat()), ((Settings.HEIGHT / 2.0F) * rand.nextFloat())));
+            	    		  AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+            	    	  }
+            	      }
+            	    }
+            		
             		imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[3]);
             		break;
             	case 2:

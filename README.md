@@ -6,7 +6,7 @@ A hub for my current and future mods. Contains a few poison-based relics, starte
 The Dark Mirror is an event similar to the Golden Idol event built around the Prismatic Shard relic.
 You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains spoilers obviously)
 
-The Byrd's Nest is a relic that can only be encountered on the first 15 floors, it allows players to get one of the uncommon egg relics early in exchange for a downside. Here are some screenshots: https://imgur.com/a/AX7mh0g
+The Byrd's Nest is an event that can only be encountered on the first 15 floors, it allows players to get one of the uncommon egg relics early in exchange for a downside. Here are some screenshots: https://imgur.com/a/AX7mh0g
 
 ### Relics:
 Relics that interact with poison only spawn if you have a card with poison in its description in your deck.
