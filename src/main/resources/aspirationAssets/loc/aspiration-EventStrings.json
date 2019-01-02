@@ -15,5 +15,26 @@
 	  " #rHP and #rObtain: #gPrismatic #bShard.",
 	  "Continue on with your adventure."
     ]
+  },
+  "aspiration:TheBirdsNest" : {
+    "NAME": "The Byrd's Nest",
+    "DESCRIPTIONS": [
+      "You come across a seemingly abandoned byrd's nest. Feeling the need to #rdepopulate the spire of these creatures, you take a look into it and find something unexpected. NL NL A strange egg that does not belong resides within. It -",
+	  " NL NL You want it, it could prove useful on your journey, but you hear the angry parents #r@screech@ in the distance!",
+	  " NL NL As you steal the #yspecial egg, a flock of byrds appear and #rattack you! NL You @run@ as fast as possible and get away with the egg intact.",
+	  " NL NL After a little gesturing and posing the flock of byrds that appeared were amendable to a trade of sorts. You got the better deal.",
+	  " NL NL Did you hear something? No that can't be right."
+    ],
+    "OPTIONS": [
+      "#gleaks #gpungent #gliquids",
+      "#rlooks #rlike #ran #rigneous #rrock",
+      "#bemits #ba #bstinging #bcold #bfrom #bthe #bice #bjutting #boutwards",
+	  "[Steal] #gObtain: ",
+	  " and #rBecome #rCursed #r- #rWound.",
+	  "[Negotiate] #gUpgrade all ",
+	  " in your deck and #rLose #ra #rrandom #rcommon #rrelic.",
+	  "[???] Nevermind, you actually like byrds.",
+	  "Continue on with your adventure."
+    ]
   }
 }
