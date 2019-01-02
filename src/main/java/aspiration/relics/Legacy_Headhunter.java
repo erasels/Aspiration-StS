@@ -176,7 +176,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     			}
     		}
     		try {
-    			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, p.getPower(), 999));
+    			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, p.getPower(), p.getPower().amount));
     		} catch(Exception e) {
     			e.printStackTrace();
     		}

@@ -37,13 +37,13 @@ public class HummingbirdHeart extends AspirationRelic {
     @Override
     public void onPlayerEndTurn()
     {
-    	if(GameActionManager.turn <= STARTING_BLOCK_PER_CARD) {
+    	if(GameActionManager.turn <= STARTING_BLOCK_PER_CARD && AbstractDungeon.player.getPower(AfterImagePower.POWER_ID) != null) {
     		flash();
     		//AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new AfterImagePower(AbstractDungeon.player, -1)));
     		AbstractDungeon.actionManager.addToBottom(new ReducePowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(AfterImagePower.POWER_ID), 1));
     		AbstractDungeon.player.getPower(AfterImagePower.POWER_ID).updateDescription();
     		
-    		if(AbstractDungeon.player.getPower(AfterImagePower.POWER_ID) != null && AbstractDungeon.player.getPower(AfterImagePower.POWER_ID).amount <= 0) {
+    		if(AbstractDungeon.player.getPower(AfterImagePower.POWER_ID).amount <= 0) {
     			AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(AbstractDungeon.player, AbstractDungeon.player, AbstractDungeon.player.getPower(AfterImagePower.POWER_ID)));
     		}
     	}

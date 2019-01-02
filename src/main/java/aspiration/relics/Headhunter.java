@@ -87,7 +87,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     public void atPreBattle() {
     	AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     	for(AbstractPower p: getBuffList(counter)) {
-    		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, p, 999));
+    		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, p, p.amount));
     	}
     	
     	
