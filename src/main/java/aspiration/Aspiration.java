@@ -15,6 +15,7 @@ import aspiration.relics.AnachronicSnailShell;
 import aspiration.relics.BursterCore;
 import aspiration.relics.Contagion;
 import aspiration.relics.EnhancedActuators;
+import aspiration.relics.FetidBarrel;
 import aspiration.relics.Headhunter;
 import aspiration.relics.Legacy_Headhunter;
 import aspiration.relics.MysteriousAuxiliaryCore;
@@ -105,6 +106,7 @@ public class Aspiration implements
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
         BaseMod.addRelic(new Contagion(), RelicType.SHARED);
         BaseMod.addRelic(new SneckoTail(), RelicType.SHARED);
+        BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
     }
 
     @Override

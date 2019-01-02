@@ -21,7 +21,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Contagion": Gain 1 energy for every 6 poison applied, if no enemy is poisoned at the end of your turn, apply 2 poison to yourself.
 
-"Hummingbird Heart": Gain 4 Block for every card played on your first turn, reduce the effect by 1 for every turn after until it's 0.
+"Hummingbird Heart": Gain 3 Block for every card played on your first turn, reduce the effect by 1 for every turn after until it's 0.
 
 "Headhunter": Gain Charges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored Charges. Visiting non-monster rooms makes Charges decay based on the type of room.
 
@@ -36,6 +36,8 @@ Relics that interact with poison only spawn if you have a card with poison in it
 "Enhanced Actuators": Defect only. Gain 1 Strength for every 2 orb slots.
 
 "Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 1 Random orb every 3 turns, beginning with the first.
+
+"Fetid Barrel": Whenever you exhaust a card, apply 1 poison to all enemies.
 
 
 ## Dependencies:

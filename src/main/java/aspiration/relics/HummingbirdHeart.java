@@ -15,7 +15,7 @@ import aspiration.relics.abstracts.AspirationRelic;
 public class HummingbirdHeart extends AspirationRelic {
 	public static final String ID = "aspiration:HummingbirdHeart";
 	
-    private static final int STARTING_BLOCK_PER_CARD = 4;
+    private static final int STARTING_BLOCK_PER_CARD = 3;
 
     public HummingbirdHeart() {
         super(ID, "HummingbirdHeart.png", RelicTier.UNCOMMON, LandingSound.FLAT);

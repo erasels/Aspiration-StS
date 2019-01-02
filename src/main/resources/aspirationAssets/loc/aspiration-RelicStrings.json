@@ -124,6 +124,14 @@
 	  " #yRandom orb every #b",
 	  " turns."
     ]
+  },
+  "aspiration:FetidBarrel": {
+    "NAME": "Fetid Barrel",
+    "FLAVOR": "Even the tightly sealed interior cannot contain the pungent smell.",
+    "DESCRIPTIONS": [
+	  "Whenever you #yExhaust a card, apply #b",
+	  " #yPoison to ALL enemies."
+    ]
   }
 }
  
