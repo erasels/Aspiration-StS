@@ -36,12 +36,6 @@ public class FetidBarrel extends AspirationRelic {
           }
         }
       }
-    
-    @Override
-    public boolean canSpawn()
-    {
-    	return deckDescriptionSearch(PoisonPower.NAME, PoisonPower.POWER_ID);
-    }
 
     public AbstractRelic makeCopy() {
         return new FetidBarrel();

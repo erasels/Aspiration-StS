@@ -13,6 +13,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.AnachronicSnailShell;
+import aspiration.relics.BabyByrd;
 import aspiration.relics.BursterCore;
 import aspiration.relics.Contagion;
 import aspiration.relics.EnhancedActuators;
@@ -95,6 +96,9 @@ public class Aspiration implements
     	BaseMod.addRelic(new AnachronicSnailShell(), RelicType.SHARED);
     	BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen(), RelicType.SHARED);
+    	
+    	//Special relics
+    	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
     	
     	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);

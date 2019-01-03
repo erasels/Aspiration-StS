@@ -39,7 +39,9 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 1 Random orb every 3 turns, beginning with the first.
 
-"Fetid Barrel": Whenever you exhaust a card, apply 1 poison to all enemies.
+"Fetid Barrel": Whenever you exhaust a card, apply 1 poison to all enemies. Of note, it's a poison relic but can always spawn, even without poison card in deck.
+
+"Baby Byrd": You can probably guess. It's a secret.
 
 
 ## Dependencies:

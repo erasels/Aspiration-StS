@@ -3,6 +3,7 @@ package aspiration.events;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.status.Wound;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -21,6 +22,7 @@ import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
 import aspiration.Aspiration;
+import aspiration.relics.BabyByrd;
 
 
 
@@ -162,13 +164,15 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             	      }
             	      else
             	      {
-            	    	  java.util.Random rand = new java.util.Random();
-            	    	  
+            	    	  float r1 = 0;
+            	    	  float r2 = 0;
             	    	  for(AbstractCard c : upgradableCards) {
             	    		  c.upgrade();
+            	    		  r1 = MathUtils.random(0.1F, 0.9F) * Settings.WIDTH;
+            	    		  r2 = MathUtils.random(0.2F, 0.8F) * Settings.HEIGHT;
             	    		  AbstractDungeon.player.bottledCardUpgradeCheck(c);
-            	    		  AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), ((Settings.WIDTH / 2.0F * Settings.scale)* rand.nextFloat()), ((Settings.HEIGHT / 2.0F) * rand.nextFloat())));
-            	    		  AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
+            	    		  AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect(c.makeStatEquivalentCopy(), r1, r2));
+            	    		  AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(r1, r2));
             	    	  }
             	      }
             	    }
@@ -178,6 +182,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             	case 2:
             		//Add baby byrd relic, make it do sounds like CultistMask and maybe Minion implementation? Or, easier. make byrds flee like hubris:ScarierMask
             		CardCrawlGame.sound.play("BYRD_DEATH");
+            		AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new BabyByrd());
             		imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[4]);
             		break;
             	

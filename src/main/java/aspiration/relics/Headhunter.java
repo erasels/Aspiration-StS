@@ -93,6 +93,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     	
     }
     
+    @Override
     public void onMonsterDeath(AbstractMonster m) {
     	flash();
     	if(m.type == AbstractMonster.EnemyType.BOSS) {

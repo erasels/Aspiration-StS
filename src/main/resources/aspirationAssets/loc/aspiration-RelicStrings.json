@@ -132,6 +132,22 @@
 	  "Whenever you #yExhaust a card, apply #b",
 	  " #yPoison to ALL enemies."
     ]
+  },
+  "aspiration:BabyByrd": {
+    "NAME": "Baby Byrd",
+    "FLAVOR": "For better or for worse, you've decided that this untainted creature deserves a better life.",
+    "DESCRIPTIONS": [
+	  "Teach your little companion about your tools of trade.",
+	  "Go for the eyes!",
+	  "Patience, little one.",
+	  "LET US SLAY THESE VERMIN!",
+	  "...",
+	  "..",
+	  ".",
+	  "An optimal choice of words.",
+	  "Fascinating.",
+	  "Development is on an optimal course."
+    ]
   }
 }
  
