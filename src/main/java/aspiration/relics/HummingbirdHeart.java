@@ -18,7 +18,7 @@ public class HummingbirdHeart extends AspirationRelic {
     private static final int STARTING_BLOCK_PER_CARD = 3;
 
     public HummingbirdHeart() {
-        super(ID, "HummingbirdHeart.png", RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, "HummingbirdHeart.png", RelicTier.COMMON, LandingSound.FLAT);
     }
 
     @Override

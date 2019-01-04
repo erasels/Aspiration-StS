@@ -105,6 +105,7 @@
                                      This moves your mod into a common folder where all mods you make can go. -->
                                 <copy file="target/Aspiration.jar" tofile="../mods/Aspiration.jar"/>
 								<copy file="target/Aspiration.jar" tofile="G:/SteamGames/steamapps/common/SlayTheSpire/mods/Aspiration.jar"/>
+								<copy file="target/Aspiration.jar" tofile="../raw_resources/Uploads/Aspiration/content/Aspiration.jar"/>
                             </target>
                         </configuration>
                         <goals>

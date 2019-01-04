@@ -7,6 +7,8 @@ import basemod.ModPanel;
 import basemod.ReflectionHacks;
 import basemod.interfaces.*;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
@@ -18,6 +20,7 @@ import aspiration.relics.BursterCore;
 import aspiration.relics.Contagion;
 import aspiration.relics.EnhancedActuators;
 import aspiration.relics.FetidBarrel;
+import aspiration.relics.FrozenJewel;
 import aspiration.relics.Headhunter;
 import aspiration.relics.Legacy_Headhunter;
 import aspiration.relics.MysteriousAuxiliaryCore;
@@ -26,6 +29,7 @@ import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
 import aspiration.relics.RingOfOuroboros;
 import aspiration.relics.SneckoTail;
+import aspiration.relics.StickyExplosives;
 import aspiration.relics.SupercapacitiveCoin;
 import aspiration.relics.VileToxins;
 import aspiration.relics.abstracts.AspirationRelic;
@@ -53,7 +57,8 @@ public class Aspiration implements
 {
 
     private static SpireConfig modConfig = null;
-
+    
+    public static TextureAtlas powerAtlas;
 
     public static void initialize()
     {
@@ -79,6 +84,7 @@ public class Aspiration implements
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         
         this.loadAudio();
+        powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
     }
 
     public void loadAudio() {
@@ -96,6 +102,8 @@ public class Aspiration implements
     	BaseMod.addRelic(new AnachronicSnailShell(), RelicType.SHARED);
     	BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen(), RelicType.SHARED);
+    	BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
+    	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
@@ -121,6 +129,7 @@ public class Aspiration implements
     {
         BaseMod.loadCustomStringsFile(EventStrings.class, assetPath("loc/aspiration-EventStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("loc/aspiration-RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("loc/aspiration-PowerStrings.json"));
     }
     
     @Override

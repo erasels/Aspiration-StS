@@ -43,6 +43,10 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Baby Byrd": You can probably guess. It's a secret.
 
+"Sticky Explosives": Apply a debuff to the first monster you hit on your first turn. Damaging that monster's HP will deal 40% of the received damage to all monsters. The debuff expires if the monster isn't attacked every turn.
+
+"Frozen jewel": At the end of your turn, gain 2 Block for every enemy that intends to attack. Gain Blur if there are multiple enemies and all intend to attack.
+
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  

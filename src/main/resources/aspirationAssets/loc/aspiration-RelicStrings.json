@@ -148,6 +148,21 @@
 	  "Fascinating.",
 	  "Development is on an optimal course."
     ]
+  },
+  "aspiration:StickyExplosives": {
+    "NAME": "Sticky Explosives",
+    "FLAVOR": "You have the power of attacks and explosions on your side!",
+    "DESCRIPTIONS": [
+	  "Apply #yAftershock to the first monster you attack on the first round of combat."
+    ]
+  },
+  "aspiration:FrozenJewel": {
+    "NAME": "Frozen Jewel",
+    "FLAVOR": "In your numb embrace, it pulses with comforting energy.",
+    "DESCRIPTIONS": [
+	  "At the end of your turn, gain #b",
+	  " #yBlock for every enemy that intends to attack. Gain #yBlur if there are multiple enemies and all intend to attack."
+    ]
   }
 }
  
