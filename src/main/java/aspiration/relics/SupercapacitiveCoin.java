@@ -82,7 +82,6 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 		}
 	}
 	
-	//Ectoplasm negates this mechanic, postfix Patch AbstractPlay.GainGold
 	@Override
 	public void onGainGold() {
 		flash();

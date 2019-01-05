@@ -14,6 +14,7 @@ public class FrozenJewel extends AspirationRelic {
 	public static final String ID = "aspiration:FrozenJewel";
 	
     private static final int BLOCK_GAIN = 2;
+    private int mon_counter = 0;
     private int atk_counter = 0;
 
     public FrozenJewel() {
@@ -28,17 +29,22 @@ public class FrozenJewel extends AspirationRelic {
     @Override
     public void onPlayerEndTurn() {
     	for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
-            if (!mo.isDeadOrEscaped() && (mo.intent == AbstractMonster.Intent.ATTACK || mo.intent == AbstractMonster.Intent.ATTACK_BUFF || mo.intent == AbstractMonster.Intent.ATTACK_DEBUFF || mo.intent == AbstractMonster.Intent.ATTACK_DEFEND)) {
-            	flash();
-                AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK_GAIN));
-                atk_counter++;
-            }
+    		if(!mo.isDeadOrEscaped()) {
+            	mon_counter++;
+            
+            	if ((mo.intent == AbstractMonster.Intent.ATTACK || mo.intent == AbstractMonster.Intent.ATTACK_BUFF || mo.intent == AbstractMonster.Intent.ATTACK_DEBUFF || mo.intent == AbstractMonster.Intent.ATTACK_DEFEND)) {
+            		flash();
+                	AbstractDungeon.actionManager.addToBottom(new GainBlockAction(AbstractDungeon.player, AbstractDungeon.player, BLOCK_GAIN));
+                	atk_counter++;
+            	}
+    		}
     	}
-    	if(atk_counter > 1 && atk_counter == AbstractDungeon.getCurrRoom().monsters.monsters.size()) {
+    	if(atk_counter > 1 && atk_counter == mon_counter) {
     		AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BlurPower(AbstractDungeon.player, 1), 1));
     	}
     	atk_counter = 0;
+    	mon_counter = 0;
     }
 
     public AbstractRelic makeCopy() {
