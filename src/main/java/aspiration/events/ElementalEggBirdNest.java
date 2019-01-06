@@ -36,7 +36,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
    
     private State state;
-    private int chosen_option1 = 0;
+    private int chosen_option = 0;
     private String story_so_far = "";
     private AbstractCard.CardType to_upgrade;
     
@@ -74,35 +74,35 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
                 switch (pressedButton) {
                 	case 0:
                 		imageEventText.loadImage(Aspiration.assetPath("img/events/Bnest/toxic.jpg"));
-                		chosen_option1 = 0;
+                		chosen_option = 0;
                     break;
                 	case 1:
                 		imageEventText.loadImage(Aspiration.assetPath("img/events/Bnest/molten.jpg"));
-                		chosen_option1 = 1;
+                		chosen_option = 1;
                 		break;
                 	case 2:
                 		imageEventText.loadImage(Aspiration.assetPath("img/events/Bnest/frozen.jpg"));
-                        chosen_option1 = 2;
+                        chosen_option = 2;
                         break; 
                 	case 3:
-                		chosen_option1 = 3;
+                		chosen_option = 3;
                 		break;
                 }
                 
-                if(chosen_option1 == 3) {
+                if(chosen_option == 3) {
                 	imageEventText.clearAllDialogs();
                 	state = State.LEAVING;
                 	openMap();
                 	break;
                 }
                 
-                story_so_far = DESCRIPTIONS[0].substring(0, DESCRIPTIONS[0].length() - 1) + " " + OPTIONS[chosen_option1] + DESCRIPTIONS[1];
+                story_so_far = DESCRIPTIONS[0].substring(0, DESCRIPTIONS[0].length() - 1) + " " + OPTIONS[chosen_option] + DESCRIPTIONS[1];
                 imageEventText.updateBodyText(story_so_far);
                 imageEventText.clearAllDialogs();
-                imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(eggs.get(chosen_option1).name, "g") + OPTIONS[4]);
+                imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(eggs.get(chosen_option).name, "g") + OPTIONS[4]);
                 
                 String cgroup = "";
-                switch (chosen_option1) {
+                switch (chosen_option) {
                 	case 0:
                 		cgroup = "#gSkills";
                 		to_upgrade = AbstractCard.CardType.SKILL;
@@ -136,7 +136,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             		AbstractCard curse = new Wound();
                     AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, Settings.WIDTH / 2, Settings.HEIGHT / 2));
                     
-                    AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, eggs.get(chosen_option1));
+                    AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, eggs.get(chosen_option));
                     imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[2]);
             		break;
             	case 1:
@@ -182,7 +182,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             	case 2:
             		//Add baby byrd relic, make it do sounds like CultistMask and maybe Minion implementation? Or, easier. make byrds flee like hubris:ScarierMask
             		CardCrawlGame.sound.play("BYRD_DEATH");
-            		AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new BabyByrd());
+            		AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new BabyByrd(chosen_option + 1));
             		imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[4]);
             		break;
             	

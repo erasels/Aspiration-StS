@@ -21,7 +21,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Snecko Tail": Double the amount of poison applied if the enemy is weakened or vulnerable.
 
-"Contagion": Gain 1 energy for every 6 poison applied, if no enemy is poisoned at the end of your turn, apply 2 poison to yourself.
+"Contagion": Gain 1 energy for every 8 poison applied limited to 2 times per turn, if no enemy is poisoned at the end of your turn, apply 2 poison to yourself.
 
 "Hummingbird Heart": Gain 3 Block for every card played on your first turn, reduce the effect by 1 for every turn after until it's 0.
 
@@ -34,6 +34,8 @@ Relics that interact with poison only spawn if you have a card with poison in it
 "Supercapacitive Coin": Once per combat: On Right-click: Thunder strikes a random enemy for each charge you have. Charges are gained by gaining gold or traveling floors if you have Ectoplasm.
 
 "Poet's Pen": Play the top card of your draw pile when you play an attack. Start combat with 6 stacks of Weak, Frail and Vulnerable on you, reduced by 1 for every 7 floors visited with the associated relic in hand and every boss killed before pickup.
+
+Weaker version of "Poet's Pen": Draw the top card of your draw pile when you play an attack, if it's an attack, play it otherwise discard it.
 
 "Enhanced Actuators": Defect only. Gain 1 Strength for every 2 orb slots.
 

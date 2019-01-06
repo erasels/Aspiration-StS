@@ -17,7 +17,7 @@ public class SneckoTail extends AspirationRelic {
         return DESCRIPTIONS[0];
     }
     
-    //REPLACED BY ApplyPowerAction_Postfix_SneckoTail.class, THIS WAY HAD UNINTENDED CONSEQUENCES SUCH AS NOT BEING TRIGGERING SNECK SKULL
+    //REPLACED BY ApplyPowerActionRelicPostfix.class, THIS WAY HAD UNINTENDED CONSEQUENCES SUCH AS NOT BEING TRIGGERING SNECK SKULL
     /*@Override
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
         if (p.ID.equals(PoisonPower.POWER_ID) && target != AbstractDungeon.player && !target.hasPower(ArtifactPower.POWER_ID) && (target.hasPower(WeakPower.POWER_ID) || target.hasPower(VulnerablePower.POWER_ID)) && source != null && source != target) {

@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
 
+import aspiration.relics.EvolvingReagent;
 import aspiration.relics.SneckoTail;
 
 @SpirePatch(
@@ -23,12 +24,17 @@ import aspiration.relics.SneckoTail;
         		AbstractGameAction.AttackEffect.class
         }
 )
-public class ApplyPowerAction_Postfix_SneckoTail {
+public class ApplyPowerActionRelicPostfix {
 	 public static void Postfix(ApplyPowerAction __instance, AbstractCreature target, AbstractCreature source, AbstractPower powerToApply, int stackAmount, boolean isFast, AbstractGameAction.AttackEffect effect)
      {
 		 if ((AbstractDungeon.player.hasRelic(SneckoTail.ID)) && (source != null) && (source.isPlayer) && (target != source) && target != AbstractDungeon.player && (powerToApply.ID.equals("Poison")) && (target.hasPower(WeakPower.POWER_ID) || target.hasPower(VulnerablePower.POWER_ID)))
 		 {
 			 AbstractDungeon.player.getRelic(SneckoTail.ID).flash();
+			 powerToApply.amount *= 2;
+			 __instance.amount *= 2;
+		 }
+		 
+		 if(AbstractDungeon.player.hasRelic(EvolvingReagent.ID) && ((EvolvingReagent) AbstractDungeon.player.getRelic(EvolvingReagent.ID)).isPoisonDoubled()) {
 			 powerToApply.amount *= 2;
 			 __instance.amount *= 2;
 		 }

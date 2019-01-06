@@ -44,8 +44,11 @@
     "FLAVOR": "You've contracted a mysterious illness, it ails you if you don't pass it along.",
     "DESCRIPTIONS": [
       "Gain [E] every time you apply #b",
-	  " #yPoison. If no enemy is #ypoisoned at the end of your turn, inflict #b",
-	  " #yPoison on yourself."
+	  " #yPoison, up to #b",
+	  " times per turn. If no enemy is #ypoisoned at the end of your turn, inflict #b",
+	  " #yPoison on yourself.",
+	  "The Contagion is sated for now.",
+	  " NL NL [E] gained this turn: #b"
     ]
   },
   "aspiration:SneckoTail": {
@@ -105,6 +108,13 @@
 	  " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
 	  "#b1 for every #b",
 	  " floors visited with the associated relic in hand and every boss killed before pickup."
+    ]
+  },
+  "aspiration:PoetsPen_weak": {
+    "NAME": "Poet's Pen",
+    "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
+    "DESCRIPTIONS": [
+	  "Draw the top card of your draw pile when you play an attack, if it's an attack, play it otherwise discard it."
     ]
   },
   "aspiration:EnhancedActuators": {

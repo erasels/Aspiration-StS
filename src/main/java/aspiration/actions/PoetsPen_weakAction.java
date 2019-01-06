@@ -9,19 +9,18 @@ import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
 import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
-public class PoetsPenAction
+public class PoetsPen_weakAction
   extends AbstractGameAction
 {
   private boolean exhaustCards;
   
-  public PoetsPenAction(AbstractCreature target, boolean exhausts)
+  public PoetsPen_weakAction(AbstractCreature target, boolean exhausts)
   {
     this.duration = Settings.ACTION_DUR_FAST;
     this.actionType = AbstractGameAction.ActionType.WAIT;
@@ -41,7 +40,7 @@ public class PoetsPenAction
       }
       if (AbstractDungeon.player.drawPile.isEmpty())
       {
-        AbstractDungeon.actionManager.addToTop(new PoetsPenAction(this.target, this.exhaustCards));
+        AbstractDungeon.actionManager.addToTop(new PoetsPen_weakAction(this.target, this.exhaustCards));
         AbstractDungeon.actionManager.addToTop(new EmptyDeckShuffleAction());
         this.isDone = true;
         return;
@@ -52,12 +51,12 @@ public class PoetsPenAction
         AbstractDungeon.player.drawPile.group.remove(card);
         AbstractDungeon.getCurrRoom().souls.remove(card);
         //WEEE OOOOO WEEEEEE OOOOOO HE'S DOING A BAD THING. WHY IS HE LIKE THIS.
-        if(card.misc == 0 & !(card.name.equals(RitualDagger.NAME) || card.name.equals(GeneticAlgorithm.NAME) && card.type == CardType.ATTACK)) {
+        if(card.misc == 0 && card.type == CardType.ATTACK && !(card.name.equals(RitualDagger.NAME)) ) {
         	card.misc = 66;
+        	card.freeToPlayOnce = true;
+            card.exhaustOnUseOnce = this.exhaustCards;
         }
         
-        card.freeToPlayOnce = true;
-        card.exhaustOnUseOnce = this.exhaustCards;
         AbstractDungeon.player.limbo.group.add(card);
         card.current_y = (-200.0F * Settings.scale);
         card.target_x = (Settings.WIDTH / 2.0F + 200.0F * Settings.scale);
@@ -66,8 +65,7 @@ public class PoetsPenAction
         card.lighten(false);
         card.drawScale = 0.12F;
         card.targetDrawScale = 0.75F;
-        if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target))
-        {
+        if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target) || !(card.type == CardType.ATTACK)) {
           if (this.exhaustCards)
           {
             AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
