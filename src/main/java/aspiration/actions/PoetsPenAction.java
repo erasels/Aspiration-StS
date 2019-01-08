@@ -52,7 +52,7 @@ public class PoetsPenAction
         AbstractDungeon.player.drawPile.group.remove(card);
         AbstractDungeon.getCurrRoom().souls.remove(card);
         //WEEE OOOOO WEEEEEE OOOOOO HE'S DOING A BAD THING. WHY IS HE LIKE THIS.
-        if(card.misc == 0 & !(card.name.equals(RitualDagger.NAME) || card.name.equals(GeneticAlgorithm.NAME) && card.type == CardType.ATTACK)) {
+        if(card.misc == 0 && !(card.name.equals(RitualDagger.NAME) || card.name.equals(GeneticAlgorithm.NAME) && card.type == CardType.ATTACK)) {
         	card.misc = 66;
         }
         

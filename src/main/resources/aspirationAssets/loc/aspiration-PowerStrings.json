@@ -3,7 +3,7 @@
     "NAME": "Aftershock",
     "DESCRIPTIONS": [
       "Deal #b",
-	  "% of #rHP damage taken to all monsters. #rExpires if monster is not attacked every turn."
+	  "% of #rHP damage taken to ALL enemies. #rExpires if monster is not attacked every turn."
     ]
   }
 }

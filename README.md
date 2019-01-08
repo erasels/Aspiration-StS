@@ -49,6 +49,7 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Frozen jewel": At the end of your turn, gain 2 Block for every enemy that intends to attack. Gain Blur if there are multiple enemies and all intend to attack.
 
+"Lifesprig": Every time you play 6 Attacks, gain 1 Regeneration.
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  

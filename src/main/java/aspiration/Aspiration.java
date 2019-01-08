@@ -19,10 +19,12 @@ import aspiration.relics.BabyByrd;
 import aspiration.relics.BursterCore;
 import aspiration.relics.Contagion;
 import aspiration.relics.EnhancedActuators;
+import aspiration.relics.EvolvingReagent;
 import aspiration.relics.FetidBarrel;
 import aspiration.relics.FrozenJewel;
 import aspiration.relics.Headhunter;
 import aspiration.relics.Legacy_Headhunter;
+import aspiration.relics.Lifesprig;
 import aspiration.relics.MysteriousAuxiliaryCore;
 import aspiration.relics.PoetsPen;
 import aspiration.relics.PoetsPen_weak;
@@ -176,6 +178,8 @@ public class Aspiration implements
     	BaseMod.addRelic(new PoetsPen_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
+    	BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
+    	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);

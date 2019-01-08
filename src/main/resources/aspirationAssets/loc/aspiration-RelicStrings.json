@@ -173,6 +173,22 @@
 	  "At the end of your turn, gain #b",
 	  " #yBlock for every enemy that intends to attack. Gain #yBlur if there are multiple enemies and all intend to attack."
     ]
+  },
+  "aspiration:EvolvingReagent": {
+    "NAME": "Evolving Reagent",
+    "FLAVOR": "A mysterious stone that seems to add an extra punch to your potions.",
+    "DESCRIPTIONS": [
+	  "Drink potions to gain effects!"
+    ]
+  },
+  "aspiration:Lifesprig": {
+    "NAME": "Lifesprig",
+    "FLAVOR": "From the weakest slime to the strongest abomination, hostile life thrives in the spire. Maybe, so can you.",
+    "DESCRIPTIONS": [
+	  "Every time you play #b",
+	  " #yAttacks, gain #b",
+	  " #yRegeneration."
+    ]
   }
 }
  
