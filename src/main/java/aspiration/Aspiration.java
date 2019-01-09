@@ -31,6 +31,7 @@ import aspiration.relics.PoetsPen_weak;
 import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
 import aspiration.relics.RingOfOuroboros;
+import aspiration.relics.RitualDagger;
 import aspiration.relics.SneckoTail;
 import aspiration.relics.StickyExplosives;
 import aspiration.relics.SupercapacitiveCoin;
@@ -180,6 +181,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
+    	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);

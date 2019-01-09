@@ -5,5 +5,12 @@
       "Deal #b",
 	  "% of #rHP damage taken to ALL enemies. #rExpires if monster is not attacked every turn."
     ]
+  },
+  "aspiration:Awoken": {
+    "NAME": "Awoken",
+    "DESCRIPTIONS": [
+      "Gain #b",
+	  " #yEnergy at the start of your turn. (Placeholder)"
+    ]
   }
 }
