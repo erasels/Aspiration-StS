@@ -79,7 +79,7 @@ public class BabyByrd extends AspirationRelic implements CustomSavable<Integer>{
         	}
     	}
     	
-    	if(counter > 35) {
+    	if(counter >= 35) {
     		flash();
         	AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         	AbstractDungeon.actionManager.addToBottom(new SFXAction("BYRD_DEATH"));
@@ -168,7 +168,7 @@ public class BabyByrd extends AspirationRelic implements CustomSavable<Integer>{
     public void onLoad(Integer p)
     {
         if (p == null) {
-            return;
+        	egg_type = 0;
         }
         
         egg_type = p;

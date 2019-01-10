@@ -9,8 +9,8 @@
   "aspiration:Awoken": {
     "NAME": "Awoken",
     "DESCRIPTIONS": [
-      "Gain #b",
-	  " #yEnergy at the start of your turn. (Placeholder)"
+      "Heal #b",
+	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
     ]
   }
 }

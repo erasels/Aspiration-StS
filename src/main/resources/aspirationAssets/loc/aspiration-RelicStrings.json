@@ -195,7 +195,8 @@
     "FLAVOR": "With every move you make, you feel the dagger dig in deeper into your being. You fear what you may become if you give in.",
     "DESCRIPTIONS": [
 	  "Lose #r",
-	  " HP at the start of each round until you die once. When you would die, heal to your Max HP instead and gain #yAwoken (works once)."
+	  " HP at the start of your turn.",
+	  " When you would die, heal to your Max HP instead and gain #yAwoken (works once)."
     ]
   }
 }
