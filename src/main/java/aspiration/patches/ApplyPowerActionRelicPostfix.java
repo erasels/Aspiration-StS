@@ -34,7 +34,8 @@ public class ApplyPowerActionRelicPostfix {
 			 __instance.amount *= 2;
 		 }
 		 
-		 if(AbstractDungeon.player.hasRelic(EvolvingReagent.ID) && ((EvolvingReagent) AbstractDungeon.player.getRelic(EvolvingReagent.ID)).isPoisonDoubled()) {
+		 if(AbstractDungeon.player.hasRelic(EvolvingReagent.ID) && ((EvolvingReagent) AbstractDungeon.player.getRelic(EvolvingReagent.ID)).isPoisonDoubled()  && (source != null) && (source.isPlayer) && (target != source) && (powerToApply.ID.equals("Poison"))) {
+			 AbstractDungeon.player.getRelic(EvolvingReagent.ID).flash();
 			 powerToApply.amount *= 2;
 			 __instance.amount *= 2;
 		 }

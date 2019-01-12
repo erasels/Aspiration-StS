@@ -147,7 +147,7 @@
     "NAME": "Baby Byrd",
     "FLAVOR": "For better or for worse, you've decided that this untainted creature deserves a better life.",
     "DESCRIPTIONS": [
-	  "Teach your little companion about your tools of trade.",
+	  "Teach your little companion about your tools of trade and he'll repay you in kind. NL NL (It does something at the start of battle once you have amassed enough charges.)",
 	  "Go for the eyes!",
 	  "Patience, little one.",
 	  "LET US SLAY THESE VERMIN!",
@@ -197,6 +197,14 @@
 	  "Lose #r",
 	  " HP at the start of your turn.",
 	  " When you would die, heal to your Max HP instead and gain #yAwoken (works once)."
+    ]
+  },
+  "aspiration:KaomsHeart": {
+    "NAME": "Kaom's Heart",
+    "FLAVOR": "The warrior who fears, will fail. Never look back. Never stop. Never surrender.",
+    "DESCRIPTIONS": [
+	  "Raise your Max HP by #b",
+	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN."
     ]
   }
 }

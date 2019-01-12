@@ -30,6 +30,7 @@ import aspiration.relics.PoetsPen;
 import aspiration.relics.PoetsPen_weak;
 import aspiration.relics.HummingbirdHeart;
 import aspiration.relics.InfernalBlood;
+import aspiration.relics.KaomsHeart;
 import aspiration.relics.RingOfOuroboros;
 import aspiration.relics.RitualDagger;
 import aspiration.relics.SneckoTail;
@@ -177,11 +178,13 @@ public class Aspiration implements
     	BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen_weak(), RelicType.SHARED);
+    	BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
     	BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
+    	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
@@ -199,7 +202,7 @@ public class Aspiration implements
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
         BaseMod.addRelic(new Contagion(), RelicType.SHARED);
         BaseMod.addRelic(new SneckoTail(), RelicType.SHARED);
-        BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
+        
     }
 
     @Override

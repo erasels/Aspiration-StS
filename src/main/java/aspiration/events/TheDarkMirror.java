@@ -28,7 +28,7 @@ public class TheDarkMirror extends AbstractImageEvent {
    
     private State state;
     private int chosen_option = 0;
-    private static final int DAMAGE_AMOUNT = 15;
+    private static final int DAMAGE_AMOUNT = 10;
     
     public enum State{
         CHOOSING,

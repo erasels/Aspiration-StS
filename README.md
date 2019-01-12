@@ -53,6 +53,8 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Ritual Dagger": Take 3 Damage at the start of your turn. When you would die, heal to your Max HP instead and gain Awoken (works once). (Awoken is a buff that heals you for 10% of your damage dealt and weakens monsters at the start of your turn.)
 
+"Kaom's Heart": Raise your Max HP by 100 and become unable get new relics FOR THE ENTIRE RUN."
+
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  
 StSLib: https://github.com/kiooeht/StSLib/releases
