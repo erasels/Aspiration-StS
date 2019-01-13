@@ -26,6 +26,7 @@ import aspiration.relics.Headhunter;
 import aspiration.relics.Legacy_Headhunter;
 import aspiration.relics.Lifesprig;
 import aspiration.relics.MysteriousAuxiliaryCore;
+import aspiration.relics.Nostalgia;
 import aspiration.relics.PoetsPen;
 import aspiration.relics.PoetsPen_weak;
 import aspiration.relics.HummingbirdHeart;
@@ -79,6 +80,7 @@ public class Aspiration implements
         try {
             Properties defaults = new Properties();
             defaults.put("WeakPoetsPen", Boolean.toString(false));
+            defaults.put("uncommonNostalgia", Boolean.toString(false));
             modConfig = new SpireConfig("Aspiration", "Config", defaults);
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,6 +98,14 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("WeakPoetsPen");
+    }
+    
+    public static boolean uncommonNostalgia()
+    {
+        if (modConfig == null) {
+            return false;
+        }
+        return modConfig.getBool("uncommonNostalgia");
     }
     
     public static void loadOtherData()
@@ -137,7 +147,7 @@ public class Aspiration implements
     	loadOtherData();
 
         ModPanel settingsPanel = new ModPanel();
-        ModLabeledToggleButton aspirationBtn = new ModLabeledToggleButton("Make the Poet's Pen boss relic weaker.", 350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
+        ModLabeledToggleButton PPBtn = new ModLabeledToggleButton("Make the Poet's Pen boss relic weaker.", 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -149,7 +159,21 @@ public class Aspiration implements
                         }
                     }
                 });
-        settingsPanel.addUIElement(aspirationBtn);
+        settingsPanel.addUIElement(PPBtn);
+        
+        ModLabeledToggleButton nostalgiaBtn = new ModLabeledToggleButton("Make Nostalgia an Uncommon relic. (instead of Shop)", 350, 650, Settings.CREAM_COLOR, FontHelper.charDescFont, uncommonNostalgia(), settingsPanel, l -> {},
+                button ->
+                {
+                    if (modConfig != null) {
+                        modConfig.setBool("uncommonNostalgia", button.enabled);
+                        try {
+                            modConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(nostalgiaBtn);
 
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("img/UI/modBadge.png")), "Aspiration", "Erasels", "A mod, boyo.", settingsPanel);
 
@@ -185,6 +209,8 @@ public class Aspiration implements
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
+    	BaseMod.addRelic(new Nostalgia(false), RelicType.SHARED);
+    	BaseMod.addRelic(new Nostalgia(true), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
@@ -223,6 +249,16 @@ public class Aspiration implements
         } else {
         	if (AbstractDungeon.bossRelicPool.removeIf(r -> r.equals(PoetsPen_weak.ID))) {
                 logger.info(PoetsPen_weak.ID + " removed.");
+            }
+        }
+        
+        if (uncommonNostalgia()) {
+            if (AbstractDungeon.shopRelicPool.removeIf(r -> r.equals(Nostalgia.ID))) {
+                logger.info(Nostalgia.ID + " (Shop) removed.");
+            }
+        } else {
+        	if (AbstractDungeon.uncommonRelicPool.removeIf(r -> r.equals(Nostalgia.ID))) {
+                logger.info(Nostalgia.ID + " (Uncommon) removed.");
             }
         }
     }

@@ -206,6 +206,13 @@
 	  "Raise your Max HP by #b",
 	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN."
     ]
+  },
+  "aspiration:Nostalgia": {
+    "NAME": "Nostalgia",
+    "FLAVOR": "Take heart in the memory of those that came before.",
+    "DESCRIPTIONS": [
+	  "Upon pickup, obtain a random #yStarter #yRelic that you don't have yet."
+    ]
   }
 }
  
