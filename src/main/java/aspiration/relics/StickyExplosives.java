@@ -15,7 +15,7 @@ public class StickyExplosives extends AspirationRelic{
 public static final String ID = "aspiration:StickyExplosives";
 	
 	private boolean applied = false;
-	private static final float percentagAftershock = 0.4f;
+	private static final float percentagAftershock = 0.3f;
 	
     public StickyExplosives() {
         super(ID, "StickyExplosives.png", RelicTier.UNCOMMON, LandingSound.HEAVY);
