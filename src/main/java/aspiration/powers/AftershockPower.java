@@ -32,7 +32,7 @@ public class AftershockPower extends AbstractPower{
         updateDescription();
         region48 = Aspiration.powerAtlas.findRegion("48/aftershock");
         region128 = Aspiration.powerAtlas.findRegion("128/aftershock");
-        isTurnBased = true;
+        isTurnBased = false;
     }
     
     @Override

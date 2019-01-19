@@ -10,7 +10,6 @@ public class KaomsHeart extends AspirationRelic{
 	
 	private static final int LOW_PRICE = 300;
 	private static final int MID_PRICE = 600;
-	private static final int HIGH_PRICE = 900;
 	private static final int MAX_LIFE_MANIP = 100;
 	
     public KaomsHeart() {
@@ -54,7 +53,7 @@ public class KaomsHeart extends AspirationRelic{
     	} else if (AbstractDungeon.floorNum <= 35) {
     		return MID_PRICE;
     	} else {
-    		return HIGH_PRICE + (AbstractDungeon.floorNum * 10);
+    		return MID_PRICE + (AbstractDungeon.floorNum * 10);
     	}
     }
 

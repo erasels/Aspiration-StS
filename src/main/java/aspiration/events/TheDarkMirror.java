@@ -28,7 +28,8 @@ public class TheDarkMirror extends AbstractImageEvent {
    
     private State state;
     private int chosen_option = 0;
-    private static final int DAMAGE_AMOUNT = 10;
+    private static final int DAMAGE_AMOUNT = 12;
+    private static final int DAMAGE_AMOUNT_SMALL = 8;
     
     public enum State{
         CHOOSING,
@@ -46,7 +47,11 @@ public class TheDarkMirror extends AbstractImageEvent {
           } else {
             this.imageEventText.setDialogOption(OPTIONS[3], !AbstractDungeon.player.hasRelic(PrismaticShard.ID));
           }
-        imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT + OPTIONS[4], AbstractDungeon.player.hasRelic(PrismaticShard.ID));
+        if (AbstractDungeon.ascensionLevel >= 15) {
+        	imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT + OPTIONS[4], AbstractDungeon.player.hasRelic(PrismaticShard.ID));
+        } else {
+        	imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT_SMALL + OPTIONS[4], AbstractDungeon.player.hasRelic(PrismaticShard.ID));
+        }
         imageEventText.setDialogOption(OPTIONS[0], new Shame());
         
         state = State.CHOOSING;
@@ -79,9 +84,9 @@ public class TheDarkMirror extends AbstractImageEvent {
                 		imageEventText.loadImage(Aspiration.assetPath("img/events/event1_Shatter.jpg"));
                 		CardCrawlGame.sound.play("THUNDERCLAP");
                 		if (AbstractDungeon.ascensionLevel >= 15) {
-                	     AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT, DamageInfo.DamageType.HP_LOSS));
+                			AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT, DamageInfo.DamageType.HP_LOSS));
                 		} else {
-                			AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT - 4, DamageInfo.DamageType.HP_LOSS));
+                			AbstractDungeon.player.damage(new DamageInfo(null, DAMAGE_AMOUNT_SMALL, DamageInfo.DamageType.HP_LOSS));
                 		}
 
                 		/*//Testing canSpawn

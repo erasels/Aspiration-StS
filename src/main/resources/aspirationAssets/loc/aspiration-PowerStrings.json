@@ -3,7 +3,7 @@
     "NAME": "Aftershock",
     "DESCRIPTIONS": [
       "Deal #b",
-	  "% of #rHP damage taken to ALL enemies. #rExpires if enemy does not take damage every turn."
+	  "% of #rHP damage taken to ALL enemies. #rExpires if enemy does not take HP damage every turn."
     ]
   },
   "aspiration:Awoken": {

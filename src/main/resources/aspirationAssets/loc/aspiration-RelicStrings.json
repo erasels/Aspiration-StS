@@ -63,7 +63,7 @@
     "FLAVOR": "A thousand beats a minute, the power of your heart is incredible but wanes fast.",
     "DESCRIPTIONS": [
       "Gain #b",
-	  " #yBlock for every card played on your first turn, reduce the effect by #b1 for every turn after until it's #b0."
+	  " #yBlock for every card played at the start of combat, then reduce the effect by #b1 on the next #b3 turns."
     ]
   },
   "aspiration:Headhunter": {

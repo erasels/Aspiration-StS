@@ -14,7 +14,7 @@ public class Lifesprig extends AspirationRelic {
 public static final String ID = "aspiration:Lifesprig";
 	
 	private static final int START_CHARGE = 0;
-	private static final int ATTACKS_TO_TRIGGER = 6;
+	private static final int ATTACKS_TO_TRIGGER = 5;
 	private static final int REGEN_AMT = 1;
 	
     public Lifesprig() {

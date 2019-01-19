@@ -49,7 +49,7 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Frozen jewel": At the end of your turn, gain 2 Block for every enemy that intends to attack. Gain Blur if there are multiple enemies and all intend to attack.
 
-"Lifesprig": Every time you play 6 Attacks, gain 1 Regeneration.
+"Lifesprig": Every time you play 5 Attacks, gain 1 Regeneration.
 
 "Ritual Dagger": Take 3 Damage at the start of your turn. When you would die, heal to your Max HP instead and gain Awoken (works once). (Awoken is a buff that heals you for 10% of your damage dealt and weakens monsters at the start of your turn.)
 
