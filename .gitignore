@@ -26,3 +26,11 @@ compile.bat
 .classpath
 target*
 .settings
+.idea/compiler.xml
+.idea/encodings.xml
+.idea/misc.xml
+.idea/modules.xml
+.idea/vcs.xml
+.idea/workspace.xml
+Aspiration.iml
+WatDis.iml

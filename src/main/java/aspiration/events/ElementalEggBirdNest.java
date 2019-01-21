@@ -137,6 +137,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
                     AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, Settings.WIDTH / 2, Settings.HEIGHT / 2));
                     
                     AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, eggs.get(chosen_option));
+                    AbstractDungeon.uncommonRelicPool.removeIf(id ->  id.equals(eggs.get(chosen_option).relicId));
                     imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[2]);
             		break;
             	case 1:
