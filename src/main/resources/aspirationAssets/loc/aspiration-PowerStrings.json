@@ -12,5 +12,13 @@
       "Heal #b",
 	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
     ]
+  },
+  "theJungle:SappedPower": {
+    "NAME": "Sapped",
+    "DESCRIPTIONS": [
+      "Negates #b",
+      " buff.",
+      " buffs."
+    ]
   }
 }
