@@ -87,7 +87,11 @@ public class RitualDagger extends AspirationRelic implements CustomSavable<Boole
 
 	@Override
 	public void onLoad(Boolean arg0) {
-		usedUp = arg0;
+		if(arg0 == null) {
+			usedUp = false;
+		} else {
+			usedUp = arg0;
+		}
 	}
 
 	@Override
