@@ -8,6 +8,8 @@ You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains s
 
 The Byrd's Nest is an event that can only be encountered on the first 15 floors, it allows players to get one of the uncommon egg relics early in exchange for a downside. Here are some screenshots: https://imgur.com/a/AX7mh0g
 
+The Cultist Training Ground allows you to train with some cultists and gain the Ritual Stick relic in exchange for a little health or none at all if you have the Cultist headpiece.
+
 ### Relics:
 Relics that interact with poison only spawn if you have a card with poison in its description in your deck.
 
@@ -56,6 +58,8 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 "Kaom's Heart": Raise your Max HP by 100 and become unable get new relics FOR THE ENTIRE RUN.
 
 "Nostalgia": Upon pickup, obtain a random #yStarter #yRelic that you don't have yet.
+
+"Cultist Stick": The first time you lose HP each combat, gain 1 Ritual.
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  

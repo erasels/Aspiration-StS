@@ -13,12 +13,19 @@
 	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
     ]
   },
-  "theJungle:SappedPower": {
+  "aspiration:SappedPower": {
     "NAME": "Sapped",
     "DESCRIPTIONS": [
       "Negates #b",
       " buff.",
       " buffs."
+    ]
+  },
+  "aspiration:P_RitualPower": {
+    "NAME": "Ritual",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength."
     ]
   }
 }

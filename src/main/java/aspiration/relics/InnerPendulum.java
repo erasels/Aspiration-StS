@@ -21,16 +21,15 @@ public class InnerPendulum extends AspirationRelic {
 
     private boolean debuff_turn = false;
 
+    //TODO: Make this actually a good relic somebody would want to use and finish the picture.
+
     public InnerPendulum() {
-        super(ID, "InnerPendulum.png", RelicTier.COMMON, LandingSound.FLAT);
+        super(ID, "InnerPendulum.png", RelicTier.SHOP, LandingSound.CLINK);
     }
 
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if(c.type == CardType.ATTACK) {
-            flash();
-            manipCharge(1);
-        }
+    public void atTurnStart() {
+        manipCharge(1);
     }
 
     @Override
@@ -60,11 +59,11 @@ public class InnerPendulum extends AspirationRelic {
                 SappedPower sp = new SappedPower(AbstractDungeon.player, POWER_AMT);
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, sp, POWER_AMT));
             } else {
-                ArtifactPower sp = new ArtifactPower(AbstractDungeon.player, POWER_AMT);
-                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, sp, POWER_AMT));
+                ArtifactPower ap = new ArtifactPower(AbstractDungeon.player, POWER_AMT);
+                AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, ap, POWER_AMT));
             }
 
-
+            debuff_turn = !debuff_turn;
             counter -= TURNS_TRIGGER;
         }
     }

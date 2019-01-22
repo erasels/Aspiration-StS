@@ -1,5 +1,7 @@
 package aspiration;
 
+import aspiration.events.CultistTraining;
+import aspiration.relics.*;
 import basemod.BaseMod;
 import basemod.helpers.RelicType;
 import basemod.ModLabeledToggleButton;
@@ -14,30 +16,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
-import aspiration.relics.AnachronicSnailShell;
-import aspiration.relics.BabyByrd;
-import aspiration.relics.BursterCore;
-import aspiration.relics.Contagion;
-import aspiration.relics.EnhancedActuators;
-import aspiration.relics.EvolvingReagent;
-import aspiration.relics.FetidBarrel;
-import aspiration.relics.FrozenJewel;
-import aspiration.relics.Headhunter;
-import aspiration.relics.Legacy_Headhunter;
-import aspiration.relics.Lifesprig;
-import aspiration.relics.MysteriousAuxiliaryCore;
-import aspiration.relics.Nostalgia;
-import aspiration.relics.PoetsPen;
-import aspiration.relics.PoetsPen_weak;
-import aspiration.relics.HummingbirdHeart;
-import aspiration.relics.InfernalBlood;
-import aspiration.relics.KaomsHeart;
-import aspiration.relics.RingOfOuroboros;
-import aspiration.relics.RitualDagger;
-import aspiration.relics.SneckoTail;
-import aspiration.relics.StickyExplosives;
-import aspiration.relics.SupercapacitiveCoin;
-import aspiration.relics.VileToxins;
 import aspiration.relics.abstracts.AspirationRelic;
 
 import com.megacrit.cardcrawl.audio.Sfx;
@@ -47,6 +25,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.dungeons.Exordium;
+import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.localization.*;
@@ -57,6 +36,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 
+import com.megacrit.cardcrawl.relics.CultistMask;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -180,6 +160,7 @@ public class Aspiration implements
     	
         BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class);
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
+        BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
         
         this.loadAudio();
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
@@ -214,6 +195,7 @@ public class Aspiration implements
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
+    	BaseMod.addRelic(new RitualStick(), RelicType.SHARED);
     	
     	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);

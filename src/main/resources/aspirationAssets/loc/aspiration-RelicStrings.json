@@ -9,7 +9,7 @@
   },
   "aspiration:RingOfOuroboros": {
     "NAME": "Ring of Ouroboros",
-    "FLAVOR": "Your ring suddenly came alive and started eating itself. Prodding it, hurts you as much as it helps you focus.",
+    "FLAVOR": "Your ring suddenly came alive and started eating itself. Prodding it hurts you as much as it helps you focus.",
     "DESCRIPTIONS": [
       "Take #r",
 	  " damage and draw #b",
@@ -212,6 +212,23 @@
     "FLAVOR": "Take heart in the memory of those that came before.",
     "DESCRIPTIONS": [
 	  "Upon pickup, obtain a random #yStarter #yRelic that you don't have yet."
+    ]
+  },
+  "aspiration:InnerPendulum": {
+    "NAME": "Inner Pendulum",
+    "FLAVOR": "A warrior knows when to strike and when to back up.",
+    "DESCRIPTIONS": [
+      "Gain #yArtifact or #ySlothful every #b",
+      " turns."
+    ]
+  },
+  "aspiration:RitualStick": {
+    "NAME": "Ritual Stick",
+    "FLAVOR": "If only you could express yourself better.",
+    "DESCRIPTIONS": [
+      "The first time you lose HP each combat, gain #b",
+      " #yRitual .",
+      "CA-CAW"
     ]
   }
 }

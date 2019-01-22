@@ -35,7 +35,7 @@ public class EvolvingReagent extends AspirationRelic implements BetterOnUsePotio
 	private boolean double_poison = false;
 	private Random rng = null;
 	
-	
+	//TODO: Add a event like the forked road one for choosing which upgrade should be applied
 	public EvolvingReagent() {
         super(ID, "EvolvingReagent.png", RelicTier.SPECIAL, LandingSound.FLAT);
     }
