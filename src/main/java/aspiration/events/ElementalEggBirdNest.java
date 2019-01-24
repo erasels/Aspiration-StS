@@ -5,7 +5,7 @@ import java.util.Collections;
 
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.status.Wound;
+import com.megacrit.cardcrawl.cards.curses.Injury;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -133,7 +133,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             	switch (pressedButton) {
             	case 0:
             		CardCrawlGame.sound.play("BYRD_DEATH");
-            		AbstractCard curse = new Wound();
+            		AbstractCard curse = new Injury();
                     AbstractDungeon.effectList.add(new ShowCardAndObtainEffect(curse, Settings.WIDTH / 2, Settings.HEIGHT / 2));
                     
                     AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, eggs.get(chosen_option));
