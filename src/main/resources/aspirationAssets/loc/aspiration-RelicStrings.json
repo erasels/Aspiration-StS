@@ -131,7 +131,7 @@
     "FLAVOR": "Secondary systems have reported anamalous charge generation. Observation recommended.",
     "DESCRIPTIONS": [
 	  "At the end of your turn, #yChannel #b",
-	  " #yRandom orb every #b",
+	  " random orb every #b",
 	  " turns."
     ]
   },
