@@ -13,10 +13,10 @@
 	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
     ]
   },
-  "aspiration:SappedPower": {
+  "aspiration:Sapped": {
     "NAME": "Sapped",
     "DESCRIPTIONS": [
-      "Negates #b",
+      "Negates the next #b",
       " buff.",
       " buffs."
     ]

@@ -61,6 +61,8 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Cultist Stick": The first time you lose HP each combat, gain 1 Ritual.
 
+"Training Weights": Gain 1 more energy and start combat with 2 Sapped (buff negation).
+
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  
 StSLib: https://github.com/kiooeht/StSLib/releases

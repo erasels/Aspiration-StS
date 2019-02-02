@@ -12,7 +12,7 @@ import com.megacrit.cardcrawl.relics.CrackedCore;
 import aspiration.relics.abstracts.AspirationRelic;
 
 public class BursterCore extends AspirationRelic{
-public static final String ID = "aspiration:BursterCore";
+    public static final String ID = "aspiration:BursterCore";
 	
 	private static final int LIGHTNING_AMOUNT = 1;
 	private static final int TURN_INTERVAL = 3;

@@ -192,6 +192,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
     	BaseMod.addRelic(new Nostalgia(false), RelicType.SHARED);
     	BaseMod.addRelic(new Nostalgia(true), RelicType.SHARED);
+        BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
