@@ -59,7 +59,7 @@ public class Aspiration implements
 
         try {
             Properties defaults = new Properties();
-            defaults.put("WeakPoetsPen", Boolean.toString(false));
+            defaults.put("WeakPoetsPen", Boolean.toString(true));
             defaults.put("uncommonNostalgia", Boolean.toString(false));
             modConfig = new SpireConfig("Aspiration", "Config", defaults);
         } catch (IOException e) {
@@ -193,6 +193,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new Nostalgia(false), RelicType.SHARED);
     	BaseMod.addRelic(new Nostalgia(true), RelicType.SHARED);
         BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
+        BaseMod.addRelic(new ArtOfWarUpgrade(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
@@ -220,6 +221,7 @@ public class Aspiration implements
         BaseMod.loadCustomStringsFile(EventStrings.class, assetPath("loc/aspiration-EventStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("loc/aspiration-RelicStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("loc/aspiration-PowerStrings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("loc/aspiration-UIStrings.json"));
     }
     
     @Override

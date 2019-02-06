@@ -14,8 +14,7 @@
       "Take #r",
 	  " damage and draw #b",
 	  " card.",
-	  "Replaces #gRing #gof #gthe #gSnake. NL ",
-	  "#yOn #yRight-click: "
+	  "Replaces #gRing #gof #gthe #gSnake. NL "
     ]
   },
   "aspiration:InfernalBlood": {
@@ -96,15 +95,20 @@
 	  "#yThunder strikes a random enemy for each charge you have. NL ",
       "Gain #b",
 	  " #yCharge everytime you gain gold. NL ",
-	  "#yOn #yRight-click: NL ",
-	  "Useable once per combat."
+	  " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",
+	  "Useable once per combat.",
+      "Deals #b3 + #b1 * ( #yCharges / #b5 ) damage.",
+      "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm.",
+      " #yCharge everytime you travel up a floor.",
+      "Thunder",
+      "Synergy: Ectoplasm"
     ]
   },
   "aspiration:PoetsPen": {
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Play the top card of your draw pile when you play an attack. NL Start combat with #r",
+	  "Every time you play an attack, play the top card of your draw pile. NL Start combat with #r",
 	  " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
 	  "#b1 for every #b",
 	  " floors visited with the associated relic in hand and every boss killed before pickup."
@@ -114,7 +118,7 @@
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Draw the top card of your draw pile when you play an attack, if it's an attack, play it otherwise discard it."
+	  "Every time you play an attack, play the top card of your draw pile if it's an attack, otherwise discard it."
     ]
   },
   "aspiration:EnhancedActuators": {
@@ -237,6 +241,13 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of each turn. Start each combat with #b",
       " #ySapped ."
+    ]
+  },
+  "aspiration:ArtOfWarUpgrade": {
+    "NAME": "Art of War (read)",
+    "FLAVOR": "This ancient manuscript contains wisdom from a past age. You've taken it's teachings to heart.",
+    "DESCRIPTIONS": [
+      "If you do not play any #yAttacks during your turn, gain an additional [E] and deal double damage next turn."
     ]
   }
 }

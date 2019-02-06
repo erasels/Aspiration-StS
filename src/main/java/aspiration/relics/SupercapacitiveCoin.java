@@ -35,22 +35,17 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
         super(ID, "SupercapacitiveCoin.png", RelicTier.COMMON, LandingSound.CLINK);
         this.tips.clear();
         this.tips.add(new PowerTip(name, description));
-        this.tips.add(new PowerTip("Thunder", "Deals #b3 + #b1 * ( #yCharges / #b5 ) damage."));
-        this.tips.add(new PowerTip("Synergy: Ectoplasm", "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm."));
+        this.tips.add(new PowerTip(DESCRIPTIONS[9], DESCRIPTIONS[6]));
         this.initializeTips();
     }
 
     @Override
     public String getUpdatedDescription() {
     	if(AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(Ectoplasm.ID)) {
-    		String tmp = DESCRIPTIONS[3] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + " #yCharge everytime you travel up a floor. NL " + FontHelper.colorString(DESCRIPTIONS[4], "y");
-    		this.tips.clear();
-            this.tips.add(new PowerTip(name + "+", tmp));
-            this.tips.add(new PowerTip("Thunder", "Deals #b3 + #b1 * ( #yCharges / #b10 ) damage."));
-            this.initializeTips();
+    		String tmp = CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[3] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[7];
     		return tmp;
     	} else {
-    		return DESCRIPTIONS[3] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[2] + FontHelper.colorString(DESCRIPTIONS[4], "y");
+    		return CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[3] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[2];
     	}
     }
 
@@ -61,7 +56,6 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 			
 			if(counter < 21) {
-				lightning_damage += Math.round(counter/5);
 				AbstractDungeon.actionManager.addToBottom(new ThunderStrikeAction(AbstractDungeon.getMonsters().getRandomMonster(true), new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), lightning_damage, DamageType.THORNS), counter));
 			} else {
 				AbstractDungeon.actionManager.addToBottom(new VFXAction(AbstractDungeon.player, new MindblastEffect(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, AbstractDungeon.player.flipHorizontal), 0.1f));
@@ -71,7 +65,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	            	AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
 	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));
-	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 2, DamageInfo.DamageType.NORMAL)));
+	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 3, DamageInfo.DamageType.NORMAL)));
 	                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new StunMonsterPower(m)));
 	                AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, AbstractDungeon.player));
 	            }
@@ -124,6 +118,19 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
     }
     
     private void manipCharge(int amt) {
+    	boolean has_ecto = AbstractDungeon.player.hasRelic(Ectoplasm.ID);
+		if(has_ecto) {
+			this.tips.clear();
+			this.tips.add(new PowerTip(name + "+", getUpdatedDescription()));
+			this.initializeTips();
+		}
+		if(!has_ecto) {
+			this.tips.clear();
+			this.tips.add(new PowerTip(name, description));
+			this.tips.add(new PowerTip(DESCRIPTIONS[9], DESCRIPTIONS[6]));
+			this.initializeTips();
+		}
+
         if (counter < 0) {
             counter = 0;
         }
