@@ -1,5 +1,7 @@
 package aspiration.relics;
 
+import aspiration.actions.PoetsPenAction;
+import aspiration.patches.AbstractCardPoetsPendField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -12,7 +14,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import aspiration.Aspiration;
-import aspiration.actions.PoetsPen_weakAction;
 import aspiration.relics.abstracts.AspirationRelic;
 
 public class PoetsPen_weak extends AspirationRelic{
@@ -31,16 +32,15 @@ public class PoetsPen_weak extends AspirationRelic{
     
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-    	//WHY DID I DO THIS. THIS WILL HAVE CONSEQUENCES, I'M SURE OF IT.
-    	if(c.misc == 66 && !(c.name.equals(RitualDagger.NAME) || c.name.equals(GeneticAlgorithm.NAME))) {
-    		c.misc = 0; 
-    		logger.info("If the triggered card permanently increases a value of itself and behaves wonky, please tell the Aspiration author.");
-    	} else {
-    		if(c.type == CardType.ATTACK) {
-    			flash();
-    			AbstractDungeon.actionManager.addToBottom(new PoetsPen_weakAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
-    		}
-		}
+        if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
+            AbstractCardPoetsPendField.ppTriggered.set(c, false);
+        } else {
+            if(c.type == CardType.ATTACK) {
+                flash();
+                //ppTriggered is set in the action.
+                AbstractDungeon.actionManager.addToBottom(new PoetsPenAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false, true));
+            }
+        }
     }
 
     

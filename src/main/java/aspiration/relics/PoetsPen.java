@@ -1,5 +1,7 @@
 package aspiration.relics;
 
+import aspiration.patches.AbstractCardPoetsPendField;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -30,7 +32,6 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>{
 	private static final int STARTING_DEBUFF_AMOUNT = 6;
 	private static final int FLOOR_THRESHOLD = 7;
 	private int debuffs_applied = STARTING_DEBUFF_AMOUNT;
-	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
 
     public PoetsPen() {
         super(ID, "PoetsPen.png", RelicTier.BOSS, LandingSound.FLAT);
@@ -56,18 +57,17 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>{
     
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-    	//WHY DID I DO THIS. THIS WILL HAVE CONSEQUENCES, I'M SURE OF IT.
-    	if(c.misc == 66 && !(c.name.equals(RitualDagger.NAME) || c.name.equals(GeneticAlgorithm.NAME))) {
-    		c.misc = 0; 
-    		logger.info("If the triggered card permanently increases a value of itself and behaves wonky, please tell the Aspiration author.");
-    	} else {
+    	if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
+    		AbstractCardPoetsPendField.ppTriggered.set(c, false);
+		} else {
     		if(c.type == CardType.ATTACK) {
     			flash();
-    			AbstractDungeon.actionManager.addToBottom(new PoetsPenAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false));
-    		}
+    			//ppTriggered is set in the action.
+				AbstractDungeon.actionManager.addToBottom(new PoetsPenAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false, false));
+			}
 		}
     }
-    
+
     @Override
     public void onEnterRoom(AbstractRoom room)
     {

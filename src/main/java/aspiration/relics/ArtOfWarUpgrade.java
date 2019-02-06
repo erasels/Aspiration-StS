@@ -1,20 +1,15 @@
 package aspiration.relics;
 
 import aspiration.relics.abstracts.AspirationRelic;
-import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.powers.DoubleDamagePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ArtOfWar;
-import com.megacrit.cardcrawl.relics.CrackedCore;
 
 public class ArtOfWarUpgrade extends AspirationRelic {
     public static final String ID = "aspiration:ArtOfWarUpgrade";

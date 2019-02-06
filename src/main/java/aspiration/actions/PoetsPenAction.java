@@ -1,5 +1,6 @@
 package aspiration.actions;
 
+import aspiration.patches.AbstractCardPoetsPendField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
@@ -20,14 +21,16 @@ public class PoetsPenAction
   extends AbstractGameAction
 {
   private boolean exhaustCards;
+  private boolean weak;
   
-  public PoetsPenAction(AbstractCreature target, boolean exhausts)
+  public PoetsPenAction(AbstractCreature target, boolean exhausts, boolean weak)
   {
     this.duration = Settings.ACTION_DUR_FAST;
     this.actionType = AbstractGameAction.ActionType.WAIT;
     this.source = AbstractDungeon.player;
     this.target = target;
     this.exhaustCards = exhausts;
+    this.weak = weak;
   }
   
   public void update()
@@ -41,7 +44,7 @@ public class PoetsPenAction
       }
       if (AbstractDungeon.player.drawPile.isEmpty())
       {
-        AbstractDungeon.actionManager.addToTop(new PoetsPenAction(this.target, this.exhaustCards));
+        AbstractDungeon.actionManager.addToTop(new PoetsPenAction(this.target, this.exhaustCards, weak));
         AbstractDungeon.actionManager.addToTop(new EmptyDeckShuffleAction());
         this.isDone = true;
         return;
@@ -51,13 +54,11 @@ public class PoetsPenAction
         AbstractCard card = AbstractDungeon.player.drawPile.getTopCard();
         AbstractDungeon.player.drawPile.group.remove(card);
         AbstractDungeon.getCurrRoom().souls.remove(card);
-        //WEEE OOOOO WEEEEEE OOOOOO HE'S DOING A BAD THING. WHY IS HE LIKE THIS.
-        if(card.misc == 0 && !(card.name.equals(RitualDagger.NAME) || card.name.equals(GeneticAlgorithm.NAME) && card.type == CardType.ATTACK)) {
-        	card.misc = 66;
-        }
-        
-        card.freeToPlayOnce = true;
-        card.exhaustOnUseOnce = this.exhaustCards;
+
+        AbstractCardPoetsPendField.ppTriggered.set(card, true);
+        //Uncomment if discareded/not played cards should be exhausted as well
+        //card.exhaustOnUseOnce = this.exhaustCards;
+
         AbstractDungeon.player.limbo.group.add(card);
         card.current_y = (-200.0F * Settings.scale);
         card.target_x = (Settings.WIDTH / 2.0F + 200.0F * Settings.scale);
@@ -66,8 +67,9 @@ public class PoetsPenAction
         card.lighten(false);
         card.drawScale = 0.12F;
         card.targetDrawScale = 0.75F;
-        if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target))
+        if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target) || (weak && !(card.type == CardType.ATTACK)))
         {
+          AbstractCardPoetsPendField.ppTriggered.set(card, false);
           if (this.exhaustCards)
           {
             AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
@@ -76,12 +78,14 @@ public class PoetsPenAction
           {
             AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
             AbstractDungeon.actionManager.addToTop(new DiscardSpecificCardAction(card, AbstractDungeon.player.limbo));
-            
+
             AbstractDungeon.actionManager.addToTop(new WaitAction(0.4F));
           }
         }
         else
         {
+          card.freeToPlayOnce = true;
+          card.exhaustOnUseOnce = this.exhaustCards;
           card.applyPowers();
           AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.target));
           AbstractDungeon.actionManager.addToTop(new UnlimboAction(card));
