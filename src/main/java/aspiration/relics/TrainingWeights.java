@@ -4,6 +4,7 @@ import aspiration.powers.SappedPower;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class TrainingWeights extends AspirationRelic {
@@ -13,6 +14,11 @@ public class TrainingWeights extends AspirationRelic {
 
     public TrainingWeights() {
         super(ID, "TrainingWeights.png", RelicTier.BOSS, LandingSound.HEAVY);
+        SappedPower tmp = new SappedPower(AbstractDungeon.player, 1);
+        this.tips.clear();
+        this.tips.add(new PowerTip(name, description));
+        this.tips.add(new PowerTip(tmp.name, tmp.description));
+        this.initializeTips();
     }
 
     @Override
