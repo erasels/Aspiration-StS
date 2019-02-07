@@ -22,6 +22,7 @@ public class PoetsPenAction
 {
   private boolean exhaustCards;
   private boolean weak;
+  private boolean wasFtPO;
   
   public PoetsPenAction(AbstractCreature target, boolean exhausts, boolean weak)
   {
@@ -31,6 +32,7 @@ public class PoetsPenAction
     this.target = target;
     this.exhaustCards = exhausts;
     this.weak = weak;
+    this.wasFtPO = false;
   }
   
   public void update()
@@ -58,6 +60,11 @@ public class PoetsPenAction
         AbstractCardPoetsPendField.ppTriggered.set(card, true);
         //Uncomment if discareded/not played cards should be exhausted as well
         //card.exhaustOnUseOnce = this.exhaustCards;
+        if(card.freeToPlayOnce) {
+          wasFtPO = true;
+        } else {
+          card.freeToPlayOnce = true;
+        }
 
         AbstractDungeon.player.limbo.group.add(card);
         card.current_y = (-200.0F * Settings.scale);
@@ -70,6 +77,10 @@ public class PoetsPenAction
         if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target) || (weak && !(card.type == CardType.ATTACK)))
         {
           AbstractCardPoetsPendField.ppTriggered.set(card, false);
+          if(!wasFtPO){
+            card.freeToPlayOnce = false;
+          }
+
           if (this.exhaustCards)
           {
             AbstractDungeon.actionManager.addToTop(new ExhaustSpecificCardAction(card, AbstractDungeon.player.limbo));
@@ -84,7 +95,6 @@ public class PoetsPenAction
         }
         else
         {
-          card.freeToPlayOnce = true;
           card.exhaustOnUseOnce = this.exhaustCards;
           card.applyPowers();
           AbstractDungeon.actionManager.addToTop(new QueueCardAction(card, this.target));

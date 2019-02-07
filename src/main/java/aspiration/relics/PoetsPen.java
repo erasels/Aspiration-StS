@@ -1,6 +1,7 @@
 package aspiration.relics;
 
 import aspiration.patches.AbstractCardPoetsPendField;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -25,7 +26,7 @@ import aspiration.actions.PoetsPenAction;
 import aspiration.relics.abstracts.AspirationRelic;
 import basemod.abstracts.CustomSavable;
 
-public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>{
+public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>, OnAfterUseCardRelic {
 	public static final String ID = "aspiration:PoetsPen";
 	
 	private static final int START_CHARGE = 0;
@@ -55,7 +56,7 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>{
     	}
     }
     
-    @Override
+    /*@Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
     	if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
     		AbstractCardPoetsPendField.ppTriggered.set(c, false);
@@ -66,7 +67,20 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>{
 				AbstractDungeon.actionManager.addToBottom(new PoetsPenAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false, false));
 			}
 		}
-    }
+    }*/
+
+	@Override
+	public void onAfterUseCard(AbstractCard c, UseCardAction useCardAction) {
+		if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
+			AbstractCardPoetsPendField.ppTriggered.set(c, false);
+		} else {
+			if(c.type == CardType.ATTACK) {
+				flash();
+				//ppTriggered is set in the action.
+				AbstractDungeon.actionManager.addToBottom(new PoetsPenAction(AbstractDungeon.getCurrRoom().monsters.getRandomMonster(null, true, AbstractDungeon.cardRandomRng), false, false));
+			}
+		}
+	}
 
     @Override
     public void onEnterRoom(AbstractRoom room)
