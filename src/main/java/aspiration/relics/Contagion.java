@@ -45,12 +45,12 @@ public class Contagion extends AspirationRelic {
         		manipCharge(-POISON_THRESHOLD);
         		
         		if(energy_counter < 2) {
-        		AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(ENERGY_GAIN));
-        		energy_counter++;
+        		    AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(ENERGY_GAIN));
+        		    energy_counter++;
         		
-        		this.tips.clear();
-                this.tips.add(new PowerTip(this.name, getUpdatedDescription() + DESCRIPTIONS[5] + energy_counter));
-                this.initializeTips();
+        		    this.tips.clear();
+                    this.tips.add(new PowerTip(this.name, getUpdatedDescription() + DESCRIPTIONS[5] + energy_counter));
+                    this.initializeTips();
         		} else {
         			AbstractDungeon.actionManager.addToBottom(new TalkAction(true, DESCRIPTIONS[4], 1.0F, 2.0F));
         		}

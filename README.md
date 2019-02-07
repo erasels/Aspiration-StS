@@ -21,7 +21,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Burster Core": Upgrade from "Cracked Core", channel as much lightning as you have empty orbs at the end of your turn, every three turns.
 
-"Snecko Tail": Double the amount of poison applied if the enemy is weakened or vulnerable.
+"Snecko Tail": Double the amount of poison applied if the enemy is vulnerable.
 
 "Contagion": Gain 1 energy for every 8 poison applied limited to 2 times per turn, if no enemy is poisoned at the end of your turn, apply 2 poison to yourself.
 

@@ -4,7 +4,7 @@
     "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
     "DESCRIPTIONS": [
       "Whenever you apply #yPoison to an enemy that wasn't poisoned, apply #b",
-	  " stacks of #yVulnerable and #yWeak."
+	  " #yVulnerable and #yWeak ."
     ]
   },
   "aspiration:RingOfOuroboros": {
@@ -54,7 +54,7 @@
     "NAME": "Snecko Tail",
     "FLAVOR": "The tail of a fearsome Snecko. The fluids it secretes are excellent for transferring your toxins.",
     "DESCRIPTIONS": [
-      "#yPoison is doubled on #yWeak or #yVulnerable enemies."
+      "Whenever you apply #yPoison to a #yVulnerable enemy the applied amount is doubled."
     ]
   },
   "aspiration:HummingbirdHeart": {

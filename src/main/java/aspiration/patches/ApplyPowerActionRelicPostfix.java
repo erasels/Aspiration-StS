@@ -27,7 +27,7 @@ import aspiration.relics.SneckoTail;
 public class ApplyPowerActionRelicPostfix {
 	 public static void Postfix(ApplyPowerAction __instance, AbstractCreature target, AbstractCreature source, AbstractPower powerToApply, int stackAmount, boolean isFast, AbstractGameAction.AttackEffect effect)
      {
-		 if ((AbstractDungeon.player.hasRelic(SneckoTail.ID)) && (source != null) && (source.isPlayer) && (target != source) && target != AbstractDungeon.player && (powerToApply.ID.equals("Poison")) && (target.hasPower(WeakPower.POWER_ID) || target.hasPower(VulnerablePower.POWER_ID)))
+		 if ((AbstractDungeon.player.hasRelic(SneckoTail.ID)) && (source != null) && (source.isPlayer) && (target != source) && target != AbstractDungeon.player && (powerToApply.ID.equals("Poison")) && target.hasPower(VulnerablePower.POWER_ID))
 		 {
 			 AbstractDungeon.player.getRelic(SneckoTail.ID).flash();
 			 powerToApply.amount *= 2;
