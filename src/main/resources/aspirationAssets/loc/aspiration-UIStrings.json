@@ -4,5 +4,10 @@
       "Read",
       "Read the Art of War and unlock its secrets."
     ]
+  },
+  "hubris:RelicViewScreen": {
+    "TEXT": [
+      "Placeholder"
+    ]
   }
 }

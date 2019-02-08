@@ -249,6 +249,13 @@
     "DESCRIPTIONS": [
       "If you do not play any #yAttacks during your turn, gain an additional [E] and deal double damage next turn."
     ]
+  },
+  "aspiration:SeaSaltIceCream": {
+    "NAME": "Sea Salt Ice Cream",
+    "FLAVOR": "Bonds forged by the heart can never be broken.",
+    "DESCRIPTIONS": [
+      "You may choose to select one of your relics which you will gain at the start of your next run at campfires."
+    ]
   }
 }
  
