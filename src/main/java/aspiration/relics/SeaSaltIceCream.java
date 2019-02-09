@@ -17,8 +17,6 @@ public class SeaSaltIceCream extends AspirationRelic {
     private RelicSelectScreen relicSelectScreen;
     private boolean fakeHover = false;
 
-    private ArrayList<RefPoint> oldCoords = new ArrayList<>();
-
     public SeaSaltIceCream() {
         super(ID, "SeaSaltIceCream.png", RelicTier.UNCOMMON, LandingSound.FLAT);
     }
@@ -47,19 +45,18 @@ public class SeaSaltIceCream extends AspirationRelic {
         relicSelected = false;
 
         ArrayList<AbstractRelic> relics = new ArrayList<>();
-        relics.addAll(AbstractDungeon.player.relics);
-
-        relics.removeIf(r -> r.relicId.equals(this.relicId));
-
-        for(AbstractRelic r : AbstractDungeon.player.relics) {
-            if(!r.relicId.equals(this.relicId)) {
-                oldCoords.add(new RefPoint(r.name, r.hb.cX, r.hb.cY, r.currentX, r.currentY));
-                //System.out.println("Relic:" + r.name + " cX:"+r.currentX+" cY:"+r.currentY);
+        for (AbstractRelic r : AbstractDungeon.player.relics) {
+            if (!r.relicId.equals(ID)) {
+                AbstractRelic re = r.makeCopy();
+                re.isSeen = true;
+                relics.add(re);
             }
         }
 
         relicSelectScreen = new RelicSelectScreen();
         relicSelectScreen.open(relics);
+
+
     }
 
     @Override
@@ -93,25 +90,6 @@ public class SeaSaltIceCream extends AspirationRelic {
                         break;
                 }*/
                 AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(relic));
-
-                for(AbstractRelic r : AbstractDungeon.player.relics) {
-                    if(!r.relicId.equals(this.relicId)) {
-                        for(RefPoint rp : oldCoords) {
-                            if(r.name.equals(rp.getN())) {
-                                r.hb.update(rp.getX(), rp.getY());
-                                r.currentX = rp.getrX();
-                                r.currentY = rp.getrY();
-                                //System.out.println("RP:"+rp.getN()+" x:"+rp.getrX()+" y:"+rp.getrY());
-                                r.update();
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                /*for(AbstractRelic r : AbstractDungeon.player.relics) {
-                    System.out.println("FinRelic:" + r.name + " cX:"+r.currentX+" cY:"+r.currentY);
-                }*/
 
                 AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
             } else {
@@ -150,35 +128,5 @@ public class SeaSaltIceCream extends AspirationRelic {
 
     public AbstractRelic makeCopy() {
         return new SeaSaltIceCream();
-    }
-
-    private class RefPoint {
-        private float px;
-        private float py;
-        private float prx;
-        private float pry;
-        private String pn;
-        public RefPoint(String n, float x, float y, float rx, float ry) {
-            pn = n;
-            px = x;
-            py = y;
-            prx = rx;
-            pry = ry;
-        }
-        public float getY() {
-            return py;
-        }
-        public float getX() {
-            return px;
-        }
-        public float getrY() {
-            return pry;
-        }
-        public float getrX() {
-            return prx;
-        }
-        public String getN() {
-            return pn;
-        }
     }
 }

@@ -261,7 +261,6 @@ public class RelicSelectScreen implements ScrollBarListener
             }
             r.currentX = (START_X + SPACE * col);
             r.currentY = (scrollY - SPACE * row);
-            r.isSeen = true;
             if (RelicLibrary.redList.contains(r)) {
                 r.render(sb, false, RED_OUTLINE_COLOR);
             } else if (RelicLibrary.greenList.contains(r)) {
