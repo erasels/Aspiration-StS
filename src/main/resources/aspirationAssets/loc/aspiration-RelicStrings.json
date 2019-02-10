@@ -254,7 +254,16 @@
     "NAME": "Sea Salt Ice Cream",
     "FLAVOR": "Bonds forged by the heart can never be broken.",
     "DESCRIPTIONS": [
-      "You may choose to select one of your relics which you will gain at the start of your next run at campfires."
+      "Upon pickup, store a copy of one of your relics and obtain the relic you previously stored. NL NL Previously stored: NL "
+    ]
+  },
+  "aspiration:FutureDiary": {
+    "NAME": "Future Diary",
+    "FLAVOR": "It's hard to live in the present if your future is in your hand.",
+    "DESCRIPTIONS": [
+      "Gain [E] at the start of each turn. NL At the start of each turn a random card in your hand is picked. You must play that card before any other.",
+      "I must play ",
+      "."
     ]
   }
 }

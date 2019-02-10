@@ -63,6 +63,10 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Training Weights": Gain 1 more energy and start combat with 2 Sapped (buff negation).
 
+"Sea Salt Ice Cream": Upon pickup, store a copy of one of your relics and obtain the relic you previously stored.
+
+"Future Diary": Gain Energy at the start of each turn. At the start of each turn a random card in your hand is picked. You must play that card before any other.
+
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  
 StSLib: https://github.com/kiooeht/StSLib/releases

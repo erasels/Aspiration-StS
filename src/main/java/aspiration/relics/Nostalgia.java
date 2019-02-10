@@ -17,9 +17,14 @@ public class Nostalgia extends AspirationRelic{
 	private static final int PRICE = 333;
 	private boolean picked_rarity = false;
 	//private static final boolean SETTING_UNCMN = Aspiration.uncommonNostalgia();
-	
+
+	public Nostalgia() {
+		super(ID, "Nostalgia.png", RelicTier.SHOP, LandingSound.MAGICAL);
+		picked_rarity = false;
+	}
+
     public Nostalgia(boolean uncmn_rarity) {
-        super(ID, "Nostalgia.png", (uncmn_rarity) ? RelicTier.UNCOMMON : RelicTier.SHOP, LandingSound.HEAVY);
+        super(ID, "Nostalgia.png", (uncmn_rarity) ? RelicTier.UNCOMMON : RelicTier.SHOP, LandingSound.MAGICAL);
         picked_rarity = uncmn_rarity;
     }
 

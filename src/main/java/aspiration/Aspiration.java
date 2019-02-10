@@ -194,6 +194,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new Nostalgia(true), RelicType.SHARED);
         BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
+        BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
