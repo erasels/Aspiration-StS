@@ -1,0 +1,24 @@
+{
+  "aspiration:ArtOfWarUpgradeOption": {
+    "TEXT": [
+      "Read",
+      "Read the Art of War and unlock its secrets."
+    ]
+  },
+  "hubris:RelicViewScreen": {
+    "TEXT": [
+      "Placeholder"
+    ]
+  },
+  "aspiration:ModButtonText": {
+    "TEXT": [
+      "Make the Poet's Pen boss relic weaker.",
+      "Make Nostalgia an Uncommon relic. (instead of Shop)"
+    ]
+  },
+  "aspiration:NeowRewards": {
+    "TEXT": [
+      "Obtain additional Starter Relic"
+    ]
+  }
+}

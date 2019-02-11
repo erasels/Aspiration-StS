@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 
 import java.util.ArrayList;
 
@@ -21,7 +22,7 @@ public class FutureDiaryAction extends AbstractGameAction
     public void update()
     {
         for(AbstractCard c : AbstractDungeon.player.hand.group) {
-            if(c.canPlay(c)) {
+            if(c.canUse(p, (AbstractMonster) target)) {
                 playabaleCards.add(c);
             }
         }

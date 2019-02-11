@@ -1,0 +1,31 @@
+{
+  "aspiration:Aftershock": {
+    "NAME": "Aftershock",
+    "DESCRIPTIONS": [
+      "Deal #b",
+	  "% of #rHP damage taken to ALL enemies. #rExpires if enemy does not take HP damage every turn."
+    ]
+  },
+  "aspiration:Awoken": {
+    "NAME": "Awoken",
+    "DESCRIPTIONS": [
+      "Heal #b",
+	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
+    ]
+  },
+  "aspiration:Sapped": {
+    "NAME": "Sapped",
+    "DESCRIPTIONS": [
+      "Negates the next #b",
+      " buff.",
+      " buffs."
+    ]
+  },
+  "aspiration:P_RitualPower": {
+    "NAME": "Ritual",
+    "DESCRIPTIONS": [
+      "At the start of your turn, gain #b",
+      " #yStrength."
+    ]
+  }
+}

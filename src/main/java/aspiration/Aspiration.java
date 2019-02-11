@@ -36,7 +36,6 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Properties;
 
-import com.megacrit.cardcrawl.relics.CultistMask;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -220,13 +219,35 @@ public class Aspiration implements
         
     }
 
+    private String languageSupport()
+    {
+        switch (Settings.language) {
+            case RUS:
+                return "rus";
+            case DEU:
+                return "deu";
+            default:
+                return "eng";
+        }
+    }
+
+    private void loadLocStrings(String language)
+    {
+        String path = "loc/" + language + "/";
+
+        BaseMod.loadCustomStringsFile(EventStrings.class, assetPath(path + "aspiration-EventStrings.json"));
+        BaseMod.loadCustomStringsFile(UIStrings.class, assetPath(path + "aspiration-UIStrings.json"));
+        BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath(path + "aspiration-PowerStrings.json"));
+        BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath(path + "aspiration-RelicStrings.json"));
+    }
+
     @Override
     public void receiveEditStrings()
     {
-        BaseMod.loadCustomStringsFile(EventStrings.class, assetPath("loc/aspiration-EventStrings.json"));
-        BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath("loc/aspiration-RelicStrings.json"));
-        BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath("loc/aspiration-PowerStrings.json"));
-        BaseMod.loadCustomStringsFile(UIStrings.class, assetPath("loc/aspiration-UIStrings.json"));
+        String language = languageSupport();
+
+        loadLocStrings("eng");
+        loadLocStrings(language);
     }
     
     @Override

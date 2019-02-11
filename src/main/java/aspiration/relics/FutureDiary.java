@@ -72,10 +72,9 @@ public class FutureDiary extends AspirationRelic {
     public void setPlayableCards(ArrayList<AbstractCard> pc) {
         playabaleCards = pc;
 
-        Random rng = AbstractDungeon.miscRng;
+        Random rng = AbstractDungeon.cardRng;
         if(playabaleCards.size()>0) {
-            FutureDiary fd = (FutureDiary) AbstractDungeon.player.getRelic(FutureDiary.ID);
-            fd.setCompulsion(playabaleCards.get(rng.random(playabaleCards.size() - 1)));
+            setCompulsion(playabaleCards.get(rng.random(playabaleCards.size() - 1)));
         }
     }
 

@@ -29,8 +29,8 @@ public class VileToxins extends AspirationRelic {
     @Override
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
         if (p.ID.equals(PoisonPower.POWER_ID) && target != AbstractDungeon.player && !target.hasPower(ArtifactPower.POWER_ID) && !target.hasPower(PoisonPower.POWER_ID) && source == AbstractDungeon.player) {
-        	AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new WeakPower(target, DEBUFF_STACK, false), DEBUFF_STACK));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new VulnerablePower(target, DEBUFF_STACK, false), DEBUFF_STACK));
+        	AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, source, new WeakPower(target, DEBUFF_STACK, false), DEBUFF_STACK));
         }
     }
     
