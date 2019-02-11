@@ -126,8 +126,11 @@ public class Aspiration implements
     public void receivePostInitialize() {
     	loadOtherData();
 
+        UIStrings buttonStrings = CardCrawlGame.languagePack.getUIString("aspiration:ModButtonText");
+        String[] TEXT = buttonStrings.TEXT;
+
         ModPanel settingsPanel = new ModPanel();
-        ModLabeledToggleButton PPBtn = new ModLabeledToggleButton("Make the Poet's Pen boss relic weaker.", 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
+        ModLabeledToggleButton PPBtn = new ModLabeledToggleButton(TEXT[0], 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -141,7 +144,7 @@ public class Aspiration implements
                 });
         settingsPanel.addUIElement(PPBtn);
         
-        ModLabeledToggleButton nostalgiaBtn = new ModLabeledToggleButton("Make Nostalgia an Uncommon relic. (instead of Shop)", 350, 650, Settings.CREAM_COLOR, FontHelper.charDescFont, uncommonNostalgia(), settingsPanel, l -> {},
+        ModLabeledToggleButton nostalgiaBtn = new ModLabeledToggleButton(TEXT[1], 350, 650, Settings.CREAM_COLOR, FontHelper.charDescFont, uncommonNostalgia(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {

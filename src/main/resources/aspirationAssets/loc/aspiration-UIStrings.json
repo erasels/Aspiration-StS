@@ -9,5 +9,11 @@
     "TEXT": [
       "Placeholder"
     ]
+  },
+  "aspiration:ModButtonText": {
+    "TEXT": [
+      "Make the Poet's Pen boss relic weaker.",
+      "Make Nostalgia an Uncommon relic. (instead of Shop)"
+    ]
   }
 }
