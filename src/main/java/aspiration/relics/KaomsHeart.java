@@ -4,6 +4,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import aspiration.relics.abstracts.AspirationRelic;
+import com.megacrit.cardcrawl.relics.Circlet;
 
 public class KaomsHeart extends AspirationRelic{
 	public static final String ID = "aspiration:KaomsHeart";
@@ -26,19 +27,19 @@ public class KaomsHeart extends AspirationRelic{
     	AbstractDungeon.player.increaseMaxHp(MAX_LIFE_MANIP, true);
     	
     	AbstractDungeon.bossRelicPool.clear();
-    	AbstractDungeon.bossRelicPool.add("Circlet");
+    	AbstractDungeon.bossRelicPool.add(Circlet.ID);
     	
     	AbstractDungeon.commonRelicPool.clear();
-    	AbstractDungeon.commonRelicPool.add("Circlet");
+    	AbstractDungeon.commonRelicPool.add(Circlet.ID);
     	
     	AbstractDungeon.rareRelicPool.clear();
-    	AbstractDungeon.rareRelicPool.add("Circlet");
+    	AbstractDungeon.rareRelicPool.add(Circlet.ID);
     	
     	AbstractDungeon.shopRelicPool.clear();
-    	AbstractDungeon.shopRelicPool.add("Circlet");
+    	AbstractDungeon.shopRelicPool.add(Circlet.ID);
     	
     	AbstractDungeon.uncommonRelicPool.clear();
-    	AbstractDungeon.uncommonRelicPool.add("Circlet");
+    	AbstractDungeon.uncommonRelicPool.add(Circlet.ID);
     }
     
     @Override

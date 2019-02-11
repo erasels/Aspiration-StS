@@ -15,5 +15,10 @@
       "Make the Poet's Pen boss relic weaker.",
       "Make Nostalgia an Uncommon relic. (instead of Shop)"
     ]
+  },
+  "aspiration:NeowRewards": {
+    "TEXT": [
+      "Obtain additional Starter Relic"
+    ]
   }
 }

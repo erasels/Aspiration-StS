@@ -14,7 +14,8 @@
       "Take #r",
 	  " damage and draw #b",
 	  " card.",
-	  "Replaces #gRing #gof #gthe #gSnake. NL "
+	  "Replaces #gRing #gof #gthe #gSnake. NL ",
+      " NL "
     ]
   },
   "aspiration:InfernalBlood": {
@@ -69,7 +70,16 @@
     "NAME": "Headhunter",
     "FLAVOR": "A belt of severed heads, the first step on the path of exiling yourself from this place of the damned.",
     "DESCRIPTIONS": [
-      "Gain #yCharges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored #yCharges. Visiting non-monster rooms makes #yCharges decay based on the type of room. #gRight-click #gto #gsee #gmore #ginformation."
+      "Gain #yCharges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored #yCharges. Visiting non-monster rooms makes #yCharges decay based on the type of room. #gRight-click #gto #gsee #gmore #ginformation.",
+      "#yCharge gain on monster kill: Normal: #b",
+      ", Elite: #b",
+      ", Boss: #b",
+      ". #yCharge loss on non-monster room: Rest: #r",
+      ", Merchant: #r",
+      ", Unknown: #r",
+      ".",
+      "Current set of #yBuffs: ",
+      "Energized"
     ]
   },
   "aspiration:Legacy_Headhunter": {
@@ -77,7 +87,9 @@
     "FLAVOR": "Such a lucky find! A rarity amongst rarities will surely lead to an exalted run.",
     "DESCRIPTIONS": [
       "[Unbalanced and broken, but useable.] Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
-	  " battles."
+	  " battles.",
+      "Applied Powers: ",
+      "Energy"
     ]
   },
   "aspiration:AnachronicSnailShell": {
@@ -111,7 +123,8 @@
 	  "Every time you play an attack, play the top card of your draw pile. NL Start combat with #r",
 	  " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
 	  "#b1 for every #b",
-	  " floors visited with the associated relic in hand and every boss killed before pickup."
+	  " floors visited with the associated relic in hand and every boss killed before pickup.",
+      "Experience"
     ]
   },
   "aspiration:PoetsPen_weak": {

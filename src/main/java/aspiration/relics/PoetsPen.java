@@ -124,7 +124,7 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>,
     	this.initializeTips();
     	this.tips.clear();
     	this.tips.add(new PowerTip(name, DESCRIPTIONS[0] + debuffs_applied +  DESCRIPTIONS[1]));
-    	this.tips.add(new PowerTip("Experience", DESCRIPTIONS[2] + FLOOR_THRESHOLD +  DESCRIPTIONS[3]));
+    	this.tips.add(new PowerTip(DESCRIPTIONS[4], DESCRIPTIONS[2] + FLOOR_THRESHOLD +  DESCRIPTIONS[3])); //Experience
     	this.initializeTips();
     }
     

@@ -71,7 +71,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
 	
     private static final int BUFF_CARRYOVER_AMOUNT = 7;
     private boolean initialized = true;
-    private String powerCollection = "Applied Powers: ";
+    private String powerCollection = DESCRIPTIONS[2];
     
     private ArrayList<AbstractPower> Normal_buffs;
     private ArrayList<AbstractPower> Elite_buffs;
@@ -114,7 +114,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     public void onVictory() {
     	boolean jump = false;
     	rng = AbstractDungeon.relicRng; //REEEE WHY ARE YOU NULL YOU PIECE OF SHIT
-    	powerCollection = "Applied Powers: ";
+    	powerCollection = DESCRIPTIONS[2];
     	flash();
     	AbstractDungeon.actionManager.addToBottom(new SFXAction("BUFF_3"));
     	
@@ -250,7 +250,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     
 	private void fillBuffListBoss(ArrayList<AbstractPower> pl) {
 		pl.add(new BarricadePower(AbstractDungeon.player));								//Don't lose block at end of turn
-		pl.add(new BerserkPower("Energy", AbstractDungeon.player, 1));					//1 more energy gain at start of turn
+		pl.add(new BerserkPower(DESCRIPTIONS[3], AbstractDungeon.player, 1));					//1 more energy gain at start of turn
 		pl.add(new DemonFormPower(AbstractDungeon.player, 3));							//Gain 3 strength at the start of your turn
 		pl.add(new DoubleDamagePower(AbstractDungeon.player, 10, false));				//Deal double damage for the next 10 turns
 		pl.add(new InfiniteBladesPower(AbstractDungeon.player, (BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.masterHandSize)));	//At the start of your turn, add as many Shivs as you can have in your hand

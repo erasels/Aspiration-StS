@@ -30,13 +30,13 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
 	public void onEquip() {
     	this.description = getUpdatedDescription();
         this.tips.clear();
-        this.tips.add(new PowerTip(this.name, CLICKABLE_DESCRIPTIONS()[0] + " NL " + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2]));
+        this.tips.add(new PowerTip(this.name, CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[4] + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2]));
         this.initializeTips();
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[3] + CLICKABLE_DESCRIPTIONS()[0] + " NL " + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2];
+        return DESCRIPTIONS[3] + CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[4] + DESCRIPTIONS[0] + DAMAGE_AMOUNT + DESCRIPTIONS[1] + CARD_DRAW_AMOUNT + DESCRIPTIONS[2];
     }
     
     @Override

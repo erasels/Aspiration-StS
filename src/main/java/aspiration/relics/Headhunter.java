@@ -69,8 +69,8 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
 	private static final int LOW = 1;
 	private static final int MID = 3;
 	private static final int HIGH = 5;
-	private static final String chargeInfo = "#yCharge gain on monster kill: Normal: #b" + LOW + ", Elite: #b" + MID + ", Boss: #b" + HIGH + ". #yCharge loss on non-monster room: Rest: #r" + HIGH + ", Merchant: #r" + MID + ", Unknown: #r" + LOW + ".";
-	private String buffsetInfo = "Current set of #yBuffs: ";
+	private final String chargeInfo = DESCRIPTIONS[1] + LOW + DESCRIPTIONS[2] + MID + DESCRIPTIONS[3] + HIGH + DESCRIPTIONS[4] + HIGH + DESCRIPTIONS[5] + MID + DESCRIPTIONS[6] + LOW + DESCRIPTIONS[7];
+	private String buffsetInfo = DESCRIPTIONS[8];
 	
 	private int desc_state = 0;
 
@@ -215,7 +215,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     		buffList.add(new FireBreathingPower(AbstractDungeon.player, 3));						//Deal 3 damage for each attack played this turn, every turn
     		buffList.add(new EnvenomPower(AbstractDungeon.player, 1));								//Whenever you deal unblocked damage apply 2 poison
     	} else if (31 <= charge && charge <=33) {
-    		buffList.add(new BerserkPower("Energized", AbstractDungeon.player, 1));					//1 more energy gain at start of turn
+    		buffList.add(new BerserkPower(DESCRIPTIONS[9], AbstractDungeon.player, 1));					//1 more energy gain at start of turn
     		buffList.add(new EnvenomPower(AbstractDungeon.player, 1));								//Whenever you deal unblocked damage apply 1 poison
     		buffList.add(new NoxiousFumesPower(AbstractDungeon.player, 1));							//At the end of your turn apply 1 poison to all enemies
     		buffList.add(new SadisticPower(AbstractDungeon.player, 3));								//Deal 3 damage every time you apply a debuff
@@ -249,10 +249,10 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     		buffList.add(new DoubleTapPower(AbstractDungeon.player, 3));							//This turn Next 3 Attacks played twice
     	} else if (55 <= charge && charge <=57) {
     		buffList.add(new DrawPower(AbstractDungeon.player, 3)); 								//Draw 3 more cards every turn
-    		buffList.add(new BerserkPower("Energized", AbstractDungeon.player, 2));					//2 more energy gain at start of turn
+    		buffList.add(new BerserkPower(DESCRIPTIONS[9], AbstractDungeon.player, 2));					//2 more energy gain at start of turn
     	} else if (58 <= charge && charge <=60) {
     		buffList.add(new EchoPower(AbstractDungeon.player, 10));								//Every turn, the first 10 cards you play are played twice
-    		buffList.add(new BerserkPower("Energized", AbstractDungeon.player, 4));					//4 more energy gain at start of turn
+    		buffList.add(new BerserkPower(DESCRIPTIONS[9], AbstractDungeon.player, 4));					//4 more energy gain at start of turn
     		buffList.add(new DrawPower(AbstractDungeon.player, (BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.masterHandSize))); 	//Draw cards boi
     		buffList.add(new ConfusionPower(AbstractDungeon.player));								//Randomized card costs
     	} else if (charge > 60) {
@@ -266,7 +266,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     }
     
     private String getBuffSetInfo(ArrayList<AbstractPower> bl) {
-    	String tmp = "Current set of #yBuffs: ";
+    	String tmp = DESCRIPTIONS[8];
     	for(AbstractPower p: getBuffList(counter)) {
     		tmp += FontHelper.colorString((p.name), "b") + " | ";
     	}
