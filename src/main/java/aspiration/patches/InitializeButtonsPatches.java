@@ -24,7 +24,14 @@ public class InitializeButtonsPatches {
             ArrayList<AbstractCampfireOption> campfireButtons = (ArrayList<AbstractCampfireOption>) ReflectionHacks.getPrivate(campfire, CampfireUI.class, "buttons");
             if(AbstractDungeon.player.hasRelic(ArtOfWar.ID)) {
                 campfireButtons.add(new ReadArtOfWarOption());
-                campfireButtons.get(campfireButtons.size() - 1).setPosition((550) * Settings.scale, (721) * Settings.scale);
+                float x = 950.f;
+                float y = 990.0f - (270.0f * (float)((campfireButtons.size() + 1) / 2));
+                if (campfireButtons.size() % 2 == 0) {
+                    x = 1110.0f;
+                    campfireButtons.get(campfireButtons.size() - 2).setPosition(800.0f * Settings.scale, y * Settings.scale);
+                }
+                campfireButtons.get(campfireButtons.size() - 1).setPosition(x * Settings.scale, y * Settings.scale);
+                //campfireButtons.get(campfireButtons.size() - 1).setPosition((550) * Settings.scale, (721) * Settings.scale);
             }
 
         } catch (SecurityException | IllegalArgumentException e) {

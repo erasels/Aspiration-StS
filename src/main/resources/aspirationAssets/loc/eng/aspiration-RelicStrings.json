@@ -104,7 +104,7 @@
     "NAME": "Supercapacitive Coin",
     "FLAVOR": "A mysterious arcade coin that can store large amounts of electricity. If enough is stored, maybe you could create a railgun?",
     "DESCRIPTIONS": [
-	  "#yThunder strikes a random enemy for #b3 damage for each charge you have. NL ",
+	  "Deal #b3 damage to a random enemy for each charge you have on this relic. NL ",
       "Gain #b",
 	  " #yCharge everytime you gain gold. NL ",
 	  " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",

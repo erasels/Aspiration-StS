@@ -27,25 +27,25 @@ public class NeowRewardPatches {
     )
     public static class blessAddNostalgia {
         public static ArrayList<NeowRewardDef> Postfix(ArrayList<NeowRewardDef> __result, NeowReward __instance, final int category) {
-                if (category == 3) {
-                    String tmp;
-                    switch (Settings.language) {
-                        case RUS:
-                            String foo = "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u0443\u044e \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0443\u044e \u0440\u0435\u043b\u0438\u043a\u0432\u0438\u044e";
-                            //byte x[] = foo.getBytes(StandardCharsets.UTF_8);
-                            //String y = new String(x, StandardCharsets.UTF_8);
-                            //String blah = new String("\\u041f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0434\\u043e\\u043f\\u043e\\u043b\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u0443\\u044e \\u0441\\u0442\\u0430\\u0440\\u0442\\u043e\\u0432\\u0443\\u044e \\u0440\\u0435\\u043b\\u0438\\u043a\\u0432\\u0438\\u044e".getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
-                            tmp = FontHelper.colorString(foo, "g");
-                            break;
-                        case DEU:
-                            tmp = FontHelper.colorString("Obtain additional Starter Relic", "g");
-                            break;
-                        default:
-                            tmp = FontHelper.colorString("Obtain additional Starter Relic", "g");
-                    }
-                    __result.add(new NeowRewardDef(NOSTALGIA, "[ "+ tmp +" ]"));
+            if (category == 3) {
+                String tmp;
+                switch (Settings.language) {
+                    case RUS:
+                        String foo = "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u0443\u044e \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0443\u044e \u0440\u0435\u043b\u0438\u043a\u0432\u0438\u044e";
+                        //byte x[] = foo.getBytes(StandardCharsets.UTF_8);
+                        //String y = new String(x, StandardCharsets.UTF_8);
+                        //String blah = new String("\\u041f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0434\\u043e\\u043f\\u043e\\u043b\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u0443\\u044e \\u0441\\u0442\\u0430\\u0440\\u0442\\u043e\\u0432\\u0443\\u044e \\u0440\\u0435\\u043b\\u0438\\u043a\\u0432\\u0438\\u044e".getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+                        tmp = FontHelper.colorString(foo, "g");
+                        break;
+                    case DEU:
+                        tmp = FontHelper.colorString("Erhalte ein zusätzliches Anfängerrelikt", "g");
+                        break;
+                    default:
+                        tmp = FontHelper.colorString("Obtain an additional Starter Relic", "g");
                 }
-                return __result;
+                __result.add(new NeowRewardDef(NOSTALGIA, "[ " + tmp + " ]"));
+            }
+            return __result;
         }
     }
 	
