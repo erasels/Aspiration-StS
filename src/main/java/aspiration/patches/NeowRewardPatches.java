@@ -1,5 +1,6 @@
 package aspiration.patches;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -30,7 +31,10 @@ public class NeowRewardPatches {
                     String tmp;
                     switch (Settings.language) {
                         case RUS:
-                            tmp = FontHelper.colorString("Получить дополнительную стартовую реликвию", "g");
+                            String bleh ="Получить дополнительную стартовую реликвию";
+                            byte bytes[] = bleh.getBytes(StandardCharsets.UTF_8);
+                            String blah = new String(bytes, StandardCharsets.UTF_8);
+                            tmp = FontHelper.colorString(blah, "g");
                             break;
                         case DEU:
                             tmp = FontHelper.colorString("Obtain additional Starter Relic", "g");

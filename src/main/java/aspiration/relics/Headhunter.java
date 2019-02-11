@@ -120,8 +120,10 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
             manipCharge(-MID);
         }
         if (room instanceof EventRoom) {
-            flash();
-            manipCharge(-LOW);
+        	if(!room.combatEvent) {
+				flash();
+				manipCharge(-LOW);
+			}
         }
     }
     
