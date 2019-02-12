@@ -35,7 +35,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
         super(ID, "SupercapacitiveCoin.png", RelicTier.COMMON, LandingSound.CLINK);
         this.tips.clear();
         this.tips.add(new PowerTip(name, description));
-        this.tips.add(new PowerTip(DESCRIPTIONS[9] + Ectoplasm.ID, DESCRIPTIONS[6]));
+        this.tips.add(new PowerTip(DESCRIPTIONS[9] + new Ectoplasm().name, DESCRIPTIONS[6]));
         this.initializeTips();
     }
 
@@ -127,7 +127,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 		if(!has_ecto) {
 			this.tips.clear();
 			this.tips.add(new PowerTip(name, description));
-			this.tips.add(new PowerTip(DESCRIPTIONS[9] + Ectoplasm.ID, DESCRIPTIONS[6]));
+			this.tips.add(new PowerTip(DESCRIPTIONS[9] + new Ectoplasm().name, DESCRIPTIONS[6]));
 			this.initializeTips();
 		}
 
