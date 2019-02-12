@@ -21,6 +21,7 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
 	
 	private static final int DAMAGE_AMOUNT = 3;
 	private static final int CARD_DRAW_AMOUNT = 1;
+	private boolean duringTurn = true;
 	
     public RingOfOuroboros() {
         super(ID, "RingOfOuroboros.png", RelicTier.BOSS, LandingSound.CLINK);
@@ -66,12 +67,23 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
 
 	@Override
 	public void onRightClick() {
-		if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && BaseMod.MAX_HAND_SIZE != AbstractDungeon.player.hand.size() && !AbstractDungeon.player.isDead && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.player.isEndingTurn && !AbstractDungeon.actionManager.turnHasEnded) {
+		if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && BaseMod.MAX_HAND_SIZE != AbstractDungeon.player.hand.size() && !AbstractDungeon.player.isDead && duringTurn) {
 			AbstractDungeon.actionManager.addToBottom(new SFXAction("ATTACK_FAST"));
 			AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, DAMAGE_AMOUNT, DamageInfo.DamageType.THORNS), AbstractGameAction.AttackEffect.SLASH_HORIZONTAL));
 			flash();
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 		    AbstractDungeon.actionManager.addToBottom(new DrawCardAction(AbstractDungeon.player, CARD_DRAW_AMOUNT));
 		}
+	}
+
+	@Override
+	public void atTurnStart() {
+		duringTurn = true;
+	}
+
+	@Override
+	public void onPlayerEndTurn()
+	{
+		duringTurn = false;
 	}
 }

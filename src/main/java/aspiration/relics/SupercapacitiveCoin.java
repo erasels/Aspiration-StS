@@ -30,6 +30,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	private static final int CHARGE_INCREASE = 1;
 	private int lightning_damage = 3;
 	private boolean used = false;
+	private boolean duringTurn = true;
 	
     public SupercapacitiveCoin() {
         super(ID, "SupercapacitiveCoin.png", RelicTier.COMMON, LandingSound.CLINK);
@@ -51,7 +52,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 
 	@Override
 	public void onRightClick() {
-		if(!used && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && counter > 0 && !AbstractDungeon.player.isDead && !AbstractDungeon.player.endTurnQueued && !AbstractDungeon.player.isEndingTurn && !AbstractDungeon.actionManager.turnHasEnded) {
+		if(!used && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && counter > 0 && !AbstractDungeon.player.isDead && duringTurn) {
 			AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 			
@@ -65,8 +66,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	            	AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
 	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));
-	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 3, DamageInfo.DamageType.NORMAL)));
-	                //AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(m, AbstractDungeon.player, new StunMonsterPower(m)));
+	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 3, DamageInfo.DamageType.THORNS)));
 	                AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, AbstractDungeon.player));
 	            }
 			}
@@ -106,6 +106,17 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
         }
         used = false;
     }
+
+	@Override
+	public void atTurnStart() {
+		duringTurn = true;
+	}
+
+	@Override
+	public void onPlayerEndTurn()
+	{
+		duringTurn = false;
+	}
 	
 	@Override
 	public void onEquip() {

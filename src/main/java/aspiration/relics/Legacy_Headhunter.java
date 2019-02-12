@@ -291,11 +291,9 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
 	}
 
 	@Override
-    public boolean canSpawn() //Checked when?
+    public boolean canSpawn()
     {
-		java.util.Random r = new java.util.Random();
-		int rand = r.nextInt(10);
-    	return rand == 9;
+    	return AbstractDungeon.ascensionLevel > 14;
     }
 	
 	@Override
