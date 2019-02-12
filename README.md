@@ -31,7 +31,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Legacy Headhunter": Gain a random buff after winning a battle, each buff you gain this way is applied at the start of each battle for the next 7 battles. CAREFUL: Increases and decreases to the buffs carry over.
 
-"Anachronic Snail Shell": All damage resulting in HP loss from attacks against you is delayed by 1 turn.
+"Anachronic Snail Shell": Whenever you lose HP from enemy attacks, delay half of it to the end of your next turn.
 
 "Supercapacitive Coin": Once per combat: On Right-click: Thunder strikes a random enemy for each charge you have. Charges are gained by gaining gold or traveling floors if you have Ectoplasm.
 

@@ -94,10 +94,9 @@
   },
   "aspiration:AnachronicSnailShell": {
     "NAME": "Anachronic Snail Shell",
-    "FLAVOR": "This piece of a snail's shell resists the flow of time, slowly tumbling along its own path.",
+    "FLAVOR": "This piece of a snail's shell resists the flow of time, tumbling along its own path at paradoxical speed.",
     "DESCRIPTIONS": [
-      "All damage resulting in #rHP loss from attacks against you is delayed by #b1 turn. NL ",
-	  "Warning: Delayed damage will be attributed to a single random foe."
+      "Whenever you lose HP from enemy attacks, delay half of it to the end of your next turn."
     ]
   },
   "aspiration:SupercapacitiveCoin": {

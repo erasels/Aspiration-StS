@@ -1,6 +1,5 @@
 package aspiration.patches;
 
-import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;

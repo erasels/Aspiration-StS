@@ -1,5 +1,7 @@
 package aspiration.relics;
 
+import com.badlogic.gdx.math.MathUtils;
+import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnLoseHpRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -13,10 +15,11 @@ import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import aspiration.relics.abstracts.AspirationRelic;
 
-public class AnachronicSnailShell extends AspirationRelic {
+public class AnachronicSnailShell extends AspirationRelic implements BetterOnLoseHpRelic {
 	public static final String ID = "aspiration:AnachronicSnailShell";
 	
 	private static final int START_CHARGE = 0;
+	private boolean duringTurn = true;
 
     public AnachronicSnailShell() {
         super(ID, "AnachronicSnailShell.png", RelicTier.RARE, LandingSound.MAGICAL);
@@ -24,10 +27,10 @@ public class AnachronicSnailShell extends AspirationRelic {
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + FontHelper.colorString(DESCRIPTIONS[1], "r");
+        return DESCRIPTIONS[0];
     }
 
-    @Override
+    /*@Override
     public int onAttacked(DamageInfo info, int damageAmount) {
     	if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) && (damageAmount > 0) && (AbstractDungeon.player.currentBlock < damageAmount) && !(AbstractDungeon.player.endTurnQueued) && info.owner != AbstractDungeon.player) {
     		flash();
@@ -39,16 +42,38 @@ public class AnachronicSnailShell extends AspirationRelic {
             return 0;
     	}
     	return damageAmount;
+    }*/
+
+    @Override
+    public int betterOnLoseHp(DamageInfo info, int Amount) {
+        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) && !duringTurn && info.owner != AbstractDungeon.player && info.type == DamageType.NORMAL) {
+            flash();
+            AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            AbstractDungeon.actionManager.addToBottom(new SFXAction("POWER_TIME_WARP"));
+            pulse = true;
+
+            Amount = MathUtils.floor((float)Amount /2);
+            manipCharge(Amount);
+            return Amount;
+        }
+        return Amount;
     }
-    
+
     @Override
     public void onPlayerEndTurn()
     {
+        duringTurn = false;
     	if(counter > 0) {
-    		AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
+    		//AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.THORNS), AttackEffect.BLUNT_LIGHT));
     		startingCharges();
     		pulse = false;
     	}
+    }
+
+    @Override
+    public void atTurnStart() {
+        duringTurn = true;
     }
     
     @Override
