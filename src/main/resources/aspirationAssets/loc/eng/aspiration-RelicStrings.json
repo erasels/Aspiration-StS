@@ -94,7 +94,7 @@
   },
   "aspiration:AnachronicSnailShell": {
     "NAME": "Anachronic Snail Shell",
-    "FLAVOR": "This piece of a snail's shell resists the flow of time, tumbling along its own path at paradoxical speed.",
+    "FLAVOR": "This piece of a snail's shell resists the flow of time, tumbling along at its own paradoxical pace.",
     "DESCRIPTIONS": [
       "Whenever you lose HP from enemy attacks, delay half of it to the end of your next turn."
     ]
