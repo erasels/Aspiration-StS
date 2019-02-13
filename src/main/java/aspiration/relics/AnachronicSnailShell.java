@@ -1,8 +1,10 @@
 package aspiration.relics;
 
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnLoseHpRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
@@ -10,10 +12,12 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.powers.TimeWarpPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import aspiration.relics.abstracts.AspirationRelic;
+import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
 public class AnachronicSnailShell extends AspirationRelic implements BetterOnLoseHpRelic {
 	public static final String ID = "aspiration:AnachronicSnailShell";
@@ -65,6 +69,7 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
         duringTurn = false;
     	if(counter > 0) {
     		//AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.NORMAL), AttackEffect.BLUNT_LIGHT));
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(AbstractDungeon.player, new FlashPowerEffect(new TimeWarpPower(AbstractDungeon.player)), 0.0F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.THORNS), AttackEffect.BLUNT_LIGHT));
     		startingCharges();
     		pulse = false;

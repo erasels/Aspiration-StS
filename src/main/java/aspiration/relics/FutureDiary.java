@@ -28,17 +28,6 @@ public class FutureDiary extends AspirationRelic {
     @Override
     public void atTurnStartPostDraw() {
         flash();
-        /*for(AbstractCard c : AbstractDungeon.player.hand.group) {
-            if(c.canPlay(c)) {
-                playabaleCards.add(c);
-                System.out.println(c.name);
-            }
-        }
-
-        Random rng = AbstractDungeon.miscRng;
-        if(playabaleCards.size()>0) {
-            setCompulsion(playabaleCards.get(rng.random(playabaleCards.size() - 1)));
-        }*/
         AbstractDungeon.actionManager.addToBottom(new FutureDiaryAction());
     }
 
@@ -76,6 +65,11 @@ public class FutureDiary extends AspirationRelic {
         if(playabaleCards.size()>0) {
             setCompulsion(playabaleCards.get(rng.random(playabaleCards.size() - 1)));
         }
+    }
+
+    @Override
+    public void onPlayerEndTurn() {
+        mustPlay = null;
     }
 
     public void onEquip()
