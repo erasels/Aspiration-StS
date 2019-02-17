@@ -46,6 +46,20 @@
 			<scope>system</scope>
 			<systemPath>${basedir}/../lib/FriendlyMinions.jar</systemPath>
 		</dependency>-->
+		<dependency>
+            <groupId>ThMod</groupId>
+            <artifactId>ThMod</artifactId>
+            <version>v0.14.17</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/TS05_Marisa.jar</systemPath>
+        </dependency>
+		<dependency>
+            <groupId>BlackRuseMods</groupId>
+            <artifactId>StS-BlackRuse</artifactId>
+            <version>0.9.3</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/BlackRuseMod.jar</systemPath>
+        </dependency>
 
     </dependencies>
 

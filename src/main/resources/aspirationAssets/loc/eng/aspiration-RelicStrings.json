@@ -277,6 +277,54 @@
       "I must play ",
       "."
     ]
+  },
+  "aspiration:MarisaSkillbook": {
+    "NAME": "Marisa's Skillbook",
+    "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
+    "DESCRIPTIONS": [
+      "Whenever you play a card or apply a debuff, gain #b",
+      " #yCharge-up .",
+      " NL NL Cards from Marisa may spawn now."
+    ]
+  },
+  "aspiration:IroncladSkillbook": {
+    "NAME": "Ironclad's Skillbook",
+    "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
+    "DESCRIPTIONS": [
+      "At the end of each turn, if you have more than #b",
+      " #yBlock , gain #b",
+      " #yStrength . At the end of combat, heal #b",
+      " HP.",
+      " NL NL Cards from the Ironclad may spawn now."
+    ]
+  },
+  "aspiration:DefectSkillbook": {
+    "NAME": "Defect's Skillbook",
+    "FLAVOR": "Pages upon pages filled with meticulously written 1s and 0s, what could this mean?",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower, #yChannel a random Orb at the start of your turn for #b",
+      " turns.",
+      " NL NL Cards from the Defect may spawn now."
+    ]
+  },
+  "aspiration:SilentSkillbook": {
+    "NAME": "Silent's Skillbook",
+    "FLAVOR": "Pages filled with information on how to deal with this place. A talk with the author should be enlightening.",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain #yEnvenom and at the start of each turn, add #b",
+      " #yShiv to your hand.",
+      " NL NL Cards from the Silent may spawn now."
+    ]
+  },
+  "aspiration:ServantSkillbook": {
+    "NAME": "Servant's Skillbook",
+    "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages. ",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you took no HP damage last turn, gain #b",
+      " #ySattelites .",
+      " NL NL Cards from the Servant may spawn now."
+    ]
   }
 }
  

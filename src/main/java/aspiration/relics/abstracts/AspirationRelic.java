@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import aspiration.Aspiration;
 
+import java.util.ArrayList;
+
 public abstract class AspirationRelic extends AbstractRelic
 {
     public AspirationRelic(String setId, String imgName, RelicTier tier, LandingSound sfx)

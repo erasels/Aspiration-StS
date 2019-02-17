@@ -1,23 +1,22 @@
 package aspiration;
 
 import aspiration.events.CultistTraining;
+import aspiration.events.ElementalEggBirdNest;
+import aspiration.events.TheDarkMirror;
 import aspiration.relics.*;
+import aspiration.relics.Skillbooks.*;
+import aspiration.relics.abstracts.AspirationRelic;
 import basemod.BaseMod;
-import basemod.helpers.RelicType;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.ReflectionHacks;
+import basemod.helpers.RelicType;
 import basemod.interfaces.*;
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-
-import aspiration.events.ElementalEggBirdNest;
-import aspiration.events.TheDarkMirror;
-import aspiration.relics.abstracts.AspirationRelic;
-
 import com.megacrit.cardcrawl.audio.Sfx;
 import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -28,16 +27,21 @@ import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.localization.EventStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.UIStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Properties;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Properties;
 
 @SpireInitializer
 public class Aspiration implements
@@ -51,6 +55,22 @@ public class Aspiration implements
     private static SpireConfig modConfig = null;
     public static SpireConfig otherSaveData = null;
     public static TextureAtlas powerAtlas;
+    public static final int SKILLBOOK_SPAWN_AMOUNT = 4;
+
+    // Crossover checks
+    public static final boolean hasMarisa;
+    public static final boolean hasServant;
+
+    static {
+        hasMarisa = Loader.isModLoaded("TS05_Marisa");
+        if (hasMarisa) {
+            logger.info("Detected Character: Marisa");
+        }
+        hasServant = Loader.isModLoaded("BlackRuseMod");
+        if (hasMarisa) {
+            logger.info("Detected Character: Servant");
+        }
+    }
 
     public static void initialize()
     {
@@ -60,6 +80,7 @@ public class Aspiration implements
             Properties defaults = new Properties();
             defaults.put("WeakPoetsPen", Boolean.toString(true));
             defaults.put("uncommonNostalgia", Boolean.toString(false));
+            defaults.put("SkillbookCardpool", Boolean.toString(true));
             modConfig = new SpireConfig("Aspiration", "Config", defaults);
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,6 +106,14 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("uncommonNostalgia");
+    }
+
+    public static boolean skillbookCardpool()
+    {
+        if (modConfig == null) {
+            return false;
+        }
+        return modConfig.getBool("SkillbookCardpool");
     }
     
     public static void loadOtherData()
@@ -157,6 +186,20 @@ public class Aspiration implements
                 });
         settingsPanel.addUIElement(nostalgiaBtn);
 
+        ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton(TEXT[2], 350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
+                button ->
+                {
+                    if (modConfig != null) {
+                        modConfig.setBool("SkillbookCardpool", button.enabled);
+                        try {
+                            modConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(skillbookBtn);
+
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("img/UI/modBadge.png")), "Aspiration", "Erasels", "A mod, boyo.", settingsPanel);
 
     	
@@ -192,11 +235,15 @@ public class Aspiration implements
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
-    	BaseMod.addRelic(new Nostalgia(false), RelicType.SHARED);
-    	BaseMod.addRelic(new Nostalgia(true), RelicType.SHARED);
+    	BaseMod.addRelic(new Nostalgia(uncommonNostalgia()), RelicType.SHARED);
         BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
+
+        //Vanilla Skillbooks
+        BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
+        BaseMod.addRelic(new DefectSkillbook(), RelicType.SHARED);
+        BaseMod.addRelic(new SilentSkillbook(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
@@ -216,7 +263,14 @@ public class Aspiration implements
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
         BaseMod.addRelic(new Contagion(), RelicType.SHARED);
         BaseMod.addRelic(new SneckoTail(), RelicType.SHARED);
-        
+
+        //Crossover
+        if(hasMarisa) {
+            BaseMod.addRelic(new MarisaSkillbook(), RelicType.SHARED);
+        }
+        if(hasServant) {
+            BaseMod.addRelic(new ServantSkillbook(), RelicType.SHARED);
+        }
     }
 
     private String languageSupport()
@@ -249,7 +303,7 @@ public class Aspiration implements
         loadLocStrings("eng");
         loadLocStrings(language);
     }
-    
+
     @Override
     public void receivePostDungeonInitialize()
     {
@@ -262,16 +316,33 @@ public class Aspiration implements
                 logger.info(PoetsPen_weak.ID + " removed.");
             }
         }
-        
-        if (uncommonNostalgia()) {
-            if (AbstractDungeon.shopRelicPool.removeIf(r -> r.equals(Nostalgia.ID))) {
-                logger.info(Nostalgia.ID + " (Shop) removed.");
-            }
-        } else {
-        	if (AbstractDungeon.uncommonRelicPool.removeIf(r -> r.equals(Nostalgia.ID))) {
-                logger.info(Nostalgia.ID + " (Uncommon) removed.");
+
+        //Allow only SKILLBOOK_SPAWN_AMOUNT Skillbooks into the boss relic pool
+        Random rng = AbstractDungeon.relicRng;
+        ArrayList<SkillbookRelic> skillbookPool = new ArrayList<>();
+        for(String r : AbstractDungeon.bossRelicPool) {
+            AbstractRelic tmp = RelicLibrary.getRelic(r);
+            if(tmp instanceof SkillbookRelic) {
+                skillbookPool.add((SkillbookRelic) tmp);
             }
         }
+        for(int i = 0;i<SKILLBOOK_SPAWN_AMOUNT;i++) {
+            if(skillbookPool.size()>0) {
+                skillbookPool.remove(rng.random(skillbookPool.size()-1));
+            }
+        }
+        if(!skillbookPool.isEmpty()) {
+            if(AbstractDungeon.bossRelicPool.removeIf(relic -> RelicLibrary.getRelic(relic) instanceof SkillbookRelic && skillbookPool.contains(RelicLibrary.getRelic(relic)))) {
+                skillbookPool.forEach(sb -> logger.info("Removed Skillbook: " + sb.name));
+            }
+        }
+        /*for(Iterator<String> it = AbstractDungeon.bossRelicPool.iterator();it.hasNext(); ) {
+            String r = it.next();
+            AbstractRelic tmp = RelicLibrary.getRelic(r);
+            if (tmp instanceof SkillbookRelic && skillbookPool.contains(tmp)) {
+                AbstractDungeon.bossRelicPool.remove(tmp);
+            }
+        }*/
     }
     
     @Override
