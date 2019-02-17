@@ -53,8 +53,10 @@ public class ServantSkillbook extends SkillbookRelic {
 
     @Override
     public void onLoseHp(int dmg) {
-        took_dmg = true;
-        stopPulse();
+        if(dmg > 0) {
+            took_dmg = true;
+            stopPulse();
+        }
     }
 
     @Override

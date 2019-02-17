@@ -67,6 +67,9 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Future Diary": Gain Energy at the start of each turn. At the start of each turn a random card in your hand is picked. You must play that card before any other.
 
+Skillbooks: These relics have effects that reference the base archetype of the character they're based on. Furthermore, if it's enabled in the options menu, they allow you to get cards for the character.
+Currently implemented: Ironclad, Silent, Defect, Marisa and Servant.
+
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  
 StSLib: https://github.com/kiooeht/StSLib/releases
