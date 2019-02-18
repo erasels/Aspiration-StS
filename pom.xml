@@ -60,7 +60,13 @@
             <scope>system</scope>
             <systemPath>${basedir}/../lib/BlackRuseMod.jar</systemPath>
         </dependency>
-
+		<dependency>
+            <groupId>beakedthecultist</groupId>
+            <artifactId>BeakedTheCultist</artifactId>
+            <version>0.0.1</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/BeakedTheCultist.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <properties>

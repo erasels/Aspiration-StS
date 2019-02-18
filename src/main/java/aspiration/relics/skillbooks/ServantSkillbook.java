@@ -1,4 +1,4 @@
-package aspiration.relics.Skillbooks;
+package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
 import blackrusemod.characters.TheServant;
@@ -87,7 +87,7 @@ public class ServantSkillbook extends SkillbookRelic {
     @Override
     public boolean canSpawn()
     {
-        return !(AbstractDungeon.player instanceof TheServant);
+        return !(AbstractDungeon.player instanceof TheServant) && !hasSkillbookRelic(AbstractDungeon.player);
     }
 
     public AbstractRelic makeCopy() {

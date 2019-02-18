@@ -4,7 +4,8 @@ import aspiration.events.CultistTraining;
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.*;
-import aspiration.relics.Skillbooks.*;
+import aspiration.relics.crossovers.EmptySkull;
+import aspiration.relics.skillbooks.*;
 import aspiration.relics.abstracts.AspirationRelic;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
@@ -60,6 +61,7 @@ public class Aspiration implements
     // Crossover checks
     public static final boolean hasMarisa;
     public static final boolean hasServant;
+    public static final boolean hasBeaked;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -69,6 +71,10 @@ public class Aspiration implements
         hasServant = Loader.isModLoaded("BlackRuseMod");
         if (hasMarisa) {
             logger.info("Detected Character: Servant");
+        }
+        hasBeaked = Loader.isModLoaded("beakedthecultist-sts");
+        if (hasMarisa) {
+            logger.info("Detected Character: Beaked");
         }
     }
 
@@ -240,7 +246,7 @@ public class Aspiration implements
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
 
-        //Vanilla Skillbooks
+        //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
         BaseMod.addRelic(new DefectSkillbook(), RelicType.SHARED);
         BaseMod.addRelic(new SilentSkillbook(), RelicType.SHARED);
@@ -270,6 +276,10 @@ public class Aspiration implements
         }
         if(hasServant) {
             BaseMod.addRelic(new ServantSkillbook(), RelicType.SHARED);
+        }
+        if(hasBeaked) {
+            BaseMod.addRelic(new EmptySkull(), RelicType.SHARED);
+            BaseMod.addRelic(new BeakedSkillbook(), RelicType.SHARED);
         }
     }
 
@@ -317,7 +327,7 @@ public class Aspiration implements
             }
         }
 
-        //Allow only SKILLBOOK_SPAWN_AMOUNT Skillbooks into the boss relic pool
+        //Allow only SKILLBOOK_SPAWN_AMOUNT skillbooks into the boss relic pool
         Random rng = AbstractDungeon.relicRng;
         ArrayList<SkillbookRelic> skillbookPool = new ArrayList<>();
         for(String r : AbstractDungeon.bossRelicPool) {

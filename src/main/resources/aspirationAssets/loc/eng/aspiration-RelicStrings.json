@@ -278,13 +278,23 @@
       "."
     ]
   },
+  "aspiration:EmptySkull": {
+    "NAME": "Empty Skull",
+    "FLAVOR": "The skull of a once great, empty-headed Philosopher",
+    "DESCRIPTIONS": [
+      "Whenever you play the last remaining card in your hand, shuffle ",
+      "an",
+      "#b",
+      " #yInspiration into your draw pile."
+    ]
+  },
   "aspiration:MarisaSkillbook": {
     "NAME": "Marisa's Skillbook",
     "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
     "DESCRIPTIONS": [
       "Whenever you play a card or apply a debuff, gain #b",
       " #yCharge-up .",
-      " NL NL Cards from Marisa may spawn now."
+      " NL NL Cards from Marisa may spawn now and future Card Reward screens have #b1 additional card to choose from."
     ]
   },
   "aspiration:IroncladSkillbook": {
@@ -295,7 +305,7 @@
       " #yBlock , gain #b",
       " #yStrength . At the end of combat, heal #b",
       " HP.",
-      " NL NL Cards from the Ironclad may spawn now."
+      " NL NL Cards from the Ironclad may spawn now and future Card Reward screens have #b1 additional card to choose from."
     ]
   },
   "aspiration:DefectSkillbook": {
@@ -305,7 +315,7 @@
       "At the start of each combat, gain #b",
       " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower, #yChannel a random Orb at the start of your turn for #b",
       " turns.",
-      " NL NL Cards from the Defect may spawn now."
+      " NL NL Cards from the Defect may spawn now and future Card Reward screens have #b1 additional card to choose from."
     ]
   },
   "aspiration:SilentSkillbook": {
@@ -314,7 +324,7 @@
     "DESCRIPTIONS": [
       "At the start of combat, gain #yEnvenom and at the start of each turn, add #b",
       " #yShiv to your hand.",
-      " NL NL Cards from the Silent may spawn now."
+      " NL NL Cards from the Silent may spawn now and future Card Reward screens have #b1 additional card to choose from."
     ]
   },
   "aspiration:ServantSkillbook": {
@@ -323,7 +333,7 @@
     "DESCRIPTIONS": [
       "At the start of each turn, if you took no HP damage last turn, gain #b",
       " #ySattelites .",
-      " NL NL Cards from the Servant may spawn now."
+      " NL NL Cards from the Servant may spawn now and future Card Reward screens have #b1 additional card to choose from."
     ]
   }
 }

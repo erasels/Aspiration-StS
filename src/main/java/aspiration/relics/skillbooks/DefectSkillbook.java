@@ -1,4 +1,4 @@
-package aspiration.relics.Skillbooks;
+package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -87,7 +87,7 @@ public class DefectSkillbook extends SkillbookRelic {
     @Override
     public boolean canSpawn()
     {
-        return !(AbstractDungeon.player instanceof Defect);
+        return !(AbstractDungeon.player instanceof Defect) && !hasSkillbookRelic(AbstractDungeon.player);
     }
 
     public AbstractRelic makeCopy() {

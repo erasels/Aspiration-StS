@@ -1,4 +1,4 @@
-package aspiration.relics.Skillbooks;
+package aspiration.relics.skillbooks;
 
 import ThMod.characters.Marisa;
 import ThMod.patches.LibraryTypeEnum;
@@ -78,7 +78,7 @@ public class MarisaSkillbook extends SkillbookRelic /*implements CustomSavable<I
     @Override
     public boolean canSpawn()
     {
-        return !(AbstractDungeon.player instanceof Marisa);
+        return !(AbstractDungeon.player instanceof Marisa) && !hasSkillbookRelic(AbstractDungeon.player);
     }
 
     public void triggerChargeup(int i) {
