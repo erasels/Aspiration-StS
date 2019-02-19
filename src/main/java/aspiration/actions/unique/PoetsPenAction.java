@@ -1,4 +1,4 @@
-package aspiration.actions;
+package aspiration.actions.unique;
 
 import aspiration.patches.AbstractCardPoetsPendField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -10,8 +10,6 @@ import com.megacrit.cardcrawl.actions.utility.UnlimboAction;
 import com.megacrit.cardcrawl.actions.utility.WaitAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

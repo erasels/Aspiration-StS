@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class SilentSkillbook extends SkillbookRelic {
+public class SilentSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
     public static final String ID = "aspiration:SilentSkillbook";
 
     private static final int SHIV_AMT = 1;
@@ -28,6 +28,7 @@ public class SilentSkillbook extends SkillbookRelic {
         super(ID, "SilentSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
         tips.clear();
         tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
         tips.add(new PowerTip(Envenom.NAME, Envenom.DESCRIPTION));
         initializeTips();
     }

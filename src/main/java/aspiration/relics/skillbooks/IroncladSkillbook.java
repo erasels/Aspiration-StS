@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.Ironclad;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class IroncladSkillbook extends SkillbookRelic {
+public class IroncladSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
     public static final String ID = "aspiration:IroncladSkillbook";
 
     private static final int STR_THRESHOLD = 15;
@@ -23,6 +24,10 @@ public class IroncladSkillbook extends SkillbookRelic {
 
     public IroncladSkillbook() {
         super(ID, "IroncladSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        initializeTips();
     }
 
     @Override

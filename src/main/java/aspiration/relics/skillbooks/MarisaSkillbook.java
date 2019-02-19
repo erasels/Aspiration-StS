@@ -12,6 +12,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -20,13 +21,17 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class MarisaSkillbook extends SkillbookRelic /*implements CustomSavable<Integer>*/ {
+public class MarisaSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
     public static final String ID = "aspiration:MarisaSkillbook";
 
     private static final int CHARGE_STACK = 1;
 
     public MarisaSkillbook() {
         super(ID, "MarisaSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        initializeTips();
     }
 
     @Override

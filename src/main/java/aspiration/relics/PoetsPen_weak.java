@@ -1,14 +1,12 @@
 package aspiration.relics;
 
-import aspiration.actions.PoetsPenAction;
+import aspiration.actions.unique.PoetsPenAction;
 import aspiration.patches.AbstractCardPoetsPendField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
-import com.megacrit.cardcrawl.cards.blue.GeneticAlgorithm;
-import com.megacrit.cardcrawl.cards.colorless.RitualDagger;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;

@@ -288,13 +288,21 @@
       " #yInspiration into your draw pile."
     ]
   },
+  "aspiration:Skillbook": {
+    "NAME": "Multiclass Keyword",
+    "FLAVOR": "This shouldn't be seen.",
+    "DESCRIPTIONS": [
+      "Multiclass",
+      "Cards from the associated class may spawn now and future Card Reward screens have #b1 additional card to choose from."
+    ]
+  },
   "aspiration:MarisaSkillbook": {
     "NAME": "Marisa's Skillbook",
     "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
     "DESCRIPTIONS": [
       "Whenever you play a card or apply a debuff, gain #b",
       " #yCharge-up .",
-      " NL NL Cards from Marisa may spawn now and future Card Reward screens have #b1 additional card to choose from."
+      " NL NL #yMulticlass Marisa"
     ]
   },
   "aspiration:IroncladSkillbook": {
@@ -305,7 +313,7 @@
       " #yBlock , gain #b",
       " #yStrength . At the end of combat, heal #b",
       " HP.",
-      " NL NL Cards from the Ironclad may spawn now and future Card Reward screens have #b1 additional card to choose from."
+      " NL NL #yMulticlass Ironclad"
     ]
   },
   "aspiration:DefectSkillbook": {
@@ -315,7 +323,7 @@
       "At the start of each combat, gain #b",
       " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower, #yChannel a random Orb at the start of your turn for #b",
       " turns.",
-      " NL NL Cards from the Defect may spawn now and future Card Reward screens have #b1 additional card to choose from."
+      " NL NL #yMulticlass Defect"
     ]
   },
   "aspiration:SilentSkillbook": {
@@ -324,16 +332,26 @@
     "DESCRIPTIONS": [
       "At the start of combat, gain #yEnvenom and at the start of each turn, add #b",
       " #yShiv to your hand.",
-      " NL NL Cards from the Silent may spawn now and future Card Reward screens have #b1 additional card to choose from."
+      " NL NL #yMulticlass Silent"
     ]
   },
   "aspiration:ServantSkillbook": {
     "NAME": "Servant's Skillbook",
-    "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages. ",
+    "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages.",
     "DESCRIPTIONS": [
       "At the start of each turn, if you took no HP damage last turn, gain #b",
       " #ySattelites .",
-      " NL NL Cards from the Servant may spawn now and future Card Reward screens have #b1 additional card to choose from."
+      " NL NL #yMulticlass Servant"
+    ]
+  },
+  "aspiration:BeakedSkillbook": {
+    "NAME": "Beaked's Skillbook",
+    "FLAVOR": "These religious texts depict the awakening of the \"Chosen One\" before devolving into nonesense.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you have at most #b",
+      " non-attack card in your hand, gain #b",
+      " #yStrength and heal as much HP as you have #yStrength .",
+      " NL NL #yMulticlass Beaked"
     ]
   }
 }

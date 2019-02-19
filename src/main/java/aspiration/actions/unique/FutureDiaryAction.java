@@ -1,4 +1,4 @@
-package aspiration.actions;
+package aspiration.actions.unique;
 
 import aspiration.relics.FutureDiary;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

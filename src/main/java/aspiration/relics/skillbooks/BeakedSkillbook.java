@@ -1,32 +1,58 @@
 package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
+import aspiration.actions.unique.BeakedSkillbookAction;
+import aspiration.actions.PowerAmountBasedHealAction;
 import beaked.cards.Ceremony;
-import beaked.patches.LibraryTypeEnum;
 import beaked.characters.BeakedTheCultist;
+import beaked.patches.LibraryTypeEnum;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
+import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class BeakedSkillbook extends SkillbookRelic {
+public class BeakedSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
     public static final String ID = "aspiration:BeakedSkillbook";
+
+    private static final int THRESHOLD = 1;
+    private static final int STR_AMT = 1;
+    private static final AbstractCard.CardType CARDTYPE = AbstractCard.CardType.ATTACK;
 
     public BeakedSkillbook() {
         super(ID, "BeakedSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        initializeTips();
     }
 
     @Override
     public String getUpdatedDescription() {
         if (Aspiration.skillbookCardpool()) {
-            return DESCRIPTIONS[0] + DESCRIPTIONS[1];
+            return DESCRIPTIONS[0] + THRESHOLD + DESCRIPTIONS[1] + STR_AMT + DESCRIPTIONS[2] + DESCRIPTIONS[3];
         } else {
-            return DESCRIPTIONS[0];
+            return DESCRIPTIONS[0] + THRESHOLD + DESCRIPTIONS[1] + STR_AMT + DESCRIPTIONS[2];
         }
+    }
+
+    @Override
+    public void atTurnStartPostDraw() {
+        AbstractDungeon.actionManager.addToBottom(new BeakedSkillbookAction(CARDTYPE, THRESHOLD));
+    }
+
+    public void performAction() {
+        flash();
+        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, STR_AMT), STR_AMT));
+        AbstractDungeon.actionManager.addToBottom(new PowerAmountBasedHealAction(AbstractDungeon.player, AbstractDungeon.player, StrengthPower.POWER_ID));
     }
 
     @Override

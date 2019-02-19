@@ -1,15 +1,12 @@
 package aspiration.relics.abstracts;
 
+import aspiration.Aspiration;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.Aspiration;
-
-import java.util.ArrayList;
 
 public abstract class AspirationRelic extends AbstractRelic
 {
@@ -23,19 +20,6 @@ public abstract class AspirationRelic extends AbstractRelic
             img = ImageMaster.loadImage(Aspiration.assetPath("img/relics/" + imgName));
             largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgName));
             outlineImg = ImageMaster.loadImage(Aspiration.assetPath("img/relics/outline/" + imgName));
-        }
-    }
-
-    @Override
-    public void loadLargeImg()
-    {
-        if (largeImg == null) {
-            if (imgUrl.startsWith("test")) {
-                largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgUrl));
-            }
-            if (largeImg == null) {
-                largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgUrl));
-            }
         }
     }
     
