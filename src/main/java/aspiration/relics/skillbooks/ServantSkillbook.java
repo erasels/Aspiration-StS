@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class ServantSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
+public class ServantSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
     public static final String ID = "aspiration:ServantSkillbook";
 
     private static final int SAT_AMT = 4;
@@ -24,12 +24,7 @@ public class ServantSkillbook extends SkillbookRelic implements SkillbookRelic_I
     private boolean took_dmg = true;
 
     public ServantSkillbook() {
-        super(ID, "ServantSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
-        tips.clear();
-        tips.add(new PowerTip(name, description));
-        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
-        tips.add(new PowerTip(SatellitePower.NAME, SatellitePower.DESCRIPTIONS[0] + SAT_ATK + SatellitePower.DESCRIPTIONS[1]));
-        initializeTips();
+        super(ID, "ServantSkillbook.png", RelicTier.BOSS, LandingSound.FLAT, new PowerTip(SatellitePower.NAME, SatellitePower.DESCRIPTIONS[0] + SAT_ATK + SatellitePower.DESCRIPTIONS[1]));
     }
 
     @Override

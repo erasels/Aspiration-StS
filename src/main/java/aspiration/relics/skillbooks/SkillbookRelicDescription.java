@@ -3,7 +3,7 @@ package aspiration.relics.skillbooks;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 
-public interface SkillbookRelic_Interface {
+public interface SkillbookRelicDescription {
     class data
     {
         private static final String ID = "aspiration:Skillbook";

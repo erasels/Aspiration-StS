@@ -4,14 +4,37 @@ import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
-public abstract class SkillbookRelic extends AspirationRelic {
+public abstract class SkillbookRelic extends AspirationRelic implements SkillbookRelicDescription {
 
-    public SkillbookRelic(String setId, String imgName, RelicTier tier, LandingSound sfx) {
+    protected SkillbookRelic(String setId, String imgName, RelicTier tier, LandingSound sfx) {
         super(setId, imgName, tier, sfx);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        initializeTips();
+    }
+
+    protected SkillbookRelic(String setId, String imgName, RelicTier tier, LandingSound sfx, PowerTip pTip) {
+        super(setId, imgName, tier, sfx);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        tips.add(pTip);
+        initializeTips();
+    }
+
+    protected SkillbookRelic(String setId, String imgName, RelicTier tier, LandingSound sfx, ArrayList<PowerTip> pTips) {
+        super(setId, imgName, tier, sfx);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        tips.addAll(pTips);
+        initializeTips();
     }
 
     public static boolean hasSkillbookRelic(AbstractPlayer p) {
@@ -23,7 +46,7 @@ public abstract class SkillbookRelic extends AspirationRelic {
         return false;
     }
 
-    public void mixCardpools(ArrayList<AbstractCard> cardList) {
+    protected void mixCardpools(ArrayList<AbstractCard> cardList) {
         for (AbstractCard c : cardList) {
             if(c.rarity != AbstractCard.CardRarity.BASIC) {
                 switch (c.rarity) {

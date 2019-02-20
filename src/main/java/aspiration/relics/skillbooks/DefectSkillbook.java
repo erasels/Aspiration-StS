@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -17,7 +16,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class DefectSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
+public class DefectSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
     public static final String ID = "aspiration:DefectSkillbook";
 
     private static final int ORB_SLOTS = 2;
@@ -26,10 +25,6 @@ public class DefectSkillbook extends SkillbookRelic implements SkillbookRelic_In
 
     public DefectSkillbook() {
         super(ID, "DefectSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
-        tips.clear();
-        tips.add(new PowerTip(name, description));
-        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
-        initializeTips();
     }
 
     @Override

@@ -18,19 +18,14 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class SilentSkillbook extends SkillbookRelic implements SkillbookRelic_Interface {
+public class SilentSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
     public static final String ID = "aspiration:SilentSkillbook";
 
     private static final int SHIV_AMT = 1;
     private static final int ENV_AMT = 1;
 
     public SilentSkillbook() {
-        super(ID, "SilentSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
-        tips.clear();
-        tips.add(new PowerTip(name, description));
-        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
-        tips.add(new PowerTip(Envenom.NAME, Envenom.DESCRIPTION));
-        initializeTips();
+        super(ID, "SilentSkillbook.png", RelicTier.BOSS, LandingSound.FLAT, new PowerTip(Envenom.NAME, Envenom.DESCRIPTION));
     }
 
     @Override
