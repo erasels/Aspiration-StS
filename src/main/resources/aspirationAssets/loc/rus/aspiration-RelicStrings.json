@@ -4,7 +4,7 @@
     "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
     "DESCRIPTIONS": [
       "Whenever you apply #yPoison to an enemy that wasn't poisoned, apply #b",
-	  " #yVulnerable and #yWeak ."
+      " #yVulnerable and #yWeak ."
     ]
   },
   "aspiration:RingOfOuroboros": {
@@ -12,9 +12,9 @@
     "FLAVOR": "Your ring suddenly came alive and started eating itself. Prodding it hurts you as much as it helps you focus.",
     "DESCRIPTIONS": [
       "Take #r",
-	  " damage and draw #b",
-	  " card.",
-	  "Replaces #gRing #gof #gthe #gSnake. NL ",
+      " damage and draw #b",
+      " card.",
+      "Replaces #gRing #gof #gthe #gSnake. NL ",
       " NL "
     ]
   },
@@ -23,10 +23,10 @@
     "FLAVOR": "Your thirst for destruction has turned your blood into something wholely more sinister.",
     "DESCRIPTIONS": [
       "Lose #b",
-	  " HP for every #yskill, heal #b",
-	  " for every #yattack and #b",
-	  " for every #ypower you play.",
-	  "Replaces #rBurning #rBlood. "
+      " HP for every #yskill, heal #b",
+      " for every #yattack and #b",
+      " for every #ypower you play.",
+      "Replaces #rBurning #rBlood. "
     ]
   },
   "aspiration:BursterCore": {
@@ -34,9 +34,9 @@
     "FLAVOR": "The nonoptimal fix to your core has caused it to switch between lightning fast and sluggishly slow computing on regular intervals.",
     "DESCRIPTIONS": [
       "At the end of your turn, #yChannel #b",
-	  " #yLightning for every empty orb slot every #b",
-	  " turns.",
-	  "Replaces #bCracked #bCore. "
+      " #yLightning for every empty orb slot every #b",
+      " turns.",
+      "Replaces #bCracked #bCore. "
     ]
   },
   "aspiration:Contagion": {
@@ -44,11 +44,11 @@
     "FLAVOR": "You've contracted a mysterious illness, it ails you if you don't pass it along.",
     "DESCRIPTIONS": [
       "Gain [E] every time you apply #b",
-	  " #yPoison, up to #b",
-	  " times per turn. If no enemy is #ypoisoned at the end of your turn, inflict #b",
-	  " #yPoison on yourself.",
-	  "The Contagion is sated for now.",
-	  " NL NL [E] gained this turn: #b"
+      " #yPoison, up to #b",
+      " times per turn. If no enemy is #ypoisoned at the end of your turn, inflict #b",
+      " #yPoison on yourself.",
+      "The Contagion is sated for now.",
+      " NL NL [E] gained this turn: #b"
     ]
   },
   "aspiration:SneckoTail": {
@@ -63,7 +63,7 @@
     "FLAVOR": "A thousand beats a minute, the power of your heart is incredible but wanes fast.",
     "DESCRIPTIONS": [
       "Gain #b",
-	  " #yBlock for every card played at the start of combat, then reduce the effect by #b1 on the next #b3 turns."
+      " #yBlock for every card played at the start of combat, then reduce the effect by #b1 on the next #b3 turns."
     ]
   },
   "aspiration:Headhunter": {
@@ -87,43 +87,42 @@
     "FLAVOR": "Such a lucky find! A rarity amongst rarities will surely lead to an exalted run.",
     "DESCRIPTIONS": [
       "[Unbalanced and broken, but useable.] Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
-	  " battles.",
+      " battles.",
       "Applied Powers: ",
       "Energy"
     ]
   },
   "aspiration:AnachronicSnailShell": {
     "NAME": "Anachronic Snail Shell",
-    "FLAVOR": "This piece of a snail's shell resists the flow of time, slowly tumbling along its own path.",
+    "FLAVOR": "This piece of a snail's shell resists the flow of time, tumbling along at its own paradoxical pace.",
     "DESCRIPTIONS": [
-      "All damage resulting in #rHP loss from attacks against you is delayed by #b1 turn. NL ",
-	  "Warning: Delayed damage will be attributed to a single random foe."
+      "Whenever you lose HP from enemy attacks, delay half of it to the end of your next turn."
     ]
   },
   "aspiration:SupercapacitiveCoin": {
     "NAME": "Supercapacitive Coin",
     "FLAVOR": "A mysterious arcade coin that can store large amounts of electricity. If enough is stored, maybe you could create a railgun?",
     "DESCRIPTIONS": [
-	  "#yThunder strikes a random enemy for each charge you have. NL ",
+      "Deal #b3 damage to a random enemy for each charge you have on this relic. NL ",
       "Gain #b",
-	  " #yCharge everytime you gain gold. NL ",
-	  " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",
-	  "Useable once per combat.",
+      " #yCharge everytime you gain gold. NL ",
+      " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",
+      "Useable once per combat.",
       "Deals #b3 + #b1 * ( #yCharges / #b5 ) damage.",
       "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm.",
       " #yCharge everytime you travel up a floor.",
       "Thunder",
-      "Synergy: Ectoplasm"
+      "Synergy: "
     ]
   },
   "aspiration:PoetsPen": {
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Every time you play an attack, play the top card of your draw pile. NL Start combat with #r",
-	  " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
-	  "#b1 for every #b",
-	  " floors visited with the associated relic in hand and every boss killed before pickup.",
+      "Every time you play an attack, play the top card of your draw pile. NL Start combat with #r",
+      " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
+      "#b1 for every #b",
+      " floors visited with the associated relic in hand and every boss killed before pickup.",
       "Experience"
     ]
   },
@@ -131,104 +130,104 @@
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Every time you play an attack, play the top card of your draw pile if it's an attack, otherwise discard it."
+      "Every time you play an attack, play the top card of your draw pile if it's an attack, otherwise discard it."
     ]
   },
   "aspiration:EnhancedActuators": {
     "NAME": "Enhanced Actuators",
     "FLAVOR": "Big actuators... equal big... gains?",
     "DESCRIPTIONS": [
-	  "Gain #b",
-	  " #yStrength for every #b",
-	  " orb slots."
+      "Gain #b",
+      " #yStrength for every #b",
+      " orb slots."
     ]
   },
   "aspiration:MysteriousAuxiliaryCore": {
     "NAME": "Mysterious Auxiliary Core",
     "FLAVOR": "Secondary systems have reported anamalous charge generation. Observation recommended.",
     "DESCRIPTIONS": [
-	  "At the end of your turn, #yChannel #b",
-	  " random orb every #b",
-	  " turns."
+      "At the end of your turn, #yChannel #b",
+      " random orb every #b",
+      " turns."
     ]
   },
   "aspiration:FetidBarrel": {
     "NAME": "Fetid Barrel",
     "FLAVOR": "Even the tightly sealed interior cannot contain the pungent smell.",
     "DESCRIPTIONS": [
-      "Всякий раз, когда вы #yисчерпаете карту, примените #b",
-      " #yЯд ВСЕМ врагам."
+      "Whenever you #yExhaust a card, apply #b",
+      " #yPoison to ALL enemies."
     ]
   },
   "aspiration:BabyByrd": {
     "NAME": "Baby Byrd",
     "FLAVOR": "For better or for worse, you've decided that this untainted creature deserves a better life.",
     "DESCRIPTIONS": [
-	  "Teach your little companion about your tools of trade and he'll repay you in kind. NL NL (It does something at the start of battle once you have amassed enough charges.)",
-	  "Go for the eyes!",
-	  "Patience, little one.",
-	  "LET US SLAY THESE VERMIN!",
-	  "...",
-	  "..",
-	  ".",
-	  "An optimal choice of words.",
-	  "Fascinating.",
-	  "Development is on an optimal course."
+      "Teach your little companion about your tools of trade and he'll repay you in kind. NL NL (It does something at the start of battle once you have amassed enough charges.)",
+      "Go for the eyes!",
+      "Patience, little one.",
+      "LET US SLAY THESE VERMIN!",
+      "...",
+      "..",
+      ".",
+      "An optimal choice of words.",
+      "Fascinating.",
+      "Development is on an optimal course."
     ]
   },
   "aspiration:StickyExplosives": {
     "NAME": "Sticky Explosives",
     "FLAVOR": "You have the power of attacks and explosions on your side!",
     "DESCRIPTIONS": [
-	  "Apply #yAftershock to the first monster you attack on the first round of combat."
+      "Apply #yAftershock to the first monster you attack on the first round of combat."
     ]
   },
   "aspiration:FrozenJewel": {
     "NAME": "Frozen Jewel",
     "FLAVOR": "In your numb embrace, it pulses with comforting energy.",
     "DESCRIPTIONS": [
-	  "At the end of your turn, gain #b",
-	  " #yBlock for every enemy that intends to attack. Gain #yBlur if there are multiple enemies and all intend to attack."
+      "At the end of your turn, gain #b",
+      " #yBlock for every enemy that intends to attack. Gain #yBlur if there are multiple enemies and all intend to attack."
     ]
   },
   "aspiration:EvolvingReagent": {
     "NAME": "Evolving Reagent",
     "FLAVOR": "A mysterious stone that seems to add an extra punch to your potions.",
     "DESCRIPTIONS": [
-	  "Drink potions to gain effects!"
+      "Drink potions to gain effects!"
     ]
   },
   "aspiration:Lifesprig": {
     "NAME": "Lifesprig",
     "FLAVOR": "From the weakest slime to the strongest abomination, hostile life thrives in the spire. Maybe, so can you.",
     "DESCRIPTIONS": [
-	  "Every time you play #b",
-	  " #yAttacks, gain #b",
-	  " #yRegeneration."
+      "Every time you play #b",
+      " #yAttacks, gain #b",
+      " #yRegeneration."
     ]
   },
   "aspiration:RitualDagger": {
     "NAME": "Ritual Dagger",
     "FLAVOR": "With every move you make, you feel the dagger dig in deeper into your being. You fear what you may become if you give in.",
     "DESCRIPTIONS": [
-	  "Lose #r",
-	  " HP at the start of your turn.",
-	  " When you would die, heal to your Max HP instead and gain #yAwoken (works once)."
+      "Lose #r",
+      " HP at the start of your turn.",
+      " When you would die, heal to your Max HP instead and gain #yAwoken (works once)."
     ]
   },
   "aspiration:KaomsHeart": {
     "NAME": "Kaom's Heart",
     "FLAVOR": "The warrior who fears, will fail. Never look back. Never stop. Never surrender.",
     "DESCRIPTIONS": [
-	  "Raise your Max HP by #b",
-	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN."
+      "Raise your Max HP by #b",
+      " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN."
     ]
   },
   "aspiration:Nostalgia": {
     "NAME": "Nostalgia",
     "FLAVOR": "Take heart in the memory of those that came before.",
     "DESCRIPTIONS": [
-	  "Upon pickup, obtain a random #yStarter #yRelic that you don't have yet."
+      "Upon pickup, obtain a random #yStarter #yRelic that you don't have yet."
     ]
   },
   "aspiration:InnerPendulum": {
@@ -277,6 +276,79 @@
       "Gain [E] at the start of each turn. NL At the start of each turn a random card in your hand is picked. You must play that card before any other.",
       "I must play ",
       "."
+    ]
+  },
+  "aspiration:EmptySkull": {
+    "NAME": "Empty Skull",
+    "FLAVOR": "The skull of a once great, empty-headed Philosopher",
+    "DESCRIPTIONS": [
+      "Whenever you play the last remaining card in your hand, shuffle an #yInspiration into your draw pile."
+    ]
+  },
+  "aspiration:Skillbook": {
+    "NAME": "Multiclass Keyword",
+    "FLAVOR": "This shouldn't be seen.",
+    "DESCRIPTIONS": [
+      "Multiclass",
+      "Cards from the associated class may spawn now, and future Card Reward screens have #b1 additional card to choose from."
+    ]
+  },
+  "aspiration:MarisaSkillbook": {
+    "NAME": "Marisa's Skillbook",
+    "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
+    "DESCRIPTIONS": [
+      "Whenever you play a card or apply a debuff, gain #b",
+      " #yCharge-up .",
+      " NL NL #yMulticlass Marisa"
+    ]
+  },
+  "aspiration:IroncladSkillbook": {
+    "NAME": "Ironclad's Skillbook",
+    "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
+    "DESCRIPTIONS": [
+      "At the end of each turn, if you have more than #b",
+      " #yBlock , gain #b",
+      " #yStrength . At the end of combat, heal #b",
+      " HP.",
+      " NL NL #yMulticlass Ironclad"
+    ]
+  },
+  "aspiration:DefectSkillbook": {
+    "NAME": "Defect's Skillbook",
+    "FLAVOR": "Pages upon pages filled with meticulously written 1s and 0s, what could this mean?",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #b",
+      " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower, #yChannel a random Orb at the start of your turn for #b",
+      " turns.",
+      " NL NL #yMulticlass Defect"
+    ]
+  },
+  "aspiration:SilentSkillbook": {
+    "NAME": "Silent's Skillbook",
+    "FLAVOR": "Pages filled with information on how to deal with this place. A talk with the author should be enlightening.",
+    "DESCRIPTIONS": [
+      "At the start of combat, gain #yEnvenom and at the start of each turn, add #b",
+      " #yShiv to your hand.",
+      " NL NL #yMulticlass Silent"
+    ]
+  },
+  "aspiration:ServantSkillbook": {
+    "NAME": "Servant's Skillbook",
+    "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you took no HP damage last turn, gain #b",
+      " #ySattelites .",
+      " NL NL #yMulticlass Servant"
+    ]
+  },
+  "aspiration:BeakedSkillbook": {
+    "NAME": "Beaked's Skillbook",
+    "FLAVOR": "These religious texts depict the awakening of the \"Chosen One\" before devolving into nonesense.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you have at most #b",
+      " non-attack card in your hand, gain #b",
+      " #yStrength and heal as much HP as you have #yStrength .",
+      " NL NL #yMulticlass Beaked"
     ]
   }
 }

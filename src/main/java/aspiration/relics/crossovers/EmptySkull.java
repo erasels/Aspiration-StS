@@ -19,11 +19,7 @@ public class EmptySkull extends AspirationRelic {
 
     @Override
     public String getUpdatedDescription() {
-        if(INSP_AMT > 1) {
-            return DESCRIPTIONS[0] + DESCRIPTIONS[2] + INSP_AMT + DESCRIPTIONS[3];
-        } else {
-            return DESCRIPTIONS[0] + DESCRIPTIONS[1] + DESCRIPTIONS[3];
-        }
+        return DESCRIPTIONS[0];
 
     }
 

@@ -282,10 +282,7 @@
     "NAME": "Empty Skull",
     "FLAVOR": "The skull of a once great, empty-headed Philosopher",
     "DESCRIPTIONS": [
-      "Whenever you play the last remaining card in your hand, shuffle ",
-      "an",
-      "#b",
-      " #yInspiration into your draw pile."
+      "Whenever you play the last remaining card in your hand, shuffle an #yInspiration into your draw pile."
     ]
   },
   "aspiration:Skillbook": {
