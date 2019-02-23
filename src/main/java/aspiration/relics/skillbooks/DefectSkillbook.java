@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class DefectSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
+public class DefectSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:DefectSkillbook";
 
     private static final int ORB_SLOTS = 2;

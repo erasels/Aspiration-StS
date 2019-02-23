@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class IroncladSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
+public class IroncladSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:IroncladSkillbook";
 
     private static final int STR_THRESHOLD = 20;

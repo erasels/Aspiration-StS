@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class SilentSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
+public class SilentSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:SilentSkillbook";
 
     private static final int SHIV_AMT = 1;

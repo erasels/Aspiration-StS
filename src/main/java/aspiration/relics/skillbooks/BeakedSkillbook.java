@@ -18,7 +18,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class BeakedSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
+public class BeakedSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:BeakedSkillbook";
 
     private static final int THRESHOLD = 1;

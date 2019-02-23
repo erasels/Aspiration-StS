@@ -3,8 +3,8 @@
     "NAME": "Vile Toxins",
     "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yPoison to an enemy that wasn't poisoned, apply #b",
-	  " #yVulnerable and #yWeak ."
+      "Whenever you apply #yPoison to an enemy that wasn't #ypoisoned [blackbeard:REMOVE_SPACE], apply #b",
+	  " #yVulnerable and #yWeak [blackbeard:REMOVE_SPACE]."
     ]
   },
   "aspiration:RingOfOuroboros": {
@@ -23,7 +23,7 @@
     "FLAVOR": "Your thirst for destruction has turned your blood into something wholely more sinister.",
     "DESCRIPTIONS": [
       "Lose #b",
-	  " HP for every #yskill, heal #b",
+	  " HP for every #yskill [blackbeard:REMOVE_SPACE], heal #b",
 	  " for every #yattack and #b",
 	  " for every #ypower you play.",
 	  "Replaces #rBurning #rBlood. "
@@ -44,9 +44,9 @@
     "FLAVOR": "You've contracted a mysterious illness, it ails you if you don't pass it along.",
     "DESCRIPTIONS": [
       "Gain [E] every time you apply #b",
-	  " #yPoison, up to #b",
-	  " times per turn. If no enemy is #ypoisoned at the end of your turn, inflict #b",
-	  " #yPoison on yourself.",
+	  " #yPoison [blackbeard:REMOVE_SPACE], up to #b",
+	  " times per turn. If no enemy is #ypoisoned at the end of your turn, apply #b",
+	  " #yPoison to yourself.",
 	  "The Contagion is sated for now.",
 	  " NL NL [E] gained this turn: #b"
     ]
@@ -70,14 +70,14 @@
     "NAME": "Headhunter",
     "FLAVOR": "A belt of severed heads, the first step on the path of exiling yourself from this place of the damned.",
     "DESCRIPTIONS": [
-      "Gain #yCharges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored #yCharges. Visiting non-monster rooms makes #yCharges decay based on the type of room. #gRight-click #gto #gsee #gmore #ginformation.",
+      "Gain #yCharges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored #yCharges [blackbeard:REMOVE_SPACE]. Visiting non-monster rooms makes #yCharges decay based on the type of room. #gRight-click #gto #gsee #gmore #ginformation [blackbeard:REMOVE_SPACE].",
       "#yCharge gain on monster kill: Normal: #b",
-      ", Elite: #b",
-      ", Boss: #b",
-      ". #yCharge loss on non-monster room: Rest: #r",
-      ", Merchant: #r",
-      ", Unknown: #r",
-      ".",
+      " [blackbeard:REMOVE_SPACE], Elite: #b",
+      " [blackbeard:REMOVE_SPACE], Boss: #b",
+      " [blackbeard:REMOVE_SPACE]. #yCharge loss on non-monster room: Rest: #r",
+      " [blackbeard:REMOVE_SPACE], Merchant: #r",
+      " [blackbeard:REMOVE_SPACE], Unknown: #r",
+      " [blackbeard:REMOVE_SPACE].",
       "Current set of #yBuffs: ",
       "Energized"
     ]
@@ -119,8 +119,8 @@
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Every time you play an attack, play the top card of your draw pile. NL Start combat with #r",
-	  " stacks of #yWeak, #yFrail and #yVulnerable on you, reduced by #yExperience.",
+	  "Every time you play an #yAttack [blackbeard:REMOVE_SPACE], play the top card of your draw pile. NL Start combat with #r",
+	  " stacks of #yWeak [blackbeard:REMOVE_SPACE], #yFrail and #yVulnerable on you, reduced by #yExperience [blackbeard:REMOVE_SPACE].",
 	  "#b1 for every #b",
 	  " floors visited with the associated relic in hand and every boss killed before pickup.",
       "Experience"
@@ -130,7 +130,7 @@
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Every time you play an attack, play the top card of your draw pile if it's an attack, otherwise discard it."
+	  "Every time you play an #yAttack [blackbeard:REMOVE_SPACE], play the top card of your draw pile if it's an #yAttack [blackbeard:REMOVE_SPACE], otherwise discard it."
     ]
   },
   "aspiration:EnhancedActuators": {
@@ -202,8 +202,8 @@
     "FLAVOR": "From the weakest slime to the strongest abomination, hostile life thrives in the spire. Maybe, so can you.",
     "DESCRIPTIONS": [
 	  "Every time you play #b",
-	  " #yAttacks, gain #b",
-	  " #yRegeneration."
+	  " #yAttacks [blackbeard:REMOVE_SPACE], gain #b",
+	  " #yRegeneration [blackbeard:REMOVE_SPACE]."
     ]
   },
   "aspiration:RitualDagger": {
@@ -220,14 +220,14 @@
     "FLAVOR": "The warrior who fears, will fail. Never look back. Never stop. Never surrender.",
     "DESCRIPTIONS": [
 	  "Raise your Max HP by #b",
-	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN."
+	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN [blackbeard:REMOVE_SPACE]."
     ]
   },
   "aspiration:Nostalgia": {
     "NAME": "Nostalgia",
     "FLAVOR": "Take heart in the memory of those that came before.",
     "DESCRIPTIONS": [
-	  "Upon pickup, obtain a random #yStarter #yRelic that you don't have yet."
+	  "Upon pickup, obtain a random #yStarter #yRelic [blackbeard:REMOVE_SPACE]."
     ]
   },
   "aspiration:InnerPendulum": {
@@ -243,7 +243,7 @@
     "FLAVOR": "If only you could express yourself better.",
     "DESCRIPTIONS": [
       "The first time you lose HP each combat, gain #b",
-      " #yRitual .",
+      " #yRitual [blackbeard:REMOVE_SPACE].",
       "CA-CAW"
     ]
   },
@@ -252,7 +252,7 @@
     "FLAVOR": "Unleash the springtime of youth!",
     "DESCRIPTIONS": [
       "Gain [E] at the start of each turn. Start each combat with #b",
-      " #ySapped ."
+      " #ySapped [blackbeard:REMOVE_SPACE]."
     ]
   },
   "aspiration:ArtOfWarUpgrade": {
@@ -300,7 +300,7 @@
     "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
     "DESCRIPTIONS": [
       "Whenever you play a card or apply a debuff, gain #b",
-      " #yCharge-up .",
+      " #yCharge-up [blackbeard:REMOVE_SPACE].",
       " NL NL #yMulticlass Marisa"
     ]
   },
@@ -309,8 +309,8 @@
     "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
     "DESCRIPTIONS": [
       "At the end of each turn, if you have more than #b",
-      " #yBlock , gain #b",
-      " #yStrength . At the end of combat, heal #b",
+      " #yBlock [blackbeard:REMOVE_SPACE], gain #b",
+      " #yStrength [blackbeard:REMOVE_SPACE]. At the end of combat, heal #b",
       " HP.",
       " NL NL #yMulticlass Ironclad"
     ]
@@ -339,7 +339,7 @@
     "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages.",
     "DESCRIPTIONS": [
       "At the start of each turn, if you took no HP damage last turn, gain #b",
-      " #ySattelites .",
+      " #ySattelites [blackbeard:REMOVE_SPACE].",
       " NL NL #yMulticlass Servant"
     ]
   },
@@ -349,7 +349,7 @@
     "DESCRIPTIONS": [
       "At the start of each turn, if you have at most #b",
       " non-attack card in your hand, gain #b",
-      " #yStrength and heal as much HP as you have #yStrength .",
+      " #yStrength and heal as much HP as you have #yStrength [blackbeard:REMOVE_SPACE].",
       " NL NL #yMulticlass Beaked"
     ]
   },
@@ -358,6 +358,14 @@
     "FLAVOR": "A pet-like machine that started to follow you on your journey.",
     "DESCRIPTIONS": [
       "Whenever you play an #yupgraded card, #yrunesmith:Enhance a random card in your hand. Whenever you play an #yenhanced card, #yUpgrade a random card in your hand."
+    ]
+  },
+  "aspiration:RunesmithSkillbook": {
+    "NAME": "Runesmith's Skillbook",
+    "FLAVOR": "This seems to be a beginners guide to arcane forgery. The hammer section has been taken special care of.",
+    "DESCRIPTIONS": [
+      "The first time you play an #yAttack each turn, for each prior turn ended without playing an #yAttack [blackbeard:REMOVE_SPACE], #yrunesmith:Enhance that many random cards and craft a rune with that much #yrunesmith:Potency [blackbeard:REMOVE_SPACE].",
+      " NL NL #yMulticlass Runesmith"
     ]
   }
 }

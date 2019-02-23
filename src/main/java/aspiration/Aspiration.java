@@ -289,6 +289,7 @@ public class Aspiration implements
         }
         if(hasRunesmith) {
             BaseMod.addRelic(new MobileForge(), RelicType.SHARED);
+            BaseMod.addRelic(new RunesmithSkillbook(), RelicType.SHARED);
         }
     }
 

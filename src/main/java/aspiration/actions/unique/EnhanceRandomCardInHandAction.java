@@ -14,13 +14,20 @@ public class EnhanceRandomCardInHandAction extends AbstractGameAction
 {
     private AbstractPlayer p;
     private int enhanceAmt;
+    private int enhanceTimes;
 
     public EnhanceRandomCardInHandAction(int amount)
+    {
+        this(amount, 1);
+    }
+
+    public EnhanceRandomCardInHandAction(int amount, int times)
     {
         this.actionType = ActionType.CARD_MANIPULATION;
         this.p = AbstractDungeon.player;
         this.duration = Settings.ACTION_DUR_FAST;
         this.enhanceAmt = amount;
+        this.enhanceTimes = times;
     }
 
     public void update()
@@ -41,10 +48,12 @@ public class EnhanceRandomCardInHandAction extends AbstractGameAction
             }
 
             if (enhanceable.size() > 0) {
-                enhanceable.shuffle();
-                enhance(enhanceable.group.get(0), enhanceAmt);
-                enhanceable.group.get(0).superFlash();
-                //((AbstractCard)enhanceable.group.get(0)).applyPowers();
+                for(int i = 0; i<enhanceTimes;i++) {
+                    enhanceable.shuffle();
+                    enhance(enhanceable.group.get(0), enhanceAmt);
+                    enhanceable.group.get(0).superFlash();
+                    //((AbstractCard)enhanceable.group.get(0)).applyPowers();
+                }
             }
 
             this.isDone = true;

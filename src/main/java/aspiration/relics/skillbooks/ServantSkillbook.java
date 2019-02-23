@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class ServantSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
+public class ServantSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:ServantSkillbook";
 
     private static final int SAT_AMT = 4;
