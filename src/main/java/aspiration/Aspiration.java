@@ -5,6 +5,7 @@ import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.*;
 import aspiration.relics.crossovers.EmptySkull;
+import aspiration.relics.crossovers.MobileForge;
 import aspiration.relics.skillbooks.*;
 import aspiration.relics.abstracts.AspirationRelic;
 import basemod.BaseMod;
@@ -62,6 +63,7 @@ public class Aspiration implements
     public static final boolean hasMarisa;
     public static final boolean hasServant;
     public static final boolean hasBeaked;
+    public static final boolean hasRunesmith;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -69,12 +71,16 @@ public class Aspiration implements
             logger.info("Detected Character: Marisa");
         }
         hasServant = Loader.isModLoaded("BlackRuseMod");
-        if (hasMarisa) {
+        if (hasServant) {
             logger.info("Detected Character: Servant");
         }
         hasBeaked = Loader.isModLoaded("beakedthecultist-sts");
-        if (hasMarisa) {
+        if (hasBeaked) {
             logger.info("Detected Character: Beaked");
+        }
+        hasRunesmith = Loader.isModLoaded("therunesmith");
+        if (hasRunesmith) {
+            logger.info("Detected Character: Runesmith");
         }
     }
 
@@ -280,6 +286,9 @@ public class Aspiration implements
         if(hasBeaked) {
             BaseMod.addRelic(new EmptySkull(), RelicType.SHARED);
             BaseMod.addRelic(new BeakedSkillbook(), RelicType.SHARED);
+        }
+        if(hasRunesmith) {
+            BaseMod.addRelic(new MobileForge(), RelicType.SHARED);
         }
     }
 

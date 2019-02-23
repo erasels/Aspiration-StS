@@ -67,6 +67,14 @@
             <scope>system</scope>
             <systemPath>${basedir}/../lib/BeakedTheCultist.jar</systemPath>
         </dependency>
+	    <dependency>
+               <groupId>therunesmith</groupId>
+               <artifactId>therunesmith</artifactId>
+               <version>v.0.3.1</version>
+               <scope>system</scope>
+               <systemPath>${basedir}/../lib/TheRunesmith.jar</systemPath>
+        </dependency>
+		
     </dependencies>
 
     <properties>

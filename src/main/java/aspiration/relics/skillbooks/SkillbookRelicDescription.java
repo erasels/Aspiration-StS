@@ -1,5 +1,6 @@
 package aspiration.relics.skillbooks;
 
+import aspiration.Aspiration;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.RelicStrings;
 
@@ -17,6 +18,15 @@ public interface SkillbookRelicDescription {
 
     default String[] SKILLBOOK_DESCRIPTIONS()
     {
+        String[] tmp = new String[data.DESCRIPTIONS.length-1];
+        tmp[0] = data.DESCRIPTIONS[0];
+        if(Aspiration.skillbookCardpool()) {
+            tmp[1] = data.DESCRIPTIONS[1];
+        } else {
+            tmp[1] = data.DESCRIPTIONS[2];
+        }
+        tmp[2] = data.DESCRIPTIONS[3];
+
         return data.DESCRIPTIONS;
     }
 }

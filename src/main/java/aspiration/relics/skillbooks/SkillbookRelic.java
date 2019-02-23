@@ -1,5 +1,6 @@
 package aspiration.relics.skillbooks;
 
+import aspiration.Aspiration;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -15,7 +16,9 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
         super(setId, imgName, tier, sfx);
         tips.clear();
         tips.add(new PowerTip(name, description));
-        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        if(Aspiration.skillbookCardpool()) {
+            tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        }
         initializeTips();
     }
 
@@ -23,7 +26,9 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
         super(setId, imgName, tier, sfx);
         tips.clear();
         tips.add(new PowerTip(name, description));
-        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        if(Aspiration.skillbookCardpool()) {
+            tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        }
         tips.add(pTip);
         initializeTips();
     }
@@ -32,7 +37,9 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
         super(setId, imgName, tier, sfx);
         tips.clear();
         tips.add(new PowerTip(name, description));
-        tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        if(Aspiration.skillbookCardpool()) {
+            tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        }
         tips.addAll(pTips);
         initializeTips();
     }

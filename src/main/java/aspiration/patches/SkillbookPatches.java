@@ -1,5 +1,6 @@
 package aspiration.patches;
 
+import aspiration.Aspiration;
 import aspiration.relics.skillbooks.SkillbookRelic;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -43,36 +44,36 @@ public class SkillbookPatches
     {
         public static ArrayList<AbstractCard> Postfix(ArrayList<AbstractCard> __result)
         {
-            if (SkillbookRelic.hasSkillbookRelic(AbstractDungeon.player)) {
-                for(AbstractRelic r : AbstractDungeon.player.relics) {
-                    if(r instanceof SkillbookRelic) {
-                        r.flash();
-                    }
-                }
-
-                AbstractCard.CardRarity rarity = AbstractDungeon.rollRarity();
-                AbstractCard card = new VoidCard();
-                boolean dupeTest = true;
-
-                while (dupeTest)
-                {
-                    dupeTest = false;
-                    if (AbstractDungeon.player.hasRelic(PrismaticShard.ID)) {
-                        card = CardLibrary.getAnyColorCard(rarity);
-                    } else {
-                        card = AbstractDungeon.getCard(rarity);
-                    }
-                    for (AbstractCard c : __result) {
-                        if (c.cardID.equals(card.cardID))
-                        {
-                            dupeTest = true;
-                            break;
+            if(Aspiration.skillbookCardpool()) {
+                if (SkillbookRelic.hasSkillbookRelic(AbstractDungeon.player)) {
+                    for (AbstractRelic r : AbstractDungeon.player.relics) {
+                        if (r instanceof SkillbookRelic) {
+                            r.flash();
                         }
                     }
-                }
 
-                if (card != null) {
-                    __result.add(card.makeCopy());
+                    AbstractCard.CardRarity rarity = AbstractDungeon.rollRarity();
+                    AbstractCard card = new VoidCard();
+                    boolean dupeTest = true;
+
+                    while (dupeTest) {
+                        dupeTest = false;
+                        if (AbstractDungeon.player.hasRelic(PrismaticShard.ID)) {
+                            card = CardLibrary.getAnyColorCard(rarity);
+                        } else {
+                            card = AbstractDungeon.getCard(rarity);
+                        }
+                        for (AbstractCard c : __result) {
+                            if (c.cardID.equals(card.cardID)) {
+                                dupeTest = true;
+                                break;
+                            }
+                        }
+                    }
+
+                    if (card != null) {
+                        __result.add(card.makeCopy());
+                    }
                 }
             }
 

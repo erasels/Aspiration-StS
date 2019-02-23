@@ -58,6 +58,11 @@ public class DefectSkillbook extends SkillbookRelic implements SkillbookRelicDes
     }
 
     @Override
+    public void onVictory() {
+        powerTriggers.clear();
+    }
+
+    @Override
     public void atPreBattle() {
         flash();
         AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
