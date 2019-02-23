@@ -17,9 +17,9 @@ import static aspiration.Aspiration.logger;
 public class IroncladSkillbook extends SkillbookRelic implements SkillbookRelicDescription {
     public static final String ID = "aspiration:IroncladSkillbook";
 
-    private static final int STR_THRESHOLD = 15;
+    private static final int STR_THRESHOLD = 20;
     private static final int STR_AMT = 1;
-    private static final int HEAL_AMT = 6;
+    private static final int HEAL_AMT = 4;
 
     public IroncladSkillbook() {
         super(ID, "IroncladSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);

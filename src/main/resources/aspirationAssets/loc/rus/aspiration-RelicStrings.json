@@ -280,7 +280,7 @@
   },
   "aspiration:EmptySkull": {
     "NAME": "Empty Skull",
-    "FLAVOR": "The skull of a once great, empty-headed Philosopher",
+    "FLAVOR": "The skull of a once great, empty-headed Philosopher.",
     "DESCRIPTIONS": [
       "Whenever you play the last remaining card in your hand, shuffle an #yInspiration into your draw pile."
     ]
@@ -290,7 +290,9 @@
     "FLAVOR": "This shouldn't be seen.",
     "DESCRIPTIONS": [
       "Multiclass",
-      "Cards from the associated class may spawn now, and future Card Reward screens have #b1 additional card to choose from."
+      "Cards from the associated class may spawn now, and future Card Reward screens have #b1 additional card to choose from.",
+      "(You have disabled cardpool mixing in options) Future Card Reward screens have #b1 additional card to choose from.",
+      " NL NL #yMulticlass "
     ]
   },
   "aspiration:MarisaSkillbook": {
@@ -349,6 +351,13 @@
       " non-attack card in your hand, gain #b",
       " #yStrength and heal as much HP as you have #yStrength .",
       " NL NL #yMulticlass Beaked"
+    ]
+  },
+  "aspiration:MobileForge": {
+    "NAME": "Mobile Forge",
+    "FLAVOR": "A pet-like machine that started to follow you on your journey.",
+    "DESCRIPTIONS": [
+      "Whenever you play an #yupgraded card, #yrunesmith:Enhance a random card in your hand. Whenever you play an #yenhanced card, #yUpgrade a random card in your hand."
     ]
   }
 }
