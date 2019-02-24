@@ -1,193 +1,193 @@
 {
   "aspiration:VileToxins": {
-    "NAME": "Vile Toxins",
-    "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
+    "NAME": "Отвратительные токсины",
+    "FLAVOR": "Настолько отвратительная смесь, что всё живое и неживое вокруг трясётся в страхе.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yPoison to an enemy that wasn't #ypoisoned [blackbeard:REMOVE_SPACE], apply #b",
-      " #yVulnerable and #yWeak [blackbeard:REMOVE_SPACE]."
+      "Накладывает #b",
+      " #yУязвимости и #yСлабости, когда вы отравляете врага, который не был отравлен."
     ]
   },
   "aspiration:RingOfOuroboros": {
-    "NAME": "Ring of Ouroboros",
-    "FLAVOR": "Your ring suddenly came alive and started eating itself. Prodding it hurts you as much as it helps you focus.",
+    "NAME": "Кольцо Уробороса",
+    "FLAVOR": "Ваше кольцо внезапно ожило и начало поедать себя. Причиняет вам боль, но помогает сфокусироваться.",
     "DESCRIPTIONS": [
-      "Take #r",
-      " damage and draw #b",
-      " card.",
-      "Replaces #gRing #gof #gthe #gSnake. NL ",
+      "Вы получаете #r",
+      " урона и берёте #b",
+      " карту.",
+      "Заменяет #g«Кольцо #gзмеи». NL ",
       " NL "
     ]
   },
   "aspiration:InfernalBlood": {
-    "NAME": "Infernal Blood",
-    "FLAVOR": "Your thirst for destruction has turned your blood into something wholely more sinister.",
+    "NAME": "Адская кровь",
+    "FLAVOR": "Ваша жажда разрушения превратила вашу кровь во что-то гораздо более зловещее.",
     "DESCRIPTIONS": [
-      "Lose #b",
-      " HP for every #yskill [blackbeard:REMOVE_SPACE], heal #b",
-      " for every #yattack and #b",
-      " for every #ypower you play.",
-      "Replaces #rBurning #rBlood. "
+      "Отнимает #b",
+      " ОЗ, когда разыгрывается #yНавык, восполняет #b",
+      " ОЗ, когда разыгрывается #yАтака, и #b",
+      " ОЗ, когда разыгрывается #yТалант.",
+      "Заменяет #r«Пылающую #rкровь». "
     ]
   },
   "aspiration:BursterCore": {
-    "NAME": "Burster Core",
-    "FLAVOR": "The nonoptimal fix to your core has caused it to switch between lightning fast and sluggishly slow computing on regular intervals.",
+    "NAME": "Взломанное ядро",
+    "FLAVOR": "Неоптимально починенное ядро, которое временами работает со скоростью света, а временами - медленнее улитки.",
     "DESCRIPTIONS": [
-      "At the end of your turn, #yChannel #b",
-      " #yLightning for every empty orb slot every #b",
-      " turns.",
-      "Replaces #bCracked #bCore. "
+      "#yЗаряжает #b",
+      " #yСферу #yМолнии за каждый пустой слот для сфер в конце каждого #b",
+      " хода.",
+      "Заменяет #r«Треснувшее #rядро». "
     ]
   },
   "aspiration:Contagion": {
-    "NAME": "Contagion",
-    "FLAVOR": "You've contracted a mysterious illness, it ails you if you don't pass it along.",
+    "NAME": "Инфекция",
+    "FLAVOR": "Вы заражены непонятным заболеванием. Оно причиняет вам боль, если вы не передаёте его.",
     "DESCRIPTIONS": [
-      "Gain [E] every time you apply #b",
-      " #yPoison [blackbeard:REMOVE_SPACE], up to #b",
-      " times per turn. If no enemy is #ypoisoned at the end of your turn, apply #b",
-      " #yPoison to yourself.",
-      "The Contagion is sated for now.",
-      " NL NL [E] gained this turn: #b"
+      "Даёт [E] , когда вы накладываете на врагов #b",
+      " #yЯда, вплоть до #b",
+      " раз за ход. В конце вашего хода накладывает на вас #b",
+      " #yЯда, если ни один враг не отравлен.",
+      "Инфекция пока что удовлетворена.",
+      " NL NL [E] получено в данном ходу: #b"
     ]
   },
   "aspiration:SneckoTail": {
-    "NAME": "Snecko Tail",
-    "FLAVOR": "The tail of a fearsome Snecko. The fluids it secretes are excellent for transferring your toxins.",
+    "NAME": "Хвост змекко",
+    "FLAVOR": "Хвост грозного Змекко. Выделяемые секреты идеальны для усиления ваших ядов.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yPoison to a #yVulnerable enemy the applied amount is doubled."
+      "Удваивает накладываемый #yЯд, если на врага наложена #yУязвимость."
     ]
   },
   "aspiration:HummingbirdHeart": {
-    "NAME": "Hummingbird Heart",
-    "FLAVOR": "A thousand beats a minute, the power of your heart is incredible but wanes fast.",
+    "NAME": "Сердце колибри",
+    "FLAVOR": "Тысяча ударов в минуту. Огромная сила, но быстро спадает.",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " #yBlock for every card played at the start of combat, then reduce the effect by #b1 on the next #b3 turns."
+      "В начале боя даёт #b",
+      " #yЗащиты, когда вы разыгрываете карту. В конце вашего хода понижает данный эффект на #b1 в течение #b3 ходов."
     ]
   },
   "aspiration:Headhunter": {
-    "NAME": "Headhunter",
-    "FLAVOR": "A belt of severed heads, the first step on the path of exiling yourself from this place of the damned.",
+    "NAME": "Охотник за головами",
+    "FLAVOR": "Пояс из отрубленных голов, ваш первый шаг на пути к собственному изгнанию из этого проклятого места.",
     "DESCRIPTIONS": [
-      "Gain #yCharges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored #yCharges [blackbeard:REMOVE_SPACE]. Visiting non-monster rooms makes #yCharges decay based on the type of room. #gRight-click #gto #gsee #gmore #ginformation [blackbeard:REMOVE_SPACE].",
-      "#yCharge gain on monster kill: Normal: #b",
-      " [blackbeard:REMOVE_SPACE], Elite: #b",
-      " [blackbeard:REMOVE_SPACE], Boss: #b",
-      " [blackbeard:REMOVE_SPACE]. #yCharge loss on non-monster room: Rest: #r",
-      " [blackbeard:REMOVE_SPACE], Merchant: #r",
-      " [blackbeard:REMOVE_SPACE], Unknown: #r",
-      " [blackbeard:REMOVE_SPACE].",
-      "Current set of #yBuffs: ",
-      "Energized"
+      "#yЗаряжается при убийстве врагов. В начале боя даёт вам положительные эффекты в зависимости от количества #yЗарядов. Теряет #yЗаряды, если при входе в комнату вы не вступили в бой. #gНажмите  #gправой #gкнопкой #gмыши #gдля #gсправки.",
+      "#yЗаряды от убийства врагов: Обычный враг: #b",
+      ", Элитный враг: #b",
+      ", Босс: #b",
+      ". Потеря #yЗарядов при посещении комнат без боёв: Лагерь: #r",
+      ", Магазин: #r",
+      ", ?-комната: #r",
+      ".",
+      "Список положительных эффектов: ",
+      "Энергичность"
     ]
   },
   "aspiration:Legacy_Headhunter": {
-    "NAME": "Legacy Headhunter",
-    "FLAVOR": "Such a lucky find! A rarity amongst rarities will surely lead to an exalted run.",
+    "NAME": "Устаревший охотник за головами",
+    "FLAVOR": "Крайне удачная находка! Редкость из редкостей, которая приведёт к легендарной вылазке.",
     "DESCRIPTIONS": [
-      "[Unbalanced and broken, but useable.] Gain #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
-      " battles.",
-      "Applied Powers: ",
-      "Energy"
+      "[Абсолютный дизбаланс, но использовать можно.] В конце боя получает #b1 случайный положительный эффект, который вы будете получать в начале боя в течение #b",
+      " боёв.",
+      "Список положительных эффектов: ",
+      "Энергичность"
     ]
   },
   "aspiration:AnachronicSnailShell": {
-    "NAME": "Anachronic Snail Shell",
-    "FLAVOR": "This piece of a snail's shell resists the flow of time, tumbling along at its own paradoxical pace.",
+    "NAME": "Анахроническая раковина улитки",
+    "FLAVOR": "Данная раковина сопротивляется течению времени, перекатываясь по своему собственному пути.",
     "DESCRIPTIONS": [
-      "Whenever you lose HP from enemy attacks, delay half of it to the end of your next turn."
+      "Половина потерянного ОЗ от атак переносится на конец вашего след. хода."
     ]
   },
   "aspiration:SupercapacitiveCoin": {
-    "NAME": "Supercapacitive Coin",
-    "FLAVOR": "A mysterious arcade coin that can store large amounts of electricity. If enough is stored, maybe you could create a railgun?",
+    "NAME": "Сверхпроводящая монета",
+    "FLAVOR": "Загадочная монета для игровых автоматов, которая может хранить огромное количество электричества. Возможно, если поместить в неё достаточно энергии, получится электромагнитная пушка?",
     "DESCRIPTIONS": [
-      "Deal #b3 damage to a random enemy for each charge you have on this relic. NL ",
-      "Gain #b",
-      " #yCharge everytime you gain gold. NL ",
-      " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",
-      "Useable once per combat.",
-      "Deals #b3 + #b1 * ( #yCharges / #b5 ) damage.",
-      "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm.",
-      " #yCharge everytime you travel up a floor.",
-      "Thunder",
-      "Synergy: "
+      "Наносит #b3 урона случайному врагу за каждый заряд NL ",
+      "Получает #b",
+      " #yЗаряд, когда вы получаете #yзолото. NL ",
+      " NL [#2aecd7]Работает [#2aecd7]один [#2aecd7]раз [#2aecd7]за [#2aecd7]бой. NL ",
+      "Работает один раз за бой.",
+      "Наносит #b3 + #b1 * ( #yЗаряды / #b5 ) урона.",
+      "Если у вас есть #gЭктоплазма получает #b1 #yЗаряд при переходе на новый уровень.",
+      " #yЗаряд при переходе на новый уровень.",
+      "Молния",
+      "Синергия: "
     ]
   },
   "aspiration:PoetsPen": {
-    "NAME": "Poet's Pen",
-    "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
+    "NAME": "Перо поэта",
+    "FLAVOR": "В каждой строке скрыта искорка волшебства.",
     "DESCRIPTIONS": [
-      "Every time you play an #yAttack [blackbeard:REMOVE_SPACE], play the top card of your draw pile. NL Start combat with #r",
-      " stacks of #yWeak [blackbeard:REMOVE_SPACE], #yFrail and #yVulnerable on you, reduced by #yExperience [blackbeard:REMOVE_SPACE].",
-      "#b1 for every #b",
-      " floors visited with the associated relic in hand and every boss killed before pickup.",
-      "Experience"
+      "Вы разыгрываете карту с верха стопки добора, когда вы разыгрываете #yАтаку. NL Накладывает на вас #r",
+      " #yСлабости, #yХрупкости и #yУязвимости в начале боя. NL Длительность накладываемых отриц. эффектов понижается с #yОпытом.",
+      "#b1 за каждые #b",
+      " посещённых этажей, имея данную реликвию, и каждого босса, убитого до её получения.",
+      "Опыт"
     ]
   },
   "aspiration:PoetsPen_weak": {
-    "NAME": "Poet's Pen",
-    "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
+    "NAME": "Перо поэта",
+    "FLAVOR": "В каждой строке скрыта искорка волшебства.",
     "DESCRIPTIONS": [
-      "Every time you play an #yAttack [blackbeard:REMOVE_SPACE], play the top card of your draw pile if it's an #yAttack [blackbeard:REMOVE_SPACE], otherwise discard it."
+      "Когда вы разыгрываете #yАтаку, вы разыгрываете карту с верха стопки добора, если это #yАтака, в противном случае карта сбрасывается."
     ]
   },
   "aspiration:EnhancedActuators": {
-    "NAME": "Enhanced Actuators",
-    "FLAVOR": "Big actuators... equal big... gains?",
+    "NAME": "Улучшенные сервоприводы",
+    "FLAVOR": "Большие сервоприводы… Дают больше силы?",
     "DESCRIPTIONS": [
-      "Gain #b",
-      " #yStrength for every #b",
-      " orb slots."
+      "Даёт #b",
+      " #yСилы за каждые #b",
+      " слота для сфер."
     ]
   },
   "aspiration:MysteriousAuxiliaryCore": {
-    "NAME": "Mysterious Auxiliary Core",
-    "FLAVOR": "Secondary systems have reported anamalous charge generation. Observation recommended.",
+    "NAME": "Загадочное доп. ядро",
+    "FLAVOR": "Вторичные системы выдали отчёт по генерации непонятного заряда. Рекомендуется наблюдение.",
     "DESCRIPTIONS": [
-      "At the end of your turn, #yChannel #b",
-      " random orb every #b",
-      " turns."
+      "#yЗаряжает #b",
+      " случайную сферу в конце каждого вашего #b",
+      " хода."
     ]
   },
   "aspiration:FetidBarrel": {
-    "NAME": "Fetid Barrel",
-    "FLAVOR": "Even the tightly sealed interior cannot contain the pungent smell.",
+    "NAME": "Зловонная бочка",
+    "FLAVOR": "Даже абсолютная герметизация не может сдержать ужасный запах.",
     "DESCRIPTIONS": [
-      "Whenever you #yExhaust a card, apply #b",
-      " #yPoison to ALL enemies."
+      "Накладывает #b",
+      " #yЯда на ВСЕХ врагов, когда вы #yСжигаете карту."
     ]
   },
   "aspiration:BabyByrd": {
-    "NAME": "Baby Byrd",
-    "FLAVOR": "For better or for worse, you've decided that this untainted creature deserves a better life.",
+    "NAME": "Птенец Птаха",
+    "FLAVOR": "Так или иначе, вы решили, что данный птенец заслуживает лучшей жизни.",
     "DESCRIPTIONS": [
-      "Teach your little companion about your tools of trade and he'll repay you in kind. NL NL (It does something at the start of battle once you have amassed enough charges.)",
-      "Go for the eyes!",
-      "Patience, little one.",
-      "LET US SLAY THESE VERMIN!",
+      "Обучите вашего питомца своим приёмам и он отплатит вам. NL NL (При накоплении опред. кол-ва зарядов совершает действия в начале боя.)",
+      "Целься в глаза!",
+      "Терпение, малыш.",
+      "УБЬЁМ ЭТИХ ЖАЛКИХ КРЫС!",
       "...",
       "..",
       ".",
-      "An optimal choice of words.",
-      "Fascinating.",
-      "Development is on an optimal course."
+      "Идеальный выбор слов.",
+      "Замечательно.",
+      "Развитие проходит оптимально."
     ]
   },
   "aspiration:StickyExplosives": {
-    "NAME": "Sticky Explosives",
-    "FLAVOR": "You have the power of attacks and explosions on your side!",
+    "NAME": "Липкая взрывчатка",
+    "FLAVOR": "Взрывчатка на вашей стороне!",
     "DESCRIPTIONS": [
-      "Apply #yAftershock to the first monster you attack on the first round of combat."
+      "Накладывает #yВзрывчатку на первого врага, которого вы атакуете в первом ходу."
     ]
   },
   "aspiration:FrozenJewel": {
-    "NAME": "Frozen Jewel",
+    "NAME": "Замёрзший кристал",
     "FLAVOR": "In your numb embrace, it pulses with comforting energy.",
     "DESCRIPTIONS": [
-      "At the end of your turn, gain #b",
-      " #yBlock for every enemy that intends to attack. Gain #yBlur if there are multiple enemies and all intend to attack."
+      "Даёт #b",
+      " #yЗащиты в конце вашего хода за каждого врага, который намеревается атаковать. Даёт #b1 #yНеуловимости, если в бою более одного врага и все они намереваются атаковать."
     ]
   },
   "aspiration:EvolvingReagent": {
@@ -198,159 +198,157 @@
     ]
   },
   "aspiration:Lifesprig": {
-    "NAME": "Lifesprig",
-    "FLAVOR": "From the weakest slime to the strongest abomination, hostile life thrives in the spire. Maybe, so can you.",
+    "NAME": "Цветущая ветвь",
+    "FLAVOR": "От слабейшей слизи до сильнейших монстров, враждебная жизнь цветёт в Шпиле. Возможно, у вас тоже это получится.",
     "DESCRIPTIONS": [
-      "Every time you play #b",
-      " #yAttacks [blackbeard:REMOVE_SPACE], gain #b",
-      " #yRegeneration [blackbeard:REMOVE_SPACE]."
+      "Разыгрывая #b",
+      " #yАтак, вы получаете #b",
+      " #yРегенерации."
     ]
   },
   "aspiration:RitualDagger": {
-    "NAME": "Ritual Dagger",
-    "FLAVOR": "With every move you make, you feel the dagger dig in deeper into your being. You fear what you may become if you give in.",
+    "NAME": "Ритуальный кинжал",
+    "FLAVOR": "С каждым движением вы чувствуете, как этот кинжал входит в вас всё глубже и глубже.",
     "DESCRIPTIONS": [
-      "Lose #r",
-      " HP at the start of your turn.",
-      " When you would die, heal to your Max HP instead and gain #yAwoken (works once)."
+      "Отнимает #r",
+      " ОЗ в начале вашего хода.",
+      " Вместо того, чтобы умереть, вы исцеляете ВСЕ Макс. ОЗ (один раз) и получаете #yПробуждение. NL После использования будет давать #yПробуждение в начале боя и отнимать ОЗ в начале вашего хода."
     ]
   },
   "aspiration:KaomsHeart": {
-    "NAME": "Kaom's Heart",
-    "FLAVOR": "The warrior who fears, will fail. Never look back. Never stop. Never surrender.",
+    "NAME": "Сердце Каома",
+    "FLAVOR": "Если воин боится, он погибнет. Не оглядывайся. Не останавливайся. Не сдавайся.",
     "DESCRIPTIONS": [
-      "Raise your Max HP by #b",
-      " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN [blackbeard:REMOVE_SPACE]."
+      "При получении повышает Макс. ОЗ на #b",
+      ". Вы не можете получать реликвии до конца вылазки."
     ]
   },
   "aspiration:Nostalgia": {
-    "NAME": "Nostalgia",
-    "FLAVOR": "Take heart in the memory of those that came before.",
+    "NAME": "Ностальгия",
+    "FLAVOR": "Вспомни тех, кто были здесь ранее.",
     "DESCRIPTIONS": [
-      "Upon pickup, obtain a random #yStarter #yRelic [blackbeard:REMOVE_SPACE]."
+      "При получении даёт случайную #yНачальную #yРеликвию."
     ]
   },
   "aspiration:InnerPendulum": {
     "NAME": "Inner Pendulum",
     "FLAVOR": "A warrior knows when to strike and when to back up.",
     "DESCRIPTIONS": [
-      "Gain #yArtifact or #ySlothful every #b",
-      " turns."
+      "Даёт #b1 #yАртефакта или #ySlothful в начале каждого #b",
+      " хода."
     ]
   },
   "aspiration:RitualStick": {
-    "NAME": "Ritual Stick",
-    "FLAVOR": "If only you could express yourself better.",
+    "NAME": "Ритуальная ветвь",
+    "FLAVOR": "Если бы вы только могли лучше изъясняться.",
     "DESCRIPTIONS": [
-      "The first time you lose HP each combat, gain #b",
-      " #yRitual [blackbeard:REMOVE_SPACE].",
-      "CA-CAW"
+      "Даёт #b",
+      " #yРитуала при первой потере ОЗ в бою.",
+      "@КАР!@ NL @КАР-Р-Р!@"
     ]
   },
   "aspiration:TrainingWeights": {
-    "NAME": "Training Weights",
-    "FLAVOR": "Unleash the springtime of youth!",
+    "NAME": "Утяжелители для тренировок",
+    "FLAVOR": "Выпустите силу молодости!",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of each turn. Start each combat with #b",
-      " #ySapped [blackbeard:REMOVE_SPACE]."
+      "Даёт [E] в начале вашего хода. Накладывает на вас #b",
+      " #yИссушения в начале боя."
     ]
   },
   "aspiration:ArtOfWarUpgrade": {
-    "NAME": "Art of War (read)",
-    "FLAVOR": "This ancient manuscript contains wisdom from a past age. You've taken it's teachings to heart.",
+    "NAME": "Искусство войны (прочтённое)",
+    "FLAVOR": "В этой древней рукописи содержится мудрость прошлых веков. Вы прочли её от корки до корки.",
     "DESCRIPTIONS": [
-      "If you do not play any #yAttacks during your turn, gain an additional [E] and deal double damage next turn."
+      "Даёт [E] и удваивает урон ваших #yАтак в след. ходу, если в текущем не разыгрывались #yАтаки."
     ]
   },
   "aspiration:SeaSaltIceCream": {
-    "NAME": "Sea Salt Ice Cream",
-    "FLAVOR": "Bonds forged by the heart can never be broken.",
+    "NAME": "Мороженое с морской солью",
+    "FLAVOR": "Узы сердец невозможно разрушить.",
     "DESCRIPTIONS": [
-      "Upon pickup, store a copy of one of your relics and obtain the relic you previously stored. NL NL Previously stored: NL "
+      "При получении вы выберете одну из ваших реликвий. Забирает выбранную реликвию и даёт вам ранее забранную. NL NL Ранее забранная реликвия: NL "
     ]
   },
   "aspiration:FutureDiary": {
-    "NAME": "Future Diary",
-    "FLAVOR": "It's hard to live in the present if your future is in your hand.",
+    "NAME": "Дневник будущего",
+    "FLAVOR": "Сложно жить в настоящем, если будущее в твоей руке.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of each turn. NL At the start of each turn a random card in your hand is picked. You must play that card before any other.",
-      "I must play ",
+      "Даёт [E] в начале вашего хода. NL В начале вашего хода выбирает случайную карту в руке. Вы должны разыграть выбранную карту первой..",
+      "Мне нужно разыграть карту ",
       "."
     ]
   },
   "aspiration:EmptySkull": {
-    "NAME": "Empty Skull",
-    "FLAVOR": "The skull of a once great, empty-headed Philosopher.",
+    "NAME": "Пустой череп",
+    "FLAVOR": "Череп некогда великого пустоголового Философа.",
     "DESCRIPTIONS": [
-      "Whenever you play the last remaining card in your hand, shuffle an #yInspiration into your draw pile."
+      "Добавляет в стопку добора #b1 #yInspiration, когда разыгрывается последняя карта в руке."
     ]
   },
   "aspiration:Skillbook": {
-    "NAME": "Multiclass Keyword",
+    "NAME": "Мультикласс",
     "FLAVOR": "This shouldn't be seen.",
     "DESCRIPTIONS": [
-      "Multiclass",
-      "Cards from the associated class may spawn now, and future Card Reward screens have #b1 additional card to choose from.",
-      "(You have disabled cardpool mixing in options) Future Card Reward screens have #b1 additional card to choose from.",
-      " NL NL #yMulticlass "
+      "Мультикласс",
+      "Награды теперь содержат карты указанного персонажа. Увеличивает число доступных карт при получении наград на #y1."
     ]
   },
   "aspiration:MarisaSkillbook": {
-    "NAME": "Marisa's Skillbook",
-    "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
+    "NAME": "Книга навыков Марисы",
+    "FLAVOR": "Рукописная книга от обычной волшебницы. Похоже, ей по нраву грибы.",
     "DESCRIPTIONS": [
-      "Whenever you play a card or apply a debuff, gain #b",
-      " #yCharge-up [blackbeard:REMOVE_SPACE].",
-      " NL NL #yMulticlass Marisa"
+      "Даёт #b",
+      " #yCharge-up, когда вы разыгрываете карту или накладываете отриц. эффект.",
+      " NL NL #yМультикласс Мариса"
     ]
   },
   "aspiration:IroncladSkillbook": {
-    "NAME": "Ironclad's Skillbook",
-    "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
+    "NAME": "Книга навыков Латоносца",
+    "FLAVOR": "Ужасно-выглядящая книга, содержащая гневные каракули.",
     "DESCRIPTIONS": [
-      "At the end of each turn, if you have more than #b",
-      " #yBlock [blackbeard:REMOVE_SPACE], gain #b",
-      " #yStrength [blackbeard:REMOVE_SPACE]. At the end of combat, heal #b",
-      " HP.",
-      " NL NL #yMulticlass Ironclad"
+      "Если у вас более #b",
+      " #yЗащиты в конце вашего хода, даёт #b",
+      " #yСилы. Восполняет #b",
+      " ОЗ в конце боя.",
+      " NL NL #yМультикласс Латоносец"
     ]
   },
   "aspiration:DefectSkillbook": {
-    "NAME": "Defect's Skillbook",
-    "FLAVOR": "Pages upon pages filled with meticulously written 1s and 0s, what could this mean?",
+    "NAME": "Книга навыков Дефекта",
+    "FLAVOR": "Страницы заполнены единицами и нулями. Что бы это значило?",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #b",
-      " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower, #yChannel a random Orb at the start of your turn for #b",
-      " turns.",
-      " NL NL #yMulticlass Defect"
+      "Добавляет #b",
+      " слота для сфер и #yЗаряжает столько же случайных сфер в начале боя. NL Каждый разыгранный #yТалант #yЗаряжает #b1 случ. сферу в начале последующих#b",
+      " ходов.",
+      " NL NL #yМультикласс Дефект"
     ]
   },
   "aspiration:SilentSkillbook": {
-    "NAME": "Silent's Skillbook",
-    "FLAVOR": "Pages filled with information on how to deal with this place. A talk with the author should be enlightening.",
+    "NAME": "Книга навыков Безмолвной",
+    "FLAVOR": "В книге полно информации о том, как выжить в Шпиле.",
     "DESCRIPTIONS": [
-      "At the start of combat, gain #yEnvenom and at the start of each turn, add #b",
-      " #yShiv to your hand.",
-      " NL NL #yMulticlass Silent"
+      "Накладывает на врага #b1 #yЯда, когда #yАтака наносит урон по его ОЗ. Добавляет в руку #b",
+      " #yЗаточку в начале вашего хода.",
+      " NL NL #yМультикласс Безмолвная"
     ]
   },
   "aspiration:ServantSkillbook": {
-    "NAME": "Servant's Skillbook",
-    "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages.",
+    "NAME": "Книга навыков Служанки",
+    "FLAVOR": "Аккуратный список о том, как... Содержать особняк в чистоте?",
     "DESCRIPTIONS": [
-      "At the start of each turn, if you took no HP damage last turn, gain #b",
-      " #ySattelites [blackbeard:REMOVE_SPACE].",
-      " NL NL #yMulticlass Servant"
+      "Даёт #b",
+      " #ySattelites в начале вашего хода, если вы не потеряли ОЗ в предыдущем ходу.",
+      " NL NL #yМультикласс Служанка"
     ]
   },
   "aspiration:BeakedSkillbook": {
-    "NAME": "Beaked's Skillbook",
-    "FLAVOR": "These religious texts depict the awakening of the \"Chosen One\" before devolving into nonesense.",
+    "NAME": "Книга навыков Культиста",
+    "FLAVOR": "Данные религиозные тексты описывают пробуждение \"Избранного\"... После чего следует абсолютная нелепица.",
     "DESCRIPTIONS": [
-      "At the start of each turn, if you have at most #b",
-      " non-attack card in your hand, gain #b",
-      " #yStrength and heal as much HP as you have #yStrength [blackbeard:REMOVE_SPACE].",
-      " NL NL #yMulticlass Beaked"
+      "Если у вас в руке не более #b",
+      " карты не Атаки в начале вашего хода, даёт #b",
+      " #yСилы и восполняет столько ОЗ, сколько у вас #yСилы.",
+      " NL NL #yМультикласс Культист"
     ]
   },
   "aspiration:MobileForge": {

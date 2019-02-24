@@ -75,6 +75,8 @@ Runesmith:MobileForge: Whenever you paly an unpgraded card, enhance a card and v
 
 Servant:TrustyKnives: Whenever you start your turn with no knives, add to Knives.
 
+Marisa:PocketMushroom: The first time you take unblocked HP damage in combat, deal 12 damage to the attacker.
+
 ###Skillbooks:
 These relics have effects that reference the base archetype of the character they're based on. Furthermore, if it's enabled in the options menu, they allow you to get cards for the character and increase the amount of cards in card rewards by 1.
 Currently implemented: Ironclad, Silent, Defect, Marisa, Servant, Beaked and Runesmith.

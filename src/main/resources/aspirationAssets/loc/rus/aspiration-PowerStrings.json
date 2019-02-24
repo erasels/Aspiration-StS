@@ -1,31 +1,31 @@
 {
   "aspiration:Aftershock": {
-    "NAME": "Aftershock",
+    "NAME": "Взрывчатка",
     "DESCRIPTIONS": [
-      "Deal #b",
-	  "% of #rHP damage taken to ALL enemies. #rExpires if enemy does not take HP damage every turn."
+      "Наносит урон ВСЕМ врагам в размере #b",
+      "% от потери ОЗ от атак. #rИсчезает в конце хода, если враг не получил урона по ОЗ."
     ]
   },
   "aspiration:Awoken": {
-    "NAME": "Awoken",
+    "NAME": "Пробуждение",
     "DESCRIPTIONS": [
-      "Heal #b",
-	  "% of damage inflicted on monsters. Apply #yWeak to ALL enemies on the start of your turn."
+      "Восполняет #b",
+      "% от урона по ОЗ врагов. В начале вашего хода накладывает #b1 #yСлабости на ВСЕХ врагов."
     ]
   },
   "aspiration:Sapped": {
-    "NAME": "Sapped",
+    "NAME": "Иссушение",
     "DESCRIPTIONS": [
-      "Negates the next #b",
-      " buff.",
-      " buffs."
+      "Отменяет #b",
+      " полож. эффект.",
+      " полож. эффекта."
     ]
   },
   "aspiration:P_RitualPower": {
-    "NAME": "Ritual",
+    "NAME": "Ритуал",
     "DESCRIPTIONS": [
-      "At the start of your turn, gain #b",
-      " #yStrength."
+      "Даёт #b",
+      " #yСилы в начале вашего хода."
     ]
   }
 }

@@ -1,8 +1,8 @@
 {
   "aspiration:ArtOfWarUpgradeOption": {
     "TEXT": [
-      "Read",
-      "Read the Art of War and unlock its secrets."
+      "Прочесть",
+      "Прочесть Искусство войны и выучить его секреты."
     ]
   },
   "hubris:RelicViewScreen": {
@@ -12,13 +12,13 @@
   },
   "aspiration:ModButtonText": {
     "TEXT": [
-      "Make the Poet's Pen boss relic weaker.",
-      "Make Nostalgia an Uncommon relic. (instead of Shop)"
+      "Ослабить Перо поэта",
+      "Изменяет редкость Ностальгии на Необычную (вместо Реликвии торговца)"
     ]
   },
   "aspiration:NeowRewards": {
     "TEXT": [
-      "Obtain additional Starter Relic"
+      "Получить дополнительную стартовую реликвию"
     ]
   }
 }
