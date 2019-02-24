@@ -4,16 +4,19 @@ import aspiration.events.CultistTraining;
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.*;
+import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.crossovers.EmptySkull;
 import aspiration.relics.crossovers.MobileForge;
+import aspiration.relics.crossovers.PocketMushroom;
+import aspiration.relics.crossovers.TrustyKnives;
 import aspiration.relics.skillbooks.*;
-import aspiration.relics.abstracts.AspirationRelic;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
 import basemod.ReflectionHacks;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
+import blackrusemod.patches.AbstractCardEnum;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -278,9 +281,11 @@ public class Aspiration implements
 
         //Crossover
         if(hasMarisa) {
+            BaseMod.addRelicToCustomPool(new PocketMushroom(), ThMod.patches.AbstractCardEnum.MARISA_COLOR);
             BaseMod.addRelic(new MarisaSkillbook(), RelicType.SHARED);
         }
         if(hasServant) {
+            BaseMod.addRelicToCustomPool(new TrustyKnives(), AbstractCardEnum.SILVER);
             BaseMod.addRelic(new ServantSkillbook(), RelicType.SHARED);
         }
         if(hasBeaked) {

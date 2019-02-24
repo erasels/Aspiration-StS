@@ -364,8 +364,24 @@
     "NAME": "Runesmith's Skillbook",
     "FLAVOR": "This seems to be a beginners guide to arcane forgery. The hammer section has been taken special care of.",
     "DESCRIPTIONS": [
-      "The first time you play an #yAttack each turn, for each prior turn ended without playing an #yAttack [blackbeard:REMOVE_SPACE], #yrunesmith:Enhance that many random cards and craft a rune with that much #yrunesmith:Potency [blackbeard:REMOVE_SPACE].",
+      "The first time you play an #yAttack each turn, for each prior turn ended without playing an #yAttack [blackbeard:REMOVE_SPACE], #yrunesmith:Enhance that many random cards that amount of times and craft a rune with that much #yrunesmith:Potency [blackbeard:REMOVE_SPACE].",
       " NL NL #yMulticlass Runesmith"
+    ]
+  },
+  "aspiration:TrustyKnives": {
+    "NAME": "Trusty Knives",
+    "FLAVOR": "A pair of meticulously well cared-for knives that will never leave your side.",
+    "DESCRIPTIONS": [
+      "At the start of each turn, whenever you have no #yKnives [blackbeard:REMOVE_SPACE], gain #b",
+      " #yKnives [blackbeard:REMOVE_SPACE]."
+    ]
+  },
+  "aspiration:PocketMushroom": {
+    "NAME": "Pocket Mushroom",
+    "FLAVOR": "A Mushroom concealed in your skirt in case of danger.",
+    "DESCRIPTIONS": [
+      "The first time you take unblocked attack damage each combat, deal #b",
+      " damage back."
     ]
   }
 }
