@@ -290,7 +290,9 @@
     "FLAVOR": "This shouldn't be seen.",
     "DESCRIPTIONS": [
       "Мультикласс",
-      "Награды теперь содержат карты указанного персонажа. Увеличивает число доступных карт при получении наград на #y1."
+      "Награды теперь содержат карты указанного персонажа. Увеличивает число доступных карт при получении наград на #y1.",
+      "(You have disabled cardpool mixing in options) Future Card Reward screens have #b1 additional card to choose from.",
+      " NL NL #yMulticlass "
     ]
   },
   "aspiration:MarisaSkillbook": {
