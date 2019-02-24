@@ -70,7 +70,7 @@
 	    <dependency>
                <groupId>therunesmith</groupId>
                <artifactId>therunesmith</artifactId>
-               <version>v.0.3.1</version>
+               <version>v.0.3.2</version>
                <scope>system</scope>
                <systemPath>${basedir}/../lib/TheRunesmith.jar</systemPath>
         </dependency>

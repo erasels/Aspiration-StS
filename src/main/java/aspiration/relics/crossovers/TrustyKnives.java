@@ -12,7 +12,7 @@ public class TrustyKnives extends AspirationRelic {
     private static final int KNIVES_AMT = 2;
 
     public TrustyKnives() {
-        super(ID, "TrustyKnives.png", RelicTier.RARE, LandingSound.FLAT);
+        super(ID, "TrustyKnives.png", RelicTier.UNCOMMON, LandingSound.FLAT);
     }
 
     @Override

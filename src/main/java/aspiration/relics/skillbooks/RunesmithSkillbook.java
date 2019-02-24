@@ -57,7 +57,7 @@ public class RunesmithSkillbook extends SkillbookRelic {
                 flash();
                 AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
                 AbstractDungeon.actionManager.addToBottom(new EnhanceRandomCardInHandAction(counter, counter));
-                AbstractDungeon.actionManager.addToBottom(new RuneChannelAction(RuneOrb.getRandomRune(true, counter)));
+                AbstractDungeon.actionManager.addToBottom(new RuneChannelAction(RuneOrb.getRandomRune(AbstractDungeon.relicRng, counter, true)));
                 startingCharges();
             }
         }
