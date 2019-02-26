@@ -13,7 +13,6 @@ import aspiration.relics.skillbooks.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
-import basemod.ReflectionHacks;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import blackrusemod.patches.AbstractCardEnum;
@@ -22,8 +21,6 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.megacrit.cardcrawl.audio.Sfx;
-import com.megacrit.cardcrawl.audio.SoundMaster;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -45,7 +42,6 @@ import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Properties;
 
 @SpireInitializer
@@ -54,7 +50,8 @@ public class Aspiration implements
         EditStringsSubscriber,
         EditRelicsSubscriber,
         PostPowerApplySubscriber,
-        PostDungeonInitializeSubscriber
+        PostDungeonInitializeSubscriber,
+        AddAudioSubscriber
 {
 	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
     private static SpireConfig modConfig = null;
@@ -221,15 +218,13 @@ public class Aspiration implements
         BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class);
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
-        
-        this.loadAudio();
+
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
     }
 
-    @SuppressWarnings("unchecked")
-	public void loadAudio() {
-		HashMap<String, Sfx> map = (HashMap<String, Sfx>)ReflectionHacks.getPrivate(CardCrawlGame.sound, SoundMaster.class, "map");
-        map.put("ASP-BLOODPUMP", new Sfx(assetPath("audio/BloodPump.ogg"), false));
+    @Override
+    public void receiveAddAudio() {
+        BaseMod.addAudio("aspiration:Bloodpump", assetPath("audio/BloodPump.ogg"));
     }
     
     @Override
