@@ -1,20 +1,19 @@
 package aspiration.relics;
 
+import aspiration.Aspiration;
 import aspiration.actions.unique.PoetsPenAction;
 import aspiration.patches.AbstractCardPoetsPendField;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
+import aspiration.relics.abstracts.AspirationRelic;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import aspiration.Aspiration;
-import aspiration.relics.abstracts.AspirationRelic;
-
-public class PoetsPen_weak extends AspirationRelic{
+public class PoetsPen_weak extends AspirationRelic implements OnAfterUseCardRelic {
 	public static final String ID = "aspiration:PoetsPen_weak";
 	
 	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
@@ -29,7 +28,7 @@ public class PoetsPen_weak extends AspirationRelic{
     }
     
     @Override
-    public void onPlayCard(AbstractCard c, AbstractMonster m) {
+    public void onAfterUseCard(AbstractCard c, UseCardAction useCardAction) {
         if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
             AbstractCardPoetsPendField.ppTriggered.set(c, false);
         } else {

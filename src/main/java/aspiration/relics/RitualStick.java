@@ -59,7 +59,7 @@ public class RitualStick extends AspirationRelic implements RelicGetSubscriber, 
     }
 
     private void ritualEasteregg() {
-        this.ritualAmount = 2;
+        this.ritualAmount = 3;
         this.hasCM = true;
         this.description = getUpdatedDescription();
         updateTip();

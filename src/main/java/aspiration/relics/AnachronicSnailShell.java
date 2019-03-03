@@ -1,6 +1,6 @@
 package aspiration.relics;
 
-import com.badlogic.gdx.graphics.Color;
+import aspiration.relics.abstracts.AspirationRelic;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.relics.BetterOnLoseHpRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
@@ -11,12 +11,9 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.powers.TimeWarpPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-
-import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
 public class AnachronicSnailShell extends AspirationRelic implements BetterOnLoseHpRelic {
@@ -54,7 +51,7 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
             flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new SFXAction("POWER_TIME_WARP"));
-            pulse = true;
+            beginPulse();
 
             Amount = MathUtils.floor((float)Amount /2);
             manipCharge(Amount);
@@ -72,7 +69,7 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
             AbstractDungeon.actionManager.addToBottom(new VFXAction(AbstractDungeon.player, new FlashPowerEffect(new TimeWarpPower(AbstractDungeon.player)), 0.0F));
             AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.getMonsters().getRandomMonster(true), counter, DamageType.THORNS), AttackEffect.BLUNT_LIGHT));
     		startingCharges();
-    		pulse = false;
+    		stopPulse();
     	}
     }
 
@@ -84,6 +81,7 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
     @Override
     public void onVictory() {
     	startingCharges();
+    	stopPulse();
     }
     
     @Override
