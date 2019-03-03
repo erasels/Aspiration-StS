@@ -58,7 +58,7 @@ public class IroncladSkillbook extends SkillbookRelic {
         modifyCardPool();
     }
 
-    private void modifyCardPool() {
+    public void modifyCardPool() {
         if(Aspiration.skillbookCardpool()) {
             logger.info("Ironclad Skillbook acquired, modifying card pool.");
             ArrayList<AbstractCard> classCards= CardLibrary.getCardList(CardLibrary.LibraryType.RED);

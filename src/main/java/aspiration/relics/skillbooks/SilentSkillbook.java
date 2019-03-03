@@ -56,7 +56,7 @@ public class SilentSkillbook extends SkillbookRelic {
         modifyCardPool();
     }
 
-    private void modifyCardPool() {
+    public void modifyCardPool() {
         if(Aspiration.skillbookCardpool()) {
             logger.info("Silent Skillbook acquired, modifying card pool.");
             ArrayList<AbstractCard> classCards= CardLibrary.getCardList(CardLibrary.LibraryType.GREEN);

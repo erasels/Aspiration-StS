@@ -53,6 +53,8 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
         return false;
     }
 
+    public void modifyCardPool() { }
+
     protected void mixCardpools(ArrayList<AbstractCard> cardList) {
         for (AbstractCard c : cardList) {
             if(c.rarity != AbstractCard.CardRarity.BASIC) {

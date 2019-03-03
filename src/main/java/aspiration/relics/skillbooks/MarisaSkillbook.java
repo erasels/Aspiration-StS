@@ -67,7 +67,7 @@ public class MarisaSkillbook extends SkillbookRelic {
         modifyCardPool();
     }
 
-    private void modifyCardPool() {
+    public void modifyCardPool() {
         if(Aspiration.skillbookCardpool()) {
             logger.info("Marisa Skillbook acquired, modifying card pool.");
             ArrayList<AbstractCard> classCards= CardLibrary.getCardList(LibraryTypeEnum.MARISA_COLOR);

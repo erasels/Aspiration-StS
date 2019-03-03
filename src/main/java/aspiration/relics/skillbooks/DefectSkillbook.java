@@ -81,7 +81,7 @@ public class DefectSkillbook extends SkillbookRelic {
         modifyCardPool();
     }
 
-    private void modifyCardPool() {
+    public void modifyCardPool() {
         if(Aspiration.skillbookCardpool()) {
             logger.info("Defect Skillbook acquired, modifying card pool.");
             ArrayList<AbstractCard> classCards= CardLibrary.getCardList(CardLibrary.LibraryType.BLUE);

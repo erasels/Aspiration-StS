@@ -81,7 +81,7 @@ public class RunesmithSkillbook extends SkillbookRelic {
         modifyCardPool();
     }
 
-    private void modifyCardPool() {
+    public void modifyCardPool() {
         if(Aspiration.skillbookCardpool()) {
             logger.info("Runesmith Skillbook acquired, modifying card pool.");
             ArrayList<AbstractCard> classCards= CardLibrary.getCardList(LibraryEnum.RUNESMITH_BEIGE);
