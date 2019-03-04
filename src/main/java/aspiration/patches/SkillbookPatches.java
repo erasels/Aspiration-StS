@@ -99,31 +99,29 @@ public class SkillbookPatches
                     PAD_X = PAD_X_f.getFloat(null);
                 } catch (IllegalAccessException | NoSuchFieldException ignored) {
                 }
-                if(__instance.rewardGroup.size() > 4) {
-                    if (__instance.rewardGroup.size() == 5) {
-                        __instance.rewardGroup.get(0).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
-                        __instance.rewardGroup.get(1).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.75f;
-                        __instance.rewardGroup.get(2).target_x = Settings.WIDTH / 2.0f;
-                        __instance.rewardGroup.get(3).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.75f;
-                        __instance.rewardGroup.get(4).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
-                    } else if (__instance.rewardGroup.size() == 6) {
-                        __instance.rewardGroup.get(0).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
-                        __instance.rewardGroup.get(1).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.9f;
-                        __instance.rewardGroup.get(2).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.3f;
-                        __instance.rewardGroup.get(3).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.3f;
-                        __instance.rewardGroup.get(4).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.9f;
-                        __instance.rewardGroup.get(5).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
-                    } else if (__instance.rewardGroup.size() == 7) {
-                        __instance.rewardGroup.get(0).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
-                        __instance.rewardGroup.get(1).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.0f;
-                        __instance.rewardGroup.get(2).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.5f;
-                        __instance.rewardGroup.get(3).target_x = Settings.WIDTH / 2.0f;
-                        __instance.rewardGroup.get(4).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.5f;
-                        __instance.rewardGroup.get(5).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.0f;
-                        __instance.rewardGroup.get(6).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
-                    }
-                    __instance.rewardGroup.forEach(card -> card.target_y = y);
+                if (__instance.rewardGroup.size() == 5) {
+                    __instance.rewardGroup.get(0).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
+                    __instance.rewardGroup.get(1).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.75f;
+                    __instance.rewardGroup.get(2).target_x = Settings.WIDTH / 2.0f;
+                    __instance.rewardGroup.get(3).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.75f;
+                    __instance.rewardGroup.get(4).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
+                } else if (__instance.rewardGroup.size() == 6) {
+                    __instance.rewardGroup.get(0).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
+                    __instance.rewardGroup.get(1).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.9f;
+                    __instance.rewardGroup.get(2).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.3f;
+                    __instance.rewardGroup.get(3).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.3f;
+                    __instance.rewardGroup.get(4).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.9f;
+                    __instance.rewardGroup.get(5).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
+                } else if (__instance.rewardGroup.size() == 7) {
+                    __instance.rewardGroup.get(0).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
+                    __instance.rewardGroup.get(1).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 1.0f;
+                    __instance.rewardGroup.get(2).target_x = Settings.WIDTH / 2.0f - (AbstractCard.IMG_WIDTH + PAD_X) * 0.5f;
+                    __instance.rewardGroup.get(3).target_x = Settings.WIDTH / 2.0f;
+                    __instance.rewardGroup.get(4).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 0.5f;
+                    __instance.rewardGroup.get(5).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.0f;
+                    __instance.rewardGroup.get(6).target_x = Settings.WIDTH / 2.0f + (AbstractCard.IMG_WIDTH + PAD_X) * 1.5f;
                 }
+                __instance.rewardGroup.forEach(card -> card.target_y = y);
             }
         }
     }
@@ -138,7 +136,6 @@ public class SkillbookPatches
                 for(AbstractRelic r : AbstractDungeon.player.relics) {
                     if(r instanceof SkillbookRelic) {
                         ((SkillbookRelic) r).modifyCardPool();
-
                     }
                 }
             }
