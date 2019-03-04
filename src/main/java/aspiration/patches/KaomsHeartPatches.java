@@ -1,15 +1,20 @@
 package aspiration.patches;
 
+import aspiration.relics.KaomsHeart;
+import basemod.ReflectionHacks;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.shop.ShopScreen;
+import com.megacrit.cardcrawl.shop.StoreRelic;
 
-import aspiration.relics.KaomsHeart;
+import java.util.ArrayList;
 
-public class Obtain_KaomsHeartPrefix
+public class KaomsHeartPatches
 {
 	@SpirePatch (
 			clz=AbstractRelic.class,
@@ -72,5 +77,16 @@ public class Obtain_KaomsHeartPrefix
 	        }
 	        return SpireReturn.Continue();
 	    }
+	}
+
+	@SpirePatch(clz = ShopScreen.class, method = "init")
+	public static class SetGoldToPlayGoldPostfix {
+		public static void PostFix(ShopScreen __instance, final ArrayList<AbstractCard> coloredCards, final ArrayList<AbstractCard> colorlessCards) {
+			for (final StoreRelic r : (ArrayList<StoreRelic>) ReflectionHacks.getPrivate(__instance, ShopScreen.class, "relics")) {
+				if(r.relic.relicId.equals(KaomsHeart.ID) && AbstractDungeon.player != null) {
+					r.price = AbstractDungeon.player.gold;
+				}
+			}
+		}
 	}
 }

@@ -1,7 +1,7 @@
 package aspiration.patches;
 
-import java.util.ArrayList;
-
+import aspiration.Aspiration;
+import aspiration.relics.Nostalgia;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.Settings;
@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.neow.NeowReward;
 import com.megacrit.cardcrawl.neow.NeowReward.NeowRewardDef;
 
-import aspiration.relics.Nostalgia;
+import java.util.ArrayList;
 
 public class NeowRewardPatches {
     //private static final UIStrings uiStrings = CardCrawlGame.languagePack.getUIString("aspiration:NeowRewards");
@@ -31,9 +31,6 @@ public class NeowRewardPatches {
                 switch (Settings.language) {
                     case RUS:
                         String foo = "\u041f\u043e\u043b\u0443\u0447\u0438\u0442\u044c \u0434\u043e\u043f\u043e\u043b\u043d\u0438\u0442\u0435\u043b\u044c\u043d\u0443\u044e \u0441\u0442\u0430\u0440\u0442\u043e\u0432\u0443\u044e \u0440\u0435\u043b\u0438\u043a\u0432\u0438\u044e";
-                        //byte x[] = foo.getBytes(StandardCharsets.UTF_8);
-                        //String y = new String(x, StandardCharsets.UTF_8);
-                        //String blah = new String("\\u041f\\u043e\\u043b\\u0443\\u0447\\u0438\\u0442\\u044c \\u0434\\u043e\\u043f\\u043e\\u043b\\u043d\\u0438\\u0442\\u0435\\u043b\\u044c\\u043d\\u0443\\u044e \\u0441\\u0442\\u0430\\u0440\\u0442\\u043e\\u0432\\u0443\\u044e \\u0440\\u0435\\u043b\\u0438\\u043a\\u0432\\u0438\\u044e".getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
                         tmp = FontHelper.colorString(foo, "g");
                         break;
                     case DEU:
@@ -55,7 +52,9 @@ public class NeowRewardPatches {
     public static class ActivatePatch {
         public static void Prefix(NeowReward __instance) {
             if (__instance.type == NOSTALGIA) {
-                AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new Nostalgia(false));
+                AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new Nostalgia(Aspiration.uncommonNostalgia()));
+                AbstractDungeon.uncommonRelicPool.removeIf(relic -> relic.equals(Nostalgia.ID));
+                AbstractDungeon.shopRelicPool.removeIf(relic -> relic.equals(Nostalgia.ID));
             }
         }
     }

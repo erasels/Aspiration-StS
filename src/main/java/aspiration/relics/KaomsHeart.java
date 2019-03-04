@@ -1,16 +1,13 @@
 package aspiration.relics;
 
+import aspiration.relics.abstracts.AspirationRelic;
+import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import aspiration.relics.abstracts.AspirationRelic;
-import com.megacrit.cardcrawl.relics.Circlet;
-
 public class KaomsHeart extends AspirationRelic{
 	public static final String ID = "aspiration:KaomsHeart";
-	
-	private static final int LOW_PRICE = 300;
-	private static final int MID_PRICE = 600;
+
 	private static final int MAX_LIFE_MANIP = 100;
 	
     public KaomsHeart() {
@@ -25,21 +22,36 @@ public class KaomsHeart extends AspirationRelic{
     @Override
     public void onEquip() {
     	AbstractDungeon.player.increaseMaxHp(MAX_LIFE_MANIP, true);
-    	
+
+    	int tmp = AbstractDungeon.bossRelicPool.size();
     	AbstractDungeon.bossRelicPool.clear();
-    	AbstractDungeon.bossRelicPool.add(Circlet.ID);
-    	
+    	for(int i =0; i<tmp;i++) {
+			AbstractDungeon.bossRelicPool.add(KaomsHeart_nothing.ID);
+		}
+
+    	tmp = AbstractDungeon.commonRelicPool.size();
     	AbstractDungeon.commonRelicPool.clear();
-    	AbstractDungeon.commonRelicPool.add(Circlet.ID);
-    	
+		for(int i =0; i<tmp;i++) {
+			AbstractDungeon.commonRelicPool.add(KaomsHeart_nothing.ID);
+		}
+
+		tmp = AbstractDungeon.rareRelicPool.size();
     	AbstractDungeon.rareRelicPool.clear();
-    	AbstractDungeon.rareRelicPool.add(Circlet.ID);
-    	
+		for(int i =0; i<tmp;i++) {
+			AbstractDungeon.rareRelicPool.add(KaomsHeart_nothing.ID);
+		}
+
+		tmp = AbstractDungeon.shopRelicPool.size();
     	AbstractDungeon.shopRelicPool.clear();
-    	AbstractDungeon.shopRelicPool.add(Circlet.ID);
-    	
+		for(int i =0; i<tmp;i++) {
+			AbstractDungeon.shopRelicPool.add(KaomsHeart_nothing.ID);
+		}
+
+		tmp = AbstractDungeon.uncommonRelicPool.size();
     	AbstractDungeon.uncommonRelicPool.clear();
-    	AbstractDungeon.uncommonRelicPool.add(Circlet.ID);
+		for(int i =0; i<tmp;i++) {
+			AbstractDungeon.uncommonRelicPool.add(KaomsHeart_nothing.ID);
+		}
     }
     
     @Override
@@ -49,14 +61,17 @@ public class KaomsHeart extends AspirationRelic{
     
     @Override
     public int getPrice() {
-    	if(AbstractDungeon.floorNum <= 16) {
-    		return LOW_PRICE;
-    	} else if (AbstractDungeon.floorNum <= 35) {
-    		return MID_PRICE;
-    	} else {
-    		return MID_PRICE + (AbstractDungeon.floorNum * 10);
-    	}
+    	if(AbstractDungeon.player.gold < 200) {
+    		return 200;
+		} else {
+			return MathUtils.floor(AbstractDungeon.player.gold * 0.8f);
+		}
     }
+
+    @Override
+	public boolean canSpawn() {
+		return !(AbstractDungeon.floorNum > 49);
+	}
 
     public AbstractRelic makeCopy() {
         return new KaomsHeart();

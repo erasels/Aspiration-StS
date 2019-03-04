@@ -1,20 +1,17 @@
 package aspiration.relics;
 
-import java.util.ArrayList;
-
+import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.vfx.ObtainRelicLater;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.Circlet;
 
-import aspiration.relics.abstracts.AspirationRelic;
-import aspiration.vfx.ObtainRelicLater;
+import java.util.ArrayList;
 
 public class Nostalgia extends AspirationRelic{
 	public static final String ID = "aspiration:Nostalgia";
-	
-	private static final int PRICE = 333;
+
 	private boolean picked_rarity = false;
 	//private static final boolean SETTING_UNCMN = Aspiration.uncommonNostalgia();
 
@@ -44,19 +41,11 @@ public class Nostalgia extends AspirationRelic{
     		}
     	}
 
-    	if(tmp.isEmpty()) {
-    		tmp.add(new Circlet());
-    		tmp.add(new Circlet());
-    		tmp.add(new Circlet());
-    	}
-    	AbstractRelic starter = tmp.get(rng.random(tmp.size() - 1));
-    	
-    	AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(starter));
-    }
-    
-    @Override
-    public int getPrice() {
-    	return PRICE;
+    	if(!tmp.isEmpty()) {
+			AbstractRelic starter = tmp.get(rng.random(tmp.size() - 1));
+
+			AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(starter));
+		}
     }
 
     public AbstractRelic makeCopy() {

@@ -223,6 +223,13 @@
 	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN [REMOVE_SPACE]."
     ]
   },
+  "aspiration:KMNothing": {
+    "NAME": "Nothing",
+    "FLAVOR": "I told you so.",
+    "DESCRIPTIONS": [
+      "Does nothing."
+    ]
+  },
   "aspiration:Nostalgia": {
     "NAME": "Nostalgia",
     "FLAVOR": "Take heart in the memory of those that came before.",
@@ -382,6 +389,13 @@
     "DESCRIPTIONS": [
       "The first time you take unblocked attack damage each combat, deal #b",
       " damage back."
+    ]
+  },
+  "aspiration:OniichanSword": {
+    "NAME": "Hmmm",
+    "FLAVOR": "A Mushroom concealed in your skirt in case of danger.",
+    "DESCRIPTIONS": [
+      "The first time you take unblocked attack damage each combat, deal #b"
     ]
   }
 }
