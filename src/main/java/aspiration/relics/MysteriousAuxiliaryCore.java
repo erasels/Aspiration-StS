@@ -1,12 +1,11 @@
 package aspiration.relics;
 
+import aspiration.orbs.OrbUtilityMethods;
+import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.relics.abstracts.AspirationRelic;
 
 public class MysteriousAuxiliaryCore extends AspirationRelic{
 public static final String ID = "aspiration:MysteriousAuxiliaryCore";
@@ -33,7 +32,7 @@ public static final String ID = "aspiration:MysteriousAuxiliaryCore";
     public void onPlayerEndTurn()
     {
     	if(((GameActionManager.turn - 1) % TURN_INTERVAL) == 0) {
-    		AbstractDungeon.actionManager.addToBottom(new ChannelAction(AbstractOrb.getRandomOrb(true)));
+    		AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
     		startingCharges();
     	} else {
     		flash();

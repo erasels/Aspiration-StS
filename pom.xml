@@ -74,6 +74,20 @@
                <scope>system</scope>
                <systemPath>${basedir}/../lib/TheRunesmith.jar</systemPath>
         </dependency>
+		<dependency>
+               <groupId>ReplayTheSpireMod</groupId>
+               <artifactId>ReplayTheSpireMod</artifactId>
+               <version>2.10.0</version>
+               <scope>system</scope>
+               <systemPath>${basedir}/../lib/ReplayTheSpireMod.jar</systemPath>
+        </dependency>
+		<dependency>
+               <groupId>conspire</groupId>
+               <artifactId>Conspire</artifactId>
+               <version>1.5.5</version>
+               <scope>system</scope>
+               <systemPath>${basedir}/../lib/Conspire.jar</systemPath>
+        </dependency>
 		
     </dependencies>
 

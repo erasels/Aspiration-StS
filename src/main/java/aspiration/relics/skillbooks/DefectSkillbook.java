@@ -1,6 +1,8 @@
 package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
+import aspiration.actions.unique.DumbApplyPowerAction;
+import aspiration.powers.ChannelOrbPower;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.actions.defect.IncreaseMaxOrbAction;
@@ -21,7 +23,7 @@ public class DefectSkillbook extends SkillbookRelic {
 
     private static final int ORB_SLOTS = 2;
     private static final int POWER_TURN = 3;
-    private ArrayList<Integer> powerTriggers = new ArrayList<>();
+    //private ArrayList<Integer> powerTriggers = new ArrayList<>();
 
     public DefectSkillbook() {
         super(ID, "DefectSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
@@ -40,27 +42,28 @@ public class DefectSkillbook extends SkillbookRelic {
     public void onUseCard(AbstractCard card, UseCardAction action) {
         if(card.type == AbstractCard.CardType.POWER) {
             flash();
-            powerTriggers.add(POWER_TURN);
+            //powerTriggers.add(POWER_TURN);
+            AbstractDungeon.actionManager.addToBottom(new DumbApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChannelOrbPower(AbstractDungeon.player, POWER_TURN), -1, true));
         }
     }
 
-    @Override
+    /*@Override
     public void atTurnStart() {
         if(powerTriggers.size() > 0) {
             flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             for(int i = 0; i<powerTriggers.size(); i++) {
                 powerTriggers.set(i, (powerTriggers.get(i)-1));
-                AbstractDungeon.actionManager.addToBottom(new ChannelAction(AbstractOrb.getRandomOrb(true)));
+                AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
             }
             powerTriggers.removeIf(power -> power<=0);
         }
-    }
+    }*/
 
-    @Override
+    /*@Override
     public void onVictory() {
         powerTriggers.clear();
-    }
+    }*/
 
     @Override
     public void atPreBattle() {

@@ -27,5 +27,14 @@
       "At the start of your turn, gain #b",
       " #yStrength."
     ]
+  },
+  "aspiration:ChannelOrb": {
+    "NAME": "Channeling",
+    "DESCRIPTIONS": [
+      "At the start of your next #b",
+      " turn",
+      " turns",
+    ", #yChannel a random Orb."
+    ]
   }
 }

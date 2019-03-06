@@ -64,6 +64,8 @@ public class Aspiration implements
     public static final boolean hasServant;
     public static final boolean hasBeaked;
     public static final boolean hasRunesmith;
+    public static final boolean hasReplay;
+    public static final boolean hasConspire;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -81,6 +83,14 @@ public class Aspiration implements
         hasRunesmith = Loader.isModLoaded("therunesmith");
         if (hasRunesmith) {
             logger.info("Detected Character: Runesmith");
+        }
+        hasReplay = Loader.isModLoaded("ReplayTheSpireMod");
+        if (hasRunesmith) {
+            logger.info("Detected Mod: Replay The Spire");
+        }
+        hasConspire = Loader.isModLoaded("conspire");
+        if (hasRunesmith) {
+            logger.info("Detected Mod: Conspire");
         }
     }
 
