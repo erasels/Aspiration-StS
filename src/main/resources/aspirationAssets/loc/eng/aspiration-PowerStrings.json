@@ -10,7 +10,7 @@
     "NAME": "Awoken",
     "DESCRIPTIONS": [
       "Heal #b",
-	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
+	  "% of unblocked attack damage you deal. Whenever an enemy applies a debuff to you, gain #b1 #yStrength [REMOVE_SPACE]."
     ]
   },
   "aspiration:Sapped": {

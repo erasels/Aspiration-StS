@@ -1,8 +1,10 @@
 package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
+import aspiration.relics.abstracts.OnReducePower;
 import blackrusemod.characters.TheServant;
 import blackrusemod.patches.LibraryTypeEnum;
+import blackrusemod.powers.ProtectionPower;
 import blackrusemod.powers.SatellitePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -10,13 +12,15 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class ServantSkillbook extends SkillbookRelic {
+public class ServantSkillbook extends SkillbookRelic implements OnReducePower {
     public static final String ID = "aspiration:ServantSkillbook";
 
     private static final int SAT_AMT = 4;
@@ -34,6 +38,23 @@ public class ServantSkillbook extends SkillbookRelic {
         } else {
             return DESCRIPTIONS[0] + SAT_AMT + DESCRIPTIONS[1];
         }
+    }
+
+    @Override
+    public int OnReducePower(AbstractPower powerInstance, int amount) {
+        if(powerInstance.ID.equals(SatellitePower.POWER_ID)) {
+            int satDamage = SAT_ATK;
+            try {
+                Field satDmg = SatellitePower.class.getDeclaredField("damage");
+                satDmg.setAccessible(true);
+                satDamage = (int) satDmg.get(powerInstance);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ProtectionPower(AbstractDungeon.player, satDamage), satDamage));
+        }
+        return amount;
     }
 
     @Override
@@ -58,13 +79,7 @@ public class ServantSkillbook extends SkillbookRelic {
     @Override
     public void onVictory() {
         stopPulse();
-    }
-
-    @Override
-    public void atPreBattle() {
-        if(!took_dmg) {
-            beginPulse();
-        }
+        took_dmg = true;
     }
 
     @Override

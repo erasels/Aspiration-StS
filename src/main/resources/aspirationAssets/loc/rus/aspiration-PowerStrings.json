@@ -10,7 +10,7 @@
     "NAME": "Пробуждение",
     "DESCRIPTIONS": [
       "Восполняет #b",
-      "% от урона по ОЗ врагов. В начале вашего хода накладывает #b1 #yСлабости на ВСЕХ врагов."
+      "% от урона по ОЗ врагов. Whenever an enemy applies a debuff to you, gain #b1 #yStrength [REMOVE_SPACE]."
     ]
   },
   "aspiration:Sapped": {
@@ -25,7 +25,16 @@
     "NAME": "Ритуал",
     "DESCRIPTIONS": [
       "Даёт #b",
-      " #yСилы в начале вашего хода."
+      " #yСилы в начале вашего хода. Даёт #b1 #yСилы [REMOVE_SPACE], когда враг накладывает на вас отриц. эффект."
+    ]
+  },
+  "aspiration:ChannelOrb": {
+    "NAME": "Channeling",
+    "DESCRIPTIONS": [
+      "At the start of your next #b",
+      " turn",
+      " turns",
+      ", #yChannel a random Orb."
     ]
   }
 }

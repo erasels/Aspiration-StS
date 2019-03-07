@@ -346,7 +346,7 @@
     "FLAVOR": "An elegant list on how to clean a... mansion? graces these pages.",
     "DESCRIPTIONS": [
       "At the start of each turn, if you took no HP damage last turn, gain #b",
-      " #ySattelites [REMOVE_SPACE].",
+      " #ySattelites [REMOVE_SPACE]. Whenever a #ySattelite is used, gain #yProtection equal to its damage.",
       " NL NL #yMulticlass Servant"
     ]
   },

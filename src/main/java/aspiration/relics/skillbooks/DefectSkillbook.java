@@ -2,6 +2,7 @@ package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
 import aspiration.actions.unique.DumbApplyPowerAction;
+import aspiration.orbs.OrbUtilityMethods;
 import aspiration.powers.ChannelOrbPower;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
@@ -11,7 +12,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -75,7 +75,7 @@ public class DefectSkillbook extends SkillbookRelic {
     @Override
     public void atBattleStart() {
         for(int i = 0; i<ORB_SLOTS;i++) {
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(AbstractOrb.getRandomOrb(true)));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
         }
     }
 
