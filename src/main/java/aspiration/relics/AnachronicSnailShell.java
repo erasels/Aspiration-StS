@@ -51,7 +51,7 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
             flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new SFXAction("POWER_TIME_WARP"));
-            beginPulse();
+            beginLongPulse();
 
             Amount = MathUtils.floor((float)Amount /2);
             manipCharge(Amount);

@@ -23,7 +23,7 @@ import static aspiration.Aspiration.logger;
 public class ServantSkillbook extends SkillbookRelic implements OnReducePower {
     public static final String ID = "aspiration:ServantSkillbook";
 
-    private static final int SAT_AMT = 4;
+    private static final int SAT_AMT = 3;
     private static final int SAT_ATK = 4;
     private boolean took_dmg = true;
 
@@ -65,7 +65,7 @@ public class ServantSkillbook extends SkillbookRelic implements OnReducePower {
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SatellitePower(AbstractDungeon.player, SAT_AMT), SAT_AMT));
         }
         took_dmg = false;
-        beginPulse();
+        beginLongPulse();
     }
 
     @Override

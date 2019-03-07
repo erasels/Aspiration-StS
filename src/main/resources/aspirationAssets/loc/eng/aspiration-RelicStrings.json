@@ -103,12 +103,12 @@
     "NAME": "Supercapacitive Coin",
     "FLAVOR": "A mysterious arcade coin that can store large amounts of electricity. If enough is stored, maybe you could create a railgun?",
     "DESCRIPTIONS": [
-	  "Deal #b3 damage to a random enemy for each charge you have on this relic. NL ",
+	  "Consume all charges and deal #b3 damage to a random enemy for each. NL ",
       "Gain #b",
 	  " #yCharge everytime you gain gold. NL ",
 	  " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",
-	  "Useable once per combat.",
-      "Deals #b3 + #b1 * ( #yCharges / #b5 ) damage.",
+	  "",
+      "",
       "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm.",
       " #yCharge everytime you travel up a floor.",
       "Thunder",
@@ -336,8 +336,8 @@
     "NAME": "Silent's Skillbook",
     "FLAVOR": "Pages filled with information on how to deal with this place. A talk with the author should be enlightening.",
     "DESCRIPTIONS": [
-      "At the start of combat, gain #yEnvenom and at the start of each turn, add #b",
-      " #yShiv to your hand.",
+      "Whenever you play #b",
+      " or more cards on your turn, on your next turn, discard any number of cards then draw that many.",
       " NL NL #yMulticlass Silent"
     ]
   },

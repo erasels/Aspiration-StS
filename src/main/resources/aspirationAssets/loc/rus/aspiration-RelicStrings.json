@@ -336,8 +336,8 @@
     "NAME": "Книга навыков Безмолвной",
     "FLAVOR": "В книге полно информации о том, как выжить в Шпиле.",
     "DESCRIPTIONS": [
-      "Накладывает на врага #b1 #yЯда, когда #yАтака наносит урон по его ОЗ. Добавляет в руку #b",
-      " #yЗаточку в начале вашего хода.",
+      "Whenever you play #b",
+      " or more cards on your turn, on your next turn, discard any number of cards then draw that many.",
       " NL NL #yМультикласс Безмолвная"
     ]
   },

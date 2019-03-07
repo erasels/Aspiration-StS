@@ -40,7 +40,7 @@ public class RitualDagger extends AspirationRelic implements CustomSavable<Boole
     @Override
     public void onTrigger() {
     	usedUp = true;
-    	beginPulse();
+    	beginLongPulse();
     	AbstractDungeon.actionManager.addToBottom(new SFXAction("HEART_BEAT"));
     	AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     	healPlayer();

@@ -35,14 +35,14 @@ public class ArtOfWarUpgrade extends AspirationRelic {
         this.gainEnergyNext = true;
         if (!this.pulse)
         {
-            beginPulse();
+            beginLongPulse();
             this.pulse = true;
         }
     }
 
     public void atTurnStart()
     {
-        beginPulse();
+        beginLongPulse();
         this.pulse = true;
         if ((this.gainEnergyNext) && (!this.firstTurn))
         {

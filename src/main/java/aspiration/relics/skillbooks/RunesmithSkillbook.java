@@ -66,7 +66,7 @@ public class RunesmithSkillbook extends SkillbookRelic {
     @Override
     public void atTurnStart() {
         brokePrep = false;
-        beginPulse();
+        beginLongPulse();
     }
 
     @Override

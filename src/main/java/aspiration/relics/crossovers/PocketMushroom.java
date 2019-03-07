@@ -27,7 +27,7 @@ public class PocketMushroom extends AspirationRelic implements BetterOnLoseHpRel
 
     @Override
     public void atBattleStart() {
-        beginPulse();
+        beginLongPulse();
     }
 
     @Override

@@ -68,7 +68,7 @@ public class RitualStick extends AspirationRelic implements RelicGetSubscriber, 
 
     @Override
     public void atPreBattle() {
-        beginPulse();
+        beginLongPulse();
     }
 
     @Override
