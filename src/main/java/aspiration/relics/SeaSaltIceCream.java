@@ -78,28 +78,38 @@ public class SeaSaltIceCream extends AspirationRelic {
         if (!relicSelected) {
             if (relicSelectScreen.doneSelecting()) {
                 relicSelected = true;
+                AbstractRelic tmp = null;
 
-                AbstractRelic tmp = RelicLibrary.getRelic(getSavedItem()).makeCopy();
-                if(debug) System.out.println("tmp is: " +tmp.relicId);
-                switch (tmp.tier) {
-                    case COMMON:
-                        AbstractDungeon.commonRelicPool.removeIf(id -> id.equals(tmp.relicId));
-                        break;
-                    case UNCOMMON:
-                        AbstractDungeon.uncommonRelicPool.removeIf(id -> id.equals(tmp.relicId));
-                        break;
-                    case RARE:
-                        AbstractDungeon.rareRelicPool.removeIf(id -> id.equals(tmp.relicId));
-                        break;
-                    case SHOP:
-                        AbstractDungeon.shopRelicPool.removeIf(id -> id.equals(tmp.relicId));
-                        break;
-                    case BOSS:
-                        AbstractDungeon.bossRelicPool.removeIf(id -> id.equals(tmp.relicId));
-                        break;
-                    default:
-                        break;
+                try {
+                    tmp = RelicLibrary.getRelic(getSavedItem()).makeCopy();
+                    AbstractRelic finalTmp1 = tmp;
+                    if (debug) System.out.println("tmp is: " + tmp.relicId);
+                    switch (tmp.tier) {
+                        case COMMON:
+                            AbstractDungeon.commonRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
+                            break;
+                        case UNCOMMON:
+                            AbstractDungeon.uncommonRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
+                            break;
+                        case RARE:
+                            AbstractDungeon.rareRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
+                            break;
+                        case SHOP:
+                            AbstractDungeon.shopRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
+                            break;
+                        case BOSS:
+                            AbstractDungeon.bossRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
+                            break;
+                        default:
+                            break;
                     }
+                } catch(NullPointerException npe) {
+                    Aspiration.logger.info("Trying to retrieve stored relic threw NPE, adding Nostlagia instead. \nException:" + npe.toString());
+                    tmp = new Nostalgia(false);
+                    AbstractRelic finalTmp = tmp;
+                    AbstractDungeon.shopRelicPool.removeIf(id -> id.equals(finalTmp.relicId));
+                    AbstractDungeon.uncommonRelicPool.removeIf(id -> id.equals(finalTmp.relicId));
+                }
                 AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(tmp));
 
                 AbstractRelic relic = relicSelectScreen.getSelectedRelics().get(0).makeCopy();
