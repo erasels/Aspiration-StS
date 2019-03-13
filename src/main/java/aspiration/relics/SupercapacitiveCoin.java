@@ -1,5 +1,6 @@
 package aspiration.relics;
 
+import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
@@ -11,7 +12,6 @@ import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -21,15 +21,12 @@ import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
 import com.megacrit.cardcrawl.vfx.combat.LightningEffect;
 import com.megacrit.cardcrawl.vfx.combat.MindblastEffect;
 
-import aspiration.relics.abstracts.AspirationRelic;
-
 public class SupercapacitiveCoin extends AspirationRelic implements ClickableRelic {
 	public static final String ID = "aspiration:SupercapacitiveCoin";
 	
 	private static final int START_CHARGE = 0;
 	private static final int CHARGE_INCREASE = 1;
 	private int lightning_damage = 3;
-	private boolean used = false;
 	private boolean duringTurn = true;
 	
     public SupercapacitiveCoin() {
@@ -43,16 +40,16 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
     @Override
     public String getUpdatedDescription() {
     	if(AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(Ectoplasm.ID)) {
-    		String tmp = CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[3] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[7];
+    		String tmp = CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[7];
     		return tmp;
     	} else {
-    		return CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[3] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[2];
+    		return CLICKABLE_DESCRIPTIONS()[0] + DESCRIPTIONS[0] + DESCRIPTIONS[1] + CHARGE_INCREASE + DESCRIPTIONS[2];
     	}
     }
 
 	@Override
 	public void onRightClick() {
-		if(!used && AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && counter > 0 && !AbstractDungeon.player.isDead && duringTurn) {
+		if(AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && counter > 0 && !AbstractDungeon.player.isDead && duringTurn) {
 			AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 			AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
 			
@@ -71,8 +68,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	            }
 			}
 			startingCharges();
-			pulse = false;
-			used = true;
+			stopPulse();
 		}
 	}
 	
@@ -95,16 +91,15 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
     public void atPreBattle() {
         if(counter > 0) {
         	flash();
-    		pulse = true;
+    		beginLongPulse();
         }
     }
 	
 	@Override
     public void onVictory() {
         if(counter > 0) {
-        	pulse = false;
+        	stopPulse();
         }
-        used = false;
     }
 
 	@Override
@@ -145,6 +140,9 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
         if (counter < 0) {
             counter = 0;
         }
+		if (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT && counter == 0) {
+			beginLongPulse();
+		}
         setCounter(counter + amt);
     }
 

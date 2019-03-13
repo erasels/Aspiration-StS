@@ -73,7 +73,7 @@ public class BursterCore extends AspirationRelic{
     	}
     }
     
-    public void channelToFull()
+    private void channelToFull()
     {
     	AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     	

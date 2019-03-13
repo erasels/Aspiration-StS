@@ -1,5 +1,6 @@
 package aspiration.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -9,7 +10,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class P_RitualPower extends AbstractPower {
+public class P_RitualPower extends AbstractPower implements CloneablePowerInterface {
     //Thank you fiiiilth and Beaked for this :)
     public static final String POWER_ID = "aspiration:P_RitualPower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
@@ -47,4 +48,8 @@ public class P_RitualPower extends AbstractPower {
         this.description = P_RitualPower.DESCRIPTIONS[0] + this.amount + P_RitualPower.DESCRIPTIONS[1];
     }
 
+    @Override
+    public AbstractPower makeCopy() {
+        return new P_RitualPower(this.owner, this.amount);
+    }
 }

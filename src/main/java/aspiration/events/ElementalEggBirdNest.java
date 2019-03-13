@@ -1,15 +1,15 @@
 package aspiration.events;
 
-import java.util.ArrayList;
-import java.util.Collections;
-
+import aspiration.Aspiration;
+import aspiration.relics.BabyByrd;
+import aspiration.ui.events.RelicPreviewEventButton;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.curses.Injury;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.events.*;
+import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.localization.EventStrings;
 import com.megacrit.cardcrawl.random.Random;
@@ -21,14 +21,10 @@ import com.megacrit.cardcrawl.vfx.UpgradeShineEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardAndObtainEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.ShowCardBrieflyEffect;
 
-import aspiration.Aspiration;
-import aspiration.relics.BabyByrd;
-
-
+import java.util.ArrayList;
+import java.util.Collections;
 
 public class ElementalEggBirdNest extends AbstractImageEvent {
-
-    //This isn't technically needed but it becomes useful later
     public static final String ID = "aspiration:TheBirdsNest";
     private static final EventStrings eventStrings = CardCrawlGame.languagePack.getEventString(ID);
     private static final String NAME = eventStrings.NAME;
@@ -42,9 +38,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
     
     private ArrayList<AbstractRelic> eggs = new ArrayList<AbstractRelic>();
     ArrayList<AbstractRelic> tmp = new ArrayList<AbstractRelic>();
-    
-    
-    
+
     public enum State{
         CHOOSING1,
         CHOOSING2,
@@ -99,7 +93,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
                 story_so_far = DESCRIPTIONS[0].substring(0, DESCRIPTIONS[0].length() - 1) + " " + OPTIONS[chosen_option] + DESCRIPTIONS[1];
                 imageEventText.updateBodyText(story_so_far);
                 imageEventText.clearAllDialogs();
-                imageEventText.setDialogOption(OPTIONS[3] + FontHelper.colorString(eggs.get(chosen_option).name, "g") + OPTIONS[4]);
+				this.imageEventText.optionList.add(new RelicPreviewEventButton(0, OPTIONS[3] + FontHelper.colorString(eggs.get(chosen_option).name, "g") + OPTIONS[4], eggs.get(chosen_option), false, new Injury()));
                 
                 String cgroup = "";
                 switch (chosen_option) {
@@ -142,9 +136,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             		break;
             	case 1:
             		Random rng = AbstractDungeon.miscRng;
-            		System.out.println("Size: " + tmp.size());
             		if(!tmp.isEmpty()) {
-            			System.out.println("Is in");
             			AbstractDungeon.player.loseRelic(tmp.get(rng.random(tmp.size()-1)).relicId);
             		}
 
@@ -158,7 +150,7 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             	    if (!upgradableCards.isEmpty()) {
             	      if (upgradableCards.size() == 1)
             	      {
-            	        ((AbstractCard)upgradableCards.get(0)).upgrade();
+            	        upgradableCards.get(0).upgrade();
             	        AbstractDungeon.player.bottledCardUpgradeCheck(upgradableCards.get(0));
             	        AbstractDungeon.topLevelEffects.add(new ShowCardBrieflyEffect((upgradableCards.get(0)).makeStatEquivalentCopy()));
             	        AbstractDungeon.topLevelEffects.add(new UpgradeShineEffect(Settings.WIDTH / 2.0F, Settings.HEIGHT / 2.0F));
@@ -181,7 +173,6 @@ public class ElementalEggBirdNest extends AbstractImageEvent {
             		imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[3]);
             		break;
             	case 2:
-            		//Add baby byrd relic, make it do sounds like CultistMask and maybe Minion implementation? Or, easier. make byrds flee like hubris:ScarierMask
             		CardCrawlGame.sound.play("BYRD_DEATH");
             		AbstractDungeon.getCurrRoom().spawnRelicAndObtain(this.drawX, this.drawY, new BabyByrd(chosen_option + 1));
             		imageEventText.updateBodyText(story_so_far + DESCRIPTIONS[4]);

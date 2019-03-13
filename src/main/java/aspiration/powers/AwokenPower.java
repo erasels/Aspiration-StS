@@ -1,5 +1,6 @@
 package aspiration.powers;
 
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -12,7 +13,7 @@ import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
 
-public class AwokenPower extends AbstractPower implements OnReceivePowerPower {
+public class AwokenPower extends AbstractPower implements OnReceivePowerPower, CloneablePowerInterface {
 	public static final String POWER_ID = "aspiration:Awoken";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -67,4 +68,8 @@ public class AwokenPower extends AbstractPower implements OnReceivePowerPower {
     	return DESCRIPTIONS[0] + (int)(percentage_heal*100) + DESCRIPTIONS[1];
     }
 
+    @Override
+    public AbstractPower makeCopy() {
+        return new AwokenPower(this.owner);
+    }
 }

@@ -5,10 +5,7 @@ import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.*;
 import aspiration.relics.abstracts.AspirationRelic;
-import aspiration.relics.crossovers.EmptySkull;
-import aspiration.relics.crossovers.MobileForge;
-import aspiration.relics.crossovers.PocketMushroom;
-import aspiration.relics.crossovers.TrustyKnives;
+import aspiration.relics.crossovers.*;
 import aspiration.relics.skillbooks.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
@@ -66,6 +63,7 @@ public class Aspiration implements
     public static final boolean hasRunesmith;
     public static final boolean hasReplay;
     public static final boolean hasConspire;
+    public static final boolean hasInfinite;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -85,12 +83,16 @@ public class Aspiration implements
             logger.info("Detected Character: Runesmith");
         }
         hasReplay = Loader.isModLoaded("ReplayTheSpireMod");
-        if (hasRunesmith) {
+        if (hasReplay) {
             logger.info("Detected Mod: Replay The Spire");
         }
         hasConspire = Loader.isModLoaded("conspire");
-        if (hasRunesmith) {
+        if (hasConspire) {
             logger.info("Detected Mod: Conspire");
+        }
+        hasInfinite = Loader.isModLoaded("infinitespire");
+        if (hasInfinite) {
+            Aspiration.logger.info("Detected Mod: Infinite Spire");
         }
     }
 
@@ -260,6 +262,7 @@ public class Aspiration implements
         BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
+        BaseMod.addRelic(new Stabinomicon(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
@@ -302,6 +305,9 @@ public class Aspiration implements
             BaseMod.addRelic(new MobileForge(), RelicType.SHARED);
             BaseMod.addRelic(new RunesmithSkillbook(), RelicType.SHARED);
         }
+        if (hasInfinite) {
+            BaseMod.addRelic(new TomeofQuesting(), RelicType.SHARED);
+        }
     }
 
     private String languageSupport()
@@ -309,8 +315,8 @@ public class Aspiration implements
         switch (Settings.language) {
             case RUS:
                 return "rus";
-            case DEU:
-                return "deu";
+            /*case DEU:
+                return "deu";*/
             default:
                 return "eng";
         }

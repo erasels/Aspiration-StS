@@ -24,7 +24,7 @@ public static final String ID = "aspiration:StickyExplosives";
     
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
-    	if(!applied && GameActionManager.turn == 1 && info.owner == AbstractDungeon.player && !target.isPlayer) {
+        if (!applied && GameActionManager.turn == 1 && info.owner == AbstractDungeon.player && info.type == DamageInfo.DamageType.NORMAL && !target.isPlayer) {
     		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(target, AbstractDungeon.player, new AftershockPower(target, percentagAftershock), 1));
     		
     		applied = true;

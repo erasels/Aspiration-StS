@@ -10,7 +10,7 @@
     "NAME": "Awoken",
     "DESCRIPTIONS": [
       "Heal #b",
-	  "% of damage inflicted on monsters. Apply #yWeak to all enemies on the start of your turn."
+	  "% of unblocked attack damage you deal. Whenever an enemy applies a debuff to you, gain #b1 #yStrength [REMOVE_SPACE]."
     ]
   },
   "aspiration:Sapped": {
@@ -26,6 +26,23 @@
     "DESCRIPTIONS": [
       "At the start of your turn, gain #b",
       " #yStrength."
+    ]
+  },
+  "aspiration:ChannelOrb": {
+    "NAME": "Channeling",
+    "DESCRIPTIONS": [
+      "At the start of your next #b",
+      " turn",
+      " turns",
+    ", #yChannel a random Orb."
+    ]
+  },
+  "aspiration:GrievousWounds": {
+    "NAME": "Grievous Wounds",
+    "DESCRIPTIONS": [
+      "Take #b",
+      " additional damage whenever you take unblocked attack damage.",
+      " NL NL Loses half its stacks at the end of every turn."
     ]
   }
 }

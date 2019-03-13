@@ -23,9 +23,8 @@
     "FLAVOR": "Your thirst for destruction has turned your blood into something wholely more sinister.",
     "DESCRIPTIONS": [
       "Lose #b",
-	  " HP for every #yskill [REMOVE_SPACE], heal #b",
-	  " for every #yattack and #b",
-	  " for every #ypower you play.",
+	  " HP for every #yskill and heal #b",
+	  " for every #yattack you play",
 	  "Replaces #rBurning #rBlood. "
     ]
   },
@@ -55,7 +54,8 @@
     "NAME": "Snecko Tail",
     "FLAVOR": "The tail of a fearsome Snecko. The fluids it secretes are excellent for transferring your toxins.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yPoison to a #yVulnerable enemy the applied amount is doubled."
+      "Whenever you play a poison-related card, apply #b",
+      " #yBefuddled to the target(s)."
     ]
   },
   "aspiration:HummingbirdHeart": {
@@ -105,12 +105,12 @@
     "DESCRIPTIONS": [
 	  "Consume all charges and deal #b3 damage to a random enemy for each. NL ",
       "Gain #b",
-	  " #yCharge everytime you gain gold. NL ",
+	  " #yCharge everytime you gain gold.",
 	  " NL [#2aecd7]Usable [#2aecd7]once [#2aecd7]per [#2aecd7]combat. NL ",
 	  "",
       "",
-      "Gain #b1 #yCharge per floor traveled instead, if you have #gEctoplasm.",
-      " #yCharge everytime you travel up a floor.",
+      "Gain #b1 charge per floor traveled instead, if you have #gEctoplasm.",
+      " charge everytime you travel up a floor.",
       "Thunder",
       "Synergy: "
     ]
@@ -220,7 +220,7 @@
     "FLAVOR": "The warrior who fears, will fail. Never look back. Never stop. Never surrender.",
     "DESCRIPTIONS": [
 	  "Raise your Max HP by #b",
-	  " and #rbecome #runable #rget #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN [REMOVE_SPACE]."
+	  " and #rbecome #runable #rto #robtain #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN [REMOVE_SPACE]."
     ]
   },
   "aspiration:KMNothing": {
@@ -297,7 +297,7 @@
     "FLAVOR": "This shouldn't be seen.",
     "DESCRIPTIONS": [
       "Multiclass",
-      "Cards from the associated class may spawn now, and future Card Reward screens have #b1 additional card to choose from.",
+      "Cards from the associated class may now spawn, and future Card Reward screens have #b1 additional card to choose from.",
       "(You have disabled cardpool mixing in options) Future Card Reward screens have #b1 additional card to choose from.",
       " NL NL #yMulticlass "
     ]
@@ -396,6 +396,23 @@
     "FLAVOR": "A Mushroom concealed in your skirt in case of danger.",
     "DESCRIPTIONS": [
       "The first time you take unblocked attack damage each combat, deal #b"
+    ]
+  },
+  "aspiration:TomeofQuesting": {
+    "NAME": "Tome of Questing",
+    "FLAVOR": "Why does it tell you to move from one floor to another all the time?",
+    "DESCRIPTIONS": [
+      "Whenever you complete a quest, obtain a new one."
+    ]
+  },
+  "aspiration:Stabinomicon": {
+    "NAME": "Stabinomicon",
+    "FLAVOR": "\"How do you reach a heart? With a knife.\" - Blizzarre, runic archmagus",
+    "DESCRIPTIONS": [
+      "Whenever you deal unblocked attack damage, apply #b",
+      " #yGrievous #yWounds to the target.",
+      "Let us stab many things.",
+      "Stab "
     ]
   }
 }

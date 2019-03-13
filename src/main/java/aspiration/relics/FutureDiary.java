@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
+import com.megacrit.cardcrawl.vfx.cardManip.CardFlashVfx;
 
 import java.util.ArrayList;
 
@@ -35,7 +36,7 @@ public class FutureDiary extends AspirationRelic {
     public boolean canPlay(AbstractCard card)
     {
         if (mustPlay != null) {
-            if (mustPlay.equals(card) || mustPlay.equals(this)) {
+            if (mustPlay.equals(card)) {
                 return true;
             }
             card.cantUseMessage = DESCRIPTIONS[1] + mustPlay.name + DESCRIPTIONS[2];
@@ -54,8 +55,8 @@ public class FutureDiary extends AspirationRelic {
     public void setCompulsion(AbstractCard card)
     {
         mustPlay = card;
-        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0f,
-                DESCRIPTIONS[1] + mustPlay.name + DESCRIPTIONS[2], true));
+        AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0f, DESCRIPTIONS[1] + mustPlay.name + DESCRIPTIONS[2], true));
+        AbstractDungeon.effectsQueue.add(new CardFlashVfx(card));
     }
 
     public void setPlayableCards(ArrayList<AbstractCard> pc) {

@@ -1,7 +1,9 @@
 package aspiration.powers;
 
+import aspiration.Aspiration;
+import aspiration.actions.SpawnTolerantDamageAllEnemiesAction;
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,9 +13,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-import aspiration.Aspiration;
-
-public class AftershockPower extends AbstractPower{
+public class AftershockPower extends AbstractPower implements CloneablePowerInterface {
 	public static final String POWER_ID = "aspiration:Aftershock";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -39,11 +39,11 @@ public class AftershockPower extends AbstractPower{
     public int onAttacked(DamageInfo info, int dmgAmount) {
     	amount = 1;
     	justApplied = true;
-    	
-    	if(!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && dmgAmount > 0 && info.owner != null) {
-    		flashWithoutSound();
-    		AbstractDungeon.actionManager.addToBottom(new DamageAllEnemiesAction(null, DamageInfo.createDamageMatrix(Math.round(dmgAmount * aftershockPercentageDamage), true), DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE));
-    	}
+
+        if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && dmgAmount > 0 && info.type == DamageInfo.DamageType.NORMAL && info.owner != null) {
+            this.flashWithoutSound();
+            AbstractDungeon.actionManager.addToBottom(new SpawnTolerantDamageAllEnemiesAction(AbstractDungeon.player, Math.round(dmgAmount * aftershockPercentageDamage), true, false, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
+        }
     	
     	return dmgAmount;
     }
@@ -86,4 +86,8 @@ public class AftershockPower extends AbstractPower{
     	
     }
 
+    @Override
+    public AbstractPower makeCopy() {
+        return new AftershockPower(owner, aftershockPercentageDamage);
+    }
 }

@@ -88,6 +88,13 @@
                <scope>system</scope>
                <systemPath>${basedir}/../lib/Conspire.jar</systemPath>
         </dependency>
+		<dependency>
+               <groupId>InfiniteSpire</groupId>
+               <artifactId>InfiniteSpire</artifactId>
+               <version>0.15.1</version>
+               <scope>system</scope>
+               <systemPath>${basedir}/../lib/InfiniteSpire.jar</systemPath>
+        </dependency>
 		
     </dependencies>
 

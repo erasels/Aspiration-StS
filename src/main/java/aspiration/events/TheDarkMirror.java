@@ -38,19 +38,19 @@ public class TheDarkMirror extends AbstractImageEvent {
 
     public TheDarkMirror(){
         super(NAME, DESCRIPTIONS[0], Aspiration.assetPath("img/events/event1_Startup.jpg"));
-    	
-        //Set dialogue options from json string delcared in Aspiration.java
-        if (AbstractDungeon.player.hasRelic(PrismaticShard.ID)) {
+
+        boolean hasPShard = AbstractDungeon.player.hasRelic(PrismaticShard.ID);
+        if (hasPShard) {
         	AbstractCard c = new Apotheosis();
         	c.upgrade();
-        	this.imageEventText.setDialogOption(OPTIONS[1], !AbstractDungeon.player.hasRelic(PrismaticShard.ID), c);
-          } else {
-            this.imageEventText.setDialogOption(OPTIONS[3], !AbstractDungeon.player.hasRelic(PrismaticShard.ID));
-          }
-        if (AbstractDungeon.ascensionLevel >= 15) {
-        	imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT + OPTIONS[4], AbstractDungeon.player.hasRelic(PrismaticShard.ID));
+        	this.imageEventText.setDialogOption(OPTIONS[1], false, c);
         } else {
-        	imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT_SMALL + OPTIONS[4], AbstractDungeon.player.hasRelic(PrismaticShard.ID));
+            this.imageEventText.setDialogOption(OPTIONS[3], true);
+        }
+        if (AbstractDungeon.ascensionLevel >= 15) {
+        	imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT + OPTIONS[4], hasPShard);
+        } else {
+        	imageEventText.setDialogOption(OPTIONS[2]+ DAMAGE_AMOUNT_SMALL + OPTIONS[4], hasPShard);
         }
         imageEventText.setDialogOption(OPTIONS[0], new Shame());
         

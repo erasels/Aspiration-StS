@@ -3,7 +3,7 @@
     "NAME": "Aftershock",
     "DESCRIPTIONS": [
       "Deal #b",
-	  "% of #rHP damage taken to ALL enemies. #rExpires if enemy does not take HP damage every turn."
+	  "% of unblocked attack damage taken to ALL enemies. #rExpires if enemy does not take HP damage every turn."
     ]
   },
   "aspiration:Awoken": {
@@ -35,6 +35,25 @@
       " turn",
       " turns",
     ", #yChannel a random Orb."
+    ]
+  },
+  "aspiration:GrievousWounds": {
+    "NAME": "Grievous Wounds",
+    "DESCRIPTIONS": [
+      "Whenever unblocked attack damage is received, increase the damage by #b",
+      " [REMOVE_SPACE].",
+      " NL Loses half its stacks at the end of every turn.",
+      "(stacks)"
+    ]
+  },
+  "aspiration:Befuddled": {
+    "NAME": "Befuddled",
+    "DESCRIPTIONS": [
+      "Damage dealt is reduced by a random amount between #b0 and #b",
+      " [REMOVE_SPACE].",
+      " NL (Currently: #b",
+      " [REMOVE_SPACE])",
+      "stacks"
     ]
   }
 }

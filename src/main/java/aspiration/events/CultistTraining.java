@@ -2,13 +2,13 @@ package aspiration.events;
 
 import aspiration.Aspiration;
 import aspiration.relics.RitualStick;
+import aspiration.ui.events.RelicPreviewEventButton;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.events.AbstractImageEvent;
 import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.relics.CultistMask;
 
 public class CultistTraining extends AbstractImageEvent {
     public static final String ID = "aspiration:CultistTraining";
@@ -30,20 +30,19 @@ public class CultistTraining extends AbstractImageEvent {
 
     public CultistTraining(){
         super(NAME, DESCRIPTIONS[0], Aspiration.assetPath("img/events/CultistTraining/start.jpg"));
-        if(AbstractDungeon.player.hasRelic(CultistMask.ID)) {
-            imageEventText.setDialogOption(OPTIONS[0], false);
+        if (AbstractDungeon.player.hasRelic("CultistMask")) {
+            this.imageEventText.optionList.add(new RelicPreviewEventButton(0, CultistTraining.OPTIONS[0], new RitualStick()));
             if (AbstractDungeon.ascensionLevel >= 15) {
-                imageEventText.setDialogOption(OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth*ASC_PERDAMAGE) + OPTIONS[5], true);
+                this.imageEventText.setDialogOption(CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.1f) + CultistTraining.OPTIONS[5], true);
             } else {
-                imageEventText.setDialogOption(OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth*PERDAMAGE) + OPTIONS[5], true);
+                this.imageEventText.setDialogOption(CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.07f) + CultistTraining.OPTIONS[5], true);
             }
-
         } else {
-            imageEventText.setDialogOption(OPTIONS[3], true);
+            this.imageEventText.setDialogOption(CultistTraining.OPTIONS[3], true);
             if (AbstractDungeon.ascensionLevel >= 15) {
-                imageEventText.setDialogOption(OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth*ASC_PERDAMAGE) + OPTIONS[5], false);
+                this.imageEventText.optionList.add(new RelicPreviewEventButton(1, CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.1f) + CultistTraining.OPTIONS[5], new RitualStick()));
             } else {
-                imageEventText.setDialogOption(OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth*PERDAMAGE) + OPTIONS[5], false);
+                this.imageEventText.optionList.add(new RelicPreviewEventButton(1, CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.07f) + CultistTraining.OPTIONS[5], new RitualStick()));
             }
         }
 

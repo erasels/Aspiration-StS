@@ -37,9 +37,9 @@ public static final String ID = "aspiration:EnhancedActuators";
 	public void onOrbSlotChange(int amount, boolean isReduce) {
 		int tmp = 0;
 		if (isReduce) {
-			tmp = (int) Math.floor((AbstractDungeon.player.maxOrbs - amount) / ORB_SLOT_THRESHOLD);
+			tmp = (int) Math.floor(((float) AbstractDungeon.player.maxOrbs - amount) / ORB_SLOT_THRESHOLD);
 		} else {
-			tmp = (int) Math.floor((AbstractDungeon.player.maxOrbs + amount) / ORB_SLOT_THRESHOLD);
+			tmp = (int) Math.floor(((float) AbstractDungeon.player.maxOrbs + amount) / ORB_SLOT_THRESHOLD);
 		}
 
 		if (current_strength_given > tmp) {

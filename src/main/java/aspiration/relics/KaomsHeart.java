@@ -58,15 +58,17 @@ public class KaomsHeart extends AspirationRelic{
     public void onUnequip() {
     	AbstractDungeon.player.decreaseMaxHealth(MAX_LIFE_MANIP);
     }
-    
-    @Override
-    public int getPrice() {
-    	if(AbstractDungeon.player.gold < 200) {
-    		return 200;
-		} else {
+
+	@Override
+	public int getPrice() {
+		if (AbstractDungeon.player.gold < 250) {
+			return 250;
+		}
+		if (AbstractDungeon.ascensionLevel > 15) {
 			return MathUtils.floor(AbstractDungeon.player.gold * 0.8f);
 		}
-    }
+		return MathUtils.floor(AbstractDungeon.player.gold * 0.9f);
+	}
 
     @Override
 	public boolean canSpawn() {

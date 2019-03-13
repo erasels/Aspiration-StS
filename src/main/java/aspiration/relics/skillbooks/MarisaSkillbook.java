@@ -6,7 +6,6 @@ import ThMod.powers.Marisa.ChargeUpPower;
 import ThMod.relics.SimpleLauncher;
 import aspiration.Aspiration;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -83,7 +82,7 @@ public class MarisaSkillbook extends SkillbookRelic {
 
     public void triggerChargeup(int i) {
         flash();
-        AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+        //AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
         AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChargeUpPower(AbstractDungeon.player, i), i));
     }
 

@@ -5,11 +5,9 @@ import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.unique.GamblingChipAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.cards.green.Envenom;
 import com.megacrit.cardcrawl.characters.TheSilent;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -23,7 +21,7 @@ public class SilentSkillbook extends SkillbookRelic {
     private static final int START_CHARGE = 0;
 
     public SilentSkillbook() {
-        super(ID, "SilentSkillbook.png", RelicTier.BOSS, LandingSound.FLAT, new PowerTip(Envenom.NAME, Envenom.DESCRIPTION));
+        super(ID, "SilentSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
     }
 
     @Override

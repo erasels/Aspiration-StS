@@ -1,6 +1,7 @@
 package aspiration.powers;
 
 import aspiration.orbs.OrbUtilityMethods;
+import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class ChannelOrbPower extends AbstractPower {
+public class ChannelOrbPower extends AbstractPower implements CloneablePowerInterface {
     public static final String POWER_ID = "aspiration:ChannelOrb";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -55,5 +56,9 @@ public class ChannelOrbPower extends AbstractPower {
     {
         this.fontScale = 8.0F;
         this.amount += stackAmount;
+    }
+
+    public AbstractPower makeCopy() {
+        return new ChannelOrbPower(this.owner, this.amount);
     }
 }
