@@ -19,12 +19,14 @@ public class BookOfStabbingRelicRewardPatch {
         if (__instance instanceof MonsterRoom) {
             for (AbstractMonster m : __instance.monsters.monsters) {
                 if (m.id.equals(BookOfStabbing.ID)) {
-                    for(RewardItem rw : __instance.rewards) {
-                        if (rw.type == RewardItem.RewardType.RELIC) {
-                            if (AbstractDungeon.relicRng.random(19) == 0) {
-                                Stabinomicon sb = new Stabinomicon();
-                                __instance.rewards.set(__instance.rewards.indexOf(rw), new RewardItem(sb));
-                                break;
+                    if (!AbstractDungeon.player.hasRelic(Stabinomicon.ID)) {
+                        for (RewardItem rw : __instance.rewards) {
+                            if (rw.type == RewardItem.RewardType.RELIC) {
+                                if (AbstractDungeon.relicRng.random(19) == 0) {
+                                    Stabinomicon sb = new Stabinomicon();
+                                    __instance.rewards.set(__instance.rewards.indexOf(rw), new RewardItem(sb));
+                                    break;
+                                }
                             }
                         }
                     }
