@@ -58,13 +58,15 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 			} else {
 				AbstractDungeon.actionManager.addToBottom(new VFXAction(AbstractDungeon.player, new MindblastEffect(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, AbstractDungeon.player.flipHorizontal), 0.1f));
 	            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
-	            	m.damageFlash = true;
-	                m.damageFlashFrames = 4;
-	            	AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
-	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
-	            	AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));
-	                AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 3, DamageInfo.DamageType.THORNS)));
-	                AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, AbstractDungeon.player));
+	            	if(!m.isDeadOrEscaped()) {
+						m.damageFlash = true;
+						m.damageFlashFrames = 4;
+						AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
+						AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
+						AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));
+						AbstractDungeon.actionManager.addToBottom(new DamageAction(m, new DamageInfo(AbstractDungeon.player, counter * 3, DamageInfo.DamageType.THORNS)));
+						AbstractDungeon.actionManager.addToBottom(new StunMonsterAction(m, AbstractDungeon.player));
+					}
 	            }
 			}
 			startingCharges();
