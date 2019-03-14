@@ -308,7 +308,7 @@ public class Aspiration implements
             BaseMod.addRelic(new RunesmithSkillbook(), RelicType.SHARED);
         }
         if (hasInfinite) {
-            BaseMod.addRelic(new TomeofQuesting(), RelicType.SHARED);
+            //BaseMod.addRelic(new TomeofQuesting(), RelicType.SHARED);
         }
     }
 
