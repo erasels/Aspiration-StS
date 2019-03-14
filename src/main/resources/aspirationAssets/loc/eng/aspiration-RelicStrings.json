@@ -143,11 +143,11 @@
     ]
   },
   "aspiration:MysteriousAuxiliaryCore": {
-    "NAME": "Mysterious Auxiliary Core",
+    "NAME": "Mysterious Core",
     "FLAVOR": "Secondary systems have reported anamalous charge generation. Observation recommended.",
     "DESCRIPTIONS": [
 	  "At the end of your turn, #yChannel #b",
-	  " random orb every #b",
+	  " random orbs every #b",
 	  " turns."
     ]
   },
@@ -337,7 +337,7 @@
     "FLAVOR": "Pages filled with information on how to deal with this place. A talk with the author should be enlightening.",
     "DESCRIPTIONS": [
       "Whenever you play #b",
-      " or more cards on your turn, on your next turn, discard any number of cards then draw that many.",
+      " or more cards on your turn, at the start of your next turn, discard any number of cards then draw that many.",
       " NL NL #yMulticlass Silent"
     ]
   },
@@ -413,6 +413,21 @@
       " #yGrievous #yπWounds to the target.",
       "Let us stab many things.",
       "Stab "
+    ]
+  },
+  "aspiration:HeadsmansAxe": {
+    "NAME": "Headsman's Axe",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "At the start of each combat, gain #yCulling [REMOVE_SPACE]."
+    ]
+  },
+  "aspiration:HangmansNoose": {
+    "NAME": "Hangman's Noose",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "At the start of each turn, ALL enemies below #b50% HP lose #b",
+      " HP."
     ]
   }
 }

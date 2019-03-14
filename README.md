@@ -19,7 +19,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Ring of Ouroboros" is an upgrade to the "Snake Ring" starter relic of the Silent. Instead of drawing cards at a set pace, the ring allows you to draw a card whenever you want, in exchange for taking 3 damage. Just right-click the relic and there you have it!
 
-"Burster Core": Upgrade from "Cracked Core", channel as much lightning as you have empty orbs at the end of your turn, every three turns.
+"Burster Core": Upgrade from "Cracked Core", channel as much lightning as you have empty orbs at the end of your turn, every two turns.
 
 "Snecko Tail": Whenever you play a poison-related card, apply Befuddled to the target(s). (Befuddled: Damage dealt is reduced by a random amount between 0 and the amount of stacks)
 
@@ -41,7 +41,7 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Enhanced Actuators": Defect only. Gain 1 Strength for every 2 orb slots.
 
-"Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 1 Random orb every 3 turns, beginning with the first.
+"Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 2 Random orb every 3 turns.
 
 "Fetid Barrel": Whenever you exhaust a card, apply 1 poison to all enemies. Of note, it's a poison relic but can always spawn, even without poison card in deck.
 
@@ -68,6 +68,10 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 "Future Diary": Gain Energy at the start of each turn. At the start of each turn a random card in your hand is picked. You must play that card before any other.
 
 "Stabinomicon": Whenever you deal unblocked attack damage, apply 2 Greivous Wounds. (Increases damage taken by amount of stacks and loses halfs its stacks every turn)
+
+"Headman's Axe": Whenever you reduce a non-boss enemy below 10% of their HP with an attack, kill them.
+
+"Hangman's Noose": At the end of their turn, ALL enemies below 50% HP lose 2 HP.
 
 ###Crossover relics:
 Relics that are only enabled if you have the corresponding mods:

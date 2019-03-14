@@ -1,10 +1,10 @@
 package aspiration.powers;
 
+import aspiration.Aspiration;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -44,8 +44,13 @@ public class AwokenPower extends AbstractPower implements OnReceivePowerPower, C
     	if(target != owner) {
 			int tmp = MathUtils.round(damageAmount * percentage_heal);
 			if (tmp > 0) {
-				AbstractDungeon.actionManager.addToBottom(new HealAction(owner, owner, tmp));
-			}
+				//AbstractDungeon.actionManager.addToBottom(new HealAction(owner, owner, tmp));
+                try {
+                    owner.heal(tmp, true);
+                } catch (Exception e) {
+                    Aspiration.logger.info(e);
+                }
+            }
 		}
     }
 

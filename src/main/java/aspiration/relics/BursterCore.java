@@ -15,7 +15,7 @@ public class BursterCore extends AspirationRelic{
     public static final String ID = "aspiration:BursterCore";
 	
 	private static final int LIGHTNING_AMOUNT = 1;
-	private static final int TURN_INTERVAL = 3;
+	private static final int TURN_INTERVAL = 2;
 	private static final int START_CHARGE = 0;
 	
     public BursterCore() {
@@ -64,7 +64,7 @@ public class BursterCore extends AspirationRelic{
     @Override
     public void onPlayerEndTurn()
     {
-    	if(((GameActionManager.turn - 1) % TURN_INTERVAL) == 0) {
+    	if(((GameActionManager.turn) % TURN_INTERVAL) == 0) {
     		channelToFull();
     		startingCharges();
     	} else {

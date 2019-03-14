@@ -1,10 +1,10 @@
 package aspiration.relics;
 
+import aspiration.Aspiration;
+import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.actions.common.HealAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
-//import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -14,7 +14,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 
-import aspiration.relics.abstracts.AspirationRelic;
+//import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 
 public class InfernalBlood extends AspirationRelic {
 	public static final String ID = "aspiration:InfernalBlood";
@@ -66,7 +66,7 @@ public class InfernalBlood extends AspirationRelic {
     
 	@Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-		if(c.type == CardType.POWER || c.type == CardType.SKILL || c.type == CardType.ATTACK)
+		if(c.type == CardType.SKILL || c.type == CardType.ATTACK)
 		{
 			flash();
 			//AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
@@ -77,7 +77,12 @@ public class InfernalBlood extends AspirationRelic {
 			}
 			
 			if(c.type == CardType.ATTACK) {
-        		AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, ATTACK_HEAL));
+        		//AbstractDungeon.actionManager.addToBottom(new HealAction(AbstractDungeon.player, AbstractDungeon.player, ATTACK_HEAL));
+				try {
+					AbstractDungeon.player.heal(ATTACK_HEAL, true);
+				} catch (Exception e) {
+					Aspiration.logger.info(e);
+				}
         	}
         	if(c.type == CardType.SKILL) {
         		AbstractDungeon.actionManager.addToBottom(new DamageAction(AbstractDungeon.player, new DamageInfo(AbstractDungeon.player, SKILL_DAMAGE, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE));

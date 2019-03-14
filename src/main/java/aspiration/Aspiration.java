@@ -253,7 +253,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
     	BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
-    	BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
+    	//BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
@@ -262,7 +262,8 @@ public class Aspiration implements
         BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
-        BaseMod.addRelic(new Stabinomicon(), RelicType.SHARED);
+        BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
+        BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
@@ -273,6 +274,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualStick(), RelicType.SHARED);
         BaseMod.addRelic(new ArtOfWarUpgrade(), RelicType.SHARED);
+        BaseMod.addRelic(new Stabinomicon(), RelicType.SHARED);
     	
     	//Starter Upgrades
     	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);

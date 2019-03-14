@@ -55,5 +55,12 @@
       " [REMOVE_SPACE])",
       "stacks"
     ]
+  },
+  "aspiration:Culling": {
+    "NAME": "Culling",
+    "DESCRIPTIONS": [
+      "Whenever you reduce a non-boss enemy below #b",
+      "% of their HP with an attack, kill them."
+    ]
   }
 }

@@ -10,7 +10,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 public class MysteriousAuxiliaryCore extends AspirationRelic{
 public static final String ID = "aspiration:MysteriousAuxiliaryCore";
 	
-	private static final int ORB_AMOUNT = 1;
+	private static final int ORB_AMOUNT = 2;
 	private static final int TURN_INTERVAL = 3;
 	private static final int START_CHARGE = 0;
 	
@@ -31,8 +31,10 @@ public static final String ID = "aspiration:MysteriousAuxiliaryCore";
     @Override
     public void onPlayerEndTurn()
     {
-    	if(((GameActionManager.turn - 1) % TURN_INTERVAL) == 0) {
-    		AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
+    	if(((GameActionManager.turn) % TURN_INTERVAL) == 0) {
+    	    for(int i = 0; i<ORB_AMOUNT;i++) {
+                AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
+            }
     		startingCharges();
     	} else {
     		flash();

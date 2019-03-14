@@ -14,7 +14,7 @@ public class EmptySkull extends AspirationRelic {
     private static final int INSP_AMT = 1;
 
     public EmptySkull() {
-        super(ID, "EmptySkull.png", RelicTier.UNCOMMON, LandingSound.FLAT);
+        super(ID, "EmptySkull.png", RelicTier.COMMON, LandingSound.FLAT);
     }
 
     @Override
