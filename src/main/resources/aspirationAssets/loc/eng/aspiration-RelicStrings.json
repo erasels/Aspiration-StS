@@ -417,16 +417,17 @@
   },
   "aspiration:HeadsmansAxe": {
     "NAME": "Headsman's Axe",
-    "FLAVOR": "",
+    "FLAVOR": "Accept your fate, or lie, pretend. Death collects you in the end.",
     "DESCRIPTIONS": [
-      "At the start of each combat, gain #yCulling [REMOVE_SPACE]."
+      "Whenever you reduce a non-boss enemy below #b",
+      "% of their HP with an attack, kill them."
     ]
   },
   "aspiration:HangmansNoose": {
     "NAME": "Hangman's Noose",
-    "FLAVOR": "",
+    "FLAVOR": "Struggling to escape the inevitable only accelerates it.",
     "DESCRIPTIONS": [
-      "At the start of each turn, ALL enemies below #b50% HP lose #b",
+      "Whenever an enemy below or at #b50% HP attacks, it loses #b",
       " HP."
     ]
   }

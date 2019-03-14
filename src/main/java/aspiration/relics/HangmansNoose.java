@@ -4,8 +4,8 @@ import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.LoseHPAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.ChokePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 public class HangmansNoose extends AspirationRelic {
     public static final String ID = "aspiration:HangmansNoose";
 
-    private static final int HP_LOSS_AMT = 2;
+    private static final int HP_LOSS_AMT = 3;
 
     public HangmansNoose() {
         super(ID, "HangmansNoose.png", RelicTier.COMMON, LandingSound.FLAT);
@@ -25,13 +25,13 @@ public class HangmansNoose extends AspirationRelic {
     }
 
     @Override
-    public void atTurnStart() {
-        for(AbstractMonster m: AbstractDungeon.getMonsters().monsters) {
-            if(m.currentHealth<=(m.maxHealth/2)) {
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(m, new FlashPowerEffect(new ChokePower(m, 0)), 0.0F));
-                AbstractDungeon.actionManager.addToBottom(new LoseHPAction(m, AbstractDungeon.player, HP_LOSS_AMT, AbstractGameAction.AttackEffect.NONE));
-            }
+    public int onAttacked(DamageInfo info, int damageAmount) {
+        if(info.type == DamageInfo.DamageType.NORMAL && (info.owner.currentHealth<=(info.owner.maxHealth/2))) {
+            flash();
+            AbstractDungeon.actionManager.addToBottom(new VFXAction(info.owner, new FlashPowerEffect(new ChokePower(info.owner, 0)), 0.0F));
+            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(info.owner, AbstractDungeon.player, HP_LOSS_AMT, AbstractGameAction.AttackEffect.NONE));
         }
+        return damageAmount;
     }
 
     public AbstractRelic makeCopy() {

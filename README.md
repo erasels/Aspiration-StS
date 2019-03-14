@@ -71,9 +71,9 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Headman's Axe": Whenever you reduce a non-boss enemy below 10% of their HP with an attack, kill them.
 
-"Hangman's Noose": At the end of their turn, ALL enemies below 50% HP lose 2 HP.
+"Hangman's Noose": All enemis below 50% HP lose 3 HP whenever they attack.
 
-###Crossover relics:
+##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:
 Beaked:EmptySkull: Whenever you play a card and have no cards in your hand, shuffle an Inspiration into your draw pile.
 
@@ -85,7 +85,7 @@ Marisa:PocketMushroom: The first time you take unblocked HP damage in combat, de
 
 Infinite:Tome Of Questing: Whenever you complete a quest, receive a new one.
 
-###Skillbooks:
+##Skillbooks:
 These relics have effects that reference the base archetype of the character they're based on. Furthermore, if it's enabled in the options menu, they allow you to get cards for the character and increase the amount of cards in card rewards by 1.
 Currently implemented: Ironclad, Silent, Defect, Marisa, Servant, Beaked and Runesmith.
 

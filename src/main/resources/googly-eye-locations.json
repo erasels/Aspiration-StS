@@ -1,0 +1,239 @@
+{
+  "cards": {},
+  "relics": {
+    "aspiration:AnachronicSnailShell": [
+      {
+        "x": -22.0,
+        "y": 7.0,
+        "size": 7.615773
+      },
+      {
+        "x": -6.0,
+        "y": 35.0,
+        "size": 8.5440035
+      },
+      {
+        "x": -4.0,
+        "y": -22.0,
+        "size": 12.0
+      },
+      {
+        "x": 31.0,
+        "y": 17.0,
+        "size": 5.8309517
+      }
+    ],
+    "aspiration:ArtOfWarUpgrade": [
+      {
+        "x": 3.0,
+        "y": 21.0,
+        "size": 10.0
+      },
+      {
+        "x": 30.0,
+        "y": 19.0,
+        "size": 9.433981
+      }
+    ],
+    "aspiration:BabyByrd": [
+      {
+        "x": -62.0,
+        "y": -1.0,
+        "size": 9.219544
+      }
+    ],
+    "aspiration:Contagion": [
+      {
+        "x": -39.0,
+        "y": 1.0,
+        "size": 12.529964
+      },
+      {
+        "x": 6.0,
+        "y": 15.0,
+        "size": 15.0
+      }
+    ],
+    "aspiration:EmptySkull": [
+      {
+        "x": -13.0,
+        "y": 22.0,
+        "size": 4.472136
+      }
+    ],
+    "aspiration:FetidBarrel": [
+      {
+        "x": 1.0,
+        "y": -7.0,
+        "size": 10.816654
+      }
+    ],
+    "aspiration:FutureDiary": [
+      {
+        "x": 46.0,
+        "y": 20.0,
+        "size": 14.56022
+      }
+    ],
+    "aspiration:Headhunter": [
+      {
+        "x": -18.0,
+        "y": -22.0,
+        "size": 5.8309517
+      },
+      {
+        "x": -4.0,
+        "y": -20.0,
+        "size": 8.062258
+      },
+      {
+        "x": 53.0,
+        "y": -14.0,
+        "size": 7.071068
+      },
+      {
+        "x": 82.0,
+        "y": -12.0,
+        "size": 1.0
+      },
+      {
+        "x": 67.0,
+        "y": 7.0,
+        "size": 4.1231055
+      },
+      {
+        "x": 36.0,
+        "y": 26.0,
+        "size": 5.3851647
+      },
+      {
+        "x": -56.0,
+        "y": -16.0,
+        "size": 8.246211
+      },
+      {
+        "x": -41.0,
+        "y": -15.0,
+        "size": 8.602325
+      }
+    ],
+    "aspiration:TrainingWeights": [
+      {
+        "x": -24.0,
+        "y": 33.0,
+        "size": 9.219544
+      },
+      {
+        "x": -26.0,
+        "y": 15.0,
+        "size": 10.0
+      },
+      {
+        "x": -33.0,
+        "y": 0.0,
+        "size": 8.485281
+      },
+      {
+        "x": -38.0,
+        "y": -16.0,
+        "size": 8.246211
+      }
+    ]
+  },
+  "events": {
+    "aspirationAssets/img/events/Bnest/start.jpg": [
+      {
+        "x": 356.0,
+        "y": 355.0,
+        "size": 80.21222
+      }
+    ],
+    "aspirationAssets/img/events/CultistTraining/start.jpg": [
+      {
+        "x": 436.0,
+        "y": 350.0,
+        "size": 9.433981
+      },
+      {
+        "x": 148.0,
+        "y": 312.0,
+        "size": 10.29563
+      },
+      {
+        "x": 179.0,
+        "y": 487.0,
+        "size": 7.81025
+      }
+    ],
+    "aspirationAssets/img/events/event1_Startup.jpg": [
+      {
+        "x": 290.0,
+        "y": 369.0,
+        "size": 4.472136
+      },
+      {
+        "x": 302.0,
+        "y": 369.0,
+        "size": 4.472136
+      }
+    ]
+  },
+  "charSelect": {},
+  "creatures": {
+    "CHRONO_CLASS": [
+      {
+        "bone": "Clock",
+        "x": 32.93979,
+        "y": -47.019394,
+        "size": 9.280535
+      },
+      {
+        "bone": "Body",
+        "x": -61.5124,
+        "y": 30.554445,
+        "size": 4.3951383
+      },
+      {
+        "bone": "Tentacle_main_91",
+        "x": -43.681732,
+        "y": -101.34486,
+        "size": 25.0
+      },
+      {
+        "bone": "Tentacle_main_81",
+        "x": 38.1217,
+        "y": -106.978134,
+        "size": 25.0
+      },
+      {
+        "bone": "Tentacle_main_81",
+        "x": 22.296427,
+        "y": 22.009758,
+        "size": 20.912613
+      },
+      {
+        "bone": "Tentacle_main_141",
+        "x": 55.58041,
+        "y": -149.6844,
+        "size": 28.06669
+      },
+      {
+        "bone": "Scythe",
+        "x": -24.179836,
+        "y": -1.0887275,
+        "size": 4.3951373
+      },
+      {
+        "bone": "Scythe",
+        "x": -29.079237,
+        "y": 2.8999696,
+        "size": 25.0
+      }
+    ]
+  },
+  "charSelect": {},
+  "creatures": {},
+  "creaturesStatic": {},
+  "orbs": {},
+  "potions": {}
+}

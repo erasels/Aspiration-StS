@@ -47,7 +47,7 @@
     ]
   },
   "aspiration:Befuddled": {
-    "NAME": "Befuddled",
+    "NAME": "Dizzy",
     "DESCRIPTIONS": [
       "Damage dealt is reduced by a random amount between #b0 and #b",
       " [REMOVE_SPACE].",
