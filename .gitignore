@@ -3,11 +3,11 @@
 # IntelliJ
 .idea/
 out/
-*.iml
+#*.iml
 
 # Eclipse
-.classpath
-.project
+#.classpath
+#.project
 .settings/
 
 # maven build target
