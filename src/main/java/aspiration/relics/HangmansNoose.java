@@ -13,7 +13,7 @@ import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 public class HangmansNoose extends AspirationRelic {
     public static final String ID = "aspiration:HangmansNoose";
 
-    private static final int HP_LOSS_AMT = 3;
+    private static final int HP_LOSS_AMT = 5;
 
     public HangmansNoose() {
         super(ID, "HangmansNoose.png", RelicTier.COMMON, LandingSound.FLAT);
@@ -26,10 +26,10 @@ public class HangmansNoose extends AspirationRelic {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if(info.type == DamageInfo.DamageType.NORMAL && (info.owner.currentHealth<=(info.owner.maxHealth/2)) && info.owner != AbstractDungeon.player) {
+        if(info.owner != null && info.type == DamageInfo.DamageType.NORMAL && (info.owner.currentHealth<=(info.owner.maxHealth/2)) && info.owner != AbstractDungeon.player) {
             flash();
-            AbstractDungeon.actionManager.addToBottom(new VFXAction(info.owner, new FlashPowerEffect(new ChokePower(info.owner, 0)), 0.0F));
-            AbstractDungeon.actionManager.addToBottom(new LoseHPAction(info.owner, AbstractDungeon.player, HP_LOSS_AMT, AbstractGameAction.AttackEffect.NONE));
+            AbstractDungeon.actionManager.addToTop(new VFXAction(info.owner, new FlashPowerEffect(new ChokePower(info.owner, 0)), 0.0F));
+            AbstractDungeon.actionManager.addToTop(new LoseHPAction(info.owner, AbstractDungeon.player, HP_LOSS_AMT, AbstractGameAction.AttackEffect.NONE));
         }
         return damageAmount;
     }

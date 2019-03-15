@@ -71,7 +71,7 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Headman's Axe": Whenever you reduce a non-boss enemy below 10% of their HP with an attack, kill them.
 
-"Hangman's Noose": All enemis below 50% HP lose 3 HP whenever they attack.
+"Hangman's Noose": All enemis below 50% HP lose 5 HP whenever they attack.
 
 ##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:
