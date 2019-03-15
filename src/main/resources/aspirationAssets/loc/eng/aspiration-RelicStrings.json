@@ -327,7 +327,7 @@
     "FLAVOR": "Pages upon pages filled with meticulously written 1s and 0s, what could this mean?",
     "DESCRIPTIONS": [
       "At the start of each combat, gain #b",
-      " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower, #yChannel a random Orb at the start of your turn for #b",
+      " Orb slots and #yChannel that many random Orbs. NL Whenever you play a #yPower [REMOVE_SPACE], #yChannel a random Orb at the start of your turn for #b",
       " turns.",
       " NL NL #yMulticlass Defect"
     ]

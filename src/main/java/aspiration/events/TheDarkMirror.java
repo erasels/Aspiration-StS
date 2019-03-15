@@ -1,5 +1,6 @@
 package aspiration.events;
 
+import aspiration.Utility.RelicUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
@@ -100,6 +101,8 @@ public class TheDarkMirror extends AbstractImageEvent {
                 	    AbstractDungeon.getCurrRoom().rewards.clear();
                 	    AbstractDungeon.getCurrRoom().addRelicToRewards(r);
                 	    AbstractDungeon.combatRewardScreen.open();
+
+                        RelicUtils.removeRelicFromPool(r);
                 	    
                 		chosen_option = 3;
                 		break;

@@ -1,6 +1,7 @@
 package aspiration.relics;
 
 import aspiration.Aspiration;
+import aspiration.Utility.RelicUtils;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.ui.screens.RelicSelectScreen;
 import aspiration.vfx.ObtainRelicLater;
@@ -82,33 +83,12 @@ public class SeaSaltIceCream extends AspirationRelic {
 
                 try {
                     tmp = RelicLibrary.getRelic(getSavedItem()).makeCopy();
-                    AbstractRelic finalTmp1 = tmp;
                     if (debug) System.out.println("tmp is: " + tmp.relicId);
-                    switch (tmp.tier) {
-                        case COMMON:
-                            AbstractDungeon.commonRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
-                            break;
-                        case UNCOMMON:
-                            AbstractDungeon.uncommonRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
-                            break;
-                        case RARE:
-                            AbstractDungeon.rareRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
-                            break;
-                        case SHOP:
-                            AbstractDungeon.shopRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
-                            break;
-                        case BOSS:
-                            AbstractDungeon.bossRelicPool.removeIf(id -> id.equals(finalTmp1.relicId));
-                            break;
-                        default:
-                            break;
-                    }
+                    RelicUtils.removeRelicFromPool(tmp, true);
                 } catch(NullPointerException npe) {
                     Aspiration.logger.info("Trying to retrieve stored relic threw NPE, adding Nostlagia instead. \nException:" + npe.toString());
                     tmp = new Nostalgia(false);
-                    AbstractRelic finalTmp = tmp;
-                    AbstractDungeon.shopRelicPool.removeIf(id -> id.equals(finalTmp.relicId));
-                    AbstractDungeon.uncommonRelicPool.removeIf(id -> id.equals(finalTmp.relicId));
+                    RelicUtils.removeRelicFromPool(tmp, true);
                 }
                 AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(tmp));
 

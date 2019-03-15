@@ -26,7 +26,7 @@ public class HangmansNoose extends AspirationRelic {
 
     @Override
     public int onAttacked(DamageInfo info, int damageAmount) {
-        if(info.type == DamageInfo.DamageType.NORMAL && (info.owner.currentHealth<=(info.owner.maxHealth/2))) {
+        if(info.type == DamageInfo.DamageType.NORMAL && (info.owner.currentHealth<=(info.owner.maxHealth/2)) && info.owner != AbstractDungeon.player) {
             flash();
             AbstractDungeon.actionManager.addToBottom(new VFXAction(info.owner, new FlashPowerEffect(new ChokePower(info.owner, 0)), 0.0F));
             AbstractDungeon.actionManager.addToBottom(new LoseHPAction(info.owner, AbstractDungeon.player, HP_LOSS_AMT, AbstractGameAction.AttackEffect.NONE));
