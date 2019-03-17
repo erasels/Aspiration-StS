@@ -31,8 +31,11 @@ public class OrbUtilityMethods {
         if(Aspiration.hasReplay) {
             orbs.add(new CrystalOrb());
             orbs.add(new HellFireOrb());
-            orbs.add(new ManaSparkOrb());
             orbs.add(new ReplayLightOrb());
+
+            if(Aspiration.hasMarisa) {
+                orbs.add(new ManaSparkOrb());
+            }
         }
 
         if(rareOrbs != null && !rareOrbs.isEmpty()) {
@@ -71,8 +74,11 @@ public class OrbUtilityMethods {
         }
 
         if(Aspiration.hasReplay) {
-            rareOrbs.add(new ManaSparkOrb());
             rareOrbs.add(new ReplayLightOrb());
+
+            if(Aspiration.hasMarisa) {
+                rareOrbs.add(new ManaSparkOrb());
+            }
         }
 
         return getSelectiveRandomOrb(rng, rareOrbs);

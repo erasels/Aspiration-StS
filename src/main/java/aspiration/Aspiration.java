@@ -3,10 +3,14 @@ package aspiration;
 import aspiration.events.CultistTraining;
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
-import aspiration.relics.*;
 import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.relics.boss.*;
+import aspiration.relics.common.*;
 import aspiration.relics.crossovers.*;
+import aspiration.relics.rare.*;
 import aspiration.relics.skillbooks.*;
+import aspiration.relics.special.*;
+import aspiration.relics.uncommon.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -105,6 +109,7 @@ public class Aspiration implements
             defaults.put("WeakPoetsPen", Boolean.toString(true));
             defaults.put("uncommonNostalgia", Boolean.toString(false));
             defaults.put("SkillbookCardpool", Boolean.toString(true));
+            defaults.put("SpawnRNG", Boolean.toString(false));
             modConfig = new SpireConfig("Aspiration", "Config", defaults);
         } catch (IOException e) {
             e.printStackTrace();
@@ -138,6 +143,14 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("SkillbookCardpool");
+    }
+
+    public static boolean SpawnRNG()
+    {
+        if (modConfig == null) {
+            return false;
+        }
+        return modConfig.getBool("SpawnRNG");
     }
     
     public static void loadOtherData()
@@ -224,6 +237,20 @@ public class Aspiration implements
                 });
         settingsPanel.addUIElement(skillbookBtn);
 
+        ModLabeledToggleButton rngButton = new ModLabeledToggleButton(TEXT[3], 350, 550, Settings.CREAM_COLOR, FontHelper.charDescFont, SpawnRNG(), settingsPanel, l -> {},
+                button ->
+                {
+                    if (modConfig != null) {
+                        modConfig.setBool("SpawnRNG", button.enabled);
+                        try {
+                            modConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(rngButton);
+
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("img/UI/modBadge.png")), "Aspiration", "Erasels", "A mod, boyo.", settingsPanel);
 
     	
@@ -264,6 +291,7 @@ public class Aspiration implements
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
         BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
         BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
+        BaseMod.addRelic(new RandomNobGenerator(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
@@ -353,6 +381,12 @@ public class Aspiration implements
         } else {
         	if (AbstractDungeon.bossRelicPool.removeIf(r -> r.equals(PoetsPen_weak.ID))) {
                 logger.info(PoetsPen_weak.ID + " removed.");
+            }
+        }
+
+        if (!SpawnRNG()) {
+            if (AbstractDungeon.bossRelicPool.removeIf(r -> r.equals(RandomNobGenerator.ID))) {
+                logger.info(RandomNobGenerator.ID + " removed.");
             }
         }
 

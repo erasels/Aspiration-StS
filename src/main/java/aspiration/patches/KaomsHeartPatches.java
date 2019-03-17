@@ -1,6 +1,6 @@
 package aspiration.patches;
 
-import aspiration.relics.KaomsHeart;
+import aspiration.relics.special.KaomsHeart;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePrefixPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpireReturn;

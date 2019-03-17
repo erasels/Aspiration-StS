@@ -1,6 +1,6 @@
 package aspiration.patches;
 
-import aspiration.relics.Stabinomicon;
+import aspiration.relics.special.Stabinomicon;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

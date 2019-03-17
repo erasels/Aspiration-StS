@@ -1,7 +1,7 @@
 package aspiration.patches;
 
 import aspiration.Aspiration;
-import aspiration.relics.Nostalgia;
+import aspiration.relics.uncommon.Nostalgia;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.core.Settings;

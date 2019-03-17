@@ -1,6 +1,6 @@
 package aspiration.actions.unique;
 
-import aspiration.relics.FutureDiary;
+import aspiration.relics.boss.FutureDiary;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

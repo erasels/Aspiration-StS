@@ -1,7 +1,7 @@
 package aspiration.events;
 
 import aspiration.Aspiration;
-import aspiration.relics.RitualStick;
+import aspiration.relics.special.RitualStick;
 import aspiration.ui.events.RelicPreviewEventButton;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.DamageInfo;

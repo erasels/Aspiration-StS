@@ -430,6 +430,14 @@
       "Whenever an enemy below or at #b50% HP attacks, it loses #b",
       " HP."
     ]
+  },
+  "aspiration:RandomNobGenerator": {
+    "NAME": "Random Nob Generator",
+    "FLAVOR": "We spent so much time to see if we could, we didn't think about if we should.",
+    "DESCRIPTIONS": [
+      "Gain [E] [E] at the start of each turn. At the start of each combat, spawn a #rGremlin #rNob #b",
+      "% of the time."
+    ]
   }
 }
  

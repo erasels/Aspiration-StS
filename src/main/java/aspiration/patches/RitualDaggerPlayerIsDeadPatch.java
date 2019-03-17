@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-import aspiration.relics.RitualDagger;
+import aspiration.relics.boss.RitualDagger;
 import javassist.CtBehavior;
 
 @SpirePatch(

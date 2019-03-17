@@ -1,7 +1,7 @@
 package aspiration.ui.campfire;
 
 import aspiration.Aspiration;
-import aspiration.relics.ArtOfWarUpgrade;
+import aspiration.relics.special.ArtOfWarUpgrade;
 import aspiration.vfx.campfire.CampfireReadArtOfWarEffect;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;

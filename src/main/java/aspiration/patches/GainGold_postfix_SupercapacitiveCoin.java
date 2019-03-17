@@ -5,7 +5,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.Ectoplasm;
 
-import aspiration.relics.SupercapacitiveCoin;
+import aspiration.relics.common.SupercapacitiveCoin;
 
 @SpirePatch(
         clz=AbstractPlayer.class,

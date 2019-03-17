@@ -1,6 +1,6 @@
 package aspiration.patches;
 
-import aspiration.relics.EvolvingReagent;
+import aspiration.relics.unfinished.EvolvingReagent;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
