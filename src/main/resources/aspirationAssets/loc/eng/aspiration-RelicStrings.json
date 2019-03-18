@@ -441,7 +441,7 @@
   },
   "aspiration:Stellarator": {
     "NAME": "Stellarator",
-    "FLAVOR": "",
+    "FLAVOR": "Who needs the Inserter if you can just squeeze!",
     "DESCRIPTIONS": [
       "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and fuse all remaining orbs."
     ]

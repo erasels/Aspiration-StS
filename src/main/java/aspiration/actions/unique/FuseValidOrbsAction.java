@@ -10,9 +10,9 @@ import com.megacrit.cardcrawl.orbs.AbstractOrb;
 
 import java.util.ArrayList;
 
-public class FuseValidOrbsActionOrWhateverYouWantToCallItIdkItsUpToYou extends AbstractGameAction {
+public class FuseValidOrbsAction extends AbstractGameAction {
 
-    public FuseValidOrbsActionOrWhateverYouWantToCallItIdkItsUpToYou() {
+    public FuseValidOrbsAction() {
         this.actionType = ActionType.SPECIAL;
     }
 

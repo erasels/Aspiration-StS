@@ -2,7 +2,39 @@
   "aspiration:Amalgamate": {
     "NAME": "Amalgamate",
     "DESCRIPTION": [
-      "An empty collection of no orbs, good job!"
+      "#yPassive: ",
+      ". ",
+      "At the end of turn, increase #yDarkness damage by #b",
+      "At the end of turn, gain #b",
+      " #yBlock. ",
+      "At the end of turn, deal #b",
+      " damage to a random enemy. ",
+      "At the start of turn, gain #b",
+      " [E] . ",
+      "At the start of turn, draw #b",
+      " card. ",
+      " cards. ",
+      "At the end of turn, heal #b",
+      " HP. ",
+      "Adjacent orbs have #b+",
+      " #yFocus. ",
+      "At the start of turn, gain #b",
+      " #yStrength until end of turn. ",
+      "At the start of turn, gain #b",
+      " #yCharge-Up. ",
+      " NL #yEvoke: ",
+      "Deal #b",
+      " damage to the enemy with lowest HP. ",
+      "Gain #b",
+      " #yRegen. ",
+      "Draw #b",
+      "Apply #yVulnerable to a random enemy #b",
+      " time(s). ",
+      " [E] and #b",
+      "If you have less than #b",
+      " orb slots, gain an orb slot. ",
+      "If you have more than #b",
+      " orb slots, consumes your leftmost orb slot and #yEvokes any non-glass orb occupying it. "
     ]
   }
 }

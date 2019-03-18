@@ -8,16 +8,19 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.OrbStrings;
-import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.orbs.EmptyOrbSlot;
-import com.megacrit.cardcrawl.orbs.Frost;
+import com.megacrit.cardcrawl.mod.replay.orbs.*;
+import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
+import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
+import conspire.orbs.Water;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class AmalgamateOrb extends AbstractOrb {
 
@@ -25,12 +28,20 @@ public class AmalgamateOrb extends AbstractOrb {
     private static final OrbStrings orbString = CardCrawlGame.languagePack.getOrbString(ORB_ID);
     private static final String NAME = orbString.NAME;
 
+    private static final String[] DESC = orbString.DESCRIPTION;
+
     // Animation Rendering Numbers - You can leave these at default, or play around with them and see what they change.
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
 
     private ArrayList<AbstractOrb> components;
     private ArrayList<Texture> textures;
+
+    private HashMap<String, Integer> passiveValues = new HashMap<>();
+    private HashMap<String, Integer> evokeValues = new HashMap<>();
+    private int manaSparkAmount;
+
+    public int crystalBonus;
 
     public AmalgamateOrb(ArrayList<AbstractOrb> components) {
         this.ID = ORB_ID;
@@ -43,17 +54,18 @@ public class AmalgamateOrb extends AbstractOrb {
         this.textures = new ArrayList<>();
 
         ArrayList<AbstractOrb> accpetableOrbs = OrbUtilityMethods.getOrbList();
-        components.removeIf(o -> {
-            for(AbstractOrb orb : accpetableOrbs) {
-                if (orb.getClass().isInstance(o)) {
-                    return false;
+        ArrayList<AbstractOrb> useabledOrbs = new ArrayList<>();
+
+        for(AbstractOrb orb : components) {
+            for(AbstractOrb aorb : accpetableOrbs) {
+                if (aorb.getClass().isInstance(orb)) {
+                    useabledOrbs.add(orb.makeCopy());
                 }
             }
-            return true;
-        });
+        }
 
-        if (!components.isEmpty()) {
-            for (AbstractOrb orb : components) {
+        if (!useabledOrbs.isEmpty()) {
+            for (AbstractOrb orb : useabledOrbs) {
                 if (orb instanceof AmalgamateOrb) {
                     this.components.addAll(((AmalgamateOrb) orb).components);
                 } else if (!(orb instanceof EmptyOrbSlot)) {
@@ -97,52 +109,513 @@ public class AmalgamateOrb extends AbstractOrb {
     }
 
     @Override
-    public void updateDescription() { // Set the on-hover description of the orb
-        applyFocus(); // Apply Focus
+    public void updateDescription() {
+        applyFocus();
 
-        if (components.isEmpty()) {
-            description = orbString.DESCRIPTION[0];
-        } else {
-            ArrayList<String> lines = new ArrayList<>();
+        if (components.isEmpty())
+        {
+            description = "";
+        }
+        else
+        {
+            manaSparkAmount = 0;
+
+            passiveValues.clear();
+            evokeValues.clear();
 
             StringBuilder sb = new StringBuilder();
-            for (AbstractOrb orb : components) {
-                orb.updateDescription();
-                sb.append(orb.description).append(" NL ");
+            for (AbstractOrb orb : components)
+            {
+                if (!passiveValues.containsKey(orb.ID))
+                {
+                    passiveValues.put(orb.ID, orb.passiveAmount);
+                    evokeValues.put(orb.ID, orb.evokeAmount);
+                }
+                else
+                {
+                    passiveValues.put(orb.ID, passiveValues.get(orb.ID) + orb.passiveAmount);
+                    evokeValues.put(orb.ID, evokeValues.get(orb.ID) + orb.evokeAmount);
+                }
+                if(Aspiration.hasMarisa && Aspiration.hasReplay) {
+                    if (orb.ID.equals(ManaSparkOrb.ORB_ID)) {
+                        manaSparkAmount++;
+                    }
+                }
+            }
+
+            sb.append(DESC[0]);
+
+            boolean notFound;
+            for (String key : passiveValues.keySet())
+            {
+                notFound = false;
+                switch (key)
+                {
+                    case Dark.ORB_ID:
+                        sb.append(DESC[2]).append(passiveValues.get(key)).append(DESC[1]);
+                        break;
+                    case Frost.ORB_ID:
+                        sb.append(DESC[3]).append(passiveValues.get(key)).append(DESC[4]);
+                        break;
+                    case Lightning.ORB_ID:
+                        sb.append(DESC[5]).append(passiveValues.get(key)).append(DESC[6]);
+                        break;
+                    case Plasma.ORB_ID:
+                        sb.append(DESC[7]).append(passiveValues.get(key)).append(DESC[8]);
+                        break;
+                    default:
+                        notFound = true;
+                        break;
+
+                }
+                if(notFound) {
+                    if (Aspiration.hasReplay) {
+                        switch (key) {
+                            case ReplayLightOrb.ORB_ID:
+                                sb.append(DESC[12]).append(passiveValues.get(key)).append(DESC[13]);
+                                break;
+                            case HellFireOrb.ORB_ID:
+                                sb.append(DESC[16]).append(passiveValues.get(key)).append(DESC[17]);
+                                break;
+                            case CrystalOrb.ORB_ID:
+                                sb.append(DESC[14]).append(passiveValues.get(key)).append(DESC[15]);
+                                break;
+                            case GlassOrb.ORB_ID: //nothing
+                                break;
+                        }
+                        if (Aspiration.hasMarisa) {
+                            switch (key) {
+                                case ManaSparkOrb.ORB_ID:
+                                    sb.append(DESC[18]).append(passiveValues.get(key)).append(DESC[19]);
+                                    break;
+                            }
+                        }
+                    }
+                    if (Aspiration.hasConspire) {
+                        switch (key) {
+                            case Water.ORB_ID:
+                                sb.append(DESC[9]).append(passiveValues.get(key));
+                                if (passiveValues.get(key) == 1) {
+                                    sb.append(DESC[10]);
+                                } else {
+                                    sb.append(DESC[11]);
+                                }
+                                break;
+                        }
+                    }
+                }
+            }
+
+            sb.append(DESC[20]);
+
+            for (String key : evokeValues.keySet())
+            {
+                notFound = false;
+                switch (key)
+                {
+                    case Dark.ORB_ID:
+                        sb.append(DESC[21]).append(evokeValues.get(key)).append(DESC[22]);
+                        break;
+                    case Frost.ORB_ID:
+                        sb.append(DESC[23]).append(evokeValues.get(key)).append(DESC[4]);
+                        break;
+                    case Lightning.ORB_ID:
+                        sb.append(DESC[21]).append(evokeValues.get(key)).append(DESC[6]);
+                        break;
+                    case Plasma.ORB_ID:
+                        sb.append(DESC[23]).append(evokeValues.get(key)).append(DESC[8]);
+                        break;
+                    default:
+                        notFound = true;
+                }
+                if(notFound) {
+                    if(Aspiration.hasReplay) {
+                        switch (key)
+                        {
+                            case ReplayLightOrb.ORB_ID:
+                                sb.append(DESC[23]).append(evokeValues.get(key)).append(DESC[24]);
+                                break;
+                            case HellFireOrb.ORB_ID:
+                                sb.append(DESC[26]).append(evokeValues.get(key)).append(DESC[27]);
+                                break;
+                            case CrystalOrb.ORB_ID:
+                                sb.append(DESC[29]).append(evokeValues.get(key)).append(DESC[30]);
+                                break;
+                            case GlassOrb.ORB_ID:
+                                sb.append(DESC[31]).append(evokeValues.get(key)).append(DESC[32]);
+                                break;
+                        }
+                        if(Aspiration.hasMarisa) {
+                            switch (key)
+                            {
+                                case ManaSparkOrb.ORB_ID:
+                                    sb.append(DESC[23]).append(manaSparkAmount).append(DESC[28]).append(evokeValues.get(key)).append(DESC[19]);
+                                    break;
+                            }
+                        }
+                    }
+                    if(Aspiration.hasConspire) {
+                        switch (key)
+                        {
+                            case Water.ORB_ID:
+                                sb.append(DESC[25]).append(evokeValues.get(key)).append(DESC[11]);
+                                break;
+                        }
+                    }
+
+                }
             }
 
             description = sb.toString();
-            description = description.substring(0, description.lastIndexOf(" NL "));
+            //description = "";//description.substring(0, description.lastIndexOf(" NL "));
         }
     }
 
     @Override
     public void applyFocus() {
-        for (AbstractOrb orb : components) {
-            orb.applyFocus();
+        basePassiveAmount = 0;
+        passiveAmount = 0;
+        crystalBonus = 0;
+
+        if (Aspiration.hasReplay) {
+            int mypos = AbstractDungeon.player.orbs.indexOf(this);
+            if (mypos > -1) {
+                if (mypos > 0) {
+                    AbstractOrb adjOrb = AbstractDungeon.player.orbs.get(mypos - 1);
+                    if (adjOrb != null && adjOrb.ID != null) {
+                        if (adjOrb.ID.equals(CrystalOrb.ORB_ID)) {
+                            this.passiveAmount += adjOrb.passiveAmount;
+                        } else if (adjOrb instanceof aspiration.orbs.AmalgamateOrb) {
+                            this.passiveAmount += ((aspiration.orbs.AmalgamateOrb) adjOrb).crystalBonus;
+                        }
+                    }
+                }
+                if (mypos < AbstractDungeon.player.orbs.size() - 1) {
+                    AbstractOrb adjOrb = AbstractDungeon.player.orbs.get(mypos + 1);
+                    if (adjOrb != null && adjOrb.ID != null) {
+                        if (adjOrb.ID.equals(CrystalOrb.ORB_ID)) {
+                            this.passiveAmount += adjOrb.passiveAmount;
+                        } else if (adjOrb instanceof aspiration.orbs.AmalgamateOrb) {
+                            this.passiveAmount += ((aspiration.orbs.AmalgamateOrb) adjOrb).crystalBonus;
+                        }
+                    }
+                }
+            }
+
+            for (AbstractOrb orb : components) {
+                orb.applyFocus();
+                if (!orb.ID.equals(Plasma.ORB_ID) && (!Aspiration.hasConspire || !orb.ID.equals(Water.ORB_ID))) {
+                    if (!orb.ID.equals(CrystalOrb.ORB_ID)) {
+                        orb.passiveAmount += this.passiveAmount;
+                    } else {
+                        crystalBonus += orb.passiveAmount;
+                    }
+
+                    if (!orb.ID.equals(Dark.ORB_ID)) {
+                        orb.evokeAmount += this.passiveAmount;
+                    }
+                }
+            }
         }
     }
 
     @Override
     public void onEvoke() {
-        for (AbstractOrb orb : components) {
-            AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(orb));
+        boolean triggeredDark = false;
+        boolean triggeredFrost = false;
+        boolean triggeredLightning = false;
+        boolean triggeredLight = false;
+        boolean triggeredPlasma = false;
+        boolean triggeredCrystal = false;
+        boolean triggeredGlass = false;
+
+        boolean notFound;
+        for (AbstractOrb orb : components)
+        {
+            notFound = false;
+            switch (orb.ID)
+            {
+                case Dark.ORB_ID:
+                    if (!triggeredDark)
+                    {
+                        Dark toTrigger = new Dark();
+                        toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                        AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                        triggeredDark = true;
+                    }
+                    break;
+                case Frost.ORB_ID:
+                    if (!triggeredFrost)
+                    {
+                        Frost toTrigger = new Frost();
+                        toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                        AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                        triggeredFrost = true;
+                    }
+                    break;
+                case Lightning.ORB_ID:
+                    if (!triggeredLightning)
+                    {
+                        Lightning toTrigger = new Lightning();
+                        toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                        AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                        triggeredLightning = true;
+                    }
+                    break;
+                case Plasma.ORB_ID:
+                    if (!triggeredPlasma)
+                    {
+                        AbstractOrb toTrigger = orb.makeCopy();
+                        toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                        AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                        triggeredPlasma = true;
+                    }
+                    break;
+                default:
+                    notFound = true;
+                    break;
+            }
+            if(notFound) {
+                if(Aspiration.hasReplay) {
+                    switch (orb.ID)
+                    {
+                        case ReplayLightOrb.ORB_ID:
+                            if (!triggeredLight) {
+                                AbstractOrb toTrigger = orb.makeCopy();
+                                toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                                AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                                triggeredLight = true;
+                            }
+                            break;
+                        case CrystalOrb.ORB_ID:
+                            if (!triggeredCrystal) {
+                                AbstractOrb toTrigger = orb.makeCopy();
+                                toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                                AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                                triggeredCrystal = true;
+                            }
+                            break;
+                        case GlassOrb.ORB_ID:
+                            if (!triggeredGlass) {
+                                AbstractOrb toTrigger = orb.makeCopy();
+                                toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                                AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+                                triggeredGlass = true;
+                            }
+                            break;
+                        case HellFireOrb.ORB_ID:
+                            AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(orb));
+                            break;
+
+                    }
+                    if(Aspiration.hasMarisa) {
+                        switch (orb.ID)
+                        {
+                            case ManaSparkOrb.ORB_ID: //too much of a bother
+                                AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(orb));
+                                break;
+                        }
+                    }
+                }
+                if(Aspiration.hasConspire) {
+                    switch (orb.ID)
+                    {
+                        case Water.ORB_ID: //no difference
+                            AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(orb));
+                            break;
+                    }
+                }
+            }
         }
         this.updateDescription();
     }
 
     @Override
-    public void onStartOfTurn() {// 1.At the start of your turn.
-        for (AbstractOrb orb : components) {
-            orb.onStartOfTurn();
+    public void onStartOfTurn() {
+        boolean triggeredHellfire = false;
+        boolean triggeredManaspark = false;
+        
+        boolean notFound;
+        for (AbstractOrb orb : components)
+        {
+            notFound = false;
+            switch (orb.ID)
+            {
+                case Dark.ORB_ID: //end of turn orbs
+                case Frost.ORB_ID:
+                case Lightning.ORB_ID:
+                    break;
+                case Plasma.ORB_ID:
+                    orb.onStartOfTurn(); //these don't have any problem being spammed, no difference
+                    break;
+                default:
+                    notFound =true;
+                    break;
+            }
+            if(notFound) {
+                if(Aspiration.hasReplay) {
+                    switch (orb.ID)
+                    {
+                        case ReplayLightOrb.ORB_ID:
+                        case CrystalOrb.ORB_ID:
+                        case GlassOrb.ORB_ID:
+                            break;
+                        case HellFireOrb.ORB_ID: //This stuff ensures vfx spams, but not the effect itself, which can affect interactions when applying powers
+                            if (triggeredHellfire)
+                            {
+                                AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.PLASMA), 0.1f));
+                            }
+                            else
+                            {
+                                int hellfireValue = orb.passiveAmount;
+                                orb.passiveAmount = passiveValues.get(orb.ID);
+                                triggeredHellfire = true;
+                                orb.onStartOfTurn();
+                                orb.passiveAmount = hellfireValue;
+                            }
+                            break;
+                    }
+                    if(Aspiration.hasMarisa) {
+                        switch (orb.ID)
+                        {
+                            case ManaSparkOrb.ORB_ID:
+                                if (triggeredManaspark)
+                                {
+                                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.PLASMA), 0.1f));
+                                }
+                                else
+                                {
+                                    int manasparkValue = orb.passiveAmount;
+                                    orb.passiveAmount = passiveValues.get(orb.ID);
+                                    orb.onStartOfTurn();
+                                    triggeredManaspark = true;
+                                    orb.passiveAmount = manasparkValue;
+                                }
+                                break;
+                        }
+                    }
+                }
+                if(Aspiration.hasConspire) {
+                    switch (orb.ID)
+                    {
+                        case Water.ORB_ID:
+                            orb.onStartOfTurn(); //these don't have any problem being spammed, no difference
+                            break;
+                    }
+                }
+            }
         }
         this.updateDescription();
     }
 
     @Override
     public void onEndOfTurn() {
-        for (AbstractOrb orb : components) {
-            orb.onEndOfTurn();
+        boolean triggeredFrost = false;
+        boolean triggeredLightning = false;
+        boolean triggeredLight = false;
+        boolean triggeredGlass = false;
+
+        boolean notFound;
+
+        for (AbstractOrb orb : components)
+        {
+            notFound = false;
+            switch (orb.ID)
+            {
+                case Dark.ORB_ID: //end of turn orbs
+                    orb.onEndOfTurn();
+                    break;
+                case Frost.ORB_ID:
+                    if (triggeredFrost)
+                    {
+                        float speedTime = 0.6F / (float)AbstractDungeon.player.orbs.size();
+                        if (Settings.FAST_MODE) {
+                            speedTime = 0.0F;
+                        }
+
+                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.FROST), speedTime));
+                    }
+                    else
+                    {
+                        int frostValue = orb.passiveAmount;
+                        orb.passiveAmount = passiveValues.get(orb.ID);
+                        triggeredFrost = true;
+                        orb.onEndOfTurn();
+                        orb.passiveAmount = frostValue;
+                    }
+                    break;
+                case Lightning.ORB_ID:
+                    if (triggeredLightning)
+                    {
+                        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
+                        if (Settings.FAST_MODE) {
+                            speedTime = 0.0F;
+                        }
+                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+                    }
+                    else
+                    {
+                        int lightningValue = orb.passiveAmount;
+                        orb.passiveAmount = passiveValues.get(orb.ID);
+                        orb.onEndOfTurn();
+                        triggeredLightning = true;
+                        orb.passiveAmount = lightningValue;
+                    }
+                    break;
+                case Plasma.ORB_ID: //no end of turn effect
+                    break;
+                default:
+                    notFound = true;
+                    break;
+            }
+            if(notFound) {
+                if(Aspiration.hasReplay) {
+                    switch (orb.ID)
+                    {
+                        case ReplayLightOrb.ORB_ID:
+                            int lightValue = orb.passiveAmount;
+                            if (triggeredLight)
+                            {
+                                orb.passiveAmount = 0;
+                            }
+                            else
+                            {
+                                orb.passiveAmount = passiveValues.get(orb.ID);
+                                triggeredLight = true;
+                            }
+                            orb.onEndOfTurn();
+                            orb.passiveAmount = lightValue;
+                            break;
+                        case HellFireOrb.ORB_ID:
+                        case CrystalOrb.ORB_ID:
+                            break;
+                        case GlassOrb.ORB_ID: //glass actually has end of turn effect with a specific power
+                            int glassValue = orb.passiveAmount;
+                            if (!triggeredGlass) //only trigger once
+                            {
+                                orb.passiveAmount = passiveValues.get(orb.ID);
+                                triggeredGlass = true;
+                                orb.passiveAmount = glassValue;
+                                orb.onEndOfTurn();
+                            }
+                            break;
+                    }
+                    if(Aspiration.hasMarisa) {
+                        switch (orb.ID)
+                        {
+                            case ManaSparkOrb.ORB_ID:
+                                break;
+                        }
+                    }
+                }
+                if(Aspiration.hasConspire) {
+                    switch (orb.ID)
+                    {
+                        case Water.ORB_ID:
+                            break;
+                    }
+                }
+            }
         }
         this.updateDescription();
     }
@@ -189,6 +662,19 @@ public class AmalgamateOrb extends AbstractOrb {
                     sb.draw(Frost.img1, this.cX - 48.0F + this.bobEffect.y / 4.0F, this.cY - 48.0F + this.bobEffect.y / 4.0F, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, 0.0F, 0, 0, 96, 96, false, false);
                     sb.draw(Frost.img2, this.cX - 48.0F + this.bobEffect.y / 4.0F, this.cY - 48.0F - this.bobEffect.y / 4.0F, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, 0.0F, 0, 0, 96, 96, false, false);
                     sb.draw(Frost.img3, this.cX - 48.0F - this.bobEffect.y / 4.0F, this.cY - 48.0F + this.bobEffect.y / 2.0F, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, 0.0F, 0, 0, 96, 96, false, false);
+                }
+                else if (Aspiration.hasReplay && orb.ID.equals(CrystalOrb.ORB_ID))
+                {
+                    try
+                    {
+                        Texture img1 = (Texture)ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img1");
+                        Texture img2 = (Texture)ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img2");
+                        Texture img3 = (Texture)ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img3");
+                        sb.draw(img1, this.cX - 48.0f + this.bobEffect.y / 4.0f, this.cY - 48.0f + this.bobEffect.y / 4.0f, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
+                        sb.draw(img2, this.cX - 48.0f + this.bobEffect.y / 4.0f, this.cY - 48.0f - this.bobEffect.y / 4.0f, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
+                        sb.draw(img3, this.cX - 48.0f - this.bobEffect.y / 4.0f, this.cY - 48.0f + this.bobEffect.y / 2.0f, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
+                    }
+                    catch (Exception e) { Aspiration.logger.info(e);}
                 }
                 //add anything else that renders special that you want to bother with
             }

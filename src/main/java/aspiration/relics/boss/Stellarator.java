@@ -1,6 +1,6 @@
 package aspiration.relics.boss;
 
-import aspiration.actions.unique.FuseValidOrbsActionOrWhateverYouWantToCallItIdkItsUpToYou;
+import aspiration.actions.unique.FuseValidOrbsAction;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
@@ -25,7 +25,7 @@ public class Stellarator extends AspirationRelic implements OnChannelRelic {
     public void onChannel(AbstractOrb abstractOrb) {
         if (AbstractDungeon.player.filledOrbCount() == AbstractDungeon.player.orbs.size()) {
             if(AbstractDungeon.player.orbs.size() > 1) {
-                AbstractDungeon.actionManager.addToTop(new FuseValidOrbsActionOrWhateverYouWantToCallItIdkItsUpToYou());
+                AbstractDungeon.actionManager.addToTop(new FuseValidOrbsAction());
             }
             AbstractDungeon.actionManager.addToTop(new EvokeOrbAction(1));
             AbstractDungeon.actionManager.addToTop(new AnimateOrbAction(1));
