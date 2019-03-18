@@ -31,10 +31,7 @@ import com.megacrit.cardcrawl.dungeons.TheCity;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
-import com.megacrit.cardcrawl.localization.EventStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
-import com.megacrit.cardcrawl.localization.UIStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -312,6 +309,7 @@ public class Aspiration implements
     	//Defect Only
     	BaseMod.addRelic(new EnhancedActuators(), RelicType.BLUE);
     	BaseMod.addRelic(new MysteriousAuxiliaryCore(), RelicType.BLUE);
+        BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
     	
     	//If poison card in deck
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
@@ -360,6 +358,7 @@ public class Aspiration implements
         BaseMod.loadCustomStringsFile(UIStrings.class, assetPath(path + "aspiration-UIStrings.json"));
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath(path + "aspiration-PowerStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath(path + "aspiration-RelicStrings.json"));
+        BaseMod.loadCustomStringsFile(OrbStrings.class, assetPath(path + "aspiration-OrbStrings.json"));
     }
 
     @Override

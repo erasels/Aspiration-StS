@@ -18,25 +18,7 @@ public class OrbUtilityMethods {
         if(rng == null) {
             rng = AbstractDungeon.relicRng;
         }
-        ArrayList<AbstractOrb> orbs = new ArrayList<>();
-        orbs.add(new Dark());
-        orbs.add(new Frost());
-        orbs.add(new Lightning());
-        orbs.add(new Plasma());
-
-        if(Aspiration.hasConspire) {
-            orbs.add(new Water());
-        }
-
-        if(Aspiration.hasReplay) {
-            orbs.add(new CrystalOrb());
-            orbs.add(new HellFireOrb());
-            orbs.add(new ReplayLightOrb());
-
-            if(Aspiration.hasMarisa) {
-                orbs.add(new ManaSparkOrb());
-            }
-        }
+        ArrayList<AbstractOrb> orbs = getOrbList();
 
         if(rareOrbs != null && !rareOrbs.isEmpty()) {
             boolean goodOrb = true;
@@ -82,5 +64,29 @@ public class OrbUtilityMethods {
         }
 
         return getSelectiveRandomOrb(rng, rareOrbs);
+    }
+
+    public static ArrayList<AbstractOrb> getOrbList() {
+        ArrayList<AbstractOrb> orbs = new ArrayList<>();
+        orbs.add(new Dark());
+        orbs.add(new Frost());
+        orbs.add(new Lightning());
+        orbs.add(new Plasma());
+
+        if(Aspiration.hasConspire) {
+            orbs.add(new Water());
+        }
+
+        if(Aspiration.hasReplay) {
+            orbs.add(new CrystalOrb());
+            orbs.add(new HellFireOrb());
+            orbs.add(new ReplayLightOrb());
+
+            if(Aspiration.hasMarisa) {
+                orbs.add(new ManaSparkOrb());
+            }
+        }
+
+        return orbs;
     }
 }
