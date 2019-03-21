@@ -289,6 +289,7 @@ public class Aspiration implements
         BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
         BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
         BaseMod.addRelic(new RandomNobGenerator(), RelicType.SHARED);
+        BaseMod.addRelic(new FaultyCoupler(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);

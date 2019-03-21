@@ -445,6 +445,14 @@
     "DESCRIPTIONS": [
       "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and fuse all remaining orbs."
     ]
+  },
+  "aspiration:FaultyCoupler": {
+    "NAME": "Faulty Coupler",
+    "FLAVOR": "... Loneliness is... the enemy...",
+    "DESCRIPTIONS": [
+      "Whenever an ob is #ychanneled [REMOVE_SPACE], there is a #b",
+      "% chance for the orb to fuse with a with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
+    ]
   }
 }
  

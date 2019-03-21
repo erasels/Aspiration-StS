@@ -74,9 +74,9 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
                         AbstractDungeon.srcRareCardPool.addToBottom(c);
                         continue;
                     }
-                    default: {
-                        AbstractDungeon.uncommonCardPool.addToTop(c);
-                        AbstractDungeon.srcUncommonCardPool.addToBottom(c);
+                    case CURSE: {
+                        AbstractDungeon.curseCardPool.addToTop(c);
+                        AbstractDungeon.srcCurseCardPool.addToBottom(c);
                     }
                 }
             }

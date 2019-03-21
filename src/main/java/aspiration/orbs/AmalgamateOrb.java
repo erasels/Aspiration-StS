@@ -53,34 +53,43 @@ public class AmalgamateOrb extends AbstractOrb {
         this.components = new ArrayList<>();
         this.textures = new ArrayList<>();
 
-        ArrayList<AbstractOrb> accpetableOrbs = OrbUtilityMethods.getOrbList();
-        ArrayList<AbstractOrb> useabledOrbs = new ArrayList<>();
+        if(components != null && !components.isEmpty()) {
+            ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList();
+            acceptableOrbs.add(new AmalgamateOrb());
+            ArrayList<AbstractOrb> useableOrbs = new ArrayList<>();
 
-        for(AbstractOrb orb : components) {
-            for(AbstractOrb aorb : accpetableOrbs) {
-                if (aorb.getClass().isInstance(orb)) {
-                    useabledOrbs.add(orb.makeCopy());
-                }
-            }
-        }
-
-        if (!useabledOrbs.isEmpty()) {
-            for (AbstractOrb orb : useabledOrbs) {
-                if (orb instanceof AmalgamateOrb) {
-                    this.components.addAll(((AmalgamateOrb) orb).components);
-                } else if (!(orb instanceof EmptyOrbSlot)) {
-                    this.components.add(orb);
-                }
-            }
-
-            for (AbstractOrb orb : this.components) {
-                try {
-                    Texture orbTexture = (Texture) ReflectionHacks.getPrivate(orb, AbstractOrb.class, "img");
-                    if (orbTexture != null) {
-                        textures.add(orbTexture);
+            for (AbstractOrb orb : components) {
+                for (AbstractOrb aorb : acceptableOrbs) {
+                    if (aorb.getClass().isInstance(orb)) {
+                        if (aorb.ID.equals(Dark.ORB_ID)) {
+                            AbstractOrb darkOrb = orb.makeCopy();
+                            darkOrb.evokeAmount = orb.evokeAmount;
+                            useableOrbs.add(darkOrb);
+                        } else {
+                            useableOrbs.add(orb.makeCopy());
+                        }
                     }
-                } catch (Exception e) {
-                    Aspiration.logger.info(e);
+                }
+            }
+
+            if (!useableOrbs.isEmpty()) {
+                for (AbstractOrb orb : useableOrbs) {
+                    if (orb instanceof AmalgamateOrb) {
+                        this.components.addAll(((AmalgamateOrb) orb).components);
+                    } else if (!(orb instanceof EmptyOrbSlot)) {
+                        this.components.add(orb);
+                    }
+                }
+
+                for (AbstractOrb orb : this.components) {
+                    try {
+                        Texture orbTexture = (Texture) ReflectionHacks.getPrivate(orb, AbstractOrb.class, "img");
+                        if (orbTexture != null) {
+                            textures.add(orbTexture);
+                        }
+                    } catch (Exception e) {
+                        Aspiration.logger.info(e);
+                    }
                 }
             }
         }
@@ -701,6 +710,6 @@ public class AmalgamateOrb extends AbstractOrb {
 
     @Override
     public AbstractOrb makeCopy() {
-        return new AmalgamateOrb(); //not too useful.
+        return new AmalgamateOrb(components);
     }
 }

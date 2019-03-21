@@ -48,6 +48,26 @@ public class OrbUtilityMethods {
     }
 
     public static AbstractOrb getSelectiveRandomOrb(Random rng) {
+        return getSelectiveRandomOrb(rng, getRareOrbList());
+    }
+
+    public static AbstractOrb getRandomAmalgamate(Random rng, int orbAmt, ArrayList<AbstractOrb> rareOrbs) {
+        ArrayList<AbstractOrb> orbList = new ArrayList<>();
+        for(int i = 0; i<orbAmt;i++) {
+            if(rareOrbs != null && !rareOrbs.isEmpty()) {
+                orbList.add(getSelectiveRandomOrb(rng, rareOrbs));
+            } else {
+                orbList.add(getSelectiveRandomOrb(rng, null));
+            }
+        }
+        return new AmalgamateOrb(orbList);
+    }
+
+    public static AbstractOrb getRandomAmalgamate(Random rng, int orbAmt) {
+        return getRandomAmalgamate(rng, orbAmt, getRareOrbList());
+    }
+
+    public static ArrayList<AbstractOrb> getRareOrbList() {
         ArrayList<AbstractOrb> rareOrbs = new ArrayList<>();
         rareOrbs.add(new Plasma());
 
@@ -62,8 +82,7 @@ public class OrbUtilityMethods {
                 rareOrbs.add(new ManaSparkOrb());
             }
         }
-
-        return getSelectiveRandomOrb(rng, rareOrbs);
+        return rareOrbs;
     }
 
     public static ArrayList<AbstractOrb> getOrbList() {
