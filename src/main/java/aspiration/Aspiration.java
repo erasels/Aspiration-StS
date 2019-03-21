@@ -1,12 +1,16 @@
 package aspiration;
 
+import aspiration.cards.blue.Polymerization;
 import aspiration.events.CultistTraining;
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.boss.*;
 import aspiration.relics.common.*;
-import aspiration.relics.crossovers.*;
+import aspiration.relics.crossovers.EmptySkull;
+import aspiration.relics.crossovers.MobileForge;
+import aspiration.relics.crossovers.PocketMushroom;
+import aspiration.relics.crossovers.TrustyKnives;
 import aspiration.relics.rare.*;
 import aspiration.relics.skillbooks.*;
 import aspiration.relics.special.*;
@@ -22,6 +26,9 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -39,7 +46,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
+import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Properties;
 
 @SpireInitializer
@@ -47,9 +57,11 @@ public class Aspiration implements
         PostInitializeSubscriber,
         EditStringsSubscriber,
         EditRelicsSubscriber,
+        EditCardsSubscriber,
         PostPowerApplySubscriber,
         PostDungeonInitializeSubscriber,
-        AddAudioSubscriber
+        AddAudioSubscriber,
+        EditKeywordsSubscriber
 {
 	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
     private static SpireConfig modConfig = null;
@@ -339,6 +351,34 @@ public class Aspiration implements
         }
     }
 
+    @Override
+    public void receiveEditCards() {
+        BaseMod.addCard(new Polymerization());
+    }
+
+    @Override
+    public void receiveEditKeywords() {
+        Gson gson = new Gson();
+        String keywordStrings = Gdx.files.internal(assetPath("loc/" + languageSupport() + "/" +"aspiration-KeywordStrings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+        Type typeToken = new TypeToken<Map<String, Keyword>>() {}.getType();
+
+        Map<String, Keyword> keywords = (Map)gson.fromJson(keywordStrings, typeToken);
+
+        keywords.forEach((k,v)->{
+            // Keyword word = (Keyword)v;
+            logger.info("Adding Keyword - " + v.NAMES[0]);
+            BaseMod.addKeyword("aspiration:", v.PROPER_NAME, v.NAMES, v.DESCRIPTION);
+        });
+
+        /*Keyword[] keywords = gson.fromJson(json, Keyword[].class);
+
+        if (keywords != null) {
+            for (Keyword keyword : keywords) {
+                BaseMod.addKeyword("aspiration", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
+            }
+        }*/
+    }
+
     private String languageSupport()
     {
         switch (Settings.language) {
@@ -360,6 +400,8 @@ public class Aspiration implements
         BaseMod.loadCustomStringsFile(PowerStrings.class, assetPath(path + "aspiration-PowerStrings.json"));
         BaseMod.loadCustomStringsFile(RelicStrings.class, assetPath(path + "aspiration-RelicStrings.json"));
         BaseMod.loadCustomStringsFile(OrbStrings.class, assetPath(path + "aspiration-OrbStrings.json"));
+        BaseMod.loadCustomStringsFile(CardStrings.class, assetPath(path + "aspiration-CardStrings.json"));
+        BaseMod.loadCustomStringsFile(KeywordStrings.class, assetPath(path + "aspiration-KeywordStrings.json"));
     }
 
     @Override

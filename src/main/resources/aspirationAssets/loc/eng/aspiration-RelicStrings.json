@@ -443,15 +443,15 @@
     "NAME": "Stellarator",
     "FLAVOR": "Who needs the Inserter if you can just squeeze!",
     "DESCRIPTIONS": [
-      "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and fuse all remaining orbs."
+      "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and #yaspiration:fuse all remaining orbs."
     ]
   },
   "aspiration:FaultyCoupler": {
     "NAME": "Faulty Coupler",
     "FLAVOR": "... Loneliness is... the enemy...",
     "DESCRIPTIONS": [
-      "Whenever an ob is #ychanneled [REMOVE_SPACE], there is a #b",
-      "% chance for the orb to fuse with a with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
+      "Whenever an orb is #ychanneled [REMOVE_SPACE], there is a #b",
+      "% chance for the orb to #yaspiration:fuse with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
     ]
   }
 }

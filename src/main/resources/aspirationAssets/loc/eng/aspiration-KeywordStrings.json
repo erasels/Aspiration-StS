@@ -1,0 +1,12 @@
+{
+  "FUSE": {
+    "PROPER_NAME": "Fuse",
+    "NAMES": [
+      "Fuse",
+      "fuse",
+      "fusing",
+      "fused"
+    ],
+    "DESCRIPTION": "Combine multiple orbs and their effects into a single orb."
+  }
+}
