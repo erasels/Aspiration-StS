@@ -2,7 +2,7 @@
 A hub for my current and future mods. Contains a few poison-based relics, starter relic upgrade alternatives and more.
 
 ## Currently contains (as in the current source code, releases may lag behind a bit):
-### Events: 
+## Events: 
 The Dark Mirror is an event similar to the Golden Idol event built around the Prismatic Shard relic.
 You can find all screenshots of it here: https://imgur.com/a/q38ITcO (contains spoilers obviously)
 
@@ -10,12 +10,12 @@ The Byrd's Nest is an event that can only be encountered on the first 15 floors,
 
 The Cultist Training Ground allows you to train with some cultists and gain the Ritual Stick relic in exchange for a little health or none at all if you have the Cultist headpiece.
 
-### Cards:
+## Cards:
 (Defect only) Polymerization: Uncommon Skill. (1/0) Fuse all your currently channeled orbs. Exhaust.
 
 (Silent only) Lunge: Rare Attack. (2) Deal (11/15) damage to ALL enemies twice and lose 1 Dextraity per enemy. Exhaust.
 
-### Relics:
+## Relics:
 Relics that interact with poison only spawn if you have a card with poison in its description in your deck.
 
 "Vile Toxins" is a common relic that applies 2 stacks of Weak and Vulnerable everytime you poison an enemy that wasn't poisoned. A screenshot of (an older version of) it in action can be found here: https://i.imgur.com/CnKjiLs.png
