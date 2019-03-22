@@ -1,6 +1,7 @@
 package aspiration;
 
 import aspiration.cards.blue.Polymerization;
+import aspiration.cards.green.Lunge;
 import aspiration.events.CultistTraining;
 import aspiration.events.ElementalEggBirdNest;
 import aspiration.events.TheDarkMirror;
@@ -23,10 +24,10 @@ import basemod.interfaces.*;
 import blackrusemod.patches.AbstractCardEnum;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
-import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -354,6 +355,7 @@ public class Aspiration implements
     @Override
     public void receiveEditCards() {
         BaseMod.addCard(new Polymerization());
+        BaseMod.addCard(new Lunge());
     }
 
     @Override

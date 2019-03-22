@@ -3,6 +3,7 @@ package aspiration.relics.common;
 import aspiration.powers.CullingPower;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -31,6 +32,10 @@ public class HeadsmansAxe extends AspirationRelic {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new CullingPower(AbstractDungeon.player, percentage)));
     }
 
+    @Override
+    public boolean canSpawn() {
+        return (Settings.isEndless || AbstractDungeon.floorNum < 50);
+    }
 
     public AbstractRelic makeCopy() {
         return new HeadsmansAxe();

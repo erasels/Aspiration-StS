@@ -10,6 +10,11 @@ The Byrd's Nest is an event that can only be encountered on the first 15 floors,
 
 The Cultist Training Ground allows you to train with some cultists and gain the Ritual Stick relic in exchange for a little health or none at all if you have the Cultist headpiece.
 
+### Cards:
+(Defect only) Polymerization: Uncommon Skill. (1/0) Fuse all your currently channeled orbs. Exhaust.
+
+(Silent only) Lunge: Rare Attack. (2) Deal (11/15) damage to ALL enemies twice and lose 1 Dextraity per enemy. Exhaust.
+
 ### Relics:
 Relics that interact with poison only spawn if you have a card with poison in its description in your deck.
 
@@ -72,6 +77,10 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 "Headman's Axe": Whenever you reduce a non-boss enemy below 10% of their HP with an attack, kill them.
 
 "Hangman's Noose": All enemis below 50% HP lose 5 HP whenever they attack.
+
+"Stellarator": (Defect only) Whenever channeling an orb would fill all your orb slots, evoke your oldest orb and fuse the rest.
+
+"Faulty Coupler": (Defect only) Whenever you channel an orb, there's a 20% chance fuse it with a random orb of a type you currently have channeled.
 
 ##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:

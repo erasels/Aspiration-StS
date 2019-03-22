@@ -2,12 +2,12 @@ package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
 import aspiration.actions.PowerAmountBasedHealAction;
-import aspiration.actions.unique.BeakedSkillbookAction;
 import beaked.cards.Ceremony;
 import beaked.characters.BeakedTheCultist;
 import beaked.patches.LibraryTypeEnum;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
@@ -23,7 +23,7 @@ public class BeakedSkillbook extends SkillbookRelic {
 
     private static final int THRESHOLD = 2;
     private static final int STR_AMT = 1;
-    private static final AbstractCard.CardType CARDTYPE = AbstractCard.CardType.ATTACK;
+    private boolean onlyAttacks = false;
 
     public BeakedSkillbook() {
         super(ID, "BeakedSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
@@ -32,15 +32,33 @@ public class BeakedSkillbook extends SkillbookRelic {
     @Override
     public String getUpdatedDescription() {
         if (Aspiration.skillbookCardpool()) {
-            return DESCRIPTIONS[0] + THRESHOLD + DESCRIPTIONS[1] + STR_AMT + DESCRIPTIONS[2] + DESCRIPTIONS[3];
+            return DESCRIPTIONS[0] + STR_AMT + DESCRIPTIONS[1] + DESCRIPTIONS[2];
         } else {
-            return DESCRIPTIONS[0] + THRESHOLD + DESCRIPTIONS[1] + STR_AMT + DESCRIPTIONS[2];
+            return DESCRIPTIONS[0] + STR_AMT + DESCRIPTIONS[1];
         }
     }
 
     @Override
-    public void atTurnStartPostDraw() {
-        AbstractDungeon.actionManager.addToBottom(new BeakedSkillbookAction(CARDTYPE, THRESHOLD));
+    public void atTurnStart() {
+        if(onlyAttacks) {
+            performAction();
+        }
+        onlyAttacks = true;
+        beginLongPulse();
+    }
+
+    @Override
+    public void onUseCard(AbstractCard c, UseCardAction uac) {
+        if(!(c.type == AbstractCard.CardType.ATTACK)) {
+            onlyAttacks = false;
+            stopPulse();
+        }
+    }
+
+    @Override
+    public void onVictory() {
+        stopPulse();
+        onlyAttacks = false;
     }
 
     public void performAction() {

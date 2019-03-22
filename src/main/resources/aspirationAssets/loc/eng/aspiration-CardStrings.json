@@ -2,5 +2,9 @@
   "aspiration:Polymerization": {
     "NAME": "Polymerization",
     "DESCRIPTION": "aspiration:Fuse all your orbs. NL Exhaust."
+  },
+  "aspiration:Lunge": {
+    "NAME": "Lunge",
+    "DESCRIPTION": "Deal !D! damage to ALL enemies twice and lose 1 Dexterity per enemy. NL Exhaust."
   }
 }
