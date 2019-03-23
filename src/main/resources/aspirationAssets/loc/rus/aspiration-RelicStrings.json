@@ -62,8 +62,8 @@
     "NAME": "Сердце колибри",
     "FLAVOR": "Тысяча ударов в минуту. Огромная сила, но быстро спадает.",
     "DESCRIPTIONS": [
-      "В начале боя даёт #b",
-      " #yЗащиты, когда вы разыгрываете карту. В конце вашего хода понижает данный эффект на #b1 в течение #b3 ходов."
+      "For the first #b",
+      " turns of combat, receive #b50% less damage from attacks."
     ]
   },
   "aspiration:Headhunter": {

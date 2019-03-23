@@ -28,7 +28,7 @@ public class RitualDagger extends AspirationRelic implements CustomSavable<Boole
         super(ID, "RitualDagger.png", RelicTier.BOSS, LandingSound.SOLID);
         this.tips.clear();
         this.tips.add(new PowerTip(name, description));
-        this.tips.add(new PowerTip("Awoken", AwokenPower.getDesc()));
+        this.tips.add(new PowerTip(AwokenPower.NAME, AwokenPower.getDesc()));
         this.initializeTips();
     }
 

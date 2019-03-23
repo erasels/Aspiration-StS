@@ -3,7 +3,7 @@
   "name": "Aspiration",
   "author_list": ["erasels"],
   "description": "A mod adding relics, cards and events with varying themes. There's no real end goal behind it, just me implementing neat ideas that come my way via reddit, Discord, other games or even my imagination.\n\n For a full list of everything added and an up to date look at what I'm working on, you can take a look at my Github Repository here: https://github.com/erasels/Aspiration-StS/ \n\nLet me know if you have questions, suggestions or found an error.",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "sts_version": "01-02-2019",
   "mts_version": "3.8.3",
   "dependencies": ["basemod", "stslib"],

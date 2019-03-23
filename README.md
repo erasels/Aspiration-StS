@@ -30,7 +30,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Contagion": Gain 1 energy for every 8 poison applied limited to 2 times per turn, if no enemy is poisoned at the end of your turn, apply 2 poison to yourself.
 
-"Hummingbird Heart": Gain 3 Block for every card played on your first turn, reduce the effect by 1 for every turn after until it's 0.
+"Hummingbird Heart": For the first 2 turns of combat, receive 50% less damage from attacks..
 
 "Headhunter": Gain Charges after killing a monster, gain a set of buffs at the start of battle depending on the amount of stored Charges. Visiting non-monster rooms makes Charges decay based on the type of room.
 

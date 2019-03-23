@@ -62,5 +62,12 @@
       "Whenever you reduce a non-boss enemy below #b",
       "% of their HP with an attack, kill them."
     ]
+  },
+  "aspiration:Hover": {
+    "NAME": "Hovering",
+    "DESCRIPTIONS": [
+      "Receive #b",
+      "% less attack damage."
+    ]
   }
 }
