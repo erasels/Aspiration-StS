@@ -30,7 +30,7 @@ public class AwokenPower extends AspirationPower implements OnReceivePowerPower,
         this.owner = owner;
         type = PowerType.BUFF;
         updateDescription();
-        loadRegion("corruption");
+        setImage("84_Awoken.png", "32_Awoken.png");
     }
     
     @Override

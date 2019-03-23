@@ -11,7 +11,7 @@ public abstract class AspirationPower extends AbstractPower {
      * @param smallImageName - is the name of the 32x32 image for your power.
      */
     public void setImage(String bigImageName, String smallImageName){
-        String path = Aspiration.assetPath("/images/");
+        String path = Aspiration.assetPath("img/");
 
         String path128 = path + "powers/" + bigImageName;
         String path48 = path + "powers/" + smallImageName;
@@ -24,7 +24,7 @@ public abstract class AspirationPower extends AbstractPower {
      * @param imgName - is the name of a 16x16 image. Example: setTinyImage("power.png");
      */
     public void setTinyImage(String imgName){
-        String path = Aspiration.assetPath("/images/powers/");
+        String path = Aspiration.assetPath("img/powers/");
         this.img = ImageMaster.loadImage(path + imgName);
     }
 }

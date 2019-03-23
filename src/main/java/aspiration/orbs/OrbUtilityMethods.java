@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.mod.replay.orbs.ManaSparkOrb;
 import com.megacrit.cardcrawl.mod.replay.orbs.ReplayLightOrb;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.random.Random;
-import com.sun.istack.internal.NotNull;
 import conspire.orbs.Water;
 
 import java.util.ArrayList;
@@ -114,11 +113,13 @@ public class OrbUtilityMethods {
         return orbs;
     }
 
-    public static boolean isValidAmalgamateComponent(@NotNull AbstractOrb o) {
-        if(o.ID != null) {
-            for (AbstractOrb orb : getOrbList(true)) {
-                if (o.ID.equals(orb.ID)) {
-                    return true;
+    public static boolean isValidAmalgamateComponent(AbstractOrb o) {
+        if(o != null) {
+            if (o.ID != null) {
+                for (AbstractOrb orb : getOrbList(true)) {
+                    if (o.ID.equals(orb.ID)) {
+                        return true;
+                    }
                 }
             }
         }

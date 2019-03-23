@@ -22,10 +22,10 @@ public class BefuddledPower extends AspirationPower implements CloneablePowerInt
         this.owner = owner;
         this.amount = amount;
         this.isTurnBased = true;
+        setImage("84_Befuddled.png", "32_Befuddled.png");
         updateDescription();
         this.isTurnBased = false;
         this.type = PowerType.DEBUFF;
-        loadRegion("fumes");
     }
 
     public void updateDescription() {
