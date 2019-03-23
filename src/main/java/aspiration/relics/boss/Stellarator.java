@@ -1,6 +1,6 @@
 package aspiration.relics.boss;
 
-import aspiration.actions.unique.FuseValidOrbsAction;
+import aspiration.actions.FuseValidOrbsAction;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;

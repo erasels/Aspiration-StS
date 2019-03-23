@@ -2,6 +2,7 @@ package aspiration.powers;
 
 import aspiration.Aspiration;
 import aspiration.actions.SpawnTolerantDamageAllEnemiesAction;
+import aspiration.powers.abstracts.AspirationPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -13,7 +14,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class AftershockPower extends AbstractPower implements CloneablePowerInterface {
+public class AftershockPower extends AspirationPower implements CloneablePowerInterface {
 	public static final String POWER_ID = "aspiration:Aftershock";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

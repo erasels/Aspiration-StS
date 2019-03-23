@@ -54,8 +54,7 @@ public class AmalgamateOrb extends AbstractOrb {
         this.textures = new ArrayList<>();
 
         if(components != null && !components.isEmpty()) {
-            ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList();
-            acceptableOrbs.add(new AmalgamateOrb());
+            ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true);
             ArrayList<AbstractOrb> useableOrbs = new ArrayList<>();
 
             for (AbstractOrb orb : components) {

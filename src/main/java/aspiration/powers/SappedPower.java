@@ -1,5 +1,6 @@
 package aspiration.powers;
 
+import aspiration.powers.abstracts.AspirationPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
@@ -10,7 +11,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class SappedPower extends AbstractPower implements OnReceivePowerPower, CloneablePowerInterface {
+public class SappedPower extends AspirationPower implements OnReceivePowerPower, CloneablePowerInterface {
     public static final String POWER_ID = "aspiration:Sapped";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

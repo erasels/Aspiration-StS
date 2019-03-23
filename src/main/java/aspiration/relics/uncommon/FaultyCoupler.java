@@ -2,6 +2,7 @@ package aspiration.relics.uncommon;
 
 import aspiration.actions.RemoveSpecificOrbAction;
 import aspiration.orbs.AmalgamateOrb;
+import aspiration.orbs.OrbUtilityMethods;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.skillbooks.DefectSkillbook;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
@@ -32,20 +33,19 @@ public class FaultyCoupler extends AspirationRelic implements OnChannelRelic {
     @Override
     public void onChannel(AbstractOrb orbyBoi) {
         if(AbstractDungeon.player.filledOrbCount() > 1 && !orbyBoi.ID.equals(AmalgamateOrb.ORB_ID)) {
-            //System.out.println(AbstractDungeon.player.filledOrbCount() + " filled orbs and " + orbyBoi.ID + " was cahnneled.");
-            if(AbstractDungeon.cardRandomRng.random(99) < AMA_CHANCE) {
-                ArrayList<AbstractOrb> orbs = new ArrayList<>();
-                for(AbstractOrb o : AbstractDungeon.player.orbs) {
-                    if(o != null && !EmptyOrbSlot.ORB_ID.equals(o.ID)) {
-                        if(o.ID != null) {
-                            orbs.add(o);
-                            //System.out.println(o.ID + " is in the lsit");
+            if(OrbUtilityMethods.isValidAmalgamateComponent(orbyBoi)) {
+                if (AbstractDungeon.cardRandomRng.random(99) < AMA_CHANCE) {
+                    ArrayList<AbstractOrb> orbs = new ArrayList<>();
+                    for (AbstractOrb o : AbstractDungeon.player.orbs) {
+                        if (o != null && !EmptyOrbSlot.ORB_ID.equals(o.ID)) {
+                            if (OrbUtilityMethods.isValidAmalgamateComponent(o)) {
+                                orbs.add(o);
+                            }
                         }
                     }
+                    AbstractDungeon.actionManager.addToTop(new ChannelAction(new AmalgamateOrb(new ArrayList<>(Arrays.asList(orbyBoi, orbs.get(AbstractDungeon.cardRandomRng.random(orbs.size() - 1)))))));
+                    AbstractDungeon.actionManager.addToTop(new RemoveSpecificOrbAction(orbyBoi));
                 }
-                //System.out.println(orb.ID + " was picked.");
-                AbstractDungeon.actionManager.addToTop(new ChannelAction(new AmalgamateOrb(new ArrayList<AbstractOrb>(Arrays.asList(orbyBoi, orbs.get(AbstractDungeon.cardRandomRng.random(orbs.size() - 1)))))));
-                AbstractDungeon.actionManager.addToTop(new RemoveSpecificOrbAction(orbyBoi));
             }
         }
     }

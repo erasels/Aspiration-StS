@@ -354,7 +354,7 @@
     "NAME": "Beaked's Skillbook",
     "FLAVOR": "These religious texts depict the awakening of the \"Chosen One\" before devolving into nonesense.",
     "DESCRIPTIONS": [
-      "At the start of each turn, if you only played attacks last turn, gain #b",
+      "At the start of each turn, if you only played #yattacks last turn, gain #b",
       " #yStrength and heal HP equal to your #yStrength [REMOVE_SPACE].",
       " NL NL #yMulticlass Beaked"
     ]

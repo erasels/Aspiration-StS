@@ -1,7 +1,6 @@
-package aspiration.actions.unique;
+package aspiration.actions;
 
 import aspiration.Aspiration;
-import aspiration.actions.RemoveSpecificOrbAction;
 import aspiration.orbs.AmalgamateOrb;
 import aspiration.orbs.OrbUtilityMethods;
 import aspiration.vfx.combat.BetterSmallLaserEffect;
@@ -36,8 +35,7 @@ public class FuseValidOrbsAction extends AbstractGameAction {
     public void update() {
         AbstractDungeon.actionManager.addToTop(new ChannelAction(new AmalgamateOrb(AbstractDungeon.player.orbs))); //this triggers last
         //AbstractDungeon.actionManager.addToTop(new WaitAction(10.0f));
-        ArrayList<AbstractOrb> orbsToRemove = OrbUtilityMethods.getOrbList();
-        orbsToRemove.add(new AmalgamateOrb());
+        ArrayList<AbstractOrb> orbsToRemove = OrbUtilityMethods.getOrbList(true);
         AbstractDungeon.player.orbs.forEach(o -> {
             for(AbstractOrb orb : orbsToRemove) {
                 if (orb.getClass().isInstance(o)) {

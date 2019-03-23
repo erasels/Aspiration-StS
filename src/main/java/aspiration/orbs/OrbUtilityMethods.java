@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.mod.replay.orbs.ManaSparkOrb;
 import com.megacrit.cardcrawl.mod.replay.orbs.ReplayLightOrb;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.random.Random;
+import com.sun.istack.internal.NotNull;
 import conspire.orbs.Water;
 
 import java.util.ArrayList;
@@ -85,7 +86,7 @@ public class OrbUtilityMethods {
         return rareOrbs;
     }
 
-    public static ArrayList<AbstractOrb> getOrbList() {
+    public static ArrayList<AbstractOrb> getOrbList(boolean withAmalgamate) {
         ArrayList<AbstractOrb> orbs = new ArrayList<>();
         orbs.add(new Dark());
         orbs.add(new Frost());
@@ -106,6 +107,25 @@ public class OrbUtilityMethods {
             }
         }
 
+        if(withAmalgamate) {
+            orbs.add(new AmalgamateOrb());
+        }
+
         return orbs;
+    }
+
+    public static boolean isValidAmalgamateComponent(@NotNull AbstractOrb o) {
+        if(o.ID != null) {
+            for (AbstractOrb orb : getOrbList(true)) {
+                if (o.ID.equals(orb.ID)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public static ArrayList<AbstractOrb> getOrbList() {
+        return getOrbList(false);
     }
 }

@@ -1,7 +1,7 @@
 package aspiration.cards.blue;
 
 import aspiration.Aspiration;
-import aspiration.actions.unique.FuseValidOrbsAction;
+import aspiration.actions.FuseValidOrbsAction;
 import basemod.abstracts.CustomCard;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

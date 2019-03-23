@@ -1,6 +1,7 @@
 package aspiration.powers;
 
 import aspiration.Aspiration;
+import aspiration.powers.abstracts.AspirationPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -16,7 +17,7 @@ import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
-public class CullingPower extends AbstractPower implements CloneablePowerInterface {
+public class CullingPower extends AspirationPower implements CloneablePowerInterface {
     public static final String POWER_ID = "aspiration:Culling";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;

@@ -323,7 +323,7 @@ public class Aspiration implements
     	//Defect Only
     	BaseMod.addRelic(new EnhancedActuators(), RelicType.BLUE);
     	BaseMod.addRelic(new MysteriousAuxiliaryCore(), RelicType.BLUE);
-        BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
+        BaseMod.addRelic(new Stellarator(), RelicType.BLUE);
     	
     	//If poison card in deck
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
