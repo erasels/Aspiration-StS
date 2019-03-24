@@ -254,7 +254,7 @@
   },
   "aspiration:TrainingWeights": {
     "NAME": "Training Weights",
-    "FLAVOR": "Unleash the springtime of youth!",
+    "FLAVOR": "Warning: Consult with a trained Taskmaster before using. Do not consume Potions unless deemed safe by a Healer.",
     "DESCRIPTIONS": [
       "Gain [E] at the start of each turn. Start each combat with #b",
       " #ySapped [REMOVE_SPACE]."
