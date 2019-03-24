@@ -30,11 +30,9 @@
   },
   "aspiration:BursterCore": {
     "NAME": "Burster Core",
-    "FLAVOR": "The nonoptimal fix to your core has caused it to switch between lightning fast and sluggishly slow computing on regular intervals.",
+    "FLAVOR": "Goes off vigorously when filled to the brim.",
     "DESCRIPTIONS": [
-      "At the end of your turn, #yChannel #b",
-	  " #yLightning for every empty orb slot every #b",
-	  " turns.",
+      "Whenever an Orb is #yevoked by #ychanneling with no empty slots, that Orb is #yevoked twice.",
 	  "Replaces #bCracked #bCore. "
     ]
   },

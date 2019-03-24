@@ -1,52 +1,45 @@
 package aspiration.relics.boss;
 
-import com.megacrit.cardcrawl.actions.GameActionManager;
-import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
-import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.orbs.Lightning;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CrackedCore;
 
-import aspiration.relics.abstracts.AspirationRelic;
-
-public class BursterCore extends AspirationRelic{
+public class BursterCore extends AspirationRelic {
     public static final String ID = "aspiration:BursterCore";
-	
-	private static final int LIGHTNING_AMOUNT = 1;
-	private static final int TURN_INTERVAL = 2;
-	private static final int START_CHARGE = 0;
-	
+
+    public static final int EVOKE_AMT = 2;
+
     public BursterCore() {
         super(ID, "BursterCore.png", RelicTier.BOSS, LandingSound.CLINK);
-    }
-    
-    @Override
-	public void onEquip() {
-    	this.description = getUpdatedDescription();
-        this.tips.clear();
-        this.tips.add(new PowerTip(this.name, DESCRIPTIONS[0] + LIGHTNING_AMOUNT + DESCRIPTIONS[1] + TURN_INTERVAL + DESCRIPTIONS[2]));
-        this.initializeTips();
-        startingCharges();
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[3] + DESCRIPTIONS[0] + LIGHTNING_AMOUNT + DESCRIPTIONS[1] + TURN_INTERVAL + DESCRIPTIONS[2];
+        return DESCRIPTIONS[1] + DESCRIPTIONS[0];
     }
-    
+
     @Override
-    public boolean canSpawn()
-    {
-    	return AbstractDungeon.player.hasRelic(CrackedCore.ID);
+    public void onEquip() {
+        this.description = getUpdatedDescription();
+        this.tips.clear();
+        this.tips.add(new PowerTip(this.name, DESCRIPTIONS[0]));
+        this.initializeTips();
+    }
+
+    //Actual logic is in BursterCorePatch
+
+    @Override
+    public boolean canSpawn() {
+        return AbstractDungeon.player.hasRelic(CrackedCore.ID) && !AbstractDungeon.player.hasRelic(Stellarator.ID);
     }
 
     public AbstractRelic makeCopy() {
         return new BursterCore();
     }
     
-    @Override
+    /*@Override
 	public void obtain() {
 		if (AbstractDungeon.player.hasRelic(CrackedCore.ID)) {
 			 for (int i = 0; i < AbstractDungeon.player.relics.size(); ++i) {
@@ -100,5 +93,5 @@ public class BursterCore extends AspirationRelic{
             counter = 0;
         }
         setCounter(counter + amt);
-    }
+    }*/
 }

@@ -461,9 +461,9 @@ public class Aspiration implements
         //Spawn only one set of Starter relic replacements per run
         if(rng.randomBoolean()) {
             RelicUtils.removeRelicFromPool(RingOfOuroboros.ID);
-            RelicUtils.removeRelicFromPool(BursterCore.ID);
+            //RelicUtils.removeRelicFromPool(BursterCore.ID);
             RelicUtils.removeRelicFromPool(InfernalBlood.ID);
-            logger.info("Removed alternate starter relic replacements.");
+            logger.info("Removed some alternate starter relic replacements.");
         } else {
             RelicUtils.removeRelicFromPool(RingOfTheSerpent.ID);
             RelicUtils.removeRelicFromPool(FrozenCore.ID);

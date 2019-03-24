@@ -24,7 +24,7 @@ Relics that interact with poison only spawn if you have a card with poison in it
 
 "Ring of Ouroboros" is an upgrade to the "Snake Ring" starter relic of the Silent. Instead of drawing cards at a set pace, the ring allows you to draw a card whenever you want, in exchange for taking 3 damage. Just right-click the relic and there you have it!
 
-"Burster Core": Upgrade from "Cracked Core", channel as much lightning as you have empty orbs at the end of your turn, every two turns.
+"Burster Core": Upgrade from "Cracked Core", Whenever an Orb is evoked by channeling with no empty orb slots, that Orb is evoked twice.
 
 "Snecko Tail": Whenever you play a poison-related card, apply Befuddled to the target(s). (Befuddled: Damage dealt is reduced by a random amount between 0 and the amount of stacks)
 
