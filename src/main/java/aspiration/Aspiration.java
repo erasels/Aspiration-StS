@@ -1,5 +1,6 @@
 package aspiration;
 
+import aspiration.Utility.RelicUtils;
 import aspiration.cards.blue.Polymerization;
 import aspiration.cards.green.Lunge;
 import aspiration.events.CultistTraining;
@@ -43,6 +44,9 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.BlackBlood;
+import com.megacrit.cardcrawl.relics.FrozenCore;
+import com.megacrit.cardcrawl.relics.RingOfTheSerpent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -419,17 +423,17 @@ public class Aspiration implements
     public void receivePostDungeonInitialize()
     {
         if (weakPoetsPenEnabled()) {
-            if (AbstractDungeon.bossRelicPool.removeIf(r -> r.equals(PoetsPen.ID))) {
+            if (RelicUtils.removeRelicFromPool(PoetsPen.ID)) {
                 logger.info(PoetsPen.ID + " removed.");
             }
         } else {
-        	if (AbstractDungeon.bossRelicPool.removeIf(r -> r.equals(PoetsPen_weak.ID))) {
+            if (RelicUtils.removeRelicFromPool(PoetsPen_weak.ID)) {
                 logger.info(PoetsPen_weak.ID + " removed.");
             }
         }
 
         if (!SpawnRNG()) {
-            if (AbstractDungeon.bossRelicPool.removeIf(r -> r.equals(RandomNobGenerator.ID))) {
+            if (RelicUtils.removeRelicFromPool(RandomNobGenerator.ID)) {
                 logger.info(RandomNobGenerator.ID + " removed.");
             }
         }
@@ -453,13 +457,19 @@ public class Aspiration implements
                 skillbookPool.forEach(sb -> logger.info("Removed Skillbook: " + sb.name));
             }
         }
-        /*for(Iterator<String> it = AbstractDungeon.bossRelicPool.iterator();it.hasNext(); ) {
-            String r = it.next();
-            AbstractRelic tmp = RelicLibrary.getRelic(r);
-            if (tmp instanceof SkillbookRelic && skillbookPool.contains(tmp)) {
-                AbstractDungeon.bossRelicPool.remove(tmp);
-            }
-        }*/
+
+        //Spawn only one set of Starter relic replacements per run
+        if(rng.randomBoolean()) {
+            RelicUtils.removeRelicFromPool(RingOfOuroboros.ID);
+            RelicUtils.removeRelicFromPool(BursterCore.ID);
+            RelicUtils.removeRelicFromPool(InfernalBlood.ID);
+            logger.info("Removed alternate starter relic replacements.");
+        } else {
+            RelicUtils.removeRelicFromPool(RingOfTheSerpent.ID);
+            RelicUtils.removeRelicFromPool(FrozenCore.ID);
+            RelicUtils.removeRelicFromPool(BlackBlood.ID);
+            logger.info("Removed original starter relic replacements.");
+        }
     }
     
     @Override

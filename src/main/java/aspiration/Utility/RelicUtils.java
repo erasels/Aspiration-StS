@@ -1,6 +1,7 @@
 package aspiration.Utility;
 
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class RelicUtils {
@@ -37,7 +38,24 @@ public class RelicUtils {
         return true;
     }
 
+    public static boolean removeRelicFromPool(String rel, boolean allPools) {
+        if(allPools) {
+            AbstractDungeon.bossRelicPool.removeIf(id -> id.equals(rel));
+            AbstractDungeon.shopRelicPool.removeIf(id -> id.equals(rel));
+            AbstractDungeon.rareRelicPool.removeIf(id -> id.equals(rel));
+            AbstractDungeon.uncommonRelicPool.removeIf(id -> id.equals(rel));
+            AbstractDungeon.commonRelicPool.removeIf(id -> id.equals(rel));
+        } else {
+            AbstractRelic r = RelicLibrary.getRelic(rel);
+            return removeRelicFromPool(r, false);
+        }
+        return true;
+    }
+
     public static boolean removeRelicFromPool(AbstractRelic r) {
+        return removeRelicFromPool(r, false);
+    }
+    public static boolean removeRelicFromPool(String r) {
         return removeRelicFromPool(r, false);
     }
 }
