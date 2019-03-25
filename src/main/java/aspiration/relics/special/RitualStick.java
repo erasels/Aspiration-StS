@@ -3,7 +3,6 @@ package aspiration.relics.special;
 import aspiration.powers.P_RitualPower;
 import aspiration.relics.abstracts.AspirationRelic;
 import basemod.abstracts.CustomSavable;
-import basemod.interfaces.RelicGetSubscriber;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
@@ -11,7 +10,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class RitualStick extends AspirationRelic implements RelicGetSubscriber, CustomSavable<Integer> {
+public class RitualStick extends AspirationRelic implements CustomSavable<Integer> {
     public static final String ID = "aspiration:RitualStick";
     private boolean wasApplied = false;
     private int ritualAmount = 1;
@@ -44,7 +43,7 @@ public class RitualStick extends AspirationRelic implements RelicGetSubscriber, 
     }
 
     @Override
-    public void receiveRelicGet(AbstractRelic abstractRelic) {
+    public void onRelicGet(AbstractRelic abstractRelic) {
         if(abstractRelic.relicId.equals(CultistMask.ID)) {
             ritualEasteregg();
         }

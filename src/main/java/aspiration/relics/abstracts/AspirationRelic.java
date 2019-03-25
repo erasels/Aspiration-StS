@@ -34,4 +34,5 @@ public abstract class AspirationRelic extends AbstractRelic
     }
     
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) { }
+    public void onRelicGet(AbstractRelic r) { }
 }

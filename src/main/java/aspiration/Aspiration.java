@@ -9,10 +9,7 @@ import aspiration.events.TheDarkMirror;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.boss.*;
 import aspiration.relics.common.*;
-import aspiration.relics.crossovers.EmptySkull;
-import aspiration.relics.crossovers.MobileForge;
-import aspiration.relics.crossovers.PocketMushroom;
-import aspiration.relics.crossovers.TrustyKnives;
+import aspiration.relics.crossovers.*;
 import aspiration.relics.rare.*;
 import aspiration.relics.skillbooks.*;
 import aspiration.relics.special.*;
@@ -66,7 +63,8 @@ public class Aspiration implements
         PostPowerApplySubscriber,
         PostDungeonInitializeSubscriber,
         AddAudioSubscriber,
-        EditKeywordsSubscriber
+        EditKeywordsSubscriber,
+        RelicGetSubscriber
 {
 	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
     private static SpireConfig modConfig = null;
@@ -352,7 +350,7 @@ public class Aspiration implements
             BaseMod.addRelic(new RunesmithSkillbook(), RelicType.SHARED);
         }
         if (hasInfinite) {
-            //BaseMod.addRelic(new TomeofQuesting(), RelicType.SHARED);
+            BaseMod.addRelic(new TomeofQuesting(), RelicType.SHARED);
         }
     }
 
@@ -477,6 +475,15 @@ public class Aspiration implements
         for (AbstractRelic r : AbstractDungeon.player.relics) {
             if (r instanceof  AspirationRelic) {
                 ((AspirationRelic)r).onApplyPower(p, target, source);
+            }
+        }
+    }
+
+    @Override
+    public void receiveRelicGet(AbstractRelic rel) {
+        for (AbstractRelic r : AbstractDungeon.player.relics) {
+            if (r instanceof  AspirationRelic) {
+                ((AspirationRelic)r).onRelicGet(rel);
             }
         }
     }
