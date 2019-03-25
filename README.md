@@ -46,7 +46,7 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Enhanced Actuators": Defect only. Gain 1 Strength for every 2 orb slots.
 
-"Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 2 Random orb every 3 turns.
+"Mysterious Auxiliary Core": Defect only. At the end of your turn, Channel 1 Random orb every 2 turns.
 
 "Fetid Barrel": Whenever you exhaust a card, apply 1 poison to all enemies. Of note, it's a poison relic but can always spawn, even without poison card in deck.
 
