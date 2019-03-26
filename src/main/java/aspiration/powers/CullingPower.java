@@ -13,6 +13,7 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
@@ -54,8 +55,13 @@ public class CullingPower extends AspirationPower implements CloneablePowerInter
                 if (((AbstractMonster) target).type != AbstractMonster.EnemyType.BOSS) {
                     if ((target.currentHealth - damageAmount) <= (target.maxHealth * cullingThreshold)) {
                         AbstractDungeon.actionManager.addToBottom(new VFXAction(target, new FlashPowerEffect(new MinionPower(target)), 0.0F));
-                        ((AbstractMonster) target).die();
-                        target.hideHealthBar();
+                        if(!(((AbstractMonster) target).name.equals(Darkling.NAME))) {
+                            ((AbstractMonster) target).die();
+                            target.hideHealthBar();
+                        } else {
+                            AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 9999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
+
+                        }
                     }
                 }
             } catch (Exception e) {
