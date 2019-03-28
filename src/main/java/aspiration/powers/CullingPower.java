@@ -1,6 +1,6 @@
 package aspiration.powers;
 
-import aspiration.Aspiration;
+import aspiration.actions.unique.CullingKillCheckAction;
 import aspiration.powers.abstracts.AspirationPower;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
@@ -13,8 +13,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.beyond.Darkling;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
@@ -51,23 +51,17 @@ public class CullingPower extends AspirationPower implements CloneablePowerInter
     @Override
     public void onAttack(DamageInfo info, int damageAmount, AbstractCreature target) {
         if (damageAmount > 0 && info.type == DamageInfo.DamageType.NORMAL && target != owner) {
-            try {
+            if(target instanceof AbstractMonster) {
                 if (((AbstractMonster) target).type != AbstractMonster.EnemyType.BOSS) {
                     if ((target.currentHealth - damageAmount) <= (target.maxHealth * cullingThreshold)) {
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(target, new FlashPowerEffect(new MinionPower(target)), 0.0F));
-                        if(!(((AbstractMonster) target).name.equals(Darkling.NAME))) {
-                            ((AbstractMonster) target).die();
-                            target.hideHealthBar();
-                        } else {
-                            AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 9999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
-
+                        if(target.hasPower(IntangiblePower.POWER_ID)) {
+                            target.powers.remove(target.getPower(IntangiblePower.POWER_ID));
                         }
+                        AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 9999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
+                        AbstractDungeon.actionManager.addToTop(new VFXAction(target, new FlashPowerEffect(new MinionPower(target)), 0.0F));
+                        AbstractDungeon.actionManager.addToBottom(new CullingKillCheckAction(target));
                     }
                 }
-            } catch (Exception e) {
-                Aspiration.logger.info(e);
-                AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 9999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
-                AbstractDungeon.actionManager.addToBottom(new VFXAction(target, new FlashPowerEffect(new MinionPower(target)), 0.0F));
             }
         }
     }

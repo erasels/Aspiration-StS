@@ -6,5 +6,10 @@
   "aspiration:Lunge": {
     "NAME": "Lunge",
     "DESCRIPTION": "Deal !D! damage to ALL enemies twice and lose 1 Dexterity per enemy. NL Exhaust."
+  },
+  "aspiration:UnbridledHammer": {
+    "NAME": "Unbridled Hammer",
+    "DESCRIPTION": "Deal !D! damage to a random enemy X times. runesmith:Enhance a random card in your hand X times.",
+    "UPGRADE_DESCRIPTION": "Deal !D! damage to a random enemy X+1 times. runesmith:Enhance a random card in your hand X+1 times."
   }
 }

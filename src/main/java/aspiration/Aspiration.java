@@ -1,6 +1,7 @@
 package aspiration;
 
 import aspiration.Utility.RelicUtils;
+import aspiration.cards.Runesmith.UnbridledHammer;
 import aspiration.cards.blue.Polymerization;
 import aspiration.cards.green.Lunge;
 import aspiration.events.CultistTraining;
@@ -358,6 +359,10 @@ public class Aspiration implements
     public void receiveEditCards() {
         BaseMod.addCard(new Polymerization());
         BaseMod.addCard(new Lunge());
+
+        if(hasRunesmith) {
+            BaseMod.addCard(new UnbridledHammer());
+        }
     }
 
     @Override
