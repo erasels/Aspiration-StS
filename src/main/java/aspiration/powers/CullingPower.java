@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.IntangiblePower;
 import com.megacrit.cardcrawl.powers.MinionPower;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
@@ -54,10 +53,8 @@ public class CullingPower extends AspirationPower implements CloneablePowerInter
             if(target instanceof AbstractMonster) {
                 if (((AbstractMonster) target).type != AbstractMonster.EnemyType.BOSS) {
                     if ((target.currentHealth - damageAmount) <= (target.maxHealth * cullingThreshold)) {
-                        if(target.hasPower(IntangiblePower.POWER_ID)) {
-                            target.powers.remove(target.getPower(IntangiblePower.POWER_ID));
-                        }
-                        AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 9999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
+                        target.currentHealth = 0;
+                        AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
                         AbstractDungeon.actionManager.addToTop(new VFXAction(target, new FlashPowerEffect(new MinionPower(target)), 0.0F));
                         AbstractDungeon.actionManager.addToBottom(new CullingKillCheckAction(target));
                     }

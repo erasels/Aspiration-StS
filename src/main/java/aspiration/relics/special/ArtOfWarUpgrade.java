@@ -1,11 +1,13 @@
 package aspiration.relics.special;
 
+import aspiration.Aspiration;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DoubleDamagePower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -17,6 +19,9 @@ public class ArtOfWarUpgrade extends AspirationRelic {
     private static final int ENERGY_AMOUNT = 1;
     private boolean firstTurn = false;
     private boolean gainEnergyNext = false;
+
+    private final boolean isTea = CardCrawlGame.playerName.toLowerCase().equals("HighOnTea".toLowerCase());
+    public static int NEEDED_SESSIONS = 3;
 
     public ArtOfWarUpgrade() {
         super(ID, "ArtOfWarUpgrade.png", RelicTier.SPECIAL, LandingSound.FLAT);
@@ -50,6 +55,11 @@ public class ArtOfWarUpgrade extends AspirationRelic {
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(ENERGY_AMOUNT));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new DoubleDamagePower(AbstractDungeon.player, ENERGY_AMOUNT, false)));
+
+            if(isTea) {
+                Aspiration.logger.info("This balanced now? " + CardCrawlGame.playerName);
+                AbstractDungeon.player.relics.remove(this);
+            }
         }
         this.firstTurn = false;
         this.gainEnergyNext = true;

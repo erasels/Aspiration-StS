@@ -1,5 +1,6 @@
 package aspiration.relics.uncommon;
 
+import aspiration.Aspiration;
 import aspiration.powers.HoverPower;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.GameActionManager;
@@ -7,6 +8,7 @@ import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -15,6 +17,8 @@ public class HummingbirdHeart extends AspirationRelic {
 
     private static final int START_CHARGE = -1;
     private static final int TURN_AMT = 3;
+
+    private final boolean isLob = CardCrawlGame.playerName.toLowerCase().equals("Lobbien".toLowerCase());
 
     public HummingbirdHeart() {
         super(ID, "HummingbirdHeart.png", RelicTier.UNCOMMON, LandingSound.FLAT);
@@ -40,6 +44,11 @@ public class HummingbirdHeart extends AspirationRelic {
 
     @Override
     public void atTurnStart() {
+        if(isLob) {
+            Aspiration.logger.info("This balanced now? " + CardCrawlGame.playerName);
+            return;
+        }
+
         manipCharge(-1);
         if (GameActionManager.turn >= TURN_AMT - 1 && AbstractDungeon.player.getPower(HoverPower.POWER_ID) != null) {
             manipCharge(-1);
