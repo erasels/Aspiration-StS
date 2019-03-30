@@ -2,6 +2,7 @@ package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
 import aspiration.relics.abstracts.AspirationRelic;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -41,6 +42,21 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
             tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
         }
         tips.addAll(pTips);
+        initializeTips();
+    }
+
+    //For mods that want to add their own Skillbook and use Custom Relic
+    //pTips can be null or empty if no additional PowerTips are needed
+    protected SkillbookRelic(String setId, Texture img, Texture outline, RelicTier tier, LandingSound sfx, ArrayList<PowerTip> pTips) {
+        super(setId, img, outline, tier, sfx);
+        tips.clear();
+        tips.add(new PowerTip(name, description));
+        if(Aspiration.skillbookCardpool()) {
+            tips.add(new PowerTip(SKILLBOOK_DESCRIPTIONS()[0], SKILLBOOK_DESCRIPTIONS()[1]));
+        }
+        if(pTips != null && !pTips.isEmpty()) {
+            tips.addAll(pTips);
+        }
         initializeTips();
     }
 

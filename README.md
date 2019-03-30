@@ -15,6 +15,8 @@ The Cultist Training Ground allows you to train with some cultists and gain the 
 
 (Silent only) Lunge: Rare Attack. (2) Deal (11/15) damage to ALL enemies twice and lose 1 Dextraity per enemy. Exhaust.
 
+(Runesmith only) Unbridled Hammer: Uncommon Attack. (X) Deal 5 damage to a random enemy X(+1) times and Enhance a random card in your hand X(+1) times.
+
 ## Relics:
 Relics that interact with poison only spawn if you have a card with poison in its description in your deck.
 

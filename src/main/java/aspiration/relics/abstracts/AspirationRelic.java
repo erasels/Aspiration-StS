@@ -1,6 +1,7 @@
 package aspiration.relics.abstracts;
 
 import aspiration.Aspiration;
+import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -21,6 +22,17 @@ public abstract class AspirationRelic extends AbstractRelic
             largeImg = ImageMaster.loadImage(Aspiration.assetPath("img/largeRelics/" + imgName));
             outlineImg = ImageMaster.loadImage(Aspiration.assetPath("img/relics/outline/" + imgName));
         }
+    }
+
+    //For mods that use CustomRelics
+    public AspirationRelic(String setId, Texture img, Texture outline, RelicTier tier, LandingSound sfx)
+    {
+        super(setId, "", tier, sfx);
+        img.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        outline.setFilter(Texture.TextureFilter.Linear, Texture.TextureFilter.Linear);
+        this.img = img;
+        largeImg = img;
+        outlineImg = outline;
     }
     
     public boolean deckDescriptionSearch(String keyword1, String keyword2)
