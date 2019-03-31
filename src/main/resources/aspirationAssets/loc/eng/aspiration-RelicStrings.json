@@ -278,7 +278,7 @@
     "NAME": "Future Diary",
     "FLAVOR": "It's hard to live in the present if your future is in your hand.",
     "DESCRIPTIONS": [
-      "Gain [E] at the start of each turn. NL At the start of each turn a random card in your hand is picked. You must play that card before any other.",
+      "Gain [E] at the start of each turn. NL At the start of each turn a random card in your hand is picked. You cannot play other cards while that card is in your hand.",
       "I must play ",
       "."
     ]

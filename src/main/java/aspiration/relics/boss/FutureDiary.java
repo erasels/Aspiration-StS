@@ -33,10 +33,43 @@ public class FutureDiary extends AspirationRelic {
     }
 
     @Override
+    public void onDrawOrDiscard() {
+        if(mustPlay != null) {
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if(c == mustPlay) {
+                    return;
+                }
+                mustPlay = null;
+            }
+        }
+    }
+
+    @Override
+    public void onExhaust(AbstractCard c) {
+        if(mustPlay != null) {
+            if(c == mustPlay) {
+                mustPlay = null;
+            }
+        }
+    }
+
+    @Override
+    public void onManualDiscard() {
+        if(mustPlay != null) {
+            for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                if(c == mustPlay) {
+                    return;
+                }
+                mustPlay = null;
+            }
+        }
+    }
+
+    @Override
     public boolean canPlay(AbstractCard card)
     {
         if (mustPlay != null) {
-            if (mustPlay.equals(card)) {
+            if (mustPlay == card) {
                 return true;
             }
             card.cantUseMessage = DESCRIPTIONS[1] + mustPlay.name + DESCRIPTIONS[2];
