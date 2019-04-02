@@ -8,9 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import runesmith.actions.RuneChannelAction;
 import runesmith.character.player.RunesmithCharacter;
-import runesmith.orbs.RuneOrb;
 import runesmith.patches.LibraryEnum;
 
 import java.util.ArrayList;
@@ -57,7 +55,7 @@ public class RunesmithSkillbook extends SkillbookRelic {
                 flash();
                 AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
                 AbstractDungeon.actionManager.addToBottom(new EnhanceRandomCardInHandAction(counter, counter));
-                AbstractDungeon.actionManager.addToBottom(new RuneChannelAction(RuneOrb.getRandomRune(AbstractDungeon.relicRng, counter, true)));
+                //AbstractDungeon.actionManager.addToBottom(new RuneChannelAction(RuneOrb.getRandomRune(AbstractDungeon.relicRng, counter, true)));
                 startingCharges();
             }
         }

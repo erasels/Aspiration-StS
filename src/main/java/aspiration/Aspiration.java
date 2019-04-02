@@ -71,7 +71,7 @@ public class Aspiration implements
     private static SpireConfig modConfig = null;
     public static SpireConfig otherSaveData = null;
     public static TextureAtlas powerAtlas;
-    public static final int SKILLBOOK_SPAWN_AMOUNT = 4;
+    public static final int SKILLBOOK_SPAWN_AMOUNT = 3;
 
     // Crossover checks
     public static final boolean hasMarisa;
@@ -306,6 +306,7 @@ public class Aspiration implements
         BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
         BaseMod.addRelic(new RandomNobGenerator(), RelicType.SHARED);
         BaseMod.addRelic(new FaultyCoupler(), RelicType.SHARED);
+        BaseMod.addRelic(new ChemicalBlood(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);

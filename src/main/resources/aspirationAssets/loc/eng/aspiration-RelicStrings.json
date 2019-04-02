@@ -368,7 +368,7 @@
     "NAME": "Runesmith's Skillbook",
     "FLAVOR": "This seems to be a beginners guide to arcane forgery. The hammer section has been taken special care of.",
     "DESCRIPTIONS": [
-      "The first time you play an #yAttack each turn, for each prior turn ended without playing an #yAttack [REMOVE_SPACE], #yrunesmith:Enhance that many random cards that amount of times and craft a rune with that much #yrunesmith:Potency [REMOVE_SPACE].",
+      "The first time you play an #yAttack each turn, for each prior turn ended without playing an #yAttack [REMOVE_SPACE], #yrunesmith:Enhance that many random cards in your hand that amount of times.",
       " NL NL #yMulticlass Runesmith"
     ]
   },
@@ -449,6 +449,15 @@
     "DESCRIPTIONS": [
       "Whenever an orb is #ychanneled [REMOVE_SPACE], there is a #b",
       "% chance for the orb to #yaspiration:fuse with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
+    ]
+  },
+  "aspiration:ChemicalBlood": {
+    "NAME": "Chemical Blood",
+    "FLAVOR": "Easily flammable.",
+    "DESCRIPTIONS": [
+      "Every time you lose HP equal to #b",
+      "% of your max HP, gain a random potion.",
+      "You've lost enough blood!"
     ]
   }
 }

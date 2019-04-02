@@ -39,8 +39,8 @@ public class FutureDiary extends AspirationRelic {
                 if(c == mustPlay) {
                     return;
                 }
-                mustPlay = null;
             }
+            mustPlay = null;
         }
     }
 
@@ -60,8 +60,8 @@ public class FutureDiary extends AspirationRelic {
                 if(c == mustPlay) {
                     return;
                 }
-                mustPlay = null;
             }
+            mustPlay = null;
         }
     }
 
