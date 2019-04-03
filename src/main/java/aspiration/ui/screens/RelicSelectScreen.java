@@ -29,7 +29,7 @@ public class RelicSelectScreen implements ScrollBarListener
     private static final float START_Y = Settings.HEIGHT - 300.0F * Settings.scale;
     private float scrollY = START_Y;
     private float targetY = this.scrollY;
-    private float scrollLowerBound = Settings.HEIGHT - 100.0F * Settings.scale;
+    private float scrollLowerBound = Settings.HEIGHT - 200.0F * Settings.scale;
     private float scrollUpperBound = scrollLowerBound + Settings.DEFAULT_SCROLL_LIMIT;//2600.0F * Settings.scale;
     private int row = 0;
     private int col = 0;

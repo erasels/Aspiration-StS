@@ -84,6 +84,8 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Faulty Coupler": (Defect only) Whenever you channel an orb, there's a 20% chance fuse it with a random orb of a type you currently have channeled.
 
+"Chemical Blood": Whenever you lose more than 25% of your HP, you gain a random potion.
+
 ##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:
 Beaked:EmptySkull: Whenever you play a card and have no cards in your hand, shuffle an Inspiration into your draw pile.
