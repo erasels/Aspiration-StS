@@ -38,7 +38,9 @@ public class ChemicalBlood extends AspirationRelic {
     @Override
     public void atTurnStart() {
         removePotionsFromRewards();
-        potionReward();
+        if(poverflow>0) {
+            potionReward();
+        }
     }
 
     private void startingCharges() {
@@ -51,16 +53,14 @@ public class ChemicalBlood extends AspirationRelic {
         while(counter <= 0) {
             poverflow++;
             setCounter(counter + healthPercent());
+            if(poverflow <= freePSlots()) {
+                potionReward();
+            }
         }
     }
 
     private void potionReward() {
-        int freeSlots = 0;
-        for (AbstractPotion p : AbstractDungeon.player.potions) {
-            if (p instanceof PotionSlot) {
-                freeSlots++;
-            }
-        }
+        int freeSlots = freePSlots();
         boolean openScreen = freeSlots < poverflow;
 
         for (int i = 0; i < poverflow; i++) {
@@ -81,7 +81,18 @@ public class ChemicalBlood extends AspirationRelic {
             }
             AbstractDungeon.getCurrRoom().rewardPopOutTimer = 0;
         }
+        poverflow = 0;
         flash();
+    }
+
+    private int freePSlots() {
+        int freeSlots = 0;
+        for (AbstractPotion p : AbstractDungeon.player.potions) {
+            if (p instanceof PotionSlot) {
+                freeSlots++;
+            }
+        }
+        return freeSlots;
     }
 
     private static void removePotionsFromRewards() {
