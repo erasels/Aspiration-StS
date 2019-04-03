@@ -457,7 +457,7 @@
     "DESCRIPTIONS": [
       "Every time you lose HP equal to #b",
       "% of your max HP, gain a random potion.",
-      "You can't carry all your blood!"
+      "Can't carry all your blood!"
     ]
   }
 }
