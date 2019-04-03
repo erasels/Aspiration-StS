@@ -264,7 +264,7 @@
     "NAME": "Art of War (read)",
     "FLAVOR": "This ancient manuscript contains wisdom from a past age. You've taken it's teachings to heart.",
     "DESCRIPTIONS": [
-      "If you do not play any #yAttacks during your turn, gain an additional [E] and deal double damage next turn."
+      "If you do not play any #yAttacks during your turn, gain an additional [E] and attacks deal double damage next turn."
     ]
   },
   "aspiration:SeaSaltIceCream": {
@@ -457,7 +457,7 @@
     "DESCRIPTIONS": [
       "Every time you lose HP equal to #b",
       "% of your max HP, gain a random potion.",
-      "You've lost enough blood!"
+      "You can't carry all your blood!"
     ]
   }
 }

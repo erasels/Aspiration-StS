@@ -13,6 +13,7 @@ public class ChemicalBlood extends AspirationRelic {
 
     private static final int PERCENTAGE_TRIGGER = 25;
     private static final float PERC = PERCENTAGE_TRIGGER/100F;
+    private int poverflow = 0;
 
     public ChemicalBlood() {
         super(ID, "ChemicalBlood.png", RelicTier.COMMON, LandingSound.FLAT);
@@ -37,6 +38,7 @@ public class ChemicalBlood extends AspirationRelic {
     @Override
     public void atTurnStart() {
         removePotionsFromRewards();
+        potionReward();
     }
 
     private void startingCharges() {
@@ -44,28 +46,24 @@ public class ChemicalBlood extends AspirationRelic {
     }
 
     private void changeCharge(int amt) {
-        int poverflow = 0;
         setCounter(counter - amt);
 
         while(counter <= 0) {
             poverflow++;
             setCounter(counter + healthPercent());
         }
-        if(poverflow > 0) {
-            potionReward(poverflow);
-        }
     }
 
-    private void potionReward(int amount) {
+    private void potionReward() {
         int freeSlots = 0;
         for (AbstractPotion p : AbstractDungeon.player.potions) {
             if (p instanceof PotionSlot) {
                 freeSlots++;
             }
         }
-        boolean openScreen = freeSlots < amount;
+        boolean openScreen = freeSlots < poverflow;
 
-        for (int i = 0; i < amount; i++) {
+        for (int i = 0; i < poverflow; i++) {
             if (openScreen) {
                 AbstractDungeon.getCurrRoom().addPotionToRewards(AbstractDungeon.returnRandomPotion());
             } else {
@@ -75,8 +73,8 @@ public class ChemicalBlood extends AspirationRelic {
         if (openScreen) {
             AbstractDungeon.combatRewardScreen.open(DESCRIPTIONS[2]);
             AbstractDungeon.combatRewardScreen.rewards.removeIf(i -> i.type != RewardItem.RewardType.POTION);
-            if(AbstractDungeon.combatRewardScreen.rewards.size()>amount) {
-                int diff = AbstractDungeon.combatRewardScreen.rewards.size() - amount;
+            if(AbstractDungeon.combatRewardScreen.rewards.size()>poverflow) {
+                int diff = AbstractDungeon.combatRewardScreen.rewards.size() - poverflow;
                 if (diff > 0) {
                     AbstractDungeon.combatRewardScreen.rewards.subList(0, diff).clear();
                 }
