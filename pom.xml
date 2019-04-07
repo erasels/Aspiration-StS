@@ -95,7 +95,13 @@
                <scope>system</scope>
                <systemPath>${basedir}/../lib/InfiniteSpire.jar</systemPath>
         </dependency>
-		
+        <dependency>
+            <groupId>vexMod</groupId>
+            <artifactId>vexMod</artifactId>
+            <version>1.6</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/../lib/vexMod.jar</systemPath>
+        </dependency>
     </dependencies>
 
     <properties>

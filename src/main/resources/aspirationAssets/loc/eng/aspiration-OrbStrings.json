@@ -34,7 +34,10 @@
       "If you have less than #b",
       " orb slots, gain an orb slot. ",
       "If you have more than #b",
-      " orb slots, consumes your leftmost orb slot and #yEvokes any non-glass orb occupying it. "
+      " orb slots, consumes your leftmost orb slot and #yEvokes any non-glass orb occupying it. ",
+      " damage to a random enemy and gain #b",
+      " #yGold. ",
+      " NL Can only produce a total of #b"
     ]
   }
 }

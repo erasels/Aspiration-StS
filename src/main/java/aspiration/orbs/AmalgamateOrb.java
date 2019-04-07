@@ -9,15 +9,18 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.cards.colorless.HandOfGreed;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.OrbStrings;
 import com.megacrit.cardcrawl.mod.replay.orbs.*;
 import com.megacrit.cardcrawl.orbs.*;
+import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 import conspire.orbs.Water;
+import vexMod.orbs.GoldenLightning;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -34,12 +37,16 @@ public class AmalgamateOrb extends AbstractOrb {
     private static final float ORB_WAVY_DIST = 0.04f;
     private static final float PI_4 = 12.566371f;
 
+    private static final int GOLD_PER_GOLDEN_LIGHTNING = 20; //smh vex if you won't define a constant I will
+
     private ArrayList<AbstractOrb> components;
     private ArrayList<Texture> textures;
 
     private HashMap<String, Integer> passiveValues = new HashMap<>();
     private HashMap<String, Integer> evokeValues = new HashMap<>();
     private int manaSparkAmount;
+    public int goldCap = 0;
+    public int goldGenerated = 0; //Theoretically, you can repeatedly amalgamate golden lightning to get infinite gold.
 
     public int crystalBonus;
 
@@ -49,6 +56,8 @@ public class AmalgamateOrb extends AbstractOrb {
 
         evokeAmount = baseEvokeAmount = 0;
         passiveAmount = basePassiveAmount = 0;
+
+        goldCap = 0;
 
         this.components = new ArrayList<>();
         this.textures = new ArrayList<>();
@@ -127,6 +136,7 @@ public class AmalgamateOrb extends AbstractOrb {
         else
         {
             manaSparkAmount = 0;
+            goldCap = 0; //if gold cap > 0 adds gold cap message at end of orb description
 
             passiveValues.clear();
             evokeValues.clear();
@@ -144,9 +154,15 @@ public class AmalgamateOrb extends AbstractOrb {
                     passiveValues.put(orb.ID, passiveValues.get(orb.ID) + orb.passiveAmount);
                     evokeValues.put(orb.ID, evokeValues.get(orb.ID) + orb.evokeAmount);
                 }
-                if(Aspiration.hasMarisa && Aspiration.hasReplay) {
+                if (Aspiration.hasMarisa && Aspiration.hasReplay) {
                     if (orb.ID.equals(ManaSparkOrb.ORB_ID)) {
                         manaSparkAmount++;
+                    }
+                }
+                if (Aspiration.hasVex)
+                {
+                    if (orb.ID.equals(GoldenLightning.ORB_ID)) {
+                        goldCap += GOLD_PER_GOLDEN_LIGHTNING; //smh hardcoded value with no constant
                     }
                 }
             }
@@ -211,6 +227,14 @@ public class AmalgamateOrb extends AbstractOrb {
                                 break;
                         }
                     }
+                    if (Aspiration.hasVex) {
+                        switch (key) {
+                            case GoldenLightning.ORB_ID:
+                                sb.append(DESC[5]).append(passiveValues.get(key)); //first part is same as lightning
+                                sb.append(DESC[33]).append(passiveValues.get(key)).append(DESC[34]); //second part is not
+                                break;
+                        }
+                    }
                 }
             }
 
@@ -270,9 +294,19 @@ public class AmalgamateOrb extends AbstractOrb {
                                 break;
                         }
                     }
-
+                    if (Aspiration.hasVex) {
+                        switch (key) {
+                            case GoldenLightning.ORB_ID:
+                                sb.append(DESC[21]).append(evokeValues.get(key)); //first part is same as lightning
+                                sb.append(DESC[33]).append(evokeValues.get(key)).append(DESC[34]); //second part is not
+                                break;
+                        }
+                    }
                 }
             }
+
+            if (goldCap > 0)
+                sb.append(DESC[35]).append(goldCap).append(DESC[34]);
 
             description = sb.toString();
             //description = "";//description.substring(0, description.lastIndexOf(" NL "));
@@ -332,6 +366,7 @@ public class AmalgamateOrb extends AbstractOrb {
         boolean triggeredDark = false;
         boolean triggeredFrost = false;
         boolean triggeredLightning = false;
+        boolean triggeredGoldenLightning = false;
         boolean triggeredLight = false;
         boolean triggeredPlasma = false;
         boolean triggeredCrystal = false;
@@ -433,6 +468,25 @@ public class AmalgamateOrb extends AbstractOrb {
                             break;
                     }
                 }
+                if (Aspiration.hasVex) {
+                    switch (orb.ID)
+                    {
+                        case GoldenLightning.ORB_ID:
+                            if (!triggeredGoldenLightning)
+                            {
+                                Lightning toTrigger = new Lightning(); //Use lightning orb to do the damage, and gain gold itself
+                                //Since golden lightning has hard 20 gold cap,
+                                //Making a golden lightning wouldn't work well if two were combined.
+                                toTrigger.evokeAmount = evokeValues.get(orb.ID);
+                                AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
+
+                                this.gainGold(evokeValues.get(orb.ID));
+
+                                triggeredGoldenLightning = true;
+                            }
+                            break;
+                    }
+                }
             }
         }
         this.updateDescription();
@@ -442,7 +496,7 @@ public class AmalgamateOrb extends AbstractOrb {
     public void onStartOfTurn() {
         boolean triggeredHellfire = false;
         boolean triggeredManaspark = false;
-        
+
         boolean notFound;
         for (AbstractOrb orb : components)
         {
@@ -522,8 +576,15 @@ public class AmalgamateOrb extends AbstractOrb {
         boolean triggeredLightning = false;
         boolean triggeredLight = false;
         boolean triggeredGlass = false;
+        boolean triggeredGoldenLightning = false;
 
         boolean notFound;
+
+        //for lightning
+        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
+        if (Settings.FAST_MODE) {
+            speedTime = 0.0F;
+        }
 
         for (AbstractOrb orb : components)
         {
@@ -536,12 +597,12 @@ public class AmalgamateOrb extends AbstractOrb {
                 case Frost.ORB_ID:
                     if (triggeredFrost)
                     {
-                        float speedTime = 0.6F / (float)AbstractDungeon.player.orbs.size();
+                        float frostSpeedTime = 0.6F / (float)AbstractDungeon.player.orbs.size();
                         if (Settings.FAST_MODE) {
-                            speedTime = 0.0F;
+                            frostSpeedTime = 0.0F;
                         }
 
-                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.FROST), speedTime));
+                        AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.FROST), frostSpeedTime));
                     }
                     else
                     {
@@ -555,10 +616,6 @@ public class AmalgamateOrb extends AbstractOrb {
                 case Lightning.ORB_ID:
                     if (triggeredLightning)
                     {
-                        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
-                        if (Settings.FAST_MODE) {
-                            speedTime = 0.0F;
-                        }
                         AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
                     }
                     else
@@ -621,6 +678,24 @@ public class AmalgamateOrb extends AbstractOrb {
                     {
                         case Water.ORB_ID:
                             break;
+                    }
+                }
+                if (Aspiration.hasVex) {
+                    switch (orb.ID)
+                    {
+                        case GoldenLightning.ORB_ID:
+                            if (triggeredGoldenLightning)
+                            {
+                                AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
+                            }
+                            else
+                            {
+                                Lightning toTrigger = new Lightning(); //Use lightning orb to do the damage, and gain gold itself
+                                toTrigger.passiveAmount = passiveValues.get(orb.ID);
+                                toTrigger.onEndOfTurn();
+                                this.gainGold(passiveValues.get(orb.ID));
+                                triggeredGoldenLightning = true;
+                            }
                     }
                 }
             }
@@ -705,6 +780,15 @@ public class AmalgamateOrb extends AbstractOrb {
     @Override
     public void playChannelSFX() {
         CardCrawlGame.sound.play("ATTACK_FIRE", 0.1f);
+    }
+
+    private void gainGold(int amount)
+    {
+        int cap = Math.min(goldGenerated + amount, goldCap);
+        for (; goldGenerated < cap; goldGenerated++) {
+            AbstractDungeon.player.gainGold(1);
+            AbstractDungeon.effectList.add(new GainPennyEffect(AbstractDungeon.player, this.hb.cX, this.hb.cY, AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY, true));
+        }
     }
 
     @Override

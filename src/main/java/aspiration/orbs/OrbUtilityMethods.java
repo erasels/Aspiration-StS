@@ -9,6 +9,7 @@ import com.megacrit.cardcrawl.mod.replay.orbs.ReplayLightOrb;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.random.Random;
 import conspire.orbs.Water;
+import vexMod.orbs.GoldenLightning;
 
 import java.util.ArrayList;
 
@@ -82,6 +83,11 @@ public class OrbUtilityMethods {
                 rareOrbs.add(new ManaSparkOrb());
             }
         }
+
+        if (Aspiration.hasVex)
+        {
+            rareOrbs.add(new GoldenLightning());
+        }
         return rareOrbs;
     }
 
@@ -104,6 +110,11 @@ public class OrbUtilityMethods {
             if(Aspiration.hasMarisa) {
                 orbs.add(new ManaSparkOrb());
             }
+        }
+
+        if (Aspiration.hasVex)
+        {
+            orbs.add(new GoldenLightning());
         }
 
         if(withAmalgamate) {
