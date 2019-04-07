@@ -17,7 +17,8 @@
       "Ослабить Перо поэта",
       "Изменяет редкость Ностальгии на Необычную (вместо Реликвии торговца)",
       "Книги навыков добавляют к наградам карты указанных на них персонажей",
-      "Allow the \"Random Nob Generator\" boss relic to spawn."
+      "Allow the \"Random Nob Generator\" boss relic to spawn.",
+      "Make the Sticky Explosives uncommon relic weaker."
     ]
   },
   "aspiration:NeowRewards": {

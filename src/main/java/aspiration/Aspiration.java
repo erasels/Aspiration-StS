@@ -120,6 +120,7 @@ public class Aspiration implements
         try {
             Properties defaults = new Properties();
             defaults.put("WeakPoetsPen", Boolean.toString(true));
+            defaults.put("WeakSE", Boolean.toString(true));
             defaults.put("uncommonNostalgia", Boolean.toString(false));
             defaults.put("SkillbookCardpool", Boolean.toString(true));
             defaults.put("SpawnRNG", Boolean.toString(false));
@@ -140,6 +141,14 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("WeakPoetsPen");
+    }
+
+    public static boolean weakSE()
+    {
+        if (modConfig == null) {
+            return false;
+        }
+        return modConfig.getBool("WeakSE");
     }
     
     public static boolean uncommonNostalgia()
@@ -221,8 +230,22 @@ public class Aspiration implements
                     }
                 });
         settingsPanel.addUIElement(PPBtn);
+
+        ModLabeledToggleButton SEBtn = new ModLabeledToggleButton(TEXT[4], 350, 650, Settings.CREAM_COLOR, FontHelper.charDescFont, weakSE(), settingsPanel, l -> {},
+                button ->
+                {
+                    if (modConfig != null) {
+                        modConfig.setBool("WeakSE", button.enabled);
+                        try {
+                            modConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(SEBtn);
         
-        ModLabeledToggleButton nostalgiaBtn = new ModLabeledToggleButton(TEXT[1], 350, 650, Settings.CREAM_COLOR, FontHelper.charDescFont, uncommonNostalgia(), settingsPanel, l -> {},
+        ModLabeledToggleButton nostalgiaBtn = new ModLabeledToggleButton(TEXT[1], 350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont, uncommonNostalgia(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -236,7 +259,7 @@ public class Aspiration implements
                 });
         settingsPanel.addUIElement(nostalgiaBtn);
 
-        ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton(TEXT[2], 350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
+        ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton(TEXT[2], 350, 550, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -250,7 +273,7 @@ public class Aspiration implements
                 });
         settingsPanel.addUIElement(skillbookBtn);
 
-        ModLabeledToggleButton rngButton = new ModLabeledToggleButton(TEXT[3], 350, 550, Settings.CREAM_COLOR, FontHelper.charDescFont, SpawnRNG(), settingsPanel, l -> {},
+        ModLabeledToggleButton rngButton = new ModLabeledToggleButton(TEXT[3], 350, 500, Settings.CREAM_COLOR, FontHelper.charDescFont, SpawnRNG(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -292,6 +315,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new PoetsPen_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
     	BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
+        BaseMod.addRelic(new StickyExplosives_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	//BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
@@ -433,6 +457,16 @@ public class Aspiration implements
         } else {
             if (RelicUtils.removeRelicFromPool(PoetsPen_weak.ID)) {
                 logger.info(PoetsPen_weak.ID + " removed.");
+            }
+        }
+
+        if (weakSE()) {
+            if (RelicUtils.removeRelicFromPool(StickyExplosives.ID)) {
+                logger.info(StickyExplosives.ID + " removed.");
+            }
+        } else {
+            if (RelicUtils.removeRelicFromPool(StickyExplosives_weak.ID)) {
+                logger.info(StickyExplosives_weak.ID + " removed.");
             }
         }
 

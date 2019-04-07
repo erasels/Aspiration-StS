@@ -69,5 +69,15 @@
       "Receive #b",
       "% less attack damage."
     ]
+  },
+  "aspiration:Aftershock_weak": {
+    "NAME": "Aftershock",
+    "DESCRIPTIONS": [
+      "After #b",
+      " turns, deal #b",
+      "% of all unblocked attack damage taken to ALL enemies.",
+      " NL Currently will deal #b",
+      " damage."
+    ]
   }
 }

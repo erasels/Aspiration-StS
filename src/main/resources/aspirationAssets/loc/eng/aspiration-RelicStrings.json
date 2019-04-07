@@ -440,7 +440,7 @@
     "NAME": "Stellarator",
     "FLAVOR": "Who needs the Inserter if you can just squeeze!",
     "DESCRIPTIONS": [
-      "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and #yaspiration:fuse all remaining orbs."
+      "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and #yaspiration:Fuse all remaining orbs."
     ]
   },
   "aspiration:FaultyCoupler": {
@@ -448,7 +448,7 @@
     "FLAVOR": "... Loneliness is... the enemy...",
     "DESCRIPTIONS": [
       "Whenever an orb is #ychanneled [REMOVE_SPACE], there is a #b",
-      "% chance for the orb to #yaspiration:fuse with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
+      "% chance for the orb to #yaspiration:Fuse with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
     ]
   },
   "aspiration:ChemicalBlood": {
@@ -458,6 +458,13 @@
       "Every time you lose HP equal to #b",
       "% of your max HP, gain a random potion.",
       "Can't carry all your blood!"
+    ]
+  },
+  "aspiration:StickyExplosives_weak": {
+    "NAME": "Sticky Explosives",
+    "FLAVOR": "You have the power of attacks and explosions on your side!",
+    "DESCRIPTIONS": [
+      "Apply #yAftershock to the first monster you attack each combat."
     ]
   }
 }
