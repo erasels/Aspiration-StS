@@ -40,7 +40,6 @@ public class AftershockPower extends AspirationPower implements CloneablePowerIn
     public int onAttacked(DamageInfo info, int dmgAmount) {
     	amount = 1;
     	justApplied = true;
-
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead() && dmgAmount > 0 && info.type == DamageInfo.DamageType.NORMAL && info.owner != null) {
             this.flashWithoutSound();
             AbstractDungeon.actionManager.addToBottom(new SpawnTolerantDamageAllEnemiesAction(AbstractDungeon.player, Math.round(dmgAmount * aftershockPercentageDamage), true, false, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));

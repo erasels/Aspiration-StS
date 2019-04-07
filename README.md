@@ -56,6 +56,8 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Sticky Explosives": Apply a debuff to the first monster you hit on your first turn. Dealing unblocked attack damage to that monster will deal 30% of the received damage to all monsters. The debuff expires if the monster isn't attacked every turn.
 
+Weak version of "Sticky Explosives": Applies a power that expires after three turns dealing 25% of the unblocked attack damage the owner receives to all enemies, to the first enemy attack this combat.
+
 "Frozen jewel": At the end of your turn, gain 2 Block for every enemy that intends to attack. Gain Blur if there are multiple enemies and all intend to attack.
 
 "Lifesprig": Every time you play 5 Attacks, gain 1 Regeneration.
