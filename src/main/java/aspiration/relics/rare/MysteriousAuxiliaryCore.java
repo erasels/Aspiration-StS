@@ -26,7 +26,7 @@ public static final String ID = "aspiration:MysteriousAuxiliaryCore";
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + ORB_AMOUNT + DESCRIPTIONS[1] + TURN_INTERVAL + DESCRIPTIONS[2];
+        return DESCRIPTIONS[0] + ORB_AMOUNT + DESCRIPTIONS[1];
     }
     
     @Override

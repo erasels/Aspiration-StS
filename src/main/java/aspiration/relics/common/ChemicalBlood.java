@@ -43,6 +43,11 @@ public class ChemicalBlood extends AspirationRelic {
         }
     }
 
+    @Override
+    public void onVictory() {
+        removePotionsFromRewards();
+    }
+
     private void startingCharges() {
         setCounter(healthPercent());
     }

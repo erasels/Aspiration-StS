@@ -144,9 +144,8 @@
     "NAME": "Загадочное доп. ядро",
     "FLAVOR": "Вторичные системы выдали отчёт по генерации непонятного заряда. Рекомендуется наблюдение.",
     "DESCRIPTIONS": [
-      "#yЗаряжает #b",
-      " случайную сферу в конце каждого вашего #b",
-      " хода."
+      "At the end of every even-numbered turn, #yChannel #b",
+      " random orb."
     ]
   },
   "aspiration:FetidBarrel": {

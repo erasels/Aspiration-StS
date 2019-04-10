@@ -144,9 +144,8 @@
     "NAME": "Mysterious Core",
     "FLAVOR": "Secondary systems have reported anamalous charge generation. Observation recommended.",
     "DESCRIPTIONS": [
-	  "At the end of your turn, #yChannel #b",
-	  " random orbs every #b",
-	  " turns."
+	  "At the end of every even-numbered turn, #yChannel #b",
+	  " random orb."
     ]
   },
   "aspiration:FetidBarrel": {
