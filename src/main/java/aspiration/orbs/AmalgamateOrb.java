@@ -2,6 +2,7 @@ package aspiration.orbs;
 
 import aspiration.Aspiration;
 import aspiration.actions.unique.TriggerEvokeAction;
+import aspiration.relics.uncommon.FaultyCoupler;
 import basemod.ReflectionHacks;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -60,6 +61,13 @@ public class AmalgamateOrb extends AbstractOrb {
 
         this.components = new ArrayList<>();
         this.textures = new ArrayList<>();
+
+        //TODO: See if this is even neccesary
+        if(AbstractDungeon.player.hasRelic(FaultyCoupler.ID)) {
+            if(components == null || components.isEmpty()) {
+                this.components.add(new Lightning());
+            }
+        }
 
         if(components != null && !components.isEmpty()) {
             ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true);

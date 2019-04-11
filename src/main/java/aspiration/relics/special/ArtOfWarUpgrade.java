@@ -1,6 +1,7 @@
 package aspiration.relics.special;
 
 import aspiration.Aspiration;
+import aspiration.Utility.RelicUtils;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -96,5 +97,10 @@ public class ArtOfWarUpgrade extends AspirationRelic {
         else {
             super.obtain();
         }
+    }
+
+    @Override
+    public void onEquip() {
+        RelicUtils.removeRelicFromPool(ArtOfWar.ID, true);
     }
 }
