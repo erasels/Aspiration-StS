@@ -2,9 +2,11 @@ package aspiration.relics.boss;
 
 import aspiration.actions.FuseValidOrbsAction;
 import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.relics.skillbooks.DefectSkillbook;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -30,6 +32,11 @@ public class Stellarator extends AspirationRelic implements OnChannelRelic {
             AbstractDungeon.actionManager.addToTop(new EvokeOrbAction(1));
             AbstractDungeon.actionManager.addToTop(new AnimateOrbAction(1));
         }
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT || AbstractDungeon.player.hasRelic(DefectSkillbook.ID));
     }
 
     public AbstractRelic makeCopy() {
