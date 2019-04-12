@@ -350,19 +350,19 @@ public class AmalgamateOrb extends AbstractOrb {
                     }
                 }
             }
+        }
 
-            for (AbstractOrb orb : components) {
-                orb.applyFocus();
-                if (!orb.ID.equals(Plasma.ORB_ID) && (!Aspiration.hasConspire || !orb.ID.equals(Water.ORB_ID))) {
-                    if (!orb.ID.equals(CrystalOrb.ORB_ID)) {
-                        orb.passiveAmount += this.passiveAmount;
-                    } else {
-                        crystalBonus += orb.passiveAmount;
-                    }
+        for (AbstractOrb orb : components) {
+            orb.applyFocus();
+            if (!orb.ID.equals(Plasma.ORB_ID) && (!Aspiration.hasConspire || !orb.ID.equals(Water.ORB_ID))) {
+                if (!Aspiration.hasReplay || !orb.ID.equals(CrystalOrb.ORB_ID)) {
+                    orb.passiveAmount += this.passiveAmount;
+                } else {
+                    crystalBonus += orb.passiveAmount;
+                }
 
-                    if (!orb.ID.equals(Dark.ORB_ID)) {
-                        orb.evokeAmount += this.passiveAmount;
-                    }
+                if (!orb.ID.equals(Dark.ORB_ID)) {
+                    orb.evokeAmount += this.passiveAmount;
                 }
             }
         }
