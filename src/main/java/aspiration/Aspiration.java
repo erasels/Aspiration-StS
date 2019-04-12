@@ -82,6 +82,7 @@ public class Aspiration implements
     public static final boolean hasConspire;
     public static final boolean hasInfinite;
     public static final boolean hasVex;
+    public static final boolean hasScribe;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -115,6 +116,10 @@ public class Aspiration implements
         hasVex = Loader.isModLoaded("vexMod");
         if (hasVex) {
             Aspiration.logger.info("Detected Mod: VexMod");
+        }
+        hasScribe = Loader.isModLoaded("thescribe");
+        if (hasScribe) {
+            Aspiration.logger.info("Detected Character: Scribe");
         }
     }
 
@@ -382,6 +387,9 @@ public class Aspiration implements
         }
         if (hasInfinite) {
             BaseMod.addRelic(new TomeofQuesting(), RelicType.SHARED);
+        }
+        if(hasScribe) {
+            BaseMod.addRelic(new ScribeSkillbook(), RelicType.SHARED);
         }
     }
 

@@ -109,10 +109,19 @@
         <SOURCES />
       </library>
     </orderEntry>
-	<orderEntry type="module-library">
+    <orderEntry type="module-library">
       <library name="Maven: vexMod:vexMod:1.6">
         <CLASSES>
           <root url="jar://$MODULE_DIR$/../lib/vexMod.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: thescribe:TheScribe:0.5.9">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/TheScribe.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
