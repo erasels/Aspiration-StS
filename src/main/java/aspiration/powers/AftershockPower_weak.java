@@ -69,6 +69,11 @@ public class AftershockPower_weak extends AspirationPower implements CloneablePo
     }
 
     @Override
+    public void onDeath() {
+        AbstractDungeon.actionManager.addToTop(new SpawnTolerantDamageAllEnemiesAction(AbstractDungeon.player, MathUtils.floor(((float)explosionAmt) * aftershockPercentageDamage), true, false, DamageInfo.DamageType.THORNS, AbstractGameAction.AttackEffect.FIRE, true));
+    }
+
+    @Override
     public void updateDescription()
     {
         description = DESCRIPTIONS[0] + amount + DESCRIPTIONS[1] + MathUtils.floor(aftershockPercentageDamage*100) + DESCRIPTIONS[2] + DESCRIPTIONS[3] + MathUtils.floor(((float)explosionAmt) * aftershockPercentageDamage) + DESCRIPTIONS[4];

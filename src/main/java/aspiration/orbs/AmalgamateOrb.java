@@ -733,6 +733,9 @@ public class AmalgamateOrb extends AbstractOrb {
     @Override
     public void render(SpriteBatch sb) {
         if (components.isEmpty()) {
+            if(img == null) {
+                img = (Texture) ReflectionHacks.getPrivate(new Lightning(), AbstractOrb.class, "img");
+            }
             sb.setColor(new Color(1.0f, 1.0f, 1.0f, c.a / 2.0f));
             sb.draw(img, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale + MathUtils.sin(angle / PI_4) * ORB_WAVY_DIST * Settings.scale, scale, angle, 0, 0, 96, 96, false, false);
             sb.setColor(new Color(1.0f, 1.0f, 1.0f, this.c.a / 2.0f));
@@ -743,7 +746,9 @@ public class AmalgamateOrb extends AbstractOrb {
             Color renderColor = new Color(1.0f, 1.0f, 1.0f, c.a / components.size());
             sb.setColor(renderColor);
             for (Texture t : textures) {
-                sb.draw(t, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale, scale, angle, 0, 0, 96, 96, false, false);
+                if(t != null) {
+                    sb.draw(t, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale, scale, angle, 0, 0, 96, 96, false, false);
+                }
             }
 
             //do any other special renders
