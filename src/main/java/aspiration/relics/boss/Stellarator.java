@@ -26,6 +26,7 @@ public class Stellarator extends AspirationRelic implements OnChannelRelic {
     @Override
     public void onChannel(AbstractOrb abstractOrb) {
         if (AbstractDungeon.player.filledOrbCount() == AbstractDungeon.player.orbs.size()) {
+            flash();
             if(AbstractDungeon.player.orbs.size() > 1) {
                 AbstractDungeon.actionManager.addToTop(new FuseValidOrbsAction());
             }

@@ -470,7 +470,7 @@
     "NAME": "Spell Scribe's Skillbook",
     "FLAVOR": "A tome filled to the brim with spells of all sorts.",
     "DESCRIPTIONS": [
-      "Whenever you gain a #ybuff [REMOVE_SPACE], gain a random #yscribe:Spell_Effect [REMOVE_SPACE].",
+      "Whenever you gain a buff [REMOVE_SPACE], gain a random #yscribe:Spell_Effect [REMOVE_SPACE].",
       " NL NL #yMulticlass Spell Scribe"
     ]
   }

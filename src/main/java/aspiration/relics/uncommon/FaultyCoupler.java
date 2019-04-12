@@ -3,7 +3,6 @@ package aspiration.relics.uncommon;
 import aspiration.actions.unique.FaultyCouplerAction;
 import aspiration.orbs.AmalgamateOrb;
 import aspiration.relics.abstracts.AspirationRelic;
-import aspiration.relics.boss.Stellarator;
 import aspiration.relics.skillbooks.DefectSkillbook;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -33,7 +32,7 @@ public class FaultyCoupler extends AspirationRelic implements OnChannelRelic {
 
     @Override
     public boolean canSpawn() {
-        return ((AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT || AbstractDungeon.player.hasRelic(DefectSkillbook.ID)) && !AbstractDungeon.player.hasRelic(Stellarator.ID));
+        return (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT || AbstractDungeon.player.hasRelic(DefectSkillbook.ID));
     }
 
     public AbstractRelic makeCopy() {

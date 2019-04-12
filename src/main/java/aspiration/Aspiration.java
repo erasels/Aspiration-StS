@@ -335,6 +335,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new Nostalgia(uncommonNostalgia()), RelicType.SHARED);
         BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
+        BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
         BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
         BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
@@ -361,7 +362,6 @@ public class Aspiration implements
     	//Defect Only
     	BaseMod.addRelic(new EnhancedActuators(), RelicType.BLUE);
     	BaseMod.addRelic(new MysteriousAuxiliaryCore(), RelicType.BLUE);
-        BaseMod.addRelic(new Stellarator(), RelicType.BLUE);
     	
     	//If poison card in deck
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
