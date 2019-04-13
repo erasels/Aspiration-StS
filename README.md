@@ -88,6 +88,8 @@ Weak version of "Sticky Explosives": Applies a power that expires after three tu
 
 "Chemical Blood": Whenever you lose more than 25% of your HP, you gain a random potion.
 
+Not a new relic, but you can now grant Wing Boots 3 additional charges as a campfire action.
+
 ##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:
 Beaked:EmptySkull: Whenever you play a card and have no cards in your hand, shuffle an Inspiration into your draw pile.
@@ -102,7 +104,7 @@ Infinite:Tome Of Questing: Whenever you complete a quest, receive a new one.
 
 ##Skillbooks:
 These relics have effects that reference the base archetype of the character they're based on. Furthermore, if it's enabled in the options menu, they allow you to get cards for the character and increase the amount of cards in card rewards by 1.
-Currently implemented: Ironclad, Silent, Defect, Marisa, Servant, Beaked and Runesmith.
+Currently implemented: Ironclad, Silent, Defect, Marisa, Servant, Beaked, Runesmith and Spell Scribe.
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  

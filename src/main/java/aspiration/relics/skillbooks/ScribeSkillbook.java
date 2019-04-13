@@ -46,6 +46,7 @@ public class ScribeSkillbook extends SkillbookRelic {
         }
     }
 
+
     @Override
     public void onApplyPower(AbstractPower pow, AbstractCreature target, AbstractCreature source) {
         AbstractPlayer p = AbstractDungeon.player;

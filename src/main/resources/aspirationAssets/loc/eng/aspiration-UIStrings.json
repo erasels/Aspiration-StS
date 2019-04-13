@@ -25,5 +25,12 @@
     "TEXT": [
       "Obtain additional Starter Relic"
     ]
+  },
+  "aspiration:EmpowerWingBootsOption": {
+    "TEXT": [
+      "Empower",
+      "Empower your Wing Boots granting them ",
+      " additional charges."
+    ]
   }
 }
