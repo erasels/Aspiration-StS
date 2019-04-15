@@ -76,21 +76,29 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
             if(c.rarity != AbstractCard.CardRarity.BASIC) {
                 switch (c.rarity) {
                     case COMMON: {
+                        AbstractDungeon.commonCardPool.removeCard(c);
+                        AbstractDungeon.srcCommonCardPool.removeCard(c);
                         AbstractDungeon.commonCardPool.addToTop(c);
                         AbstractDungeon.srcCommonCardPool.addToBottom(c);
                         continue;
                     }
                     case UNCOMMON: {
+                        AbstractDungeon.uncommonCardPool.removeCard(c);
+                        AbstractDungeon.srcUncommonCardPool.removeCard(c);
                         AbstractDungeon.uncommonCardPool.addToTop(c);
                         AbstractDungeon.srcUncommonCardPool.addToBottom(c);
                         continue;
                     }
                     case RARE: {
+                        AbstractDungeon.rareCardPool.removeCard(c);
+                        AbstractDungeon.srcRareCardPool.removeCard(c);
                         AbstractDungeon.rareCardPool.addToTop(c);
                         AbstractDungeon.srcRareCardPool.addToBottom(c);
                         continue;
                     }
                     case CURSE: {
+                        AbstractDungeon.curseCardPool.removeCard(c);
+                        AbstractDungeon.srcCurseCardPool.removeCard(c);
                         AbstractDungeon.curseCardPool.addToTop(c);
                         AbstractDungeon.srcCurseCardPool.addToBottom(c);
                     }
