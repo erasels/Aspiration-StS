@@ -3,6 +3,7 @@ package aspiration.cards.blue;
 import aspiration.Aspiration;
 import aspiration.actions.FuseValidOrbsAction;
 import basemod.abstracts.CustomCard;
+import com.evacipated.cardcrawl.mod.stslib.variables.ExhaustiveVariable;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -16,8 +17,9 @@ public class Polymerization extends CustomCard {
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
     public static final String NAME = cardStrings.NAME;
     public static final String DESCRIPTION = cardStrings.DESCRIPTION;
+    public static final String UPG_DESCRIPTION = cardStrings.UPGRADE_DESCRIPTION;
     private static final int COST = 1;
-    private static final int UPGRADE_COST = 0;
+    private static final int EXH_AMT = 2;
 
     public Polymerization() {
         super(ID, NAME, IMG, COST, DESCRIPTION, CardType.SKILL, CardColor.BLUE, CardRarity.UNCOMMON, CardTarget.SELF);
@@ -35,7 +37,13 @@ public class Polymerization extends CustomCard {
     public void upgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeBaseCost(UPGRADE_COST);
+            rawDescription = UPG_DESCRIPTION;
+            this.exhaust = false;
+            if(timesUpgraded < 1) {
+                ExhaustiveVariable.setBaseValue(this, EXH_AMT);
+            } else {
+                ExhaustiveVariable.setBaseValue(this, EXH_AMT + timesUpgraded - 1);
+            }
         }
     }
 

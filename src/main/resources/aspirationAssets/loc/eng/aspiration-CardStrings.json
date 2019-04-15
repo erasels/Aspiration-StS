@@ -1,7 +1,8 @@
 {
   "aspiration:Polymerization": {
     "NAME": "Polymerization",
-    "DESCRIPTION": "aspiration:Fuse all your orbs. NL Exhaust."
+    "DESCRIPTION": "aspiration:Fuse all your orbs. NL Exhaust.",
+    "UPGRADE_DESCRIPTION": "aspiration:Fuse all your orbs. NL Exhaustive !stslib:ex!."
   },
   "aspiration:Lunge": {
     "NAME": "Lunge",
