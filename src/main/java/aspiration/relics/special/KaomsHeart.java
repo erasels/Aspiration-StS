@@ -1,14 +1,21 @@
 package aspiration.relics.special;
 
 import aspiration.relics.abstracts.AspirationRelic;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.vfx.FlameBallParticleEffect;
 
 public class KaomsHeart extends AspirationRelic{
 	public static final String ID = "aspiration:KaomsHeart";
 
 	private static final int MAX_LIFE_MANIP = 100;
+	private static final float COOLDOWN_AMT = 0.15F;
+	private float cooldown = COOLDOWN_AMT;
 	
     public KaomsHeart() {
         super(ID, "KaomsHeart.png", RelicTier.SHOP, LandingSound.HEAVY);
@@ -53,6 +60,30 @@ public class KaomsHeart extends AspirationRelic{
 			AbstractDungeon.uncommonRelicPool.add(KaomsHeart_nothing.ID);
 		}
     }
+
+	@Override
+	public void update() {
+		cooldown -= Gdx.graphics.getDeltaTime();
+		if (cooldown < 0.0f) {
+			cooldown = COOLDOWN_AMT;
+			AbstractDungeon.effectsQueue.add(new FlameBallParticleEffect(MathUtils.random(hb.x + (25*Settings.scale), ((hb.x + hb.width)-(25*Settings.scale))), MathUtils.random(hb.y + (10*Settings.scale), ((hb.y + hb.height) - (15*Settings.scale))), 5));
+		}
+		super.update();
+	}
+
+	@Override
+	public void renderInTopPanel(SpriteBatch sb)
+	{
+		if (Settings.hideRelics) {
+			return;
+		}
+		//renderOutline(sb, true);
+		sb.setColor(Color.WHITE);
+		sb.draw(this.img, this.currentX - 64.0F, this.currentY - 64.0F, 64.0F, 64.0F, 128.0F, 128.0F, this.scale, this.scale, 0, 0, 0, 128, 128, false, false);
+		renderCounter(sb, true);
+		renderFlash(sb, true);
+		this.hb.render(sb);
+	}
     
     @Override
     public void onUnequip() {
