@@ -2,6 +2,7 @@ package aspiration.powers;
 
 import aspiration.actions.unique.CullingKillCheckAction;
 import aspiration.powers.abstracts.AspirationPower;
+import aspiration.relics.common.HeadsmansAxe;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
@@ -53,6 +54,9 @@ public class CullingPower extends AspirationPower implements CloneablePowerInter
             if(target instanceof AbstractMonster) {
                 if (((AbstractMonster) target).type != AbstractMonster.EnemyType.BOSS) {
                     if ((target.currentHealth - damageAmount) <= (target.maxHealth * cullingThreshold)) {
+                        if(owner == AbstractDungeon.player && AbstractDungeon.player.hasRelic(HeadsmansAxe.ID)) {
+                            AbstractDungeon.player.getRelic(HeadsmansAxe.ID).flash();
+                        }
                         target.currentHealth = 0;
                         AbstractDungeon.actionManager.addToTop(new DamageAction(target, new DamageInfo(owner, 999, DamageInfo.DamageType.HP_LOSS), AbstractGameAction.AttackEffect.NONE, true, true));
                         AbstractDungeon.actionManager.addToTop(new VFXAction(target, new FlashPowerEffect(new MinionPower(target)), 0.0F));

@@ -46,7 +46,7 @@ public class RelicSpeechBubble extends AbstractGameEffect {
         this.scale_y = (Settings.scale * 0.7F);
         this.color = new Color(0.8F, 0.9F, 0.9F, 0.0F);
         this.duration = duration;
-        AbstractDungeon.effectsQueue.add(new SpeechTextEffect(x + ADJUST_X, y - (ADJUST_Y - (10 * Settings.scale)), duration - 0.7f, msg, DialogWord.AppearEffect.BUMP_IN));
+        AbstractDungeon.effectsQueue.add(new SpeechTextEffect(x + ADJUST_X, y - (ADJUST_Y - (10 * Settings.scale)), duration - 0.35f, msg, DialogWord.AppearEffect.BUMP_IN));
 
         this.hb = new Hitbox(x - 350.0F * Settings.scale, y, 350.0F * Settings.scale, 270.0F * Settings.scale);
     }
@@ -63,7 +63,7 @@ public class RelicSpeechBubble extends AbstractGameEffect {
         if (this.duration < 0.0F) {
             this.isDone = true;
         }
-        if (this.duration > 0.3F) {
+        if (this.duration > FADE_TIME) {
             this.color.a = MathUtils.lerp(this.color.a, 1.0F, Gdx.graphics.getDeltaTime() * 12.0F);
         } else {
             this.color.a = MathUtils.lerp(this.color.a, 0.0F, Gdx.graphics.getDeltaTime() * 12.0F);

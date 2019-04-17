@@ -30,7 +30,7 @@ public class SappedPower extends AspirationPower implements OnReceivePowerPower,
 
     public void updateDescription() {
         if (this.amount == 1) {
-            this.description = DESCRIPTIONS[0] + DESCRIPTIONS[1];
+            this.description = DESCRIPTIONS[0].replace("#b", "") + DESCRIPTIONS[1];
         } else {
             this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[2];
         }

@@ -375,8 +375,8 @@
     "NAME": "Trusty Knives",
     "FLAVOR": "A pair of meticulously well cared-for knives that will never leave your side.",
     "DESCRIPTIONS": [
-      "At the start of each turn, whenever you have no #yKnives [blackbeard:REMOVE_SPACE], gain #b",
-      " #yKnives [blackbeard:REMOVE_SPACE]."
+      "Whenever you lose a #yKnife [REMOVE_SPACE], gain #b",
+      " #yProtection [REMOVE_SPACE]."
     ]
   },
   "aspiration:PocketMushroom": {
