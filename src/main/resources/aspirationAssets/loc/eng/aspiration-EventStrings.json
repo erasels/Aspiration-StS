@@ -53,5 +53,22 @@
       "Continue on with your adventure.",
       " #rHP and #gObtain: #gRitual #gStick"
     ]
+  },
+  "aspiration:MeetingTheSilent" : {
+    "NAME": "Silent Meeting",
+    "DESCRIPTIONS": [
+      "By a #y~crackling~ campfire, a mysterious figure stands. They do not seem to take offence to your presence, only offering a nod in greeting.",
+      "The quiet figure perks up when you monologue about training - the #ghuntress' techniques are bound to be useful here and you're no slouch either. NL NL The ~training~ concludes with both of you #yenriched in some way. A grateful nod is shared before you continue on upwards.",
+      "The two of you take shifts to watch out for threats while the other rests. NL NL There is more than just corruption in the spire it seems.",
+      "You haven't lived this long to throw caution to the wind now. They could be an #r@enemy@ in disguise.",
+      "Select 3 cards to trade"
+    ],
+    "OPTIONS": [
+      "[Train] Transform #b3 cards into #gSilent cards of the same type",
+      "[Rest] #gHeal #b",
+      "[Ignore] You don't trust them.",
+      "Continue on with your adventure.",
+      " #gHP"
+    ]
   }
 }

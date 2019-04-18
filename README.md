@@ -10,6 +10,8 @@ The Byrd's Nest is an event that can only be encountered on the first 15 floors,
 
 The Cultist Training Ground allows you to train with some cultists and gain the Ritual Stick relic in exchange for a little health or none at all if you have the Cultist headpiece.
 
+Meeting The Silent: This events allows you to either rest for a little HP, do nothing or transform three of your cards to silent cards of the same type.
+
 ## Cards:
 (Defect only) Polymerization: Uncommon Skill. (1/0) Fuse all your currently channeled orbs. Exhaust.
 

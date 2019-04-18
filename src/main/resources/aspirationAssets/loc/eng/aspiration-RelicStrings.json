@@ -373,7 +373,7 @@
   },
   "aspiration:TrustyKnives": {
     "NAME": "Trusty Knives",
-    "FLAVOR": "A pair of meticulously well cared-for knives that will never leave your side.",
+    "FLAVOR": "It would be embarrassing if you were to cut yourself.",
     "DESCRIPTIONS": [
       "Whenever you lose a #yKnife [REMOVE_SPACE], gain #b",
       " #yProtection [REMOVE_SPACE]."

@@ -6,6 +6,7 @@ import aspiration.cards.blue.Polymerization;
 import aspiration.cards.green.Lunge;
 import aspiration.events.CultistTraining;
 import aspiration.events.ElementalEggBirdNest;
+import aspiration.events.MeetingTheSilent;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.boss.*;
@@ -303,6 +304,7 @@ public class Aspiration implements
         BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class);
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
+        BaseMod.addEvent(MeetingTheSilent.ID, MeetingTheSilent.class);
 
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
     }
