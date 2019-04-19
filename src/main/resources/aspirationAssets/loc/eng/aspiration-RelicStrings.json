@@ -447,7 +447,7 @@
     "FLAVOR": "... Loneliness is... the enemy...",
     "DESCRIPTIONS": [
       "Whenever an orb is #ychanneled [REMOVE_SPACE], there is a #b",
-      "% chance for the orb to #yaspiration:Fuse with an orb-type that is currently #ychanneled [REMOVE_SPACE]."
+      "% chance for it to #yaspiration:Fuse with a copy of a currently #ychanneled orb."
     ]
   },
   "aspiration:ChemicalBlood": {
