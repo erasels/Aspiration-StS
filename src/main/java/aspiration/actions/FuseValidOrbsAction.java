@@ -24,7 +24,7 @@ public class FuseValidOrbsAction extends AbstractGameAction {
     public FuseValidOrbsAction() {
         this.actionType = ActionType.SPECIAL;
 
-        if(Settings.FAST_MODE) {
+        if (Settings.FAST_MODE) {
             duration = 0.45F;
         } else {
             duration = 0.6F;
@@ -33,34 +33,34 @@ public class FuseValidOrbsAction extends AbstractGameAction {
 
     @Override
     public void update() {
-        ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true);
+        ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true, true);
         boolean hasValidOrb = false;
 
         for (AbstractOrb orb : AbstractDungeon.player.orbs) {
             for (AbstractOrb aorb : acceptableOrbs) {
                 if (aorb.getClass().isInstance(orb)) {
                     hasValidOrb = true;
+                    break;
                 }
+            }
+            if (hasValidOrb) {
+                break;
             }
         }
 
-        if (hasValidOrb)
-        {
+        if (hasValidOrb) {
             AbstractDungeon.actionManager.addToTop(new ChannelAction(new AmalgamateOrb(AbstractDungeon.player.orbs))); //this triggers last
-            //AbstractDungeon.actionManager.addToTop(new WaitAction(10.0f));
-            ArrayList<AbstractOrb> orbsToRemove = OrbUtilityMethods.getOrbList(true);
             AbstractDungeon.player.orbs.forEach(o -> {
-                for(AbstractOrb orb : orbsToRemove) {
+                for (AbstractOrb orb : acceptableOrbs) {
                     if (orb.getClass().isInstance(o)) {
-                        //System.out.println("Crash bas?");
                         AbstractDungeon.actionManager.addToTop(new RemoveSpecificOrbAction(o));
                         //AbstractDungeon.actionManager.addToTop(new VFXAction(new SmallLaserEffect(AbstractDungeon.player.orbs.get(0).cX, AbstractDungeon.player.orbs.get(0).cY, o.cX, o.cY)));
                         try {
-                            if(orb.ID.equals(Frost.ORB_ID) || orb.ID.equals(Plasma.ORB_ID) || (Aspiration.hasConspire && orb.ID.equals(Water.ORB_ID)) || (Aspiration.hasReplay && (orb.ID.equals(ManaSparkOrb.ORB_ID) || orb.ID.equals(CrystalOrb.ORB_ID)))) {
+                            if (orb.ID.equals(Frost.ORB_ID) || orb.ID.equals(Plasma.ORB_ID) || (Aspiration.hasConspire && orb.ID.equals(Water.ORB_ID)) || (Aspiration.hasReplay && (orb.ID.equals(ManaSparkOrb.ORB_ID) || orb.ID.equals(CrystalOrb.ORB_ID)))) {
                                 AbstractDungeon.effectList.add(new BetterSmallLaserEffect(AbstractDungeon.player.orbs.get(0).cX, AbstractDungeon.player.orbs.get(0).cY, o.cX, o.cY, duration));
-                            } else if(orb.ID.equals(Dark.ORB_ID)) {
+                            } else if (orb.ID.equals(Dark.ORB_ID)) {
                                 AbstractDungeon.effectList.add(new BetterSmallLaserEffect(AbstractDungeon.player.orbs.get(0).cX, AbstractDungeon.player.orbs.get(0).cY, o.cX, o.cY, duration, Color.PURPLE));
-                            } else if(orb.ID.equals(Lightning.ORB_ID) || (Aspiration.hasReplay && orb.ID.equals(ReplayLightOrb.ORB_ID))) {
+                            } else if (orb.ID.equals(Lightning.ORB_ID) || (Aspiration.hasReplay && orb.ID.equals(ReplayLightOrb.ORB_ID))) {
                                 AbstractDungeon.effectList.add(new BetterSmallLaserEffect(AbstractDungeon.player.orbs.get(0).cX, AbstractDungeon.player.orbs.get(0).cY, o.cX, o.cY, duration, Color.YELLOW));
                             } else if (Aspiration.hasReplay && orb.ID.equals(HellFireOrb.ORB_ID)) {
                                 AbstractDungeon.effectList.add(new BetterSmallLaserEffect(AbstractDungeon.player.orbs.get(0).cX, AbstractDungeon.player.orbs.get(0).cY, o.cX, o.cY, duration, Color.RED));

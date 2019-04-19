@@ -64,7 +64,7 @@ public class Aspiration implements
         EditCardsSubscriber,
         PostPowerApplySubscriber,
         PostDungeonInitializeSubscriber,
-        AddAudioSubscriber,
+        //AddAudioSubscriber,
         EditKeywordsSubscriber,
         RelicGetSubscriber
 {
@@ -84,6 +84,7 @@ public class Aspiration implements
     public static final boolean hasInfinite;
     public static final boolean hasVex;
     public static final boolean hasScribe;
+    public static final boolean hasAnimator;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -121,6 +122,10 @@ public class Aspiration implements
         hasScribe = Loader.isModLoaded("thescribe");
         if (hasScribe) {
             Aspiration.logger.info("Detected Character: Scribe");
+        }
+        hasAnimator = Loader.isModLoaded("eatyourbeetsvg-theanimator");
+        if (hasAnimator) {
+            Aspiration.logger.info("Detected Character: The Animator");
         }
     }
 
@@ -309,10 +314,10 @@ public class Aspiration implements
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
     }
 
-    @Override
+    /*@Override
     public void receiveAddAudio() {
         BaseMod.addAudio("aspiration:Bloodpump", assetPath("audio/BloodPump.ogg"));
-    }
+    }*/
     
     @Override
     public void receiveEditRelics()

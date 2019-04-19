@@ -2,6 +2,7 @@ package aspiration.relics.uncommon;
 
 import aspiration.actions.unique.FaultyCouplerAction;
 import aspiration.orbs.AmalgamateOrb;
+import aspiration.orbs.OrbUtilityMethods;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.skillbooks.DefectSkillbook;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
@@ -25,8 +26,10 @@ public class FaultyCoupler extends AspirationRelic implements OnChannelRelic {
 
     @Override
     public void onChannel(AbstractOrb orbyBoi) {
-        if(AbstractDungeon.player.filledOrbCount() > 1 && !orbyBoi.ID.equals(AmalgamateOrb.ORB_ID)) {
-            AbstractDungeon.actionManager.addToTop(new FaultyCouplerAction(orbyBoi));
+        if(AbstractDungeon.player.filledOrbCount() > 1 && !orbyBoi.ID.equals(AmalgamateOrb.ORB_ID) && OrbUtilityMethods.isValidAmalgamateComponent(orbyBoi)) {
+            if (AbstractDungeon.cardRandomRng.random(99) <= AMA_CHANCE) {
+                AbstractDungeon.actionManager.addToTop(new FaultyCouplerAction(orbyBoi));
+            }
         }
     }
 

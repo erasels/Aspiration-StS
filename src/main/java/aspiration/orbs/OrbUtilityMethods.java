@@ -9,17 +9,19 @@ import com.megacrit.cardcrawl.mod.replay.orbs.ReplayLightOrb;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.random.Random;
 import conspire.orbs.Water;
+import eatyourbeets.orbs.Earth;
+import eatyourbeets.orbs.Fire;
 import vexMod.orbs.GoldenLightning;
 
 import java.util.ArrayList;
 
 public class OrbUtilityMethods {
-    public static AbstractOrb getSelectiveRandomOrb(Random rng, ArrayList<AbstractOrb> rareOrbs)
+    public static AbstractOrb getSelectiveRandomOrb(Random rng, ArrayList<AbstractOrb> rareOrbs, boolean forAmalgamate)
     {
         if(rng == null) {
             rng = AbstractDungeon.relicRng;
         }
-        ArrayList<AbstractOrb> orbs = getOrbList();
+        ArrayList<AbstractOrb> orbs = getOrbList(false, forAmalgamate);
 
         if(rareOrbs != null && !rareOrbs.isEmpty()) {
             boolean goodOrb = true;
@@ -48,18 +50,19 @@ public class OrbUtilityMethods {
         return orbs.get(rng.random(orbs.size() - 1));
     }
 
+    public static AbstractOrb getSelectiveRandomOrb(Random rng, ArrayList<AbstractOrb> rareOrbs) {
+        return getSelectiveRandomOrb(rng, rareOrbs, false);
+    }
+
     public static AbstractOrb getSelectiveRandomOrb(Random rng) {
         return getSelectiveRandomOrb(rng, getRareOrbList());
     }
 
     public static AbstractOrb getRandomAmalgamate(Random rng, int orbAmt, ArrayList<AbstractOrb> rareOrbs) {
+        if(orbAmt < 1) orbAmt = 1;
         ArrayList<AbstractOrb> orbList = new ArrayList<>();
         for(int i = 0; i<orbAmt;i++) {
-            if(rareOrbs != null && !rareOrbs.isEmpty()) {
-                orbList.add(getSelectiveRandomOrb(rng, rareOrbs));
-            } else {
-                orbList.add(getSelectiveRandomOrb(rng, null));
-            }
+            orbList.add(getSelectiveRandomOrb(rng, rareOrbs, true));
         }
         return new AmalgamateOrb(orbList);
     }
@@ -91,7 +94,7 @@ public class OrbUtilityMethods {
         return rareOrbs;
     }
 
-    public static ArrayList<AbstractOrb> getOrbList(boolean withAmalgamate) {
+    public static ArrayList<AbstractOrb> getOrbList(boolean withAmalgamate, boolean forAmalgamate) {
         ArrayList<AbstractOrb> orbs = new ArrayList<>();
         orbs.add(new Dark());
         orbs.add(new Frost());
@@ -121,13 +124,26 @@ public class OrbUtilityMethods {
             orbs.add(new AmalgamateOrb());
         }
 
+        if(!forAmalgamate && Aspiration.hasAnimator) {
+            orbs.add(new Earth());
+            orbs.add(new Fire());
+        }
+
         return orbs;
+    }
+
+    public static ArrayList<AbstractOrb> getOrbList(boolean withAmalgamate) {
+        return getOrbList(withAmalgamate, false);
+    }
+
+    public static ArrayList<AbstractOrb> getOrbList() {
+        return getOrbList(false);
     }
 
     public static boolean isValidAmalgamateComponent(AbstractOrb o) {
         if(o != null) {
             if (o.ID != null) {
-                for (AbstractOrb orb : getOrbList(true)) {
+                for (AbstractOrb orb : getOrbList(true, true)) {
                     if (o.ID.equals(orb.ID)) {
                         return true;
                     }
@@ -135,9 +151,5 @@ public class OrbUtilityMethods {
             }
         }
         return false;
-    }
-
-    public static ArrayList<AbstractOrb> getOrbList() {
-        return getOrbList(false);
     }
 }

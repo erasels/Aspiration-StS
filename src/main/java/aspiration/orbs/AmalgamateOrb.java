@@ -62,15 +62,8 @@ public class AmalgamateOrb extends AbstractOrb {
         this.components = new ArrayList<>();
         this.textures = new ArrayList<>();
 
-        //TODO: See if this is even neccesary
-        if(AbstractDungeon.player.hasRelic(FaultyCoupler.ID)) {
-            if(components == null || components.isEmpty()) {
-                this.components.add(new Lightning());
-            }
-        }
-
         if(components != null && !components.isEmpty()) {
-            ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true);
+            ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true, true);
             ArrayList<AbstractOrb> useableOrbs = new ArrayList<>();
 
             for (AbstractOrb orb : components) {
