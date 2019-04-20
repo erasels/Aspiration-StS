@@ -33,6 +33,9 @@ public class ScribeSkillbook extends SkillbookRelic {
     private static final int EFFECT_SPELL = 1;
     private static final int SPLIT_SPELL = 1;
 
+    private boolean firstTrigger = true;
+    private ArrayList<SpellsInterface> weightedEFFECTS;
+
     public ScribeSkillbook() {
         super(ID, "ScribeSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
     }
@@ -52,15 +55,23 @@ public class ScribeSkillbook extends SkillbookRelic {
         AbstractPlayer p = AbstractDungeon.player;
         //logger.info((pow.type == AbstractPower.PowerType.BUFF) + " " + (target == p) + " " + (!AbstractPowerScribeBookField.ssbTriggered.get(pow)) + " " + (!pow.ID.equals(ScribedScrollAcquirePower.POWER_ID)));
         if(pow.type == AbstractPower.PowerType.BUFF && target == p && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !pow.ID.equals(ScribedScrollAcquirePower.POWER_ID)) {
-            ArrayList<SpellsInterface> EFFECTS = new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellClarity(p, ENERGY_SPELL), new SpellEffectiveness(p, EFFECT_SPELL), new SpellSplit(p, SPLIT_SPELL)));
+            //Bad rare power implementation
+            if(firstTrigger) {
+                //ArrayList<SpellsInterface> EFFECTS = new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellClarity(p, ENERGY_SPELL), new SpellEffectiveness(p, EFFECT_SPELL), new SpellSplit(p, SPLIT_SPELL)));
+                weightedEFFECTS = new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellEffectiveness(p, EFFECT_SPELL)));
+                weightedEFFECTS.addAll(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellEffectiveness(p, EFFECT_SPELL)));
+
+                weightedEFFECTS.add(new SpellClarity(p, ENERGY_SPELL));
+                weightedEFFECTS.add(new SpellSplit(p, SPLIT_SPELL));
+
+                firstTrigger = false;
+            }
+
             Random rng = AbstractDungeon.cardRandomRng;
-            AbstractPower spell = ((CloneablePowerInterface) EFFECTS.get(rng.random(EFFECTS.size()-1))).makeCopy();
-            //logger.info("Spell is: " + spell + " and " + spell.name);
+            AbstractPower spell = ((CloneablePowerInterface) weightedEFFECTS.get(rng.random(weightedEFFECTS.size()-1))).makeCopy();
             AbstractPowerScribeBookField.ssbTriggered.set(spell, true);
-            //logger.info("Name and ssT: " + spell.name + AbstractPowerScribeBookField.ssbTriggered.get(spell));
 
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, spell, spell.amount));
-            EFFECTS.clear();
             //boolean havePow = true;
             //boolean rarePow = false;
             //int tmp;
