@@ -64,7 +64,7 @@ public class Aspiration implements
         EditCardsSubscriber,
         PostPowerApplySubscriber,
         PostDungeonInitializeSubscriber,
-        //AddAudioSubscriber,
+        AddAudioSubscriber,
         EditKeywordsSubscriber,
         RelicGetSubscriber
 {
@@ -314,10 +314,10 @@ public class Aspiration implements
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
     }
 
-    /*@Override
+    @Override
     public void receiveAddAudio() {
         BaseMod.addAudio("aspiration:Bloodpump", assetPath("audio/BloodPump.ogg"));
-    }*/
+    }
     
     @Override
     public void receiveEditRelics()

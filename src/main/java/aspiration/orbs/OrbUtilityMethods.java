@@ -2,10 +2,7 @@ package aspiration.orbs;
 
 import aspiration.Aspiration;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.mod.replay.orbs.CrystalOrb;
-import com.megacrit.cardcrawl.mod.replay.orbs.HellFireOrb;
-import com.megacrit.cardcrawl.mod.replay.orbs.ManaSparkOrb;
-import com.megacrit.cardcrawl.mod.replay.orbs.ReplayLightOrb;
+import com.megacrit.cardcrawl.mod.replay.orbs.*;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.random.Random;
 import conspire.orbs.Water;
@@ -124,9 +121,13 @@ public class OrbUtilityMethods {
             orbs.add(new AmalgamateOrb());
         }
 
-        if(!forAmalgamate && Aspiration.hasAnimator) {
-            orbs.add(new Earth());
-            orbs.add(new Fire());
+        if(!forAmalgamate) {
+            if(Aspiration.hasAnimator) {
+                orbs.add(new Earth());
+                orbs.add(new Fire());
+            }
+        } else {
+            orbs.add(new GlassOrb());
         }
 
         return orbs;

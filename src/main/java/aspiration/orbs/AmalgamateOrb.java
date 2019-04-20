@@ -10,6 +10,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -62,7 +63,7 @@ public class AmalgamateOrb extends AbstractOrb {
         this.components = new ArrayList<>();
         this.textures = new ArrayList<>();
 
-        if(components != null && !components.isEmpty()) {
+        if (components != null && !components.isEmpty()) {
             ArrayList<AbstractOrb> acceptableOrbs = OrbUtilityMethods.getOrbList(true, true);
             ArrayList<AbstractOrb> useableOrbs = new ArrayList<>();
 
@@ -129,12 +130,9 @@ public class AmalgamateOrb extends AbstractOrb {
     public void updateDescription() {
         applyFocus();
 
-        if (components.isEmpty())
-        {
+        if (components.isEmpty()) {
             description = "";
-        }
-        else
-        {
+        } else {
             manaSparkAmount = 0;
             goldCap = 0; //if gold cap > 0 adds gold cap message at end of orb description
 
@@ -142,15 +140,11 @@ public class AmalgamateOrb extends AbstractOrb {
             evokeValues.clear();
 
             StringBuilder sb = new StringBuilder();
-            for (AbstractOrb orb : components)
-            {
-                if (!passiveValues.containsKey(orb.ID))
-                {
+            for (AbstractOrb orb : components) {
+                if (!passiveValues.containsKey(orb.ID)) {
                     passiveValues.put(orb.ID, orb.passiveAmount);
                     evokeValues.put(orb.ID, orb.evokeAmount);
-                }
-                else
-                {
+                } else {
                     passiveValues.put(orb.ID, passiveValues.get(orb.ID) + orb.passiveAmount);
                     evokeValues.put(orb.ID, evokeValues.get(orb.ID) + orb.evokeAmount);
                 }
@@ -159,8 +153,7 @@ public class AmalgamateOrb extends AbstractOrb {
                         manaSparkAmount++;
                     }
                 }
-                if (Aspiration.hasVex)
-                {
+                if (Aspiration.hasVex) {
                     if (orb.ID.equals(GoldenLightning.ORB_ID)) {
                         goldCap += GOLD_PER_GOLDEN_LIGHTNING; //smh hardcoded value with no constant
                     }
@@ -170,11 +163,9 @@ public class AmalgamateOrb extends AbstractOrb {
             sb.append(DESC[0]);
 
             boolean notFound;
-            for (String key : passiveValues.keySet())
-            {
+            for (String key : passiveValues.keySet()) {
                 notFound = false;
-                switch (key)
-                {
+                switch (key) {
                     case Dark.ORB_ID:
                         sb.append(DESC[2]).append(passiveValues.get(key)).append(DESC[1]);
                         break;
@@ -192,7 +183,7 @@ public class AmalgamateOrb extends AbstractOrb {
                         break;
 
                 }
-                if(notFound) {
+                if (notFound) {
                     if (Aspiration.hasReplay) {
                         switch (key) {
                             case ReplayLightOrb.ORB_ID:
@@ -240,11 +231,9 @@ public class AmalgamateOrb extends AbstractOrb {
 
             sb.append(DESC[20]);
 
-            for (String key : evokeValues.keySet())
-            {
+            for (String key : evokeValues.keySet()) {
                 notFound = false;
-                switch (key)
-                {
+                switch (key) {
                     case Dark.ORB_ID:
                         sb.append(DESC[21]).append(evokeValues.get(key)).append(DESC[22]);
                         break;
@@ -260,10 +249,9 @@ public class AmalgamateOrb extends AbstractOrb {
                     default:
                         notFound = true;
                 }
-                if(notFound) {
-                    if(Aspiration.hasReplay) {
-                        switch (key)
-                        {
+                if (notFound) {
+                    if (Aspiration.hasReplay) {
+                        switch (key) {
                             case ReplayLightOrb.ORB_ID:
                                 sb.append(DESC[23]).append(evokeValues.get(key)).append(DESC[24]);
                                 break;
@@ -277,18 +265,16 @@ public class AmalgamateOrb extends AbstractOrb {
                                 sb.append(DESC[31]).append(evokeValues.get(key)).append(DESC[32]);
                                 break;
                         }
-                        if(Aspiration.hasMarisa) {
-                            switch (key)
-                            {
+                        if (Aspiration.hasMarisa) {
+                            switch (key) {
                                 case ManaSparkOrb.ORB_ID:
                                     sb.append(DESC[23]).append(manaSparkAmount).append(DESC[28]).append(evokeValues.get(key)).append(DESC[19]);
                                     break;
                             }
                         }
                     }
-                    if(Aspiration.hasConspire) {
-                        switch (key)
-                        {
+                    if (Aspiration.hasConspire) {
+                        switch (key) {
                             case Water.ORB_ID:
                                 sb.append(DESC[25]).append(evokeValues.get(key)).append(DESC[11]);
                                 break;
@@ -373,14 +359,11 @@ public class AmalgamateOrb extends AbstractOrb {
         boolean triggeredGlass = false;
 
         boolean notFound;
-        for (AbstractOrb orb : components)
-        {
+        for (AbstractOrb orb : components) {
             notFound = false;
-            switch (orb.ID)
-            {
+            switch (orb.ID) {
                 case Dark.ORB_ID:
-                    if (!triggeredDark)
-                    {
+                    if (!triggeredDark) {
                         Dark toTrigger = new Dark();
                         toTrigger.evokeAmount = evokeValues.get(orb.ID);
                         AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
@@ -388,8 +371,7 @@ public class AmalgamateOrb extends AbstractOrb {
                     }
                     break;
                 case Frost.ORB_ID:
-                    if (!triggeredFrost)
-                    {
+                    if (!triggeredFrost) {
                         Frost toTrigger = new Frost();
                         toTrigger.evokeAmount = evokeValues.get(orb.ID);
                         AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
@@ -397,8 +379,7 @@ public class AmalgamateOrb extends AbstractOrb {
                     }
                     break;
                 case Lightning.ORB_ID:
-                    if (!triggeredLightning)
-                    {
+                    if (!triggeredLightning) {
                         Lightning toTrigger = new Lightning();
                         toTrigger.evokeAmount = evokeValues.get(orb.ID);
                         AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
@@ -406,8 +387,7 @@ public class AmalgamateOrb extends AbstractOrb {
                     }
                     break;
                 case Plasma.ORB_ID:
-                    if (!triggeredPlasma)
-                    {
+                    if (!triggeredPlasma) {
                         AbstractOrb toTrigger = orb.makeCopy();
                         toTrigger.evokeAmount = evokeValues.get(orb.ID);
                         AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
@@ -418,10 +398,9 @@ public class AmalgamateOrb extends AbstractOrb {
                     notFound = true;
                     break;
             }
-            if(notFound) {
-                if(Aspiration.hasReplay) {
-                    switch (orb.ID)
-                    {
+            if (notFound) {
+                if (Aspiration.hasReplay) {
+                    switch (orb.ID) {
                         case ReplayLightOrb.ORB_ID:
                             if (!triggeredLight) {
                                 AbstractOrb toTrigger = orb.makeCopy();
@@ -451,29 +430,25 @@ public class AmalgamateOrb extends AbstractOrb {
                             break;
 
                     }
-                    if(Aspiration.hasMarisa) {
-                        switch (orb.ID)
-                        {
+                    if (Aspiration.hasMarisa) {
+                        switch (orb.ID) {
                             case ManaSparkOrb.ORB_ID: //too much of a bother
                                 AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(orb));
                                 break;
                         }
                     }
                 }
-                if(Aspiration.hasConspire) {
-                    switch (orb.ID)
-                    {
+                if (Aspiration.hasConspire) {
+                    switch (orb.ID) {
                         case Water.ORB_ID: //no difference
                             AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(orb));
                             break;
                     }
                 }
                 if (Aspiration.hasVex) {
-                    switch (orb.ID)
-                    {
+                    switch (orb.ID) {
                         case GoldenLightning.ORB_ID:
-                            if (!triggeredGoldenLightning)
-                            {
+                            if (!triggeredGoldenLightning) {
                                 Lightning toTrigger = new Lightning(); //Use lightning orb to do the damage, and gain gold itself
                                 //Since golden lightning has hard 20 gold cap,
                                 //Making a golden lightning wouldn't work well if two were combined.
@@ -496,39 +471,38 @@ public class AmalgamateOrb extends AbstractOrb {
     public void onStartOfTurn() {
         boolean triggeredHellfire = false;
         boolean triggeredManaspark = false;
+        boolean triggeredPlasma = false;
 
         boolean notFound;
-        for (AbstractOrb orb : components)
-        {
+        for (AbstractOrb orb : components) {
             notFound = false;
-            switch (orb.ID)
-            {
+            switch (orb.ID) {
                 case Dark.ORB_ID: //end of turn orbs
                 case Frost.ORB_ID:
                 case Lightning.ORB_ID:
                     break;
                 case Plasma.ORB_ID:
-                    orb.onStartOfTurn(); //these don't have any problem being spammed, no difference
+                    AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.PLASMA)));
+                    if (!triggeredPlasma) {
+                        AbstractDungeon.actionManager.addToBottom(new GainEnergyAction(passiveValues.get(orb.ID)));
+                        triggeredPlasma = true;
+                    }
                     break;
                 default:
-                    notFound =true;
+                    notFound = true;
                     break;
             }
-            if(notFound) {
-                if(Aspiration.hasReplay) {
-                    switch (orb.ID)
-                    {
+            if (notFound) {
+                if (Aspiration.hasReplay) {
+                    switch (orb.ID) {
                         case ReplayLightOrb.ORB_ID:
                         case CrystalOrb.ORB_ID:
                         case GlassOrb.ORB_ID:
                             break;
                         case HellFireOrb.ORB_ID: //This stuff ensures vfx spams, but not the effect itself, which can affect interactions when applying powers
-                            if (triggeredHellfire)
-                            {
+                            if (triggeredHellfire) {
                                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.PLASMA), 0.1f));
-                            }
-                            else
-                            {
+                            } else {
                                 int hellfireValue = orb.passiveAmount;
                                 orb.passiveAmount = passiveValues.get(orb.ID);
                                 triggeredHellfire = true;
@@ -537,16 +511,12 @@ public class AmalgamateOrb extends AbstractOrb {
                             }
                             break;
                     }
-                    if(Aspiration.hasMarisa) {
-                        switch (orb.ID)
-                        {
+                    if (Aspiration.hasMarisa) {
+                        switch (orb.ID) {
                             case ManaSparkOrb.ORB_ID:
-                                if (triggeredManaspark)
-                                {
+                                if (triggeredManaspark) {
                                     AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.PLASMA), 0.1f));
-                                }
-                                else
-                                {
+                                } else {
                                     int manasparkValue = orb.passiveAmount;
                                     orb.passiveAmount = passiveValues.get(orb.ID);
                                     orb.onStartOfTurn();
@@ -557,9 +527,8 @@ public class AmalgamateOrb extends AbstractOrb {
                         }
                     }
                 }
-                if(Aspiration.hasConspire) {
-                    switch (orb.ID)
-                    {
+                if (Aspiration.hasConspire) {
+                    switch (orb.ID) {
                         case Water.ORB_ID:
                             orb.onStartOfTurn(); //these don't have any problem being spammed, no difference
                             break;
@@ -581,31 +550,26 @@ public class AmalgamateOrb extends AbstractOrb {
         boolean notFound;
 
         //for lightning
-        float speedTime = 0.2F / (float)AbstractDungeon.player.orbs.size();
+        float speedTime = 0.2F / (float) AbstractDungeon.player.orbs.size();
         if (Settings.FAST_MODE) {
             speedTime = 0.0F;
         }
 
-        for (AbstractOrb orb : components)
-        {
+        for (AbstractOrb orb : components) {
             notFound = false;
-            switch (orb.ID)
-            {
+            switch (orb.ID) {
                 case Dark.ORB_ID: //end of turn orbs
                     orb.onEndOfTurn();
                     break;
                 case Frost.ORB_ID:
-                    if (triggeredFrost)
-                    {
-                        float frostSpeedTime = 0.6F / (float)AbstractDungeon.player.orbs.size();
+                    if (triggeredFrost) {
+                        float frostSpeedTime = 0.6F / (float) AbstractDungeon.player.orbs.size();
                         if (Settings.FAST_MODE) {
                             frostSpeedTime = 0.0F;
                         }
 
                         AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.FROST), frostSpeedTime));
-                    }
-                    else
-                    {
+                    } else {
                         int frostValue = orb.passiveAmount;
                         orb.passiveAmount = passiveValues.get(orb.ID);
                         triggeredFrost = true;
@@ -614,12 +578,9 @@ public class AmalgamateOrb extends AbstractOrb {
                     }
                     break;
                 case Lightning.ORB_ID:
-                    if (triggeredLightning)
-                    {
+                    if (triggeredLightning) {
                         AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
-                    }
-                    else
-                    {
+                    } else {
                         int lightningValue = orb.passiveAmount;
                         orb.passiveAmount = passiveValues.get(orb.ID);
                         orb.onEndOfTurn();
@@ -633,18 +594,14 @@ public class AmalgamateOrb extends AbstractOrb {
                     notFound = true;
                     break;
             }
-            if(notFound) {
-                if(Aspiration.hasReplay) {
-                    switch (orb.ID)
-                    {
+            if (notFound) {
+                if (Aspiration.hasReplay) {
+                    switch (orb.ID) {
                         case ReplayLightOrb.ORB_ID:
                             int lightValue = orb.passiveAmount;
-                            if (triggeredLight)
-                            {
+                            if (triggeredLight) {
                                 orb.passiveAmount = 0;
-                            }
-                            else
-                            {
+                            } else {
                                 orb.passiveAmount = passiveValues.get(orb.ID);
                                 triggeredLight = true;
                             }
@@ -665,31 +622,25 @@ public class AmalgamateOrb extends AbstractOrb {
                             }
                             break;
                     }
-                    if(Aspiration.hasMarisa) {
-                        switch (orb.ID)
-                        {
+                    if (Aspiration.hasMarisa) {
+                        switch (orb.ID) {
                             case ManaSparkOrb.ORB_ID:
                                 break;
                         }
                     }
                 }
-                if(Aspiration.hasConspire) {
-                    switch (orb.ID)
-                    {
+                if (Aspiration.hasConspire) {
+                    switch (orb.ID) {
                         case Water.ORB_ID:
                             break;
                     }
                 }
                 if (Aspiration.hasVex) {
-                    switch (orb.ID)
-                    {
+                    switch (orb.ID) {
                         case GoldenLightning.ORB_ID:
-                            if (triggeredGoldenLightning)
-                            {
+                            if (triggeredGoldenLightning) {
                                 AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
-                            }
-                            else
-                            {
+                            } else {
                                 Lightning toTrigger = new Lightning(); //Use lightning orb to do the damage, and gain gold itself
                                 toTrigger.passiveAmount = passiveValues.get(orb.ID);
                                 toTrigger.onEndOfTurn();
@@ -726,7 +677,7 @@ public class AmalgamateOrb extends AbstractOrb {
     @Override
     public void render(SpriteBatch sb) {
         if (components.isEmpty()) {
-            if(img == null) {
+            if (img == null) {
                 img = (Texture) ReflectionHacks.getPrivate(new Lightning(), AbstractOrb.class, "img");
             }
             sb.setColor(new Color(1.0f, 1.0f, 1.0f, c.a / 2.0f));
@@ -739,7 +690,7 @@ public class AmalgamateOrb extends AbstractOrb {
             Color renderColor = new Color(1.0f, 1.0f, 1.0f, c.a / components.size());
             sb.setColor(renderColor);
             for (Texture t : textures) {
-                if(t != null) {
+                if (t != null) {
                     sb.draw(t, cX - 48.0f, cY - 48.0f + bobEffect.y, 48.0f, 48.0f, 96.0f, 96.0f, scale, scale, angle, 0, 0, 96, 96, false, false);
                 }
             }
@@ -750,19 +701,17 @@ public class AmalgamateOrb extends AbstractOrb {
                     sb.draw(Frost.img1, this.cX - 48.0F + this.bobEffect.y / 4.0F, this.cY - 48.0F + this.bobEffect.y / 4.0F, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, 0.0F, 0, 0, 96, 96, false, false);
                     sb.draw(Frost.img2, this.cX - 48.0F + this.bobEffect.y / 4.0F, this.cY - 48.0F - this.bobEffect.y / 4.0F, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, 0.0F, 0, 0, 96, 96, false, false);
                     sb.draw(Frost.img3, this.cX - 48.0F - this.bobEffect.y / 4.0F, this.cY - 48.0F + this.bobEffect.y / 2.0F, 48.0F, 48.0F, 96.0F, 96.0F, this.scale, this.scale, 0.0F, 0, 0, 96, 96, false, false);
-                }
-                else if (Aspiration.hasReplay && orb.ID.equals(CrystalOrb.ORB_ID))
-                {
-                    try
-                    {
-                        Texture img1 = (Texture)ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img1");
-                        Texture img2 = (Texture)ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img2");
-                        Texture img3 = (Texture)ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img3");
+                } else if (Aspiration.hasReplay && orb.ID.equals(CrystalOrb.ORB_ID)) {
+                    try {
+                        Texture img1 = (Texture) ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img1");
+                        Texture img2 = (Texture) ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img2");
+                        Texture img3 = (Texture) ReflectionHacks.getPrivateStatic(CrystalOrb.class, "img3");
                         sb.draw(img1, this.cX - 48.0f + this.bobEffect.y / 4.0f, this.cY - 48.0f + this.bobEffect.y / 4.0f, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
                         sb.draw(img2, this.cX - 48.0f + this.bobEffect.y / 4.0f, this.cY - 48.0f - this.bobEffect.y / 4.0f, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
                         sb.draw(img3, this.cX - 48.0f - this.bobEffect.y / 4.0f, this.cY - 48.0f + this.bobEffect.y / 2.0f, 48.0f, 48.0f, 96.0f, 96.0f, this.scale, this.scale, 0.0f, 0, 0, 96, 96, false, false);
+                    } catch (Exception e) {
+                        Aspiration.logger.info(e);
                     }
-                    catch (Exception e) { Aspiration.logger.info(e);}
                 }
                 //add anything else that renders special that you want to bother with
             }
@@ -787,8 +736,7 @@ public class AmalgamateOrb extends AbstractOrb {
         CardCrawlGame.sound.play("ATTACK_FIRE", 0.1f);
     }
 
-    private void gainGold(int amount)
-    {
+    private void gainGold(int amount) {
         int cap = Math.min(goldGenerated + amount, goldCap);
         for (; goldGenerated < cap; goldGenerated++) {
             AbstractDungeon.player.gainGold(1);
