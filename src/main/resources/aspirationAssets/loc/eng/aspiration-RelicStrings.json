@@ -473,6 +473,15 @@
       "Whenever you gain a buff [REMOVE_SPACE], gain a random #yscribe:Spell_Effect [REMOVE_SPACE].",
       " NL NL #yMulticlass Spell Scribe"
     ]
+  },
+  "aspiration:SecretTechniqueScroll": {
+    "NAME": "Secret Technique Scroll",
+    "FLAVOR": "\"Promise me you'll never use these\" - Teacher",
+    "DESCRIPTIONS": [
+      "At the start of your turn, draw #b",
+      " additional card. Whenever you shuffle your discard pile, add #b",
+      " random cards to your draw pile. They cost #b0 until played."
+    ]
   }
 }
  

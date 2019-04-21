@@ -1,70 +1,25 @@
 package aspiration.relics.rare;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
+import aspiration.Aspiration;
+import aspiration.relics.abstracts.AspirationRelic;
+import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
+import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.relics.SuperRareRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.TheBombPower;
-import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.powers.ThousandCutsPower;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.AfterImagePower;
-import com.megacrit.cardcrawl.powers.AmplifyPower;
-import com.megacrit.cardcrawl.powers.AngryPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.powers.BarricadePower;
-import com.megacrit.cardcrawl.powers.BerserkPower;
-import com.megacrit.cardcrawl.powers.BlurPower;
-import com.megacrit.cardcrawl.powers.BrutalityPower;
-import com.megacrit.cardcrawl.powers.BufferPower;
-import com.megacrit.cardcrawl.powers.BurstPower;
-import com.megacrit.cardcrawl.powers.CombustPower;
-import com.megacrit.cardcrawl.powers.ConfusionPower;
-import com.megacrit.cardcrawl.powers.CreativeAIPower;
-import com.megacrit.cardcrawl.powers.DarkEmbracePower;
-import com.megacrit.cardcrawl.powers.DemonFormPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.DoubleDamagePower;
-import com.megacrit.cardcrawl.powers.DoubleTapPower;
-import com.megacrit.cardcrawl.powers.DrawPower;
-import com.megacrit.cardcrawl.powers.EchoPower;
-import com.megacrit.cardcrawl.powers.EnvenomPower;
-import com.megacrit.cardcrawl.powers.EvolvePower;
-import com.megacrit.cardcrawl.powers.FeelNoPainPower;
-import com.megacrit.cardcrawl.powers.FireBreathingPower;
-import com.megacrit.cardcrawl.powers.GrowthPower;
-import com.megacrit.cardcrawl.powers.HeatsinkPower;
-import com.megacrit.cardcrawl.powers.HelloPower;
-import com.megacrit.cardcrawl.powers.InfiniteBladesPower;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
-import com.megacrit.cardcrawl.powers.IntangiblePower;
-import com.megacrit.cardcrawl.powers.InvinciblePower;
-import com.megacrit.cardcrawl.powers.JuggernautPower;
-import com.megacrit.cardcrawl.powers.MagnetismPower;
-import com.megacrit.cardcrawl.powers.MayhemPower;
-import com.megacrit.cardcrawl.powers.MetallicizePower;
-import com.megacrit.cardcrawl.powers.NoxiousFumesPower;
-import com.megacrit.cardcrawl.powers.PanachePower;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import com.megacrit.cardcrawl.powers.RagePower;
-import com.megacrit.cardcrawl.powers.RepairPower;
-import com.megacrit.cardcrawl.powers.RitualPower;
-import com.megacrit.cardcrawl.powers.SadisticPower;
 
-import aspiration.relics.abstracts.AspirationRelic;
-import basemod.BaseMod;
-import basemod.abstracts.CustomSavable;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<Integer[][]>, SuperRareRelic{
 	public static final String ID = "aspiration:Legacy_Headhunter";
@@ -176,9 +131,9 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     			}
     		}
     		try {
-    			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, p.getPower(), p.getPower().amount));
+    			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, ((CloneablePowerInterface)p.getPower()).makeCopy(), p.getPower().amount));
     		} catch(Exception e) {
-    			e.printStackTrace();
+				Aspiration.logger.info(e.getStackTrace());
     		}
     	}
     }
