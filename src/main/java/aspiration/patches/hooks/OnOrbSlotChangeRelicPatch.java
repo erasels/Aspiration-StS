@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.hooks;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpireInsertPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -8,7 +8,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import aspiration.relics.abstracts.OnOrbSlotChange;
 
-//Ausbaubar, ByRef verwenden um Amount verändern zu können z.B. "Gain 1 additional orb slots when increasing orbslots" oder so.
+//Ausbaubar, ByRef verwenden um Amount verï¿½ndern zu kï¿½nnen z.B. "Gain 1 additional orb slots when increasing orbslots" oder so.
 public class OnOrbSlotChangeRelicPatch {
 	@SpirePatch(
 			clz = AbstractPlayer.class, 

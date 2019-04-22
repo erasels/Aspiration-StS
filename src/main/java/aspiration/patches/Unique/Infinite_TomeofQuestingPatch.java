@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.Unique;
 
 import aspiration.relics.crossovers.TomeofQuesting;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
@@ -21,7 +21,7 @@ public class Infinite_TomeofQuestingPatch {
                 if (m.getMethodName().equals("giveReward")) {
                     m.replace("{" +
                             "$_ = $proceed($$);" +
-                            "aspiration.patches.Infinite_TomeofQuestingPatch.Nested.Do();" +
+                            "aspiration.patches.Unique.Infinite_TomeofQuestingPatch.Nested.Do();" +
                             "}");
                 }
             }

@@ -43,7 +43,7 @@ public class ChannelOrbPower extends AspirationPower implements CloneablePowerIn
     {
         if (!AbstractDungeon.getMonsters().areMonstersBasicallyDead()) {
             flashWithoutSound();
-            AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
+            AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getWeightedRandomOrb(AbstractDungeon.cardRandomRng, false)));
 
             if (this.amount == 0) {
                 AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(this.owner, this.owner, this));

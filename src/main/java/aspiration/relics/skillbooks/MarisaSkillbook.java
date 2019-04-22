@@ -3,23 +3,20 @@ package aspiration.relics.skillbooks;
 import ThMod.characters.Marisa;
 import ThMod.patches.LibraryTypeEnum;
 import ThMod.powers.Marisa.ChargeUpPower;
-import ThMod.relics.SimpleLauncher;
 import aspiration.Aspiration;
+import aspiration.relics.abstracts.OnEnergyUse;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.ui.panels.EnergyPanel;
 
 import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class MarisaSkillbook extends SkillbookRelic {
+public class MarisaSkillbook extends SkillbookRelic implements OnEnergyUse {
     public static final String ID = "aspiration:MarisaSkillbook";
 
     private static final int CHARGE_STACK = 1;
@@ -31,15 +28,15 @@ public class MarisaSkillbook extends SkillbookRelic {
     @Override
     public String getUpdatedDescription() {
         if(Aspiration.skillbookCardpool()) {
-            return DESCRIPTIONS[0] + CHARGE_STACK + DESCRIPTIONS[1] +DESCRIPTIONS[2] ;
+            return DESCRIPTIONS[0] + DESCRIPTIONS[1];
         } else {
-            return DESCRIPTIONS[0] + CHARGE_STACK + DESCRIPTIONS[1];
+            return DESCRIPTIONS[0];
         }
     }
 
-    @Override
+    /*@Override
     public void onUseCard(AbstractCard card, UseCardAction action) {
-        Boolean available = true;
+        boolean available = true;
         int div = 8;
         if (AbstractDungeon.player.hasRelic(SimpleLauncher.ID)) {
             div = 6;
@@ -59,6 +56,12 @@ public class MarisaSkillbook extends SkillbookRelic {
         if (source == AbstractDungeon.player && p.type == AbstractPower.PowerType.DEBUFF&& !target.hasPower(ArtifactPower.POWER_ID)) {
             triggerChargeup(CHARGE_STACK);
         }
+    }*/
+
+    @Override
+    public int onEnergyUse(int amount) {
+        triggerChargeup(amount > EnergyPanel.totalCount? EnergyPanel.totalCount : amount);
+        return amount;
     }
 
     @Override
@@ -89,27 +92,4 @@ public class MarisaSkillbook extends SkillbookRelic {
     public AbstractRelic makeCopy() {
         return new MarisaSkillbook();
     }
-
-    /*@Override
-    public Integer onSave() {
-        System.out.println("Save:");
-        for(AbstractCard c : AbstractDungeon.srcCommonCardPool.group ) {
-            System.out.println(c.name);
-        }
-
-        return 1;
-    }
-
-    @Override
-    public void onLoad(Integer o) {
-        System.out.println("Pre load");
-        for(AbstractCard c : AbstractDungeon.srcCommonCardPool.group ) {
-            System.out.println(c.name);
-        }
-        modifyCardPool();
-        System.out.println("Post-load");
-        for(AbstractCard c : AbstractDungeon.srcCommonCardPool.group ) {
-            System.out.println(c.name);
-        }
-    }*/
 }

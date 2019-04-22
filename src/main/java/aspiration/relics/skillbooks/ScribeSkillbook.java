@@ -4,7 +4,8 @@ import The_Scribe.characters.TheScribe;
 import The_Scribe.patches.LibraryTypeEnum;
 import The_Scribe.powers.*;
 import aspiration.Aspiration;
-import aspiration.patches.AbstractPowerScribeBookField;
+import aspiration.GeneralUtility.WeightedList;
+import aspiration.patches.Fields.AbstractPowerScribeBookField;
 import basemod.interfaces.CloneablePowerInterface;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -13,7 +14,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
@@ -24,8 +24,6 @@ import static aspiration.Aspiration.logger;
 public class ScribeSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:ScribeSkillbook";
 
-    private static final int SPELL_EFFECT_AMT = 6;
-
     private static final int DMG_SPELL = 5;
     private static final int BLOCK_SPELL = 4;
     private static final int POISON_SPELL = 4;
@@ -34,7 +32,7 @@ public class ScribeSkillbook extends SkillbookRelic {
     private static final int SPLIT_SPELL = 1;
 
     private boolean firstTrigger = true;
-    private ArrayList<SpellsInterface> weightedEFFECTS;
+    private WeightedList<SpellsInterface> weightedEFFECTS;
 
     public ScribeSkillbook() {
         super(ID, "ScribeSkillbook.png", RelicTier.BOSS, LandingSound.FLAT);
@@ -42,7 +40,7 @@ public class ScribeSkillbook extends SkillbookRelic {
 
     @Override
     public String getUpdatedDescription() {
-        if(Aspiration.skillbookCardpool()) {
+        if (Aspiration.skillbookCardpool()) {
             return DESCRIPTIONS[0] + DESCRIPTIONS[1];
         } else {
             return DESCRIPTIONS[0];
@@ -53,28 +51,51 @@ public class ScribeSkillbook extends SkillbookRelic {
     @Override
     public void onApplyPower(AbstractPower pow, AbstractCreature target, AbstractCreature source) {
         AbstractPlayer p = AbstractDungeon.player;
-        //logger.info((pow.type == AbstractPower.PowerType.BUFF) + " " + (target == p) + " " + (!AbstractPowerScribeBookField.ssbTriggered.get(pow)) + " " + (!pow.ID.equals(ScribedScrollAcquirePower.POWER_ID)));
-        if(pow.type == AbstractPower.PowerType.BUFF && target == p && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !pow.ID.equals(ScribedScrollAcquirePower.POWER_ID)) {
-            //Bad rare power implementation
-            if(firstTrigger) {
-                //ArrayList<SpellsInterface> EFFECTS = new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellClarity(p, ENERGY_SPELL), new SpellEffectiveness(p, EFFECT_SPELL), new SpellSplit(p, SPLIT_SPELL)));
-                weightedEFFECTS = new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellEffectiveness(p, EFFECT_SPELL)));
-                weightedEFFECTS.addAll(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL), new SpellEffectiveness(p, EFFECT_SPELL)));
-
-                weightedEFFECTS.add(new SpellClarity(p, ENERGY_SPELL));
-                weightedEFFECTS.add(new SpellSplit(p, SPLIT_SPELL));
+        if (pow.type == AbstractPower.PowerType.BUFF && target == p && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !pow.ID.equals(ScribedScrollAcquirePower.POWER_ID)) {
+            if (firstTrigger) {
+                weightedEFFECTS = new WeightedList<>();
+                weightedEFFECTS.addAll(new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL))), WeightedList.WEIGHT_COMMON);
+                weightedEFFECTS.addAll(new ArrayList<>(Arrays.asList(new SpellEffectiveness(p, EFFECT_SPELL), new SpellClarity(p, ENERGY_SPELL))), WeightedList.WEIGHT_UNCOMMON);
+                weightedEFFECTS.add(new SpellSplit(p, SPLIT_SPELL), WeightedList.WEIGHT_RARE);
 
                 firstTrigger = false;
             }
 
-            Random rng = AbstractDungeon.cardRandomRng;
-            AbstractPower spell = ((CloneablePowerInterface) weightedEFFECTS.get(rng.random(weightedEFFECTS.size()-1))).makeCopy();
+            AbstractPower spell = ((CloneablePowerInterface) weightedEFFECTS.getRandom(AbstractDungeon.cardRandomRng)).makeCopy();
             AbstractPowerScribeBookField.ssbTriggered.set(spell, true);
 
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, spell, spell.amount));
-            //boolean havePow = true;
-            //boolean rarePow = false;
-            //int tmp;
+
+        }
+    }
+
+    @Override
+    public void onEquip() {
+        modifyCardPool();
+    }
+
+    public void modifyCardPool() {
+        if (Aspiration.skillbookCardpool()) {
+            logger.info("SpellScribe Skillbook acquired, modifying card pool.");
+            ArrayList<AbstractCard> classCards = CardLibrary.getCardList(LibraryTypeEnum.SCRIBE_BLUE);
+            mixCardpools(classCards);
+        }
+    }
+
+    @Override
+    public boolean canSpawn() {
+        return !(AbstractDungeon.player instanceof TheScribe) && !hasSkillbookRelic(AbstractDungeon.player);
+    }
+
+    public AbstractRelic makeCopy() {
+        return new ScribeSkillbook();
+    }
+}
+
+
+//boolean havePow = true;
+//boolean rarePow = false;
+//int tmp;
             /*while(havePow) {
                 havePow = false;
                 tmp = rng.random(1, SPELL_EFFECT_AMT);
@@ -122,29 +143,3 @@ public class ScribeSkillbook extends SkillbookRelic {
                         break;
                 }
             }*/
-        }
-    }
-
-    @Override
-    public void onEquip() {
-        modifyCardPool();
-    }
-
-    public void modifyCardPool() {
-        if(Aspiration.skillbookCardpool()) {
-            logger.info("SpellScribe Skillbook acquired, modifying card pool.");
-            ArrayList<AbstractCard> classCards= CardLibrary.getCardList(LibraryTypeEnum.SCRIBE_BLUE);
-            mixCardpools(classCards);
-        }
-    }
-
-    @Override
-    public boolean canSpawn()
-    {
-        return !(AbstractDungeon.player instanceof TheScribe) && !hasSkillbookRelic(AbstractDungeon.player);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new ScribeSkillbook();
-    }
-}

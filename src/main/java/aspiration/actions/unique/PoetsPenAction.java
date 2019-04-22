@@ -1,6 +1,6 @@
 package aspiration.actions.unique;
 
-import aspiration.patches.AbstractCardPoetsPendField;
+import aspiration.patches.Fields.AbstractCardPoetsPendField;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;

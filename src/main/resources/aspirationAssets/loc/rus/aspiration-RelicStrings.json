@@ -303,8 +303,7 @@
     "NAME": "Книга навыков Марисы",
     "FLAVOR": "Рукописная книга от обычной волшебницы. Похоже, ей по нраву грибы.",
     "DESCRIPTIONS": [
-      "Даёт #b",
-      " #yCharge-up, когда вы разыгрываете карту или накладываете отриц. эффект.",
+      "Whenever you lose [E] [REMOVE_SPACE], gain that much #yCharge-up [REMOVE_SPACE].",
       " NL NL #yМультикласс Мариса"
     ]
   },

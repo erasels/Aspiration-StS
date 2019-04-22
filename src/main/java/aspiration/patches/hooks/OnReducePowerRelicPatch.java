@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.hooks;
 
 import aspiration.relics.abstracts.OnReducePower;
 import com.evacipated.cardcrawl.modthespire.lib.ByRef;

@@ -1,7 +1,7 @@
 package aspiration.ui.campfire;
 
 import aspiration.Aspiration;
-import aspiration.patches.WingBootsCampfireactionField;
+import aspiration.patches.Fields.WingBootsCampfireactionField;
 import aspiration.vfx.campfire.EmpowerWingBootsAction;
 import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.core.CardCrawlGame;

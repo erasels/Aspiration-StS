@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.Unique;
 
 import aspiration.actions.unique.UpdateOrbsAction;
 import aspiration.orbs.AmalgamateOrb;

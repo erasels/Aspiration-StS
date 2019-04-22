@@ -32,7 +32,6 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     private ArrayList<AbstractPower> Elite_buffs;
     private ArrayList<AbstractPower> Boss_buffs;
     private ArrayList<timedPower> buff_list;
-    private Random rng = AbstractDungeon.relicRng;
 
     public Legacy_Headhunter() {
         super(ID, "Legacy_Headhunter.png", RelicTier.RARE, LandingSound.MAGICAL);
@@ -68,8 +67,8 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     @Override
     public void onVictory() {
     	boolean jump = false;
-    	rng = AbstractDungeon.relicRng; //REEEE WHY ARE YOU NULL YOU PIECE OF SHIT
-    	powerCollection = DESCRIPTIONS[2];
+		Random rng = AbstractDungeon.cardRandomRng; //REEEE WHY ARE YOU NULL YOU PIECE OF SHIT
+		powerCollection = DESCRIPTIONS[2];
     	flash();
     	AbstractDungeon.actionManager.addToBottom(new SFXAction("BUFF_3"));
     	

@@ -36,7 +36,7 @@ public static final String ID = "aspiration:MysteriousAuxiliaryCore";
     	    flash();
     	    AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     	    for(int i = 0; i<ORB_AMOUNT;i++) {
-                AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getSelectiveRandomOrb(AbstractDungeon.relicRng)));
+                AbstractDungeon.actionManager.addToBottom(new ChannelAction(OrbUtilityMethods.getWeightedRandomOrb(AbstractDungeon.cardRandomRng, false)));
             }
     		startingCharges();
     	} else {

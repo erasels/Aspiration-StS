@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.Unique;
 
 import aspiration.relics.special.KaomsHeart;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

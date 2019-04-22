@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.Unique;
 
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;

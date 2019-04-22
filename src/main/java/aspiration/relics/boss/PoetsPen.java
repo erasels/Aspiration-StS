@@ -1,6 +1,6 @@
 package aspiration.relics.boss;
 
-import aspiration.patches.AbstractCardPoetsPendField;
+import aspiration.patches.Fields.AbstractCardPoetsPendField;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 

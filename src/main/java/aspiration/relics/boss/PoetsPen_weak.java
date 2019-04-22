@@ -2,7 +2,7 @@ package aspiration.relics.boss;
 
 import aspiration.Aspiration;
 import aspiration.actions.unique.PoetsPenAction;
-import aspiration.patches.AbstractCardPoetsPendField;
+import aspiration.patches.Fields.AbstractCardPoetsPendField;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;

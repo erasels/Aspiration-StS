@@ -92,6 +92,8 @@ Weak version of "Sticky Explosives": Applies a power that expires after three tu
 
 Not a new relic, but you can now grant Wing Boots 3 additional charges as a campfire action.
 
+"Secret Technique Scroll": Draw 1 additional card at the start of each turn. Whenever you shuffle your discard pile, shuffle three random cards into your draw pile. They cost 0 until played.
+
 ##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:
 Beaked:EmptySkull: Whenever you play a card and have no cards in your hand, shuffle an Inspiration into your draw pile.

@@ -1,6 +1,7 @@
 package aspiration.orbs;
 
 import aspiration.Aspiration;
+import aspiration.GeneralUtility.WeightedList;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.mod.replay.orbs.*;
 import com.megacrit.cardcrawl.orbs.*;
@@ -13,14 +14,13 @@ import vexMod.orbs.GoldenLightning;
 import java.util.ArrayList;
 
 public class OrbUtilityMethods {
-    public static AbstractOrb getSelectiveRandomOrb(Random rng, ArrayList<AbstractOrb> rareOrbs, boolean forAmalgamate)
-    {
-        if(rng == null) {
-            rng = AbstractDungeon.relicRng;
+    public static AbstractOrb getSelectiveRandomOrb(Random rng, ArrayList<AbstractOrb> rareOrbs, boolean forAmalgamate) {
+        if (rng == null) {
+            rng = AbstractDungeon.cardRandomRng;
         }
         ArrayList<AbstractOrb> orbs = getOrbList(false, forAmalgamate);
 
-        if(rareOrbs != null && !rareOrbs.isEmpty()) {
+        if (rareOrbs != null && !rareOrbs.isEmpty()) {
             boolean goodOrb = true;
             AbstractOrb tmp = null;
             AbstractOrb lastRare = null;
@@ -30,7 +30,7 @@ public class OrbUtilityMethods {
                 tmp = orbs.get(rng.random(orbs.size() - 1));
                 for (AbstractOrb orb : rareOrbs) {
                     if (tmp.name.equals(orb.name)) {
-                        if(lastRare != null && (lastRare.name.equals(tmp.name))) {
+                        if (lastRare != null && (lastRare.name.equals(tmp.name))) {
                             continue;
                         }
                         lastRare = tmp.makeCopy();
@@ -55,40 +55,25 @@ public class OrbUtilityMethods {
         return getSelectiveRandomOrb(rng, getRareOrbList());
     }
 
-    public static AbstractOrb getRandomAmalgamate(Random rng, int orbAmt, ArrayList<AbstractOrb> rareOrbs) {
-        if(orbAmt < 1) orbAmt = 1;
+    public static AbstractOrb getWeightedRandomOrb(Random rng, boolean forAmalgamate) {
+        if (rng == null) {
+            rng = AbstractDungeon.cardRandomRng;
+        }
+        WeightedList<AbstractOrb> orbs = getWeightedOrbList(false, forAmalgamate);
+        return orbs.getRandom(rng);
+    }
+
+    public static AbstractOrb getRandomAmalgamate(Random rng, int orbAmt) {
+        if (orbAmt < 1) orbAmt = 1;
         ArrayList<AbstractOrb> orbList = new ArrayList<>();
-        for(int i = 0; i<orbAmt;i++) {
-            orbList.add(getSelectiveRandomOrb(rng, rareOrbs, true));
+        for (int i = 0; i < orbAmt; i++) {
+            orbList.add(getWeightedRandomOrb(AbstractDungeon.cardRandomRng, true));
         }
         return new AmalgamateOrb(orbList);
     }
 
-    public static AbstractOrb getRandomAmalgamate(Random rng, int orbAmt) {
-        return getRandomAmalgamate(rng, orbAmt, getRareOrbList());
-    }
-
-    public static ArrayList<AbstractOrb> getRareOrbList() {
-        ArrayList<AbstractOrb> rareOrbs = new ArrayList<>();
-        rareOrbs.add(new Plasma());
-
-        if(Aspiration.hasConspire) {
-            rareOrbs.add(new Water());
-        }
-
-        if(Aspiration.hasReplay) {
-            rareOrbs.add(new ReplayLightOrb());
-
-            if(Aspiration.hasMarisa) {
-                rareOrbs.add(new ManaSparkOrb());
-            }
-        }
-
-        if (Aspiration.hasVex)
-        {
-            rareOrbs.add(new GoldenLightning());
-        }
-        return rareOrbs;
+    public static AbstractOrb getRandomAmalgamate(Random rng) {
+        return getRandomAmalgamate(rng, 2);
     }
 
     public static ArrayList<AbstractOrb> getOrbList(boolean withAmalgamate, boolean forAmalgamate) {
@@ -98,31 +83,30 @@ public class OrbUtilityMethods {
         orbs.add(new Lightning());
         orbs.add(new Plasma());
 
-        if(Aspiration.hasConspire) {
+        if (Aspiration.hasConspire) {
             orbs.add(new Water());
         }
 
-        if(Aspiration.hasReplay) {
+        if (Aspiration.hasReplay) {
             orbs.add(new CrystalOrb());
             orbs.add(new HellFireOrb());
             orbs.add(new ReplayLightOrb());
 
-            if(Aspiration.hasMarisa) {
+            if (Aspiration.hasMarisa) {
                 orbs.add(new ManaSparkOrb());
             }
         }
 
-        if (Aspiration.hasVex)
-        {
+        if (Aspiration.hasVex) {
             orbs.add(new GoldenLightning());
         }
 
-        if(withAmalgamate) {
+        if (withAmalgamate) {
             orbs.add(new AmalgamateOrb());
         }
 
-        if(!forAmalgamate) {
-            if(Aspiration.hasAnimator) {
+        if (!forAmalgamate) {
+            if (Aspiration.hasAnimator) {
                 orbs.add(new Earth());
                 orbs.add(new Fire());
             }
@@ -131,6 +115,67 @@ public class OrbUtilityMethods {
         }
 
         return orbs;
+    }
+
+    public static WeightedList<AbstractOrb> getWeightedOrbList(boolean withAmalgamate, boolean forAmalgamate) {
+        WeightedList<AbstractOrb> orbs = new WeightedList<>();
+        orbs.add(new Dark(), WeightedList.WEIGHT_UNCOMMON);
+        orbs.add(new Frost(), WeightedList.WEIGHT_COMMON);
+        orbs.add(new Lightning(), WeightedList.WEIGHT_COMMON);
+        orbs.add(new Plasma(), WeightedList.WEIGHT_RARE);
+
+        if (Aspiration.hasConspire) {
+            orbs.add(new Water(), WeightedList.WEIGHT_UNCOMMON);
+        }
+
+        if (Aspiration.hasReplay) {
+            orbs.add(new CrystalOrb(), WeightedList.WEIGHT_COMMON);
+            orbs.add(new HellFireOrb(), WeightedList.WEIGHT_COMMON);
+            orbs.add(new ReplayLightOrb(), WeightedList.WEIGHT_RARE);
+
+            if (Aspiration.hasMarisa) {
+                orbs.add(new ManaSparkOrb(), WeightedList.WEIGHT_UNCOMMON);
+            }
+        }
+
+        if (Aspiration.hasVex) {
+            orbs.add(new GoldenLightning(), WeightedList.WEIGHT_UNCOMMON);
+        }
+
+        if (withAmalgamate) {
+            orbs.add(new AmalgamateOrb(), WeightedList.WEIGHT_RARE);
+        }
+
+        if (!forAmalgamate) {
+            if (Aspiration.hasAnimator) {
+                orbs.add(new Earth(), WeightedList.WEIGHT_COMMON);
+                orbs.add(new Fire(), WeightedList.WEIGHT_COMMON);
+            }
+        }
+
+        return orbs;
+    }
+
+    public static ArrayList<AbstractOrb> getRareOrbList() {
+        ArrayList<AbstractOrb> rareOrbs = new ArrayList<>();
+        rareOrbs.add(new Plasma());
+
+        if (Aspiration.hasConspire) {
+            rareOrbs.add(new Water());
+        }
+
+        if (Aspiration.hasReplay) {
+            rareOrbs.add(new ReplayLightOrb());
+
+            if (Aspiration.hasMarisa) {
+                rareOrbs.add(new ManaSparkOrb());
+            }
+        }
+
+        if (Aspiration.hasVex) {
+            rareOrbs.add(new GoldenLightning());
+        }
+        return rareOrbs;
     }
 
     public static ArrayList<AbstractOrb> getOrbList(boolean withAmalgamate) {
@@ -142,7 +187,7 @@ public class OrbUtilityMethods {
     }
 
     public static boolean isValidAmalgamateComponent(AbstractOrb o) {
-        if(o != null) {
+        if (o != null) {
             if (o.ID != null) {
                 for (AbstractOrb orb : getOrbList(true, true)) {
                     if (o.ID.equals(orb.ID)) {

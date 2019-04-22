@@ -1,5 +1,6 @@
 package aspiration.patches;
 
+import aspiration.patches.Fields.WingBootsCampfireactionField;
 import aspiration.ui.campfire.EmpowerWingBootsOption;
 import aspiration.ui.campfire.ReadArtOfWarOption;
 import basemod.ReflectionHacks;

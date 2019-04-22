@@ -1,4 +1,4 @@
-package aspiration.patches;
+package aspiration.patches.Unique;
 
 import aspiration.Aspiration;
 import aspiration.relics.skillbooks.SkillbookRelic;
