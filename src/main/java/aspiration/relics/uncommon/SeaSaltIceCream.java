@@ -14,6 +14,7 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
+import com.megacrit.cardcrawl.mod.replay.relics.GrabBag;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
@@ -40,8 +41,7 @@ public class SeaSaltIceCream extends AspirationRelic {
     }
 
     @Override
-    public void onEquip()
-    {
+    public void onEquip() {
         if (AbstractDungeon.isScreenUp) {
             AbstractDungeon.dynamicBanner.hide();
             AbstractDungeon.overlayMenu.cancelButton.hide();
@@ -52,13 +52,12 @@ public class SeaSaltIceCream extends AspirationRelic {
         openRelicSelect();
     }
 
-    private void openRelicSelect()
-    {
+    private void openRelicSelect() {
         relicSelected = false;
 
         ArrayList<AbstractRelic> relics = new ArrayList<>();
         for (AbstractRelic r : AbstractDungeon.player.relics) {
-            if (!r.relicId.equals(ID)) {
+            if (!r.relicId.equals(ID) && !r.relicId.equals(GrabBag.ID)) {
                 AbstractRelic re = r.makeCopy();
                 re.isSeen = true;
                 relics.add(re);
@@ -72,8 +71,7 @@ public class SeaSaltIceCream extends AspirationRelic {
     }
 
     @Override
-    public void update()
-    {
+    public void update() {
         super.update();
 
         if (!relicSelected) {
@@ -85,7 +83,7 @@ public class SeaSaltIceCream extends AspirationRelic {
                     tmp = RelicLibrary.getRelic(getSavedItem()).makeCopy();
                     if (debug) System.out.println("tmp is: " + tmp.relicId);
                     RelicUtils.removeRelicFromPool(tmp, true);
-                } catch(NullPointerException npe) {
+                } catch (NullPointerException npe) {
                     Aspiration.logger.info("Trying to retrieve stored relic threw NPE, adding Nostlagia instead. \nException:" + npe.toString());
                     tmp = new Nostalgia(false);
                     RelicUtils.removeRelicFromPool(tmp, true);
@@ -111,13 +109,12 @@ public class SeaSaltIceCream extends AspirationRelic {
         }
     }
 
-    public static String getSavedItem()
-    {
+    public static String getSavedItem() {
         try {
             if (Gdx.files.absolute(getSavePath()).exists()) {
                 //Gson gson = new Gson();
                 String savestr = loadSaveString(getSavePath());
-                if(debug) System.out.println("Savestr is:" + savestr);
+                if (debug) System.out.println("Savestr is:" + savestr);
                 //String save = gson.fromJson(savestr, String.class);
                 try {
                     //if(debug) System.out.println("Save is: " + save);
@@ -135,30 +132,26 @@ public class SeaSaltIceCream extends AspirationRelic {
         return Nostalgia.ID;
     }
 
-    public static void deleteSave()
-    {
+    public static void deleteSave() {
         Gdx.files.absolute(getSavePath()).delete();
     }
 
-    private static String loadSaveString(String filePath)
-    {
+    private static String loadSaveString(String filePath) {
         FileHandle file = Gdx.files.absolute(filePath);
         String data = file.readString();
-        if(debug) System.out.println("Data is: "+ data);
+        if (debug) System.out.println("Data is: " + data);
         /*if (SaveFileObfuscator.isObfuscated(data)) {
             return SaveFileObfuscator.decode(data, "key");
         }*/
         return data;
     }
 
-    private static String getSavePath()
-    {
+    private static String getSavePath() {
         return ConfigUtils.CONFIG_DIR + File.separator + "Aspiration" + File.separator + "SeaSaltIceCream" + ".autosave" + (Settings.isBeta ? "BETA" : "");
     }
 
     @Override
-    public void renderTip(SpriteBatch sb)
-    {
+    public void renderTip(SpriteBatch sb) {
         if (!relicSelected && fakeHover) {
             relicSelectScreen.render(sb);
         }
@@ -171,8 +164,7 @@ public class SeaSaltIceCream extends AspirationRelic {
     }
 
     @Override
-    public void renderInTopPanel(SpriteBatch sb)
-    {
+    public void renderInTopPanel(SpriteBatch sb) {
         super.renderInTopPanel(sb);
 
         if (!relicSelected && !fakeHover) {
