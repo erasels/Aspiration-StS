@@ -14,9 +14,11 @@ public class onUseEnergyRelicPatch {
     )
     public static class onUseEnergyListener {
         public static void Prefix(@ByRef int[] e) {
-            for(AbstractRelic r : AbstractDungeon.player.relics) {
-                if (r instanceof OnEnergyUse) {
-                    e[0] = ((OnEnergyUse) r).onEnergyUse(e[0]);
+            if (e[0] > 0) {
+                for (AbstractRelic r : AbstractDungeon.player.relics) {
+                    if (r instanceof OnEnergyUse) {
+                        e[0] = ((OnEnergyUse) r).onEnergyUse(e[0]);
+                    }
                 }
             }
         }

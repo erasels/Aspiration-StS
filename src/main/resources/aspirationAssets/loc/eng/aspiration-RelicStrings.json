@@ -303,7 +303,7 @@
     "NAME": "Marisa's Skillbook",
     "FLAVOR": "A handwritten tome written by an ordinary, human witch. She must like mushrooms.",
     "DESCRIPTIONS": [
-      "Whenever you lose [E] [REMOVE_SPACE], gain that much #yCharge-up [REMOVE_SPACE].",
+      "Whenever you play a card, gain #yCharge-up equal to its cost+ [REMOVE_SPACE]#b1 [REMOVE_SPACE].",
       " NL NL #yMulticlass Marisa"
     ]
   },
