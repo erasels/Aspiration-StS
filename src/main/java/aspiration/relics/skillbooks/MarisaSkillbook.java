@@ -84,9 +84,11 @@ public class MarisaSkillbook extends SkillbookRelic /*implements OnEnergyUse*/ {
     }
 
     public void triggerChargeup(int i) {
-        flash();
-        //AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
-        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChargeUpPower(AbstractDungeon.player, i), i));
+        if(i > 0) {
+            flash();
+            //AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
+            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ChargeUpPower(AbstractDungeon.player, i), i));
+        }
     }
 
     public AbstractRelic makeCopy() {

@@ -344,12 +344,14 @@ public class Aspiration implements
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
-        BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
-        BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
+        //Both of these are boring TODO: Make them less so.
+        //BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
+        //BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
         BaseMod.addRelic(new RandomNobGenerator(), RelicType.SHARED);
         BaseMod.addRelic(new FaultyCoupler(), RelicType.SHARED);
         BaseMod.addRelic(new ChemicalBlood(), RelicType.SHARED);
         BaseMod.addRelic(new SecretTechniqueScroll(), RelicType.SHARED);
+        BaseMod.addRelic(new HiddenCompartment(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);

@@ -1,5 +1,6 @@
 package aspiration.Utility;
 
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -57,5 +58,16 @@ public class RelicUtils {
     }
     public static boolean removeRelicFromPool(String r) {
         return removeRelicFromPool(r, false);
+    }
+
+    public static boolean deckDescriptionSearch(String[] keywords) {
+        for (AbstractCard c : AbstractDungeon.player.masterDeck.group) {
+            for (String keyword : keywords) {
+                if (c.rawDescription.toLowerCase().contains(keyword.toLowerCase())) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

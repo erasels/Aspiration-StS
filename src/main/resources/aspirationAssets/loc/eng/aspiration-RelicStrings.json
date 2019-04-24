@@ -481,6 +481,15 @@
       " additional card. Whenever you shuffle your discard pile, add #b",
       " random cards to your draw pile. They cost #b0 until played."
     ]
+  },
+  "aspiration:HiddenCompartment": {
+    "NAME": "Hidden Compartment",
+    "FLAVOR": "There is no shame in deception.",
+    "DESCRIPTIONS": [
+      "At the start of each combat, remove a card from your draw pile. The first time you shuffle your draw pile, add this card into your hand.",
+      " NL NL Stored: ",
+      "Pick a card to put into your hand the first time you shuffle your draw pile!"
+    ]
   }
 }
  
