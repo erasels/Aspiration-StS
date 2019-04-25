@@ -58,7 +58,7 @@ Weaker version of "Poet's Pen": Draw the top card of your draw pile when you pla
 
 "Sticky Explosives": Apply a debuff to the first monster you hit on your first turn. Dealing unblocked attack damage to that monster will deal 30% of the received damage to all monsters. The debuff expires if the monster isn't attacked every turn.
 
-Weak version of "Sticky Explosives": Applies a power that expires after three turns dealing 25% of the unblocked attack damage the owner receives to all enemies, to the first enemy attack this combat.
+Weak version of "Sticky Explosives": Applies a power that expires after three turns dealing 30% of the unblocked attack damage the owner receives to all enemies, to the first enemy attack this combat.
 
 "Frozen jewel": At the end of your turn, gain 2 Block for every enemy that intends to attack. Gain Blur if there are multiple enemies and all intend to attack.
 
@@ -93,6 +93,10 @@ Weak version of "Sticky Explosives": Applies a power that expires after three tu
 Not a new relic, but you can now grant Wing Boots 3 additional charges as a campfire action.
 
 "Secret Technique Scroll": Draw 1 additional card at the start of each turn. Whenever you shuffle your discard pile, shuffle three random cards into your draw pile. They cost 0 until played.
+
+"Hidden Compartment": At the start of each combat, remove a card from your draw pile. The first time you shuffle your draw pile, add this card into your hand.
+
+"Hat of Infinite Power": The first time you would lose more than 1 each turn, lose only 1 instead.
 
 ##Crossover relics:
 Relics that are only enabled if you have the corresponding mods:

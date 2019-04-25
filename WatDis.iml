@@ -136,5 +136,14 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.evacipated.cardcrawl.mod:hubris:0.22.0">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/Hubris.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

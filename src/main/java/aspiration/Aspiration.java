@@ -85,6 +85,7 @@ public class Aspiration implements
     public static final boolean hasVex;
     public static final boolean hasScribe;
     public static final boolean hasAnimator;
+    public static final boolean hasHubris;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -126,6 +127,10 @@ public class Aspiration implements
         hasAnimator = Loader.isModLoaded("eatyourbeetsvg-theanimator");
         if (hasAnimator) {
             Aspiration.logger.info("Detected Character: The Animator");
+        }
+        hasHubris = Loader.isModLoaded("hubris");
+        if (hasHubris) {
+            Aspiration.logger.info("Detected Mod: Hubris");
         }
     }
 
@@ -375,6 +380,7 @@ public class Aspiration implements
         BaseMod.addRelic(new ChemicalBlood(), RelicType.SHARED);
         BaseMod.addRelic(new SecretTechniqueScroll(), RelicType.SHARED);
         BaseMod.addRelic(new HiddenCompartment(), RelicType.SHARED);
+        BaseMod.addRelic(new HatOfInfinitePower(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);

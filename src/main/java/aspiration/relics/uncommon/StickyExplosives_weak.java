@@ -14,7 +14,7 @@ public class StickyExplosives_weak extends AspirationRelic{
     public static final String ID = "aspiration:StickyExplosives_weak";
 
     private boolean applied = false;
-    private static final float percentagAftershock = 0.25f;
+    private static final float percentagAftershock = 0.30f;
     private static final int turnAmt = 3;
 
     public StickyExplosives_weak() {

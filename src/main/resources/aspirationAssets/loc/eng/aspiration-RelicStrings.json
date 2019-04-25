@@ -490,6 +490,13 @@
       " NL NL Stored: ",
       "Pick a card to put into your hand the first time you shuffle your draw pile!"
     ]
+  },
+  "aspiration:HatOfInfinitePower": {
+    "NAME": "Hat of Infinite Power",
+    "FLAVOR": "It's brimming with energy as if powered by one thousand explosions!",
+    "DESCRIPTIONS": [
+      "The first time you would lose more than #b1 [E] each turn, lose [E] instead."
+    ]
   }
 }
  
