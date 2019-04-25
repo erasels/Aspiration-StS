@@ -14,11 +14,12 @@
   },
   "aspiration:ModButtonText": {
     "TEXT": [
-      "Make the Poet's Pen boss relic weaker.",
-      "Make Nostalgia an Uncommon relic. (instead of Shop)",
-      "Allow Skillbook relics to add cards from the class they're based on to the card rewards.",
-      "Allow the \"Random Nob Generator\" boss relic to spawn.",
-      "Make the Sticky Explosives uncommon relic weaker."
+      "Weaken Poet's Pen boss relic?",
+      "Nostalgia uncommon relic (instead of shop)?",
+      "Allow Skillbook relics to add cards from the class they're based on to the card rewards?",
+      "Allow the \"Random Nob Generator\" boss relic to spawn?",
+      "Weaken Sticky Explosives uncommon relic?",
+      "Reduce the Hummingbird's Heart relic's visual effect?"
     ]
   },
   "aspiration:NeowRewards": {

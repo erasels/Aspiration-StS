@@ -1,6 +1,8 @@
 package aspiration.powers;
 
+import aspiration.Aspiration;
 import aspiration.powers.abstracts.AspirationPower;
+import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
@@ -8,8 +10,9 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 
-public class HoverPower extends AspirationPower {
+public class HoverPower extends AspirationPower implements CloneablePowerInterface {
     public static final String POWER_ID = "aspiration:Hover";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
@@ -33,13 +36,15 @@ public class HoverPower extends AspirationPower {
 
     @Override
     public void updateDescription() {
-        description = DESCRIPTIONS[0] + MathUtils.round(DMG_MULTI*100) + DESCRIPTIONS[1];
+        description = DESCRIPTIONS[0] + MathUtils.round(DMG_MULTI * 100) + DESCRIPTIONS[1];
     }
 
     @Override
-    public void onInitialApplication(){
+    public void onInitialApplication() {
         if (AbstractDungeon.player != null) {
-            if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(10);
+            if(!Aspiration.hoverSpeed()) {
+                if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(10);
+            }
             initialPlayerHeight = AbstractDungeon.player.drawY;
             AbstractDungeon.player.drawY += Settings.HEIGHT * FLY_HEIGHT * Settings.scale;
         }
@@ -67,11 +72,18 @@ public class HoverPower extends AspirationPower {
     public void onRemove() {
         if (AbstractDungeon.player != null) {
             AbstractDungeon.player.drawY = initialPlayerHeight;
-            if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(1);
+            if(!Aspiration.hoverSpeed()) {
+                if (AbstractDungeon.player.state != null) AbstractDungeon.player.state.setTimeScale(1);
+            }
         }
     }
 
     public static String getDesc() {
-        return DESCRIPTIONS[0] + MathUtils.round(DMG_MULTI*100) + DESCRIPTIONS[1];
+        return DESCRIPTIONS[0] + MathUtils.round(DMG_MULTI * 100) + DESCRIPTIONS[1];
+    }
+
+    @Override
+    public AbstractPower makeCopy() {
+        return new HoverPower(owner);
     }
 }

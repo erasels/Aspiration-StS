@@ -140,6 +140,7 @@ public class Aspiration implements
             defaults.put("uncommonNostalgia", Boolean.toString(false));
             defaults.put("SkillbookCardpool", Boolean.toString(true));
             defaults.put("SpawnRNG", Boolean.toString(false));
+            defaults.put("HoverSpeed", Boolean.toString(false));
             modConfig = new SpireConfig("Aspiration", "Config", defaults);
         } catch (IOException e) {
             e.printStackTrace();
@@ -189,6 +190,14 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("SpawnRNG");
+    }
+
+    public static boolean hoverSpeed()
+    {
+        if (modConfig == null) {
+            return false;
+        }
+        return modConfig.getBool("HoverSpeed");
     }
     
     public static void loadOtherData()
@@ -302,6 +311,20 @@ public class Aspiration implements
                     }
                 });
         settingsPanel.addUIElement(rngButton);
+
+        ModLabeledToggleButton hoverButton = new ModLabeledToggleButton(TEXT[5], 350, 250, Settings.BLUE_TEXT_COLOR, FontHelper.charDescFont, hoverSpeed(), settingsPanel, l -> {},
+                button ->
+                {
+                    if (modConfig != null) {
+                        modConfig.setBool("HoverSpeed", button.enabled);
+                        try {
+                            modConfig.save();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+        settingsPanel.addUIElement(hoverButton);
 
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("img/UI/modBadge.png")), "Aspiration", "Erasels", "A mod, boyo.", settingsPanel);
 
