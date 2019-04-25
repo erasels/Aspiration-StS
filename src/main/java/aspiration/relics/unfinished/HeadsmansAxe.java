@@ -1,4 +1,4 @@
-package aspiration.relics.common;
+package aspiration.relics.unfinished;
 
 import aspiration.powers.CullingPower;
 import aspiration.relics.abstracts.AspirationRelic;

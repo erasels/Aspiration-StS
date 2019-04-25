@@ -1,4 +1,4 @@
-package aspiration.relics.common;
+package aspiration.relics.unfinished;
 
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;

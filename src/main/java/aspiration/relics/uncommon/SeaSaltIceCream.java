@@ -30,6 +30,7 @@ public class SeaSaltIceCream extends AspirationRelic {
     private RelicSelectScreen relicSelectScreen;
     private boolean fakeHover = false;
     private static boolean debug = false;
+    private AbstractRoom.RoomPhase roomPhase;
 
     public SeaSaltIceCream() {
         super(ID, "SeaSaltIceCream.png", RelicTier.UNCOMMON, LandingSound.FLAT);
@@ -47,14 +48,13 @@ public class SeaSaltIceCream extends AspirationRelic {
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
         }
+        roomPhase = AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
 
         openRelicSelect();
     }
 
     private void openRelicSelect() {
-        relicSelected = false;
-
         ArrayList<AbstractRelic> relics = new ArrayList<>();
         for (AbstractRelic r : AbstractDungeon.player.relics) {
             if (!r.relicId.equals(ID) && !r.relicId.equals(GrabBag.ID)) {
@@ -64,10 +64,11 @@ public class SeaSaltIceCream extends AspirationRelic {
             }
         }
 
-        relicSelectScreen = new RelicSelectScreen();
-        relicSelectScreen.open(relics);
-
-
+        if (relics.size() > 0) {
+            relicSelected = false;
+            relicSelectScreen = new RelicSelectScreen();
+            relicSelectScreen.open(relics);
+        }
     }
 
     @Override
@@ -91,14 +92,13 @@ public class SeaSaltIceCream extends AspirationRelic {
                 AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(tmp));
 
                 AbstractRelic relic = relicSelectScreen.getSelectedRelics().get(0).makeCopy();
-
                 try {
                     Files.write(Paths.get(getSavePath()), relic.relicId.getBytes());
                 } catch (IOException e) {
                     Aspiration.logger.error(e);
                 }
 
-                AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.COMPLETE;
+                AbstractDungeon.getCurrRoom().phase = roomPhase;
             } else {
                 relicSelectScreen.update();
                 if (!hb.hovered) {

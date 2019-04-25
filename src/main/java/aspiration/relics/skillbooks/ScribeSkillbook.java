@@ -7,6 +7,7 @@ import aspiration.Aspiration;
 import aspiration.GeneralUtility.WeightedList;
 import aspiration.patches.Fields.AbstractPowerScribeBookField;
 import basemod.interfaces.CloneablePowerInterface;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -51,7 +52,7 @@ public class ScribeSkillbook extends SkillbookRelic {
     @Override
     public void onApplyPower(AbstractPower pow, AbstractCreature target, AbstractCreature source) {
         AbstractPlayer p = AbstractDungeon.player;
-        if (pow.type == AbstractPower.PowerType.BUFF && target == p && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !pow.ID.equals(ScribedScrollAcquirePower.POWER_ID)) {
+        if (pow.type == AbstractPower.PowerType.BUFF && target == p && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !(pow instanceof InvisiblePower)) {
             if (firstTrigger) {
                 weightedEFFECTS = new WeightedList<>();
                 weightedEFFECTS.addAll(new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL))), WeightedList.WEIGHT_COMMON);

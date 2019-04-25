@@ -2,6 +2,7 @@ package aspiration.powers;
 
 import aspiration.powers.abstracts.AspirationPower;
 import basemod.interfaces.CloneablePowerInterface;
+import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.OnReceivePowerPower;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
@@ -38,7 +39,7 @@ public class SappedPower extends AspirationPower implements OnReceivePowerPower,
 
     @Override
     public boolean onReceivePower(AbstractPower p, AbstractCreature ptarget, AbstractCreature psource) {
-        if(p.type == PowerType.BUFF && ptarget == owner) {
+        if(p.type == PowerType.BUFF && ptarget == owner && !(p instanceof InvisiblePower)) {
             flash();
             this.onSpecificTrigger();
             return false;

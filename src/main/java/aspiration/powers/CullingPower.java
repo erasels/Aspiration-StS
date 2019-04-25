@@ -2,7 +2,7 @@ package aspiration.powers;
 
 import aspiration.actions.unique.CullingKillCheckAction;
 import aspiration.powers.abstracts.AspirationPower;
-import aspiration.relics.common.HeadsmansAxe;
+import aspiration.relics.unfinished.HeadsmansAxe;
 import basemod.interfaces.CloneablePowerInterface;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
