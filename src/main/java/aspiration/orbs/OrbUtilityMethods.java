@@ -111,7 +111,9 @@ public class OrbUtilityMethods {
                 orbs.add(new Fire());
             }
         } else {
-            orbs.add(new GlassOrb());
+            if(Aspiration.hasReplay) {
+                orbs.add(new GlassOrb());
+            }
         }
 
         return orbs;
