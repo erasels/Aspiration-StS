@@ -112,7 +112,7 @@ Infinite:Tome Of Questing: Whenever you complete a quest, receive a new one.
 
 ##Skillbooks:
 These relics have effects that reference the base archetype of the character they're based on. Furthermore, if it's enabled in the options menu, they allow you to get cards for the character and increase the amount of cards in card rewards by 1.
-Currently implemented: Ironclad, Silent, Defect, Marisa, Servant, Beaked, Runesmith and Spell Scribe.
+Currently implemented: Ironclad, Silent, Defect, Marisa, Servant, Beaked, Runesmith, Spell Scribe and Bard.
 
 ## Dependencies:
 BaseMod: https://github.com/daviscook477/BaseMod/releases  
