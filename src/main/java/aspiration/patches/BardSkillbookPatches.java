@@ -1,8 +1,6 @@
 package aspiration.patches;
 
 import aspiration.relics.skillbooks.BardSkillbook;
-import com.evacipated.cardcrawl.mod.bard.patches.BagPipesCardNotesPreview2Patch;
-import com.evacipated.cardcrawl.mod.bard.patches.BagPipesCardNotesPreviewPatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -11,9 +9,9 @@ import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
 public class BardSkillbookPatches {
-    @SpirePatch(clz = BagPipesCardNotesPreviewPatch.class, method = "Insert1", optional = true)
-    @SpirePatch(clz = BagPipesCardNotesPreviewPatch.class, method = "Insert2", optional = true)
-    @SpirePatch(clz = BagPipesCardNotesPreview2Patch.class, method = "Prefix", optional = true)
+    @SpirePatch(cls = "com.evacipated.cardcrawl.mod.bard.patches.BagPipesCardNotesPreviewPatch", method = "Insert1", optional = true)
+    @SpirePatch(cls = "com.evacipated.cardcrawl.mod.bard.patches.BagPipesCardNotesPreviewPatch", method = "Insert2", optional = true)
+    @SpirePatch(cls = "com.evacipated.cardcrawl.mod.bard.patches.BagPipesCardNotesPreview2Patch", method = "Prefix", optional = true)
     public static class DoNoteEvalIfHasSkillbookMyDude {
         public static ExprEditor Instrument() {
             return new ExprEditor() {
