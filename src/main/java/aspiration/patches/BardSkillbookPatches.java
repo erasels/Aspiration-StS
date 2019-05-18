@@ -11,9 +11,9 @@ import javassist.expr.ExprEditor;
 import javassist.expr.MethodCall;
 
 public class BardSkillbookPatches {
-    @SpirePatch(clz = BagPipesCardNotesPreviewPatch.class, method = "Insert1")
-    @SpirePatch(clz = BagPipesCardNotesPreviewPatch.class, method = "Insert2")
-    @SpirePatch(clz = BagPipesCardNotesPreview2Patch.class, method = "Prefix")
+    @SpirePatch(clz = BagPipesCardNotesPreviewPatch.class, method = "Insert1", optional = true)
+    @SpirePatch(clz = BagPipesCardNotesPreviewPatch.class, method = "Insert2", optional = true)
+    @SpirePatch(clz = BagPipesCardNotesPreview2Patch.class, method = "Prefix", optional = true)
     public static class DoNoteEvalIfHasSkillbookMyDude {
         public static ExprEditor Instrument() {
             return new ExprEditor() {
