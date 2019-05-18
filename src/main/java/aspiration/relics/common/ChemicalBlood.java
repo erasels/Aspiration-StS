@@ -31,8 +31,10 @@ public class ChemicalBlood extends AspirationRelic {
 
     @Override
     public void onLoseHp(int damageAmount) {
-        flash();
-        changeCharge(damageAmount);
+        if(damageAmount > 0) {
+            flash();
+            changeCharge(damageAmount);
+        }
     }
 
     @Override

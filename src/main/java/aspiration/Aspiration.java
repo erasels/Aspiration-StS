@@ -86,6 +86,7 @@ public class Aspiration implements
     public static final boolean hasScribe;
     public static final boolean hasAnimator;
     public static final boolean hasHubris;
+    public static final boolean hasBard;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -131,6 +132,10 @@ public class Aspiration implements
         hasHubris = Loader.isModLoaded("hubris");
         if (hasHubris) {
             Aspiration.logger.info("Detected Mod: Hubris");
+        }
+        hasBard = Loader.isModLoaded("bard");
+        if (hasBard) {
+            Aspiration.logger.info("Detected Character: Bard");
         }
     }
 
@@ -429,6 +434,9 @@ public class Aspiration implements
         }
         if(hasScribe) {
             BaseMod.addRelic(new ScribeSkillbook(), RelicType.SHARED);
+        }
+        if(hasBard) {
+            BaseMod.addRelic(new BardSkillbook(), RelicType.SHARED);
         }
     }
 

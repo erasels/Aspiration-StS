@@ -145,5 +145,14 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.evacipated.cardcrawl.mod:bard:1.0.1">
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../lib/Bard.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>

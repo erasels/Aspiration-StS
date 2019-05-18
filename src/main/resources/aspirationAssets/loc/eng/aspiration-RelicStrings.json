@@ -497,6 +497,16 @@
     "DESCRIPTIONS": [
       "The first time you would lose more than #b1 [E] each turn, lose [E] instead."
     ]
+  },
+  "aspiration:BardSkillbook": {
+    "NAME": "Bard's Skillbook",
+    "FLAVOR": "TODO",
+    "DESCRIPTIONS": [
+      "Each card you play may also #ybard:Queue #ybard:Notes. At the end of your turn, #ybard:Queue a [WildNote] [REMOVE_SPACE].",
+      " NL NL #yMulticlass Bard",
+      "Note Mechanics",
+      "The #yNotes #yQueued depend on the type of the card played and are shown in the card's tooltips."
+    ]
   }
 }
  
