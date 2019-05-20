@@ -507,6 +507,13 @@
       "Note Mechanics",
       "The #yNotes #yQueued depend on the type of the card played and are shown in the card's tooltips."
     ]
+  },
+  "aspiration:Earplugs": {
+    "NAME": "Earplugs",
+    "FLAVOR": "Faith in ones skills is always useful in one way or another.",
+    "DESCRIPTIONS": [
+      "Whenever you would gain #ybard:Inspiration [REMOVE_SPACE], apply that much divided by #b25 as #yWeak and #yVulnerable to a random enemy instead."
+    ]
   }
 }
  

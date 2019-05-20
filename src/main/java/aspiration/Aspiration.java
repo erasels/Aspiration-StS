@@ -13,6 +13,7 @@ import aspiration.relics.boss.*;
 import aspiration.relics.common.*;
 import aspiration.relics.crossovers.*;
 import aspiration.relics.rare.*;
+import aspiration.relics.shop.Earplugs;
 import aspiration.relics.skillbooks.*;
 import aspiration.relics.special.*;
 import aspiration.relics.uncommon.*;
@@ -24,6 +25,7 @@ import basemod.interfaces.*;
 import blackrusemod.patches.AbstractCardEnum;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
@@ -437,6 +439,7 @@ public class Aspiration implements
         }
         if(hasBard) {
             BaseMod.addRelic(new BardSkillbook(), RelicType.SHARED);
+            BaseMod.addRelicToCustomPool(new Earplugs(), Bard.Enums.COLOR);
         }
     }
 
