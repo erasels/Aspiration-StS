@@ -26,18 +26,20 @@ public class Earplugs extends AspirationRelic implements OnReceivePowerRelic {
 
     @Override
     public boolean onReceivePower(AbstractPower p, AbstractCreature target) {
-        if(target == AbstractDungeon.player && p instanceof InspirationPower) {
+        if (target == AbstractDungeon.player && p instanceof InspirationPower) {
             int amt = calcAmt((InspirationPower) p);
-            AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, amt, false), amt));
-            AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, AbstractDungeon.player, new VulnerablePower(m, amt, false), amt));
+            for (int i = 0; i < p.amount; i++) {
+                AbstractMonster m = AbstractDungeon.getCurrRoom().monsters.getRandomMonster(true);
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, AbstractDungeon.player, new WeakPower(m, amt, false), amt));
+                AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(m, AbstractDungeon.player, new VulnerablePower(m, amt, false), amt));
+            }
             return false;
         }
         return true;
     }
 
     private int calcAmt(InspirationPower p) {
-        return p.amount * (p.amount2/25);
+        return (p.amount2 / 25);
     }
 
     public AbstractRelic makeCopy() {

@@ -512,7 +512,7 @@
     "NAME": "Earplugs",
     "FLAVOR": "Faith in ones skills is always useful in one way or another.",
     "DESCRIPTIONS": [
-      "Whenever you would gain #ybard:Inspiration [REMOVE_SPACE], apply that much divided by #b25 as #yWeak and #yVulnerable to a random enemy instead."
+      "Whenever you would gain #ybard:Inspiration [REMOVE_SPACE], apply #b1 #yWeak and #yVulnerable for every #b25 inspiration to a random enemy instead."
     ]
   }
 }
