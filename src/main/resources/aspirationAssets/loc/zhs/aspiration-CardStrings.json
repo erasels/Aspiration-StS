@@ -1,0 +1,16 @@
+{
+  "aspiration:Polymerization": {
+    "NAME": "聚合反应",
+    "DESCRIPTION": "aspiration:融合 你所有的充能球。 NL 消耗 。",
+    "UPGRADE_DESCRIPTION": "aspiration:融合 所有的充能球。 NL 消耗性 !stslib:ex! 。"
+  },
+  "aspiration:Lunge": {
+    "NAME": "箭步",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害，每一名敌人失去 1 点 敏捷 。 NL 消耗 。"
+  },
+  "aspiration:UnbridledHammer": {
+    "NAME": "不羁钢锤",
+    "DESCRIPTION": "对所有敌人造成 !D! 点伤害 X 次。 随机 runesmith:强化 你的一张手牌 X 次。",
+    "UPGRADE_DESCRIPTION": "对所有敌人造成 !D! 点伤害 X+1 次。 随机 runesmith:强化 你的一张手牌 X+1 次。"
+  }
+}

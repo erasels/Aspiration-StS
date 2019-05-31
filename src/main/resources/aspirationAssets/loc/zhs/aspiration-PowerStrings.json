@@ -1,0 +1,83 @@
+{
+  "aspiration:Aftershock": {
+    "NAME": "余震",
+    "DESCRIPTIONS": [
+      "对所有敌人造成他们受到的未被格挡的 #b",
+	  "% 伤害的伤害 。每回合敌人未受到生命损失时 #r无效 。"
+    ]
+  },
+  "aspiration:Awoken": {
+    "NAME": "觉醒",
+    "DESCRIPTIONS": [
+      "回复你造成的 #b",
+	  "% 的未被格挡的攻击伤害。每当一名敌人给予你一层负面状态，获得 #b1 点 #y力量 [REMOVE_SPACE]。"
+    ]
+  },
+  "aspiration:Sapped": {
+    "NAME": "怠惰",
+    "DESCRIPTIONS": [
+      "不能获得接下来的 #b",
+      " 个增益效果。",
+      " 个增益效果。"
+    ]
+  },
+  "aspiration:P_RitualPower": {
+    "NAME": "仪式",
+    "DESCRIPTIONS": [
+      "在你的回合开始时，获得 #b",
+      " 点 #y力量 。"
+    ]
+  },
+  "aspiration:ChannelOrb": {
+    "NAME": "生成",
+    "DESCRIPTIONS": [
+      "在你的 #b",
+      " 回合内，",
+      " 回合内，",
+    ", #y生成 一个随机充能球。"
+    ]
+  },
+  "aspiration:GrievousWounds": {
+    "NAME": "疼痛伤口",
+    "DESCRIPTIONS": [
+      "每当受到未被格挡的伤害，提高 #b",
+      " 伤害 [REMOVE_SPACE]。",
+      " NL 每回合失去一半的层数",
+      " "
+    ]
+  },
+  "aspiration:Befuddled": {
+    "NAME": "眩晕",
+    "DESCRIPTIONS": [
+      "造成的伤害将随机减少 #b0 到 #b",
+      " [REMOVE_SPACE]。",
+      " NL （当前： #b",
+      " [REMOVE_SPACE]）",
+      "层"
+    ]
+  },
+  "aspiration:Culling": {
+    "NAME": "处决",
+    "DESCRIPTIONS": [
+      "每当你一次攻击减少了一名非boss敌人血量的 #b",
+      "% ，直接杀死它。"
+    ]
+  },
+  "aspiration:Hover": {
+    "NAME": "浮空",
+    "DESCRIPTIONS": [
+      "受到的攻击伤害减少 #b",
+      "% 。"
+    ]
+  },
+  "aspiration:Aftershock_weak": {
+    "NAME": "余震",
+    "DESCRIPTIONS": [
+      " #b",
+      " 个回合后，对所有敌人造成 #b",
+      "% 的未被格挡的攻击伤害。",
+      " NL 当前将造成 #b",
+      " 点伤害。"
+    ]
+  }
+}
