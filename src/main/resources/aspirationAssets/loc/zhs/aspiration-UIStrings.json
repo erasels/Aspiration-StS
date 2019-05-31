@@ -1,0 +1,37 @@
+{
+  "aspiration:ArtOfWarUpgradeOption": {
+    "TEXT": [
+      "阅读",
+      "阅读孙子兵法并了解其中的奥秘。",
+      " （剩余： ",
+      "）"
+    ]
+  },
+  "hubris:RelicViewScreen": {
+    "TEXT": [
+      "Placeholder"
+    ]
+  },
+  "aspiration:ModButtonText": {
+    "TEXT": [
+      "削弱BOSS遗物：“诗人羽毛笔”",
+      "商店遗物：“思乡” 变为罕见遗物",
+      "允许遗物：“技能书”向你的卡牌池加入相关牌。",
+      "允许加入BOSS遗物： “随机大块头生成器”",
+      "削弱罕见遗物：“粘性炸药”",
+      "减少遗物：“群鸟之心”的视觉特效"
+    ]
+  },
+  "aspiration:NeowRewards": {
+    "TEXT": [
+      "获得额外的初始遗物"
+    ]
+  },
+  "aspiration:EmpowerWingBootsOption": {
+    "TEXT": [
+      "加强",
+      "加强飞鞋，获得时额外多给 ",
+      " 点充能。"
+    ]
+  }
+}

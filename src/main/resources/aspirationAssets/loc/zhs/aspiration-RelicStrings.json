@@ -1,0 +1,519 @@
+{
+  "aspiration:VileToxins": {
+    "NAME": "极恶毒素",
+    "FLAVOR": "极恶的混合物，甚至让所有有机和无机生物都敬而远之。",
+    "DESCRIPTIONS": [
+      "每当你给予一名没有 #y中毒 的敌人 #y中毒 ，同时给予 #b",
+	  " 层 #y易伤 和 #y虚弱 。"
+    ]
+  },
+  "aspiration:RingOfOuroboros": {
+    "NAME": "衔尾蛇戒",
+    "FLAVOR": "你的戒指突然活了过来并开始自食。激怒它会伤害你但是同时帮助你集中注意力。",
+    "DESCRIPTIONS": [
+      "右键使用，受到 #r",
+	  " 点伤害并抽 #b",
+	  " 张牌。",
+	  "替换 #g蛇之戒指 。 NL ",
+      " NL "
+    ]
+  },
+  "aspiration:InfernalBlood": {
+    "NAME": "地狱之血",
+    "FLAVOR": "你对摧毁的渴望使你的血液变得更加险恶的东西。",
+    "DESCRIPTIONS": [
+      " 你每打出一张 #y技能牌 ，失去 #b",
+	  " 生命,每打出一张 #y攻击牌 ，回复 #b",
+	  " 生命。",
+	  "替换 #r燃烧之血 。 "
+    ]
+  },
+  "aspiration:BursterCore": {
+    "NAME": "爆裂核心",
+    "FLAVOR": "充满能量是会剧烈震动，仿佛下一刻就会爆裂开来。",
+    "DESCRIPTIONS": [
+      "每当你的充能球是因为没有空余的栏位而被 #y激发 时，该充能球 #y激发 两次。",
+	  "替换 #b破损核心 。 "
+    ]
+  },
+  "aspiration:Contagion": {
+    "NAME": "传染病",
+    "FLAVOR": "你患上了某种神秘的疾病。直到你独自扛过去前，这种病痛会让你一直难受。",
+    "DESCRIPTIONS": [
+      "你每给予 #b",
+	  " 层 #y中毒 ，获得 [E] ，每回合最多 #b",
+	  " 次。 NL 你的回合结束时，如果没有敌人 #y被中毒 ，给予你 #b",
+	  " 层 #y中毒 。",
+	  "The Contagion is sated for now。",
+	  " NL NL 本回合能获得 [E] 的次数: #b"
+    ]
+  },
+  "aspiration:SneckoTail": {
+    "NAME": "异蛇尾巴",
+    "FLAVOR": "可怕的异蛇尾巴。它所分泌的液体对毒素的转染很有效。",
+    "DESCRIPTIONS": [
+      "每当你打出一张中毒相关牌，给予敌人 #b",
+      " 层 #y眩晕 。"
+    ]
+  },
+  "aspiration:HummingbirdHeart": {
+    "NAME": "群鸟之心",
+    "FLAVOR": "每分钟跳动一千次。你的心脏的力量变得难以置信，而且似乎没有衰减的意思。",
+    "DESCRIPTIONS": [
+      "每场战斗的前 #b",
+      " 个回合，受到的攻击伤害减少 #b50% 。"
+    ]
+  },
+  "aspiration:Headhunter": {
+    "NAME": "猎头",
+    "FLAVOR": "用于串起断头的皮带，离开这个该死的地方的第一步。",
+    "DESCRIPTIONS": [
+      "每当你杀死一名敌人时，获得 #y充能 。这些 #y充能 的多少决定了你在战斗开始时获得的额外增益效果。进入非怪物房间则根据房间类型获得 #y充能 。 #g右键获得更多相关信息 。",
+      "#y杀死敌人获得的充能： NL 普通： #b",
+      " ， NL 精英： #b",
+      " ， NL Boss: #b",
+      " 。 NL 失去充能的非怪物房： 休息处： #r",
+      " ， NL 商人： #r",
+      " ， NL 未知： #r",
+      " 。",
+      "目前获得的 #y增益效果： ",
+      "已充满"
+    ]
+  },
+  "aspiration:Legacy_Headhunter": {
+    "NAME": "Legacy Headhunter",
+    "FLAVOR": "Such a lucky find! A rarity amongst rarities will surely lead to an exalted run。",
+    "DESCRIPTIONS": [
+      "[Unbalanced and broken, but useable。] 获得 #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
+	  " battles。",
+      "Applied Powers: ",
+      "Energy"
+    ]
+  },
+  "aspiration:AnachronicSnailShell": {
+    "NAME": "时代倒错蜗牛壳",
+    "FLAVOR": "这片蜗牛壳抵抗着时间的流动，以其自相矛盾的速度流动。",
+    "DESCRIPTIONS": [
+      "每当你因受到敌人攻击失去生命时，推迟其一半的伤害到下一回合结束。"
+    ]
+  },
+  "aspiration:SupercapacitiveCoin": {
+    "NAME": "超电容硬币",
+    "FLAVOR": "一种可以储存大量电能的神秘拱廊硬币。 如果充分充能，也许你可以制造一把轨道炮？",
+    "DESCRIPTIONS": [
+	  "消耗全部的充能，对随机一名敌人造成消耗充能数 #b三倍 的伤害。 NL ",
+      "每当你获得金币是，获得 #b",
+	  " 点 #y充能 。",
+	  " NL 每场战斗一次。 NL ",
+	  "",
+      "",
+      "如果你拥有 #g灵体外质 ，则换为每通过一层获得 #b1 点 #y充能 。",
+      " 每通过一层获得充能。",
+      "雷击",
+      "协同： "
+    ]
+  },
+  "aspiration:PoetsPen": {
+    "NAME": "诗人羽毛笔",
+    "FLAVOR": "在每一篇散文中，都有一点神奇的火花。有了这个工具，你甚至可以在这最沉闷的探索中创造出美丽。。",
+    "DESCRIPTIONS": [
+	  "每当你打出一张 #y攻击牌 ，打出抽牌堆的一张牌。 NL 每场战斗开始时，获得 #r",
+	  " 层 #y虚弱 ， #y脆弱 和 #y易伤 ， 根据 #y经验 降低上面的获得 。",
+	  "#b1 每 #b",
+	  " 层获得或者杀死BOSS时获得 #b1 点。",
+      "经验"
+    ]
+  },
+  "aspiration:PoetsPen_weak": {
+    "NAME": "诗人羽毛笔",
+    "FLAVOR": "在每一篇散文中，都有一点神奇的火花。有了这个工具，你甚至可以在这最沉闷的探索中创造出美丽。",
+    "DESCRIPTIONS": [
+	  "每当你打出一张 #y攻击牌 ，如果你的抽牌堆顶部是 #y攻击牌 ，将它打出。不是则丢弃。"
+    ]
+  },
+  "aspiration:EnhancedActuators": {
+    "NAME": "强化传动器",
+    "FLAVOR": "多传……多……得？",
+    "DESCRIPTIONS": [
+	  "获得 #b",
+	  " 点 #y力量 （充能球栏位数除以 #b",
+	  " ）。"
+    ]
+  },
+  "aspiration:MysteriousAuxiliaryCore": {
+    "NAME": "神秘核心",
+    "FLAVOR": "次级系统报告了异常电荷的产生。建议观察。",
+    "DESCRIPTIONS": [
+	  "每个偶数回合结束时， #y生成 #b",
+	  " 个随机充能球。"
+    ]
+  },
+  "aspiration:FetidBarrel": {
+    "NAME": "恶臭油桶",
+    "FLAVOR": "即使是严格密封也挡不出渗出来的恶臭。",
+    "DESCRIPTIONS": [
+	  "每当你 #y消耗 一张牌，给予所有敌人 #b",
+	  " 层 #y中毒 。"
+    ]
+  },
+  "aspiration:BabyByrd": {
+    "NAME": "异鸟幼崽",
+    "FLAVOR": "不管是好是坏，你已经决定这个不受污染的生物应该得到更好的生活。",
+    "DESCRIPTIONS": [
+	  "教你的小伙伴如何使用工具，它会有样学样， NL NL （足够充能时，每场战斗开始时根据职业不同会有不同的行动。）",
+	  "瞄准弱点！",
+	  "耐心点，小家伙。",
+	  "让我们杀死这些杂鱼！",
+	  "。。。",
+	  "。。",
+	  "。",
+	  "说得好。",
+	  "迷人。",
+	  "成长是一个最佳的过程。"
+    ]
+  },
+  "aspiration:StickyExplosives": {
+    "NAME": "粘性炸药",
+    "FLAVOR": "你身后可有着攻击和爆炸之力！",
+    "DESCRIPTIONS": [
+	  "每场战斗的第一回合，给予你第一个攻击的敌人 #y余震 。"
+    ]
+  },
+  "aspiration:FrozenJewel": {
+    "NAME": "冰冻珠宝",
+    "FLAVOR": "在你麻木的拥抱中，它以令人欣慰的能量跳动。",
+    "DESCRIPTIONS": [
+	  "你的回合结束时，每有一名敌人的意图是攻击，获得 #b",
+	  " 点 #y格挡 。如果全部的敌人的意图都是敌人，获得 #y残影 。"
+    ]
+  },
+  "aspiration:EvolvingReagent": {
+    "NAME": "进化药剂",
+    "FLAVOR": "一块神秘的石头，似乎给你的药剂增加了额外的效果。",
+    "DESCRIPTIONS": [
+	  "喝下药水，获得效果！"
+    ]
+  },
+  "aspiration:Lifesprig": {
+    "NAME": "带叶树枝",
+    "FLAVOR": "从最弱的粘液到最恐怖的存在，整座高塔都充满了敌意。可能，你也是。",
+    "DESCRIPTIONS": [
+	  "每当你打出 #b",
+	  " 张 #y攻击牌 ， 获得 #b",
+	  " 层 #y再生 。"
+    ]
+  },
+  "aspiration:RitualDagger": {
+    "NAME": "仪式匕首",
+    "FLAVOR": "每做一个动作，你都会感到匕首深深地刺进你的身体。 你害怕自己会变成什么样子。",
+    "DESCRIPTIONS": [
+	  "回合开始时，失去 #r",
+	  " 生命H。",
+	  " 当你在战斗中死亡时，满血复活并获得 #y觉醒 （只能生效一次）。"
+    ]
+  },
+  "aspiration:KaomsHeart": {
+    "NAME": "Kaom's Heart",
+    "FLAVOR": "The warrior who fears, will fail。 Never look back。 Never stop。 Never surrender。",
+    "DESCRIPTIONS": [
+	  "Raise your Max HP by #b",
+	  " and #rbecome #runable #rto #robtain #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN 。"
+    ]
+  },
+  "aspiration:KMNothing": {
+    "NAME": "没啥",
+    "FLAVOR": "我已经说过了。",
+    "DESCRIPTIONS": [
+      "真的啥都没有。"
+    ]
+  },
+  "aspiration:Nostalgia": {
+    "NAME": "思乡",
+    "FLAVOR": "梦开始的地方。",
+    "DESCRIPTIONS": [
+	  "拾起时，获得随机一件 #y初始遗物 。"
+    ]
+  },
+  "aspiration:InnerPendulum": {
+    "NAME": "内摆",
+    "FLAVOR": "合格的战士知道何时出击何时退缩。",
+    "DESCRIPTIONS": [
+      "每 #b",
+      " 个回合，获得 #y人工制品 或 #y怠惰 。"
+    ]
+  },
+  "aspiration:RitualStick": {
+    "NAME": "仪式匕首",
+    "FLAVOR": "如果你能更好地表现自己。",
+    "DESCRIPTIONS": [
+      "每场战斗第一次失去生命时，获得 #b",
+      " 层 #y仪式 。",
+      "咔咔"
+    ]
+  },
+  "aspiration:TrainingWeights": {
+    "NAME": "训练负重",
+    "FLAVOR": "警告： 使用前请先咨询专业人士。 除非被治疗者认为安全，否则不要服用药剂。",
+    "DESCRIPTIONS": [
+      "没回合开始时获得 [E] 。 每场战斗开始获得 #b",
+      " 层 #y怠惰 。"
+    ]
+  },
+  "aspiration:ArtOfWarUpgrade": {
+    "NAME": "孙子兵法（阅）",
+    "FLAVOR": "这本古籍包含了先人的智慧，你已经内容熟记于心。",
+    "DESCRIPTIONS": [
+      "如果你在你的回合没有打出 #y攻击牌 。下一回合， 获得 [E] 并造成 #y双倍 伤害。"
+    ]
+  },
+  "aspiration:SeaSaltIceCream": {
+    "NAME": "海盐冰淇淋",
+    "FLAVOR": "心所铸的纽带永不破碎。",
+    "DESCRIPTIONS": [
+      "拾起时，存起一件你已有的遗物并获得上次存储的遗物。 NL NL 上次存了： NL "
+    ]
+  },
+  "aspiration:FutureDiary": {
+    "NAME": "未来日记",
+    "FLAVOR": "如果你的未来掌握在手中，就很难活在当下。",
+    "DESCRIPTIONS": [
+      "每回合开始时获得 [E] 。 NL 每回合开始时，你手牌中的一张牌会被选中。当这张牌在你的手牌时，你不能打出其他牌。",
+      "我必须打出 ",
+      "。"
+    ]
+  },
+  "aspiration:EmptySkull": {
+    "NAME": "空头骨",
+    "FLAVOR": "曾经伟大、头脑空虚的哲学家的头骨。",
+    "DESCRIPTIONS": [
+      "每当你打出你手牌最后一张牌，将一张 #y灵感 加入你的抽牌堆。"
+    ]
+  },
+  "aspiration:Skillbook": {
+    "NAME": "多职业关键词",
+    "FLAVOR": "This shouldn't be seen。",
+    "DESCRIPTIONS": [
+      "多职业",
+      "相关职业的牌会出现。在选奖励牌时，可供选择的牌数增加 #b1 张。",
+      "（你已经在选项中禁用卡池混合）在选奖励牌时，可供选择的牌数增加 #b1 张。",
+      " NL NL #y多职业： "
+    ]
+  },
+  "aspiration:MarisaSkillbook": {
+    "NAME": "魔理莎的技能书",
+    "FLAVOR": "一本由普通的人类魔法使手写的大部头书。她肯定喜欢蘑菇。",
+    "DESCRIPTIONS": [
+      "每当你打出一张牌，获得等于费用+ #b1 层 #y蓄力 。",
+      " NL NL #y多职业： 魔理莎"
+    ]
+  },
+  "aspiration:IroncladSkillbook": {
+    "NAME": "铁甲战士技能书",
+    "FLAVOR": "这本破烂的书籍中潦草的内容似乎是由一个愤怒的存在写下的。",
+    "DESCRIPTIONS": [
+      "在你的回合结束时，如果你拥有大于 #b",
+      " 点 #y格挡 ， 获得 #b",
+      " 点 #y力量 。每场战斗结束后，回复 #b",
+      " 生命。",
+      " NL NL #y多职业： 铁甲战士"
+    ]
+  },
+  "aspiration:DefectSkillbook": {
+    "NAME": "故障机器技能书",
+    "FLAVOR": "每一页都填满了不明所以的0和1，这些是什么意思呢？",
+    "DESCRIPTIONS": [
+      "每回合开始时， 获得 #b",
+      " 个充能球栏位并 #y生成 等量的随机充能球。 NL 每当你打出一张 #y能力牌 ， #b",
+      " 个回合开始时，#y生成 一个随机充能球s。",
+      " NL NL #y多职业： 故障机器人"
+    ]
+  },
+  "aspiration:SilentSkillbook": {
+    "NAME": "静默猎手技能书",
+    "FLAVOR": "书页上写满了如何处理这个地方的信息。和作者的谈话的话应该会很有启发。",
+    "DESCRIPTIONS": [
+      "每回合，每当你打出大于等于 #b",
+      " 张牌时，丢弃任意数量的手牌并抽等量的牌。",
+      " NL NL #y多职业： 静默猎手"
+    ]
+  },
+  "aspiration:ServantSkillbook": {
+    "NAME": "凛光侍从技能书",
+    "FLAVOR": "一份如何打扫一个……城堡？的简洁清单。 纸面潇洒。",
+    "DESCRIPTIONS": [
+      "每回合开始时，上一回合如果没有损失生命， 获得 #b",
+      " 层 #y卫星 。 每当使用一层 #y卫星 ，获得等于它伤害的 #y护盾 。",
+      " NL NL #y多职业： 凛光侍从"
+    ]
+  },
+  "aspiration:BeakedSkillbook": {
+    "NAME": "Beaked's 技能书",
+    "FLAVOR": "These religious texts depict the awakening of the \"Chosen One\" before devolving into nonesense。",
+    "DESCRIPTIONS": [
+      "At the start of each turn, if you only played #yattacks last turn, 获得 #b",
+      " #yStrength and heal HP equal to your #yStrength 。",
+      " NL NL #y多职业： Beaked"
+    ]
+  },
+  "aspiration:MobileForge": {
+    "NAME": "移动铸造台",
+    "FLAVOR": "一个像是宠物一般的机器你的攀登路上一直尾随。",
+    "DESCRIPTIONS": [
+      "每当你打出一张 #y已升级 的牌，将你手牌中随即一张牌 #yrunesmith:强化 。 每当你打出一张 #y已强化 的牌，将你手牌中随即一张牌 #y升级 。"
+    ]
+  },
+  "aspiration:RunesmithSkillbook": {
+    "NAME": "符文工匠技能书",
+    "FLAVOR": "这似乎是一个初学者指南奥秘伪造。铁锤的部分有十分详尽的描写。",
+    "DESCRIPTIONS": [
+      "每回合你打出的第一张 #y攻击牌 ，每个之前回合没有打出 #y攻击牌 ，将你手牌中的随机一张牌 #yrunesmith:强化 等量次。",
+      " NL NL #y多职业： 符文工匠"
+    ]
+  },
+  "aspiration:TrustyKnives": {
+    "NAME": "可靠的飞刀",
+    "FLAVOR": "如果你因此割伤到你自己就会十分尴尬。",
+    "DESCRIPTIONS": [
+      "每当你失去一把 #y飞刀 , 获得 #b",
+      " 层 #y护盾 。"
+    ]
+  },
+  "aspiration:PocketMushroom": {
+    "NAME": "口袋蘑菇",
+    "FLAVOR": "裙下蘑菇，以防不测。",
+    "DESCRIPTIONS": [
+      "每场战斗第一次受到未被格挡的伤害，造成 #b",
+      " 点反伤。"
+    ]
+  },
+  "aspiration:OniichanSword": {
+    "NAME": "Hmmm",
+    "FLAVOR": "A Mushroom concealed in your skirt in case of danger。",
+    "DESCRIPTIONS": [
+      "每场战斗第一次受到未被格挡的伤害，造成 #b"
+    ]
+  },
+  "aspiration:TomeofQuesting": {
+    "NAME": "探索宝典",
+    "FLAVOR": "为什么它总是催促我快点到下一层？",
+    "DESCRIPTIONS": [
+      "每当你完成了一个任务，获得一个新的。"
+    ]
+  },
+  "aspiration:Stabinomicon": {
+    "NAME": "扎人的书",
+    "FLAVOR": "戳刺，戳刺，戳刺！",
+    "DESCRIPTIONS": [
+      "每当你造成未被格挡的伤害，给予目标 #b",
+      " 层 #y疼痛伤口 。",
+      "让我开始戳点东西。",
+      "戳刺 "
+    ]
+  },
+  "aspiration:HeadsmansAxe": {
+    "NAME": "刽子斧",
+    "FLAVOR": "接受你的命运，亦或是谎言佯装。 死亡都将为它们画上句号。",
+    "DESCRIPTIONS": [
+      "每当你一次攻击将你一名非BOSS敌人的生命降低 #b",
+      "% ，直接击杀。"
+    ]
+  },
+  "aspiration:HangmansNoose": {
+    "NAME": "刽子吊绳",
+    "FLAVOR": "努力摆脱不可避免的事情只会加速它的发展。",
+    "DESCRIPTIONS": [
+      "Whenever an enemy below or at #b50% HP attacks, it loses #b",
+      " HP。"
+    ]
+  },
+  "aspiration:RandomNobGenerator": {
+    "NAME": "随机大块头生成器",
+    "FLAVOR": "我们花了那么多时间来看看是否可以，我们没有考虑是否应该。",
+    "DESCRIPTIONS": [
+      "每回合开始时获得 [E] [E] 。每场战斗开始时，有 #b",
+      "% 的概率生成一个 #r地精大块头 。"
+    ]
+  },
+  "aspiration:Stellarator": {
+    "NAME": "仿星器",
+    "FLAVOR": "能插入的话谁会想要推球呢！",
+    "DESCRIPTIONS": [
+      "每当你向一个有充能球的栏位 #y生成 充能球时， #y激发 下一位的充能球并 #yaspiration:融合 全部剩余的充能球。"
+    ]
+  },
+  "aspiration:FaultyCoupler": {
+    "NAME": "故障耦合器",
+    "FLAVOR": "…… 孤独的……只有……敌人……",
+    "DESCRIPTIONS": [
+      "每当你 #y生成 一个充能球，会有 #b",
+      "% 的概率 #yaspiration:融合 一个目前所 #y生成 的充能球的复制。"
+    ]
+  },
+  "aspiration:ChemicalBlood": {
+    "NAME": "化学之血",
+    "FLAVOR": "易燃。",
+    "DESCRIPTIONS": [
+      "每当你失去等于你最大生命的 #b",
+      "% 的生命，获得一瓶随机药水。",
+      "Can't carry all your blood!"
+    ]
+  },
+  "aspiration:StickyExplosives_weak": {
+    "NAME": "粘性炸药",
+    "FLAVOR": "你身后可有着攻击和爆炸之力！",
+    "DESCRIPTIONS": [
+      "每场战斗第一次你攻击的敌人，给予 #y余震 。"
+    ]
+  },
+  "aspiration:ScribeSkillbook": {
+    "NAME": "Spell Scribe's 技能书",
+    "FLAVOR": "一本满是各种咒语的大部头书。",
+    "DESCRIPTIONS": [
+      "每当你获得一个增益效果，获得随机一种 #yscribe:Spell_Effect 。",
+      " NL NL #y多职业： Spell Scribe"
+    ]
+  },
+  "aspiration:SecretTechniqueScroll": {
+    "NAME": "小抄",
+    "FLAVOR": "\"跟我保证你这辈子都别用\" - 老师",
+    "DESCRIPTIONS": [
+      "你的回合开始时，额外抽 #b",
+      " 张牌。NL 每次洗牌时，将 #b",
+      " 张随机牌加入你的抽牌堆。他们在打出前费用为 #b0 。"
+    ]
+  },
+  "aspiration:HiddenCompartment": {
+    "NAME": "隐藏隔层",
+    "FLAVOR": "出千无耻",
+    "DESCRIPTIONS": [
+      "每场战斗开始时，移除以抽牌堆的一张牌。第一次洗牌时将这张牌加入你的手牌。",
+      " NL NL 暂存： ",
+      "选择一张牌在你第一次洗牌时加入你的手牌。"
+    ]
+  },
+  "aspiration:HatOfInfinitePower": {
+    "NAME": "无限帽子",
+    "FLAVOR": "它充满了能量，甚至感觉能放一千次爆裂魔法！",
+    "DESCRIPTIONS": [
+      "每回合，你第一次将要失去超过一费时，只失去 [E] 。"
+    ]
+  },
+  "aspiration:BardSkillbook": {
+    "NAME": "游吟诗人技能书",
+    "FLAVOR": "要做到：",
+    "DESCRIPTIONS": [
+      "每当你演奏是， #ybard:谱曲 一个 #ybard:音符 。 你的回合结束时， #ybard:谱曲 一个 [WildNote] 。",
+      " NL NL #y多职业： 游吟诗人",
+      "Note Mechanics",
+      "The #yNotes #yQueued depend on the type of the card played and are shown in the card's tooltips。"
+    ]
+  },
+  "aspiration:Earplugs": {
+    "NAME": "耳塞",
+    "FLAVOR": "对一个技能的信心在某种程度上总是有用的。。",
+    "DESCRIPTIONS": [
+      "每当你将获得 #ybard:灵感 ，替换为每 #b25 灵感给予随机一名敌人 #b1 层 #y虚弱 和 #y易伤 。"
+    ]
+  }
+}
+ 
