@@ -114,7 +114,7 @@
     ]
   },
   "aspiration:PoetsPen": {
-    "NAME": "诗人羽毛笔",
+    "NAME": "诗人之笔",
     "FLAVOR": "在每一篇散文中，都有一点神奇的火花。有了这个工具，你甚至可以在这最沉闷的探索中创造出美丽。。",
     "DESCRIPTIONS": [
 	  "每当你打出一张 #y攻击牌 ，打出抽牌堆的一张牌。 NL 每场战斗开始时，获得 #r",
@@ -125,7 +125,7 @@
     ]
   },
   "aspiration:PoetsPen_weak": {
-    "NAME": "诗人羽毛笔",
+    "NAME": "诗人之笔",
     "FLAVOR": "在每一篇散文中，都有一点神奇的火花。有了这个工具，你甚至可以在这最沉闷的探索中创造出美丽。",
     "DESCRIPTIONS": [
 	  "每当你打出一张 #y攻击牌 ，如果你的抽牌堆顶部是 #y攻击牌 ，将它打出。不是则丢弃。"
@@ -213,11 +213,11 @@
     ]
   },
   "aspiration:KaomsHeart": {
-    "NAME": "Kaom's Heart",
-    "FLAVOR": "The warrior who fears, will fail。 Never look back。 Never stop。 Never surrender。",
+    "NAME": "冈姆之心",
+    "FLAVOR": "害怕的战士会失败。永不回头。永不停息。永不投降。",
     "DESCRIPTIONS": [
-	  "Raise your Max HP by #b",
-	  " and #rbecome #runable #rto #robtain #rnew #rrelics #rFOR #rTHE #rENTIRE #rRUN 。"
+	  "提高你的最大生命 #b",
+	  " 你 #r不能获得遗物 。"
     ]
   },
   "aspiration:KMNothing": {
