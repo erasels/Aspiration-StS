@@ -36,6 +36,8 @@ public class NeowRewardPatches {
                     case DEU:
                         tmp = FontHelper.colorString("Erhalte ein zusätzliches Anfängerrelikt", "g");
                         break;
+					case ZHS:
+						tmp = FontHelper.colorString("\u989d\u5916\u83b7\u5f97\u4e00\u4ef6\u521d\u59cb\u9057\u7269", "g");
                     default:
                         tmp = FontHelper.colorString("Obtain an additional Starter Relic", "g");
                 }
