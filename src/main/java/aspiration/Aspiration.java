@@ -483,6 +483,8 @@ public class Aspiration implements
                 return "rus";
             /*case DEU:
                 return "deu";*/
+            case ZHS:
+                return "zhs";
             default:
                 return "eng";
         }

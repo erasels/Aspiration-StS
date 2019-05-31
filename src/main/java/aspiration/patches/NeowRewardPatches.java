@@ -38,6 +38,7 @@ public class NeowRewardPatches {
                         break;
 					case ZHS:
 						tmp = FontHelper.colorString("\u989d\u5916\u83b7\u5f97\u4e00\u4ef6\u521d\u59cb\u9057\u7269", "g");
+						break;
                     default:
                         tmp = FontHelper.colorString("Obtain an additional Starter Relic", "g");
                 }
