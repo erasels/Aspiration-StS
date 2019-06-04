@@ -32,7 +32,7 @@ public class PocketMushroom extends AspirationRelic implements BetterOnLoseHpRel
 
     @Override
     public int betterOnLoseHp(DamageInfo damageInfo, int dmg) {
-        if(!hasTriggered && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) && dmg > 0) {
+        if(!hasTriggered && (AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) && damageInfo.owner != AbstractDungeon.player && dmg > 0) {
             hasTriggered = true;
             stopPulse();
             flash();
