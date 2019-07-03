@@ -26,7 +26,7 @@ public class HiddenCompartmentAction extends AbstractGameAction {
             for (AbstractCard c : this.p.drawPile.group) {
                 tmp.addToRandomSpot(c);
             }
-            tmp.sortByRarity(false);
+            tmp.sortAlphabetically(false);
 
             if (tmp.size() < 2) {
                 this.isDone = true;

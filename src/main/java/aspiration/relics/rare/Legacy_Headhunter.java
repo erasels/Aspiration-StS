@@ -204,7 +204,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     
 	private void fillBuffListBoss(ArrayList<AbstractPower> pl) {
 		pl.add(new BarricadePower(AbstractDungeon.player));								//Don't lose block at end of turn
-		pl.add(new BerserkPower(DESCRIPTIONS[3], AbstractDungeon.player, 1));					//1 more energy gain at start of turn
+		pl.add(new BerserkPower(AbstractDungeon.player, 1));					//1 more energy gain at start of turn
 		pl.add(new DemonFormPower(AbstractDungeon.player, 3));							//Gain 3 strength at the start of your turn
 		pl.add(new DoubleDamagePower(AbstractDungeon.player, 10, false));				//Deal double damage for the next 10 turns
 		pl.add(new InfiniteBladesPower(AbstractDungeon.player, (BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.masterHandSize)));	//At the start of your turn, add as many Shivs as you can have in your hand

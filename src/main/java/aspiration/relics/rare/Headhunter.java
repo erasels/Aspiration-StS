@@ -1,7 +1,8 @@
 package aspiration.relics.rare;
 
-import java.util.ArrayList;
-
+import aspiration.relics.abstracts.AspirationRelic;
+import basemod.BaseMod;
+import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.SuperRareRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -11,57 +12,14 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.powers.AfterImagePower;
-import com.megacrit.cardcrawl.powers.AmplifyPower;
-import com.megacrit.cardcrawl.powers.AngryPower;
-import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.powers.BarricadePower;
-import com.megacrit.cardcrawl.powers.BerserkPower;
-import com.megacrit.cardcrawl.powers.BufferPower;
-import com.megacrit.cardcrawl.powers.BurstPower;
-import com.megacrit.cardcrawl.powers.CombustPower;
-import com.megacrit.cardcrawl.powers.ConfusionPower;
-import com.megacrit.cardcrawl.powers.CreativeAIPower;
-import com.megacrit.cardcrawl.powers.DarkEmbracePower;
-import com.megacrit.cardcrawl.powers.DemonFormPower;
-import com.megacrit.cardcrawl.powers.DexterityPower;
-import com.megacrit.cardcrawl.powers.DoubleDamagePower;
-import com.megacrit.cardcrawl.powers.DoubleTapPower;
-import com.megacrit.cardcrawl.powers.DrawPower;
-import com.megacrit.cardcrawl.powers.EchoPower;
-import com.megacrit.cardcrawl.powers.EnvenomPower;
-import com.megacrit.cardcrawl.powers.FeelNoPainPower;
-import com.megacrit.cardcrawl.powers.FireBreathingPower;
-import com.megacrit.cardcrawl.powers.GrowthPower;
-import com.megacrit.cardcrawl.powers.HeatsinkPower;
-import com.megacrit.cardcrawl.powers.HelloPower;
-import com.megacrit.cardcrawl.powers.InfiniteBladesPower;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
-import com.megacrit.cardcrawl.powers.InvinciblePower;
-import com.megacrit.cardcrawl.powers.JuggernautPower;
-import com.megacrit.cardcrawl.powers.MagnetismPower;
-import com.megacrit.cardcrawl.powers.MayhemPower;
-import com.megacrit.cardcrawl.powers.MetallicizePower;
-import com.megacrit.cardcrawl.powers.NoxiousFumesPower;
-import com.megacrit.cardcrawl.powers.PanachePower;
-import com.megacrit.cardcrawl.powers.PlatedArmorPower;
-import com.megacrit.cardcrawl.powers.RepairPower;
-import com.megacrit.cardcrawl.powers.RitualPower;
-import com.megacrit.cardcrawl.powers.SadisticPower;
-import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.powers.TheBombPower;
-import com.megacrit.cardcrawl.powers.ThornsPower;
-import com.megacrit.cardcrawl.powers.ThousandCutsPower;
+import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 import com.megacrit.cardcrawl.rooms.ShopRoom;
 
-import aspiration.relics.abstracts.AspirationRelic;
-import basemod.BaseMod;
-import basemod.abstracts.CustomSavable;
+import java.util.ArrayList;
 
 public class Headhunter extends AspirationRelic implements CustomSavable<Integer>, SuperRareRelic, ClickableRelic{
 	public static final String ID = "aspiration:Headhunter";
@@ -217,7 +175,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     		buffList.add(new FireBreathingPower(AbstractDungeon.player, 3));						//Deal 3 damage for each attack played this turn, every turn
     		buffList.add(new EnvenomPower(AbstractDungeon.player, 1));								//Whenever you deal unblocked damage apply 2 poison
     	} else if (31 <= charge && charge <=33) {
-    		buffList.add(new BerserkPower(DESCRIPTIONS[9], AbstractDungeon.player, 1));					//1 more energy gain at start of turn
+    		buffList.add(new BerserkPower(AbstractDungeon.player, 1));					//1 more energy gain at start of turn
     		buffList.add(new EnvenomPower(AbstractDungeon.player, 1));								//Whenever you deal unblocked damage apply 1 poison
     		buffList.add(new NoxiousFumesPower(AbstractDungeon.player, 1));							//At the end of your turn apply 1 poison to all enemies
     		buffList.add(new SadisticPower(AbstractDungeon.player, 3));								//Deal 3 damage every time you apply a debuff
@@ -251,10 +209,10 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     		buffList.add(new DoubleTapPower(AbstractDungeon.player, 3));							//This turn Next 3 Attacks played twice
     	} else if (55 <= charge && charge <=57) {
     		buffList.add(new DrawPower(AbstractDungeon.player, 3)); 								//Draw 3 more cards every turn
-    		buffList.add(new BerserkPower(DESCRIPTIONS[9], AbstractDungeon.player, 2));					//2 more energy gain at start of turn
+    		buffList.add(new BerserkPower(AbstractDungeon.player, 2));					//2 more energy gain at start of turn
     	} else if (58 <= charge && charge <=60) {
     		buffList.add(new EchoPower(AbstractDungeon.player, 10));								//Every turn, the first 10 cards you play are played twice
-    		buffList.add(new BerserkPower(DESCRIPTIONS[9], AbstractDungeon.player, 4));					//4 more energy gain at start of turn
+    		buffList.add(new BerserkPower(AbstractDungeon.player, 4));					//4 more energy gain at start of turn
     		buffList.add(new DrawPower(AbstractDungeon.player, (BaseMod.MAX_HAND_SIZE - AbstractDungeon.player.masterHandSize))); 	//Draw cards boi
     		buffList.add(new ConfusionPower(AbstractDungeon.player));								//Randomized card costs
     	} else if (charge > 60) {
