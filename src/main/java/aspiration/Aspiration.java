@@ -341,7 +341,7 @@ public class Aspiration implements
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("img/UI/modBadge.png")), "Aspiration", "Erasels", "A mod, boyo.", settingsPanel);
 
     	
-        BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class);
+        BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class, TheCity.ID);
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
         BaseMod.addEvent(MeetingTheSilent.ID, MeetingTheSilent.class);
