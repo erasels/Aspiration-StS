@@ -8,6 +8,7 @@ import infinitespire.InfiniteSpire;
 import infinitespire.abstracts.Quest;
 import infinitespire.effects.QuestLogUpdateEffect;
 import infinitespire.helpers.QuestHelper;
+import infinitespire.quests.endless.EndlessQuestPart1;
 
 public class TomeofQuesting extends AspirationRelic /*implements OnQuestRemovedSubscriber*/ {
     public static final String ID = "aspiration:TomeofQuesting";
@@ -32,8 +33,10 @@ public class TomeofQuesting extends AspirationRelic /*implements OnQuestRemovedS
         }
     }*/
 
-    @Override
-    public void onTrigger() {
+    public void onTrigger(Quest q) {
+        if(q instanceof EndlessQuestPart1) {
+            return;
+        }
         try {
             //AbstractDungeon.actionManager.addToBottom(new AddQuestAction(QuestHelper.getRandomQuestClass(quest.rarity).createNew()));
             int infPrevention = 0;
@@ -50,13 +53,17 @@ public class TomeofQuesting extends AspirationRelic /*implements OnQuestRemovedS
             Aspiration.logger.info(quest.id + " is valid and will be added. Doesnt have quest: " + String.valueOf(!InfiniteSpire.questLog.hasQuest(quest)) + " | Quest type isnt full: " + String.valueOf(InfiniteSpire.questLog.getAmount(quest.type) < 7));
 
             if (!InfiniteSpire.questLog.hasQuest(quest) && InfiniteSpire.questLog.getAmount(quest.type) < 7) {
-                InfiniteSpire.questLog.add(quest.createNew());
-                AbstractDungeon.topLevelEffects.add(new QuestLogUpdateEffect());
-                InfiniteSpire.publishOnQuestAdded(quest);
+                addQuest(quest);
             }
         } catch (Exception e) {
             Aspiration.logger.info(e);
         }
+    }
+
+    public void addQuest(Quest q) {
+        InfiniteSpire.questLog.add(q.createNew());
+        AbstractDungeon.topLevelEffects.add(new QuestLogUpdateEffect());
+        InfiniteSpire.publishOnQuestAdded(q);
     }
 
     public AbstractRelic makeCopy() {
