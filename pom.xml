@@ -1,147 +1,185 @@
-<?xml version="1.0"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0">
-
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+
+    <!--Hello! You'll basically should only need to change these names and the steam path (just below)-->
+    <!--The author name(s) as they appear in MTS and any other comments are in your ModTheSpire.json-->
     <groupId>watdis</groupId>
     <artifactId>WatDis</artifactId>
-    <version>1.0.0</version>
-    <packaging>jar</packaging>
-	
+    <version>1.1.0</version>
     <name>Aspiration</name>
     <description>A mod containing my first attempts at modding.</description>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <SlayTheSpire.version>01-23-2019</SlayTheSpire.version>
+        <ModTheSpire.version>3.8.0</ModTheSpire.version>
+        <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
+        <Steam.path>K:\Steam\steamapps</Steam.path>
+    </properties>
 
     <dependencies>
         <dependency>
             <groupId>com.megacrit.cardcrawl</groupId>
             <artifactId>slaythespire</artifactId>
-            <version>016</version>
+            <version>${SlayTheSpire.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>
+            <systemPath>${Steam.path}/common/SlayTheSpire/desktop-1.0.jar</systemPath>
+            <!--<systemPath>${basedir}/../lib/desktop-1.0.jar</systemPath>-->
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
-            <artifactId>ModTheSpire</artifactId>
-            <version>3.5.0</version>
+            <artifactId>modthespire</artifactId>
+            <version>${ModTheSpire.version}</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1605060445/ModTheSpire.jar</systemPath>
+            <!--<systemPath>${basedir}/../lib/ModTheSpire.jar</systemPath>-->
         </dependency>
         <dependency>
-            <groupId>com.megacrit.cardcrawl</groupId>
+            <groupId>basemod</groupId>
+            <artifactId>basemod</artifactId>
+            <version>5.0.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1605833019/BaseMod.jar</systemPath>
+            <!--<systemPath>${basedir}/../lib/BaseMod.jar</systemPath>-->
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
             <artifactId>StSLib</artifactId>
-            <version>1.14.0</version>
+            <version>1.3.2</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/StSLib.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1609158507/StSLib.jar</systemPath>
+            <!--<systemPath>${basedir}/../lib/StSLib.jar</systemPath>-->
         </dependency>
         <dependency>
-            <groupId>com.evacipated.cardcrawl</groupId>
-            <artifactId>BaseMod</artifactId>
-            <version>5.12.0</version>
-            <scope>system</scope>
-            <systemPath>${basedir}/../lib/BaseMod.jar</systemPath>
-        </dependency>
-		 <!--<dependency>
-			<groupId>stsfriendlyminions</groupId>
-			<artifactId>stsfriendlyminions</artifactId>
-			<version>0.1.1</version>
-			<scope>system</scope>
-			<systemPath>${basedir}/../lib/FriendlyMinions.jar</systemPath>
-		</dependency>-->
-		<dependency>
             <groupId>ThMod</groupId>
             <artifactId>ThMod</artifactId>
             <version>v0.14.17</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/TS05_Marisa.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1614104912/TS05_Marisa.jar</systemPath>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>BlackRuseMods</groupId>
             <artifactId>StS-BlackRuse</artifactId>
             <version>0.9.3</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/BlackRuseMod.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1615745539/BlackRuseMod.jar</systemPath>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>beakedthecultist</groupId>
             <artifactId>BeakedTheCultist</artifactId>
             <version>0.0.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/BeakedTheCultist.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1609820830/BeakedTheCultist.jar</systemPath>
         </dependency>
-	    <dependency>
-               <groupId>therunesmith</groupId>
-               <artifactId>therunesmith</artifactId>
-               <version>v.0.3.2</version>
-               <scope>system</scope>
-               <systemPath>${basedir}/../lib/TheRunesmith.jar</systemPath>
+        <dependency>
+            <groupId>therunesmith</groupId>
+            <artifactId>therunesmith</artifactId>
+            <version>v.0.3.2</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1633549612/TheRunesmith.jar</systemPath>
         </dependency>
-		<dependency>
-               <groupId>ReplayTheSpireMod</groupId>
-               <artifactId>ReplayTheSpireMod</artifactId>
-               <version>2.10.0</version>
-               <scope>system</scope>
-               <systemPath>${basedir}/../lib/ReplayTheSpireMod.jar</systemPath>
+        <dependency>
+            <groupId>ReplayTheSpireMod</groupId>
+            <artifactId>ReplayTheSpireMod</artifactId>
+            <version>2.10.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1610173938/ReplayTheSpireMod.jar</systemPath>
         </dependency>
-		<dependency>
-               <groupId>conspire</groupId>
-               <artifactId>Conspire</artifactId>
-               <version>1.5.5</version>
-               <scope>system</scope>
-               <systemPath>${basedir}/../lib/Conspire.jar</systemPath>
+        <dependency>
+            <groupId>conspire</groupId>
+            <artifactId>Conspire</artifactId>
+            <version>1.5.5</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1612329757/Conspire.jar</systemPath>
         </dependency>
-		<dependency>
-               <groupId>InfiniteSpire</groupId>
-               <artifactId>InfiniteSpire</artifactId>
-               <version>0.15.1</version>
-               <scope>system</scope>
-               <systemPath>${basedir}/../lib/InfiniteSpire.jar</systemPath>
+        <dependency>
+            <groupId>InfiniteSpire</groupId>
+            <artifactId>InfiniteSpire</artifactId>
+            <version>0.15.1</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/1610128058/InfiniteSpire.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>vexMod</groupId>
             <artifactId>vexMod</artifactId>
             <version>1.6</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/vexMod.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1678617599/vexMod.jar</systemPath>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>thescribe</groupId>
             <artifactId>TheScribe</artifactId>
             <version>0.5.9</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/TheScribe.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1639744503/TheScribe.jar</systemPath>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>eatyourbeetsvg</groupId>
             <artifactId>eatyourbeetsvg</artifactId>
             <version>1.0.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/TheAnimator.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1638308801/TheAnimator.jar</systemPath>
         </dependency>
-		<dependency>
+        <dependency>
             <groupId>com.evacipated.cardcrawl.mod</groupId>
             <artifactId>hubris</artifactId>
             <version>0.22.0</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/Hubris.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1609159603/Hubris.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl.mod</groupId>
             <artifactId>bard</artifactId>
             <version>1.0.1</version>
             <scope>system</scope>
-            <systemPath>${basedir}/../lib/bard.jar</systemPath>
+            <systemPath>${Steam.path}/workshop/content/646570/1744254855/bard.jar</systemPath>
         </dependency>
     </dependencies>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-    </properties>
 
     <!-- This is how your code is packaged into the jar file-->
     <build>
-        <!-- Change this to match your mods name -->
-        <finalName>Aspiration</finalName>
-		 <resources>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*.psd</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <configuration>
+                            <target>
+                                <!-- This moves your mod into a common folder where all mods you make can go. -->
+                                <copy file="target/${project.artifactId}.jar" tofile="../mods/Aspiration.jar"/>
+                                <copy file="target/${project.artifactId}.jar" tofile="K:/Steam/steamapps/common/SlayTheSpire/mods/Aspiration.jar"/>
+                                <copy file="target/${project.artifactId}.jar" tofile="../raw_resources/Uploads/Aspiration/content/Aspiration.jar"/>>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+            </resource>
             <resource>
                 <directory>src/main/resources</directory>
                 <filtering>false</filtering>
@@ -157,54 +195,5 @@
                 </includes>
             </resource>
         </resources>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>2.4.2</version>
-                <executions>
-                    <execution>
-                        <!-- Change this to match your mods artifactId -->
-                        <id>WatDis</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <filters>
-                                <filter>
-                                    <!-- Change this to match your mods groupId:artifactId -->
-                                    <artifact>watdis:WatDis</artifact>
-                                </filter>
-                            </filters>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <configuration>
-                            <target>
-                                <!-- Change to match your mods name.
-                                     This moves your mod into a common folder where all mods you make can go. -->
-                                <copy file="target/Aspiration.jar" tofile="../mods/Aspiration.jar"/>
-								<copy file="target/Aspiration.jar" tofile="K:/Steam/steamapps/common/SlayTheSpire/mods/Aspiration.jar"/>
-								<copy file="target/Aspiration.jar" tofile="../raw_resources/Uploads/Aspiration/content/Aspiration.jar"/>
-                            </target>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-        </plugins>
     </build>
-
 </project>
