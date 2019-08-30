@@ -33,41 +33,22 @@ public class FutureDiary extends AspirationRelic {
     }
 
     @Override
-    public void onDrawOrDiscard() {
-        if(mustPlay != null) {
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if(c == mustPlay) {
-                    return;
+    public void onRefreshHand() {
+        if(!(AbstractDungeon.screen == AbstractDungeon.CurrentScreen.HAND_SELECT)) {
+            if (mustPlay != null) {
+                for (AbstractCard c : AbstractDungeon.player.hand.group) {
+                    if (c == mustPlay) {
+                        return;
+                    }
                 }
-            }
-            mustPlay = null;
-        }
-    }
-
-    @Override
-    public void onExhaust(AbstractCard c) {
-        if(mustPlay != null) {
-            if(c == mustPlay) {
                 mustPlay = null;
+                AbstractDungeon.player.hand.glowCheck();
             }
         }
     }
 
     @Override
-    public void onManualDiscard() {
-        if(mustPlay != null) {
-            for (AbstractCard c : AbstractDungeon.player.hand.group) {
-                if(c == mustPlay) {
-                    return;
-                }
-            }
-            mustPlay = null;
-        }
-    }
-
-    @Override
-    public boolean canPlay(AbstractCard card)
-    {
+    public boolean canPlay(AbstractCard card) {
         if (mustPlay != null) {
             if (mustPlay == card) {
                 return true;
@@ -79,24 +60,25 @@ public class FutureDiary extends AspirationRelic {
     }
 
     @Override
-    public void onPlayCard(AbstractCard targetCard, AbstractMonster m){
-        if(targetCard != null && targetCard.equals(mustPlay)) {
+    public void onPlayCard(AbstractCard targetCard, AbstractMonster m) {
+        if (targetCard != null && targetCard.equals(mustPlay)) {
             mustPlay = null;
+            AbstractDungeon.player.hand.glowCheck();
         }
     }
 
-    public void setCompulsion(AbstractCard card)
-    {
+    public void setCompulsion(AbstractCard card) {
         mustPlay = card;
         AbstractDungeon.effectList.add(new ThoughtBubble(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, 3.0f, DESCRIPTIONS[1] + mustPlay.name + DESCRIPTIONS[2], true));
         AbstractDungeon.effectsQueue.add(new CardFlashVfx(card));
+        AbstractDungeon.player.hand.glowCheck();
     }
 
     public void setPlayableCards(ArrayList<AbstractCard> pc) {
         playabaleCards = pc;
 
         Random rng = AbstractDungeon.cardRng;
-        if(playabaleCards.size()>0) {
+        if (playabaleCards.size() > 0) {
             setCompulsion(playabaleCards.get(rng.random(playabaleCards.size() - 1)));
         }
     }
@@ -106,13 +88,11 @@ public class FutureDiary extends AspirationRelic {
         mustPlay = null;
     }
 
-    public void onEquip()
-    {
+    public void onEquip() {
         AbstractDungeon.player.energy.energyMaster += 1;
     }
 
-    public void onUnequip()
-    {
+    public void onUnequip() {
         AbstractDungeon.player.energy.energyMaster -= 1;
     }
 
