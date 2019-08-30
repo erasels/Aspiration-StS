@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.random.Random;
 import conspire.orbs.Water;
 import eatyourbeets.orbs.Earth;
 import eatyourbeets.orbs.Fire;
-import vexMod.orbs.GoldenLightning;
 
 import java.util.ArrayList;
 
@@ -97,10 +96,6 @@ public class OrbUtilityMethods {
             }
         }
 
-        if (Aspiration.hasVex) {
-            orbs.add(new GoldenLightning());
-        }
-
         if (withAmalgamate) {
             orbs.add(new AmalgamateOrb());
         }
@@ -140,10 +135,6 @@ public class OrbUtilityMethods {
             }
         }
 
-        if (Aspiration.hasVex) {
-            orbs.add(new GoldenLightning(), WeightedList.WEIGHT_UNCOMMON);
-        }
-
         if (withAmalgamate) {
             orbs.add(new AmalgamateOrb(), WeightedList.WEIGHT_RARE);
         }
@@ -172,10 +163,6 @@ public class OrbUtilityMethods {
             if (Aspiration.hasMarisa) {
                 rareOrbs.add(new ManaSparkOrb());
             }
-        }
-
-        if (Aspiration.hasVex) {
-            rareOrbs.add(new GoldenLightning());
         }
         return rareOrbs;
     }

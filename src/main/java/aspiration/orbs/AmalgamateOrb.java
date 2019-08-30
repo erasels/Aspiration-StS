@@ -21,7 +21,6 @@ import com.megacrit.cardcrawl.vfx.GainPennyEffect;
 import com.megacrit.cardcrawl.vfx.combat.DarkOrbActivateEffect;
 import com.megacrit.cardcrawl.vfx.combat.OrbFlareEffect;
 import conspire.orbs.Water;
-import vexMod.orbs.GoldenLightning;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -153,11 +152,6 @@ public class AmalgamateOrb extends AbstractOrb {
                         manaSparkAmount++;
                     }
                 }
-                if (Aspiration.hasVex) {
-                    if (orb.ID.equals(GoldenLightning.ORB_ID)) {
-                        goldCap += GOLD_PER_GOLDEN_LIGHTNING; //smh hardcoded value with no constant
-                    }
-                }
             }
 
             sb.append(DESC[0]);
@@ -218,14 +212,6 @@ public class AmalgamateOrb extends AbstractOrb {
                                 break;
                         }
                     }
-                    if (Aspiration.hasVex) {
-                        switch (key) {
-                            case GoldenLightning.ORB_ID:
-                                sb.append(DESC[5]).append(passiveValues.get(key)); //first part is same as lightning
-                                sb.append(DESC[33]).append(passiveValues.get(key)).append(DESC[34]); //second part is not
-                                break;
-                        }
-                    }
                 }
             }
 
@@ -277,14 +263,6 @@ public class AmalgamateOrb extends AbstractOrb {
                         switch (key) {
                             case Water.ORB_ID:
                                 sb.append(DESC[25]).append(evokeValues.get(key)).append(DESC[11]);
-                                break;
-                        }
-                    }
-                    if (Aspiration.hasVex) {
-                        switch (key) {
-                            case GoldenLightning.ORB_ID:
-                                sb.append(DESC[21]).append(evokeValues.get(key)); //first part is same as lightning
-                                sb.append(DESC[33]).append(evokeValues.get(key)).append(DESC[34]); //second part is not
                                 break;
                         }
                     }
@@ -352,7 +330,6 @@ public class AmalgamateOrb extends AbstractOrb {
         boolean triggeredDark = false;
         boolean triggeredFrost = false;
         boolean triggeredLightning = false;
-        boolean triggeredGoldenLightning = false;
         boolean triggeredLight = false;
         boolean triggeredPlasma = false;
         boolean triggeredCrystal = false;
@@ -445,23 +422,6 @@ public class AmalgamateOrb extends AbstractOrb {
                             break;
                     }
                 }
-                if (Aspiration.hasVex) {
-                    switch (orb.ID) {
-                        case GoldenLightning.ORB_ID:
-                            if (!triggeredGoldenLightning) {
-                                Lightning toTrigger = new Lightning(); //Use lightning orb to do the damage, and gain gold itself
-                                //Since golden lightning has hard 20 gold cap,
-                                //Making a golden lightning wouldn't work well if two were combined.
-                                toTrigger.evokeAmount = evokeValues.get(orb.ID);
-                                AbstractDungeon.actionManager.addToBottom(new TriggerEvokeAction(toTrigger));
-
-                                this.gainGold(evokeValues.get(orb.ID));
-
-                                triggeredGoldenLightning = true;
-                            }
-                            break;
-                    }
-                }
             }
         }
         this.updateDescription();
@@ -545,7 +505,6 @@ public class AmalgamateOrb extends AbstractOrb {
         boolean triggeredLightning = false;
         boolean triggeredLight = false;
         boolean triggeredGlass = false;
-        boolean triggeredGoldenLightning = false;
 
         boolean notFound;
 
@@ -633,20 +592,6 @@ public class AmalgamateOrb extends AbstractOrb {
                     switch (orb.ID) {
                         case Water.ORB_ID:
                             break;
-                    }
-                }
-                if (Aspiration.hasVex) {
-                    switch (orb.ID) {
-                        case GoldenLightning.ORB_ID:
-                            if (triggeredGoldenLightning) {
-                                AbstractDungeon.actionManager.addToBottom(new VFXAction(new OrbFlareEffect(orb, OrbFlareEffect.OrbFlareColor.LIGHTNING), speedTime));
-                            } else {
-                                Lightning toTrigger = new Lightning(); //Use lightning orb to do the damage, and gain gold itself
-                                toTrigger.passiveAmount = passiveValues.get(orb.ID);
-                                toTrigger.onEndOfTurn();
-                                this.gainGold(passiveValues.get(orb.ID));
-                                triggeredGoldenLightning = true;
-                            }
                     }
                 }
             }
