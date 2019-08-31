@@ -2,6 +2,7 @@ package aspiration.cards.green;
 
 import aspiration.Aspiration;
 import aspiration.actions.SpawnTolerantDamageAllEnemiesAction;
+import aspiration.cards.interfaces.BranchingUpgradesCard;
 import aspiration.vfx.combat.LungeEffect;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
@@ -17,7 +18,7 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 
-public class Lunge extends CustomCard {
+public class Lunge extends CustomCard implements BranchingUpgradesCard {
     public static final String ID = "aspiration:Lunge";
     public static final String IMG = Aspiration.assetPath("img/cards/Lunge.png");
     private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
@@ -66,5 +67,18 @@ public class Lunge extends CustomCard {
     @Override
     public AbstractCard makeCopy() {
         return new Lunge();
+    }
+
+    @Override
+    public void branchUpgrade() {
+        if (!upgraded) {
+            upgradeName();
+            upgradeMagicNumber(1);
+        }
+    }
+
+    @Override
+    public void setBranchDescription() {
+
     }
 }
