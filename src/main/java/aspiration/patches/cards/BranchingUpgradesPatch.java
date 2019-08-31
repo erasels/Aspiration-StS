@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.screens.select.GridCardSelectScreen;
 import com.megacrit.cardcrawl.ui.buttons.GridSelectConfirmButton;
 import javassist.CtBehavior;
 
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 public class BranchingUpgradesPatch {
@@ -25,31 +26,19 @@ public class BranchingUpgradesPatch {
     )
     public static class BranchingUpgradeField {
         public static SpireField<Boolean> isBranchUpgraded = new SpireField<>(() -> false);
+        //Add field, it when accessed it needs to check static variable on Aspiration first and if true check variable
     }
 
     @SpirePatch(
             clz = GridCardSelectScreen.class,
             method = SpirePatch.CLASS
     )
-    public static class BranchingUpgradePreviewCardField {
+    public static class BranchSelectFields {
+        //BranchSelectFields
         public static SpireField<AbstractCard> branchUpgradePreviewCard = new SpireField<>(() -> null);
-    }
-
-
-    @SpirePatch(
-            clz = GridCardSelectScreen.class,
-            method = SpirePatch.CLASS
-    )
-    public static class WaitingForBranchUpgradeSelection {
+        //WaitingForBranchUpgradeSelection
         public static SpireField<Boolean> waitingForBranchUpgradeSelection = new SpireField<>(() -> false);
-    }
-
-
-    @SpirePatch(
-            clz = GridCardSelectScreen.class,
-            method = SpirePatch.CLASS
-    )
-    public static class IsBranchUpgrading {
+        //IsBranchUpgrading
         public static SpireField<Boolean> isBranchUpgrading = new SpireField<>(() -> false);
     }
 
@@ -62,14 +51,14 @@ public class BranchingUpgradesPatch {
                 locator = Locator.class
         )
         public static void Insert(GridCardSelectScreen __instance) {
-            AbstractCard c = (AbstractCard) ReflectionHacks.getPrivate(__instance, GridCardSelectScreen.class, "hoveredCard");
-            if (c instanceof BranchingUpgradesCard) {
+            AbstractCard c = getHoveredCard();
+            if (shouldBranchTrigger(c)) {
                 AbstractCard previewCard = c.makeStatEquivalentCopy();
                 BranchingUpgradesCard setBranchUpgradesCard = (BranchingUpgradesCard) previewCard;
                 setBranchUpgradesCard.setIsBranchUpgrade();
                 setBranchUpgradesCard.displayBranchUpgrades();
-                BranchingUpgradePreviewCardField.branchUpgradePreviewCard.set(__instance, previewCard);
-                WaitingForBranchUpgradeSelection.waitingForBranchUpgradeSelection.set(__instance, true);
+                BranchSelectFields.branchUpgradePreviewCard.set(__instance, previewCard);
+                BranchSelectFields.waitingForBranchUpgradeSelection.set(__instance, true);
             }
         }
 
@@ -89,8 +78,8 @@ public class BranchingUpgradesPatch {
     public static class StupidFuckingUpdateBullshitImSoMadDontChangeThisClassNameKio {
         @SpireInsertPatch(locator = Locator.class)
         public static void Insert(GridCardSelectScreen __instance) {
-            if (BranchingUpgradePreviewCardField.branchUpgradePreviewCard.get(__instance) != null) {
-                BranchingUpgradePreviewCardField.branchUpgradePreviewCard.get(__instance).update();
+            if (BranchSelectFields.branchUpgradePreviewCard.get(__instance) != null) {
+                BranchSelectFields.branchUpgradePreviewCard.get(__instance).update();
             }
         }
 
@@ -114,10 +103,10 @@ public class BranchingUpgradesPatch {
                 locator = Locator.class
         )
         public static SpireReturn Insert(GridCardSelectScreen __instance, SpriteBatch sb) {
-            AbstractCard c = (AbstractCard) ReflectionHacks.getPrivate(__instance, GridCardSelectScreen.class, "hoveredCard");
-            if (c instanceof BranchingUpgradesCard) {
+            AbstractCard c = getHoveredCard();
+            if (shouldBranchTrigger(c)) {
                 cardList.clear();
-                AbstractCard branchUpgradedCard = BranchingUpgradePreviewCardField.branchUpgradePreviewCard.get(__instance);
+                AbstractCard branchUpgradedCard = BranchSelectFields.branchUpgradePreviewCard.get(__instance);
                 c.current_x = (Settings.WIDTH * 0.36F);
                 c.current_y = (Settings.HEIGHT / 2.0F);
                 c.target_x = (Settings.WIDTH * 0.36F);
@@ -172,8 +161,8 @@ public class BranchingUpgradesPatch {
     )
     public static class BranchUpgradeConfirm {
         public static SpireReturn Prefix(GridSelectConfirmButton __instance, SpriteBatch sb) {
-            AbstractCard c = (AbstractCard) ReflectionHacks.getPrivate(AbstractDungeon.gridSelectScreen, GridCardSelectScreen.class, "hoveredCard");
-            if (WaitingForBranchUpgradeSelection.waitingForBranchUpgradeSelection.get(AbstractDungeon.gridSelectScreen) && c instanceof BranchingUpgradesCard) {
+            AbstractCard c = getHoveredCard();
+            if (BranchSelectFields.waitingForBranchUpgradeSelection.get(AbstractDungeon.gridSelectScreen) && c instanceof BranchingUpgradesCard) {
                 return SpireReturn.Return(null);
             }
             return SpireReturn.Continue();
@@ -186,7 +175,7 @@ public class BranchingUpgradesPatch {
     )
     public static class CancelUpgrade {
         public static void Prefix(GridCardSelectScreen __instance) {
-            WaitingForBranchUpgradeSelection.waitingForBranchUpgradeSelection.set(__instance, false);
+            BranchSelectFields.waitingForBranchUpgradeSelection.set(__instance, false);
         }
     }
 
@@ -196,20 +185,22 @@ public class BranchingUpgradesPatch {
     )
     public static class SelectBranchedUpgrade {
         public static void Postfix(AbstractCard __instance) {
-            if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.GRID) {
+            if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.GRID && AbstractDungeon.gridSelectScreen.forUpgrade) {
                 if (__instance.hb.hovered && InputHelper.justClickedLeft) {
                     if (BranchingUpgradeField.isBranchUpgraded.get(__instance)) {
-                        IsBranchUpgrading.isBranchUpgrading.set(AbstractDungeon.gridSelectScreen, true);
+                        BranchSelectFields.isBranchUpgrading.set(AbstractDungeon.gridSelectScreen, true);
+                    } else {
+                        BranchSelectFields.isBranchUpgrading.set(AbstractDungeon.gridSelectScreen, false);
                     }
 
-                    if (IsBranchUpgrading.isBranchUpgrading.get(AbstractDungeon.gridSelectScreen)) {
+                    if (shouldBranchTrigger(__instance)) {
                         __instance.beginGlowing();
                         cardList.forEach(c -> {
                             if (c != __instance) c.stopGlowing();
                         });
                     }
 
-                    WaitingForBranchUpgradeSelection.waitingForBranchUpgradeSelection.set(AbstractDungeon.gridSelectScreen, false);
+                    BranchSelectFields.waitingForBranchUpgradeSelection.set(AbstractDungeon.gridSelectScreen, false);
                 }
             }
         }
@@ -232,9 +223,9 @@ public class BranchingUpgradesPatch {
     )
     public static class DoBranchUpgrade {
         public static void Prefix(GridSelectConfirmButton __instance) {
-            if (IsBranchUpgrading.isBranchUpgrading.get(AbstractDungeon.gridSelectScreen) && __instance.hb.hovered && InputHelper.justClickedLeft) {
-                AbstractCard c = (AbstractCard) ReflectionHacks.getPrivate(AbstractDungeon.gridSelectScreen, GridCardSelectScreen.class, "hoveredCard");
-                if (c instanceof BranchingUpgradesCard) {
+            if (BranchSelectFields.isBranchUpgrading.get(AbstractDungeon.gridSelectScreen) && __instance.hb.hovered && InputHelper.justClickedLeft) {
+                AbstractCard c = getHoveredCard();
+                if (shouldBranchTrigger(c)) {
                     BranchingUpgradesCard upgradeCard = (BranchingUpgradesCard) c;
                     upgradeCard.setIsBranchUpgrade();
                 }
@@ -286,9 +277,34 @@ public class BranchingUpgradesPatch {
     )
     public static class AvoidSomeFractalsOrSomethingIGuess {
         public static void Postfix(AbstractCard __instance) {
-            if (__instance instanceof BranchingUpgradesCard) {
+            if (shouldBranchTrigger(__instance) && BranchingUpgradeField.isBranchUpgraded.get(__instance)) {
                 __instance.timesUpgraded -= 2;
+                String tmp = __instance.name.substring(__instance.name.length()-1);
+                if(tmp.equals("+")) {
+                    __instance.name  =__instance.name.substring(0, __instance.name.length()-1) + "*";
+                }
             }
+        }
+    }
+
+    //Used in situations to specifically disable this feature for other mods.
+    public static boolean shouldBranchTrigger(AbstractCard c) {
+        return c instanceof BranchingUpgradesCard;
+        //Add field to ACard to check if card should be seen possible and add hasRelic alternative
+    }
+    
+    public static Field hoveredCardField;
+    public static AbstractCard getHoveredCard() {
+        GridCardSelectScreen gc = AbstractDungeon.gridSelectScreen;
+        try {
+            if (hoveredCardField == null) {
+                hoveredCardField = gc.getClass().getDeclaredField("hoveredCard");
+            }
+            hoveredCardField.setAccessible(true);
+            return (AbstractCard) hoveredCardField.get(gc);
+        } catch (Exception e) {
+            System.out.println("Exception occurred when getting private field hoveredCard from Aspiration: " + e.toString());
+            return null;
         }
     }
 }
