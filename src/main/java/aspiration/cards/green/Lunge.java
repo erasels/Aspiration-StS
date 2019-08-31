@@ -32,6 +32,7 @@ public class Lunge extends CustomCard {
         super(ID, NAME, IMG, COST, DESCRIPTION, CardType.ATTACK, CardColor.GREEN, CardRarity.RARE, CardTarget.ALL_ENEMY);
         this.exhaust = true;
         this.baseDamage = DAMAGE;
+        baseMagicNumber = magicNumber = ATK_AMT;
         this.isMultiDamage = true;
     }
 
@@ -44,7 +45,7 @@ public class Lunge extends CustomCard {
             }
         }
 
-        for(int i = 0; i < ATK_AMT; i++) {
+        for(int i = 0; i < magicNumber; i++) {
             AbstractDungeon.actionManager.addToBottom(new VFXAction(new LungeEffect(AbstractDungeon.getMonsters().monsters.get(AbstractDungeon.getMonsters().monsters.size()-1).hb.cX + (200F * Settings.scale), AbstractDungeon.getMonsters().monsters.get(AbstractDungeon.getMonsters().monsters.size()-1).hb.cY, Color.GREEN)));
             //AbstractDungeon.actionManager.addToBottom(new VFXAction(new ClashEffect(middleX, middleY), 0.15F));
             AbstractDungeon.actionManager.addToBottom(new SpawnTolerantDamageAllEnemiesAction(p, damage, false, false, this.damageTypeForTurn, AbstractGameAction.AttackEffect.NONE, false));

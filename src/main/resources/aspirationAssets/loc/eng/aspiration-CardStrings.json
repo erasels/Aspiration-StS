@@ -6,7 +6,7 @@
   },
   "aspiration:Lunge": {
     "NAME": "Lunge",
-    "DESCRIPTION": "Deal !D! damage to ALL enemies twice and lose 1 Dexterity per enemy. NL Exhaust."
+    "DESCRIPTION": "Deal !D! damage to ALL enemies !M! times and lose 1 Dexterity per enemy. NL Exhaust."
   },
   "aspiration:UnbridledHammer": {
     "NAME": "Unbridled Hammer",

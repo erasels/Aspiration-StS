@@ -200,7 +200,7 @@
     "DESCRIPTIONS": [
 	  "Every time you play #b",
 	  " #yAttacks [REMOVE_SPACE], gain #b",
-	  " #yRegeneration [REMOVE_SPACE]."
+	  " #yRegen [REMOVE_SPACE]."
     ]
   },
   "aspiration:RitualDagger": {
