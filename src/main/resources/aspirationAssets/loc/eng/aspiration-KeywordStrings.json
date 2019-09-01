@@ -13,7 +13,7 @@
     "PROPER_NAME": "Repeat",
     "NAMES": [
       "Repeat",
-      "Repeats"
+      "repeat"
     ],
     "DESCRIPTION": "Repeats the effect for the given amount."
   }
