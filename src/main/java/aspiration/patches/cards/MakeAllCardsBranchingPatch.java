@@ -27,7 +27,9 @@ public class MakeAllCardsBranchingPatch {
                     null, // Exceptions
                     "if (!upgraded) {" +
                             "            upgradeName();" +
-                            "            upgradeDamage(20);" +
+                            "            upgradeDamage(2);" +
+                            "            upgradeBlock(2);" +
+                            "            upgradeMagicNumber(2);" +
                             "        }",
                     ctClass
             );
