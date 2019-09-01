@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
         clz=AbstractCard.class,
         method=SpirePatch.CLASS
 )
-public class AbstractCardPoetsPendField {
+public class AbstractCardFields {
     public static SpireField<Boolean> ppTriggered = new SpireField<>(() -> false);
+    public static SpireField<Integer> repeats = new SpireField<>(() -> 0);
 }
