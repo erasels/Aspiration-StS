@@ -33,5 +33,10 @@
       "Empower your Wing Boots granting them ",
       " additional charges."
     ]
+  },
+  "aspiration:MiscText": {
+    "TEXT": [
+      " NL Repeats "
+    ]
   }
 }

@@ -75,6 +75,7 @@ public class Aspiration implements
     public static SpireConfig otherSaveData = null;
     public static TextureAtlas powerAtlas;
     public static final int SKILLBOOK_SPAWN_AMOUNT = 3;
+    public static String RepeatsAddendum;
 
     // Crossover checks
     public static final boolean hasMarisa;
@@ -250,8 +251,12 @@ public class Aspiration implements
     public void receivePostInitialize() {
     	loadOtherData();
 
-        UIStrings buttonStrings = CardCrawlGame.languagePack.getUIString("aspiration:ModButtonText");
+        UIStrings buttonStrings = CardCrawlGame.languagePack.getUIString("aspiration:MiscText");
         String[] TEXT = buttonStrings.TEXT;
+        RepeatsAddendum = TEXT[0];
+
+        buttonStrings = CardCrawlGame.languagePack.getUIString("aspiration:ModButtonText");
+        TEXT = buttonStrings.TEXT;
 
         ModPanel settingsPanel = new ModPanel();
         ModLabeledToggleButton PPBtn = new ModLabeledToggleButton(TEXT[0], 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
@@ -479,10 +484,6 @@ public class Aspiration implements
     private String languageSupport()
     {
         switch (Settings.language) {
-            case RUS:
-                return "rus";
-            /*case DEU:
-                return "deu";*/
             case ZHS:
                 return "zhs";
             default:

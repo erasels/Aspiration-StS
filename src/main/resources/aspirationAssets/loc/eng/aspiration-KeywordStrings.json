@@ -8,5 +8,13 @@
       "fused"
     ],
     "DESCRIPTION": "Combine multiple orbs and their effects into a single orb."
+  },
+  "REPEAT": {
+    "PROPER_NAME": "Repeat",
+    "NAMES": [
+      "Repeat",
+      "Repeats"
+    ],
+    "DESCRIPTION": "Repeats the effect for the given amount."
   }
 }
