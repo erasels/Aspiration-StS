@@ -229,6 +229,7 @@ public class BranchingUpgradesPatch {
                 if (shouldBranchTrigger(c)) {
                     BranchingUpgradesCard upgradeCard = (BranchingUpgradesCard) c;
                     upgradeCard.setIsBranchUpgrade();
+                    upgradeCard.setBranchDescription();
                     BranchSelectFields.isBranchUpgrading.set(AbstractDungeon.gridSelectScreen, false);
                 }
             }

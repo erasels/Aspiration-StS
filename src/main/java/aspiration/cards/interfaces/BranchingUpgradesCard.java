@@ -14,7 +14,16 @@ public interface BranchingUpgradesCard {
             AbstractCard c = (AbstractCard) this;
             int rep = AbstractCardFields.repeats.get(c);
             if(rep > 0) {
-                c.rawDescription += Aspiration.RepeatsAddendum + rep;
+                String rawDesc = c.rawDescription;
+                String repeatsText = Aspiration.RepeatsAddendum + rep;
+                String tmp = rawDesc.substring(rawDesc.length()-(rawDesc.length()-repeatsText.length()));
+                if(tmp.contains(repeatsText.substring(0, repeatsText.length()-2))) {
+                    if(!rawDesc.substring(rawDesc.length()-1).equals(Integer.toString(rep))) {
+                        c.rawDescription = c.rawDescription.substring(rawDesc.length()-1) + rep;
+                    }
+                } else {
+                    c.rawDescription += Aspiration.RepeatsAddendum + rep;
+                }
             }
             c.initializeDescription();
         }
