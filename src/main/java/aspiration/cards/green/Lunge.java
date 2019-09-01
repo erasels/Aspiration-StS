@@ -76,9 +76,4 @@ public class Lunge extends CustomCard implements BranchingUpgradesCard {
             upgradeMagicNumber(1);
         }
     }
-
-    @Override
-    public void setBranchDescription() {
-
-    }
 }

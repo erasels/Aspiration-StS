@@ -292,7 +292,7 @@ public class BranchingUpgradesPatch {
         return c instanceof BranchingUpgradesCard;
         //Add field to ACard to check if card should be seen possible and add hasRelic alternative
     }
-    
+
     public static Field hoveredCardField;
     public static AbstractCard getHoveredCard() {
         GridCardSelectScreen gc = AbstractDungeon.gridSelectScreen;
