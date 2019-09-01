@@ -519,7 +519,7 @@
     "NAME": "QuestionableFork",
     "FLAVOR": "Used for eating, stabbing, and life choices.",
     "DESCRIPTIONS": [
-      "Whenever you would gain #ybard:Inspiration [REMOVE_SPACE], apply #b1 #yWeak and #yVulnerable for every #b25 inspiration to a random enemy instead."
+      "You can now smith alternate upgrades for your card at camp sites."
     ]
   }
 }
