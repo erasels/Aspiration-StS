@@ -22,7 +22,7 @@ public class ArtOfWarUpgrade extends AspirationRelic {
     private boolean gainEnergyNext = false;
 
     private final boolean isTea = CardCrawlGame.playerName.toLowerCase().equals("HighOnTea".toLowerCase());
-    public static int NEEDED_SESSIONS = 3;
+    public static int NEEDED_SESSIONS = 2;
 
     public ArtOfWarUpgrade() {
         super(ID, "ArtOfWarUpgrade.png", RelicTier.SPECIAL, LandingSound.FLAT);
