@@ -3,6 +3,7 @@ package aspiration.cards.green;
 import aspiration.Aspiration;
 import aspiration.actions.SpawnTolerantDamageAllEnemiesAction;
 import aspiration.cards.interfaces.BranchingUpgradesCard;
+import aspiration.patches.Fields.AbstractCardFields;
 import aspiration.vfx.combat.LungeEffect;
 import basemod.abstracts.CustomCard;
 import com.badlogic.gdx.graphics.Color;
@@ -73,7 +74,7 @@ public class Lunge extends CustomCard implements BranchingUpgradesCard {
     public void branchUpgrade() {
         if (!upgraded) {
             upgradeName();
-            upgradeMagicNumber(1);
+            AbstractCardFields.repeats.set(this, 3);
         }
     }
 }
