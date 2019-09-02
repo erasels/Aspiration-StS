@@ -18,7 +18,7 @@ public class HummingbirdHeart extends AspirationRelic {
     private static final int START_CHARGE = -1;
     private static final int TURN_AMT = 3;
 
-    private final boolean isLob = CardCrawlGame.playerName.toLowerCase().equals("Lobbien".toLowerCase());
+    private final boolean isBalanced = CardCrawlGame.playerName.toLowerCase().equals("Lobbien".toLowerCase()) || CardCrawlGame.playerName.toLowerCase().equals("Jumble".toLowerCase());
 
     public HummingbirdHeart() {
         super(ID, "HummingbirdHeart.png", RelicTier.UNCOMMON, LandingSound.FLAT);
@@ -44,7 +44,7 @@ public class HummingbirdHeart extends AspirationRelic {
 
     @Override
     public void atTurnStart() {
-        if(isLob) {
+        if (isBalanced) {
             Aspiration.logger.info("This balanced now? " + CardCrawlGame.playerName);
             return;
         }
@@ -60,7 +60,7 @@ public class HummingbirdHeart extends AspirationRelic {
     @Override
     public void onVictory() {
         startingCharges();
-        if(AbstractDungeon.player.hasPower(HoverPower.POWER_ID)) {
+        if (AbstractDungeon.player.hasPower(HoverPower.POWER_ID)) {
             AbstractDungeon.player.getPower(HoverPower.POWER_ID).onRemove();
         }
     }
