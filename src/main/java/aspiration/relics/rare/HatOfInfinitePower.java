@@ -27,7 +27,7 @@ public class HatOfInfinitePower extends AspirationRelic implements OnEnergyUse {
     public int onEnergyUse(int amount) {
         if (amount > 1 && !triggered) {
             trigger();
-            return 1;
+            return amount - 1;
         }
         return amount;
     }

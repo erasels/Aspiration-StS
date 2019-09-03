@@ -495,7 +495,7 @@
     "NAME": "Hat of Infinite Power",
     "FLAVOR": "It's brimming with energy as if powered by one thousand explosions!",
     "DESCRIPTIONS": [
-      "The first time you would lose more than #b1 [E] each turn, lose [E] instead."
+      "The first time you would lose more than #b1 [E] each turn, lose #b1 [E] less."
     ]
   },
   "aspiration:BardSkillbook": {
