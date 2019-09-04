@@ -411,7 +411,7 @@ public class Aspiration implements
     	
     	//If poison card in deck
         BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
-        BaseMod.addRelic(new Contagion(), RelicType.SHARED);
+        //BaseMod.addRelic(new Contagion(), RelicType.SHARED);
         BaseMod.addRelic(new SneckoTail(), RelicType.SHARED);
 
         //Crossover
