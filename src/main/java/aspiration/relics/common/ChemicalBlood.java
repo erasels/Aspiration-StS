@@ -7,6 +7,7 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
+import org.apache.commons.lang3.math.NumberUtils;
 
 public class ChemicalBlood extends AspirationRelic {
     public static final String ID = "aspiration:ChemicalBlood";
@@ -109,7 +110,7 @@ public class ChemicalBlood extends AspirationRelic {
 
     private int healthPercent() {
         //System.out.println("MHP: " + AbstractDungeon.player.maxHealth + " PT: " + PERC + " Erg: " + MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC));
-        return MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC);
+        return NumberUtils.max(MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC), 1);
     }
 
     public AbstractRelic makeCopy() {
