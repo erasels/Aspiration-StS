@@ -45,9 +45,6 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.relics.BlackBlood;
-import com.megacrit.cardcrawl.relics.FrozenCore;
-import com.megacrit.cardcrawl.relics.RingOfTheSerpent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -375,7 +372,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
         BaseMod.addRelic(new KaomsHeart_nothing(), RelicType.SHARED);
     	BaseMod.addRelic(new Nostalgia(uncommonNostalgia()), RelicType.SHARED);
-        BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
+        //BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
@@ -388,6 +385,7 @@ public class Aspiration implements
         BaseMod.addRelic(new SecretTechniqueScroll(), RelicType.SHARED);
         BaseMod.addRelic(new HiddenCompartment(), RelicType.SHARED);
         BaseMod.addRelic(new HatOfInfinitePower(), RelicType.SHARED);
+        BaseMod.addRelic(new RunicSpoon(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
@@ -401,8 +399,8 @@ public class Aspiration implements
         BaseMod.addRelic(new Stabinomicon(), RelicType.SHARED);
     	
     	//Starter Upgrades
-    	BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);
-    	BaseMod.addRelic(new InfernalBlood(), RelicType.SHARED);
+    	//BaseMod.addRelic(new RingOfOuroboros(), RelicType.SHARED);
+    	//BaseMod.addRelic(new InfernalBlood(), RelicType.SHARED);
     	BaseMod.addRelic(new BursterCore(), RelicType.SHARED);
     	
     	//Defect Only
@@ -466,14 +464,6 @@ public class Aspiration implements
             logger.info("Adding Keyword - " + v.NAMES[0]);
             BaseMod.addKeyword("aspiration:", v.PROPER_NAME, v.NAMES, v.DESCRIPTION);
         });
-
-        /*Keyword[] keywords = gson.fromJson(json, Keyword[].class);
-
-        if (keywords != null) {
-            for (Keyword keyword : keywords) {
-                BaseMod.addKeyword("aspiration", keyword.PROPER_NAME, keyword.NAMES, keyword.DESCRIPTION);
-            }
-        }*/
     }
 
     private String languageSupport()
@@ -481,8 +471,6 @@ public class Aspiration implements
         switch (Settings.language) {
             case RUS:
                 return "rus";
-            /*case DEU:
-                return "deu";*/
             case ZHS:
                 return "zhs";
             default:
@@ -559,19 +547,6 @@ public class Aspiration implements
             if(AbstractDungeon.bossRelicPool.removeIf(relic -> RelicLibrary.getRelic(relic) instanceof SkillbookRelic && skillbookPool.contains(RelicLibrary.getRelic(relic)))) {
                 skillbookPool.forEach(sb -> logger.info("Removed Skillbook: " + sb.name));
             }
-        }
-
-        //Spawn only one set of Starter relic replacements per run
-        if(rng.randomBoolean()) {
-            RelicUtils.removeRelicFromPool(RingOfOuroboros.ID);
-            //RelicUtils.removeRelicFromPool(BursterCore.ID);
-            RelicUtils.removeRelicFromPool(InfernalBlood.ID);
-            logger.info("Removed some alternate starter relic replacements.");
-        } else {
-            RelicUtils.removeRelicFromPool(RingOfTheSerpent.ID);
-            RelicUtils.removeRelicFromPool(FrozenCore.ID);
-            RelicUtils.removeRelicFromPool(BlackBlood.ID);
-            logger.info("Removed original starter relic replacements.");
         }
     }
     
