@@ -12,7 +12,6 @@ public class RunicSpoon extends AspirationRelic {
     public static final String ID = "aspiration:RunicSpoon";
 
     private static final int START_CHARGE = 0;
-    //TODO: Make relic not trigger when not played by player and reduce this value again
     private static final int CARDS_TO_TRIGGER = 3;
     private boolean wasTriggered = false;
 
