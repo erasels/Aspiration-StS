@@ -2,6 +2,7 @@ package aspiration.relics.abstracts;
 
 import aspiration.Aspiration;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -43,6 +44,14 @@ public abstract class AspirationRelic extends AbstractRelic
     		}
     	}
     	return false;
+    }
+
+    public void atb(AbstractGameAction a) {
+        AbstractDungeon.actionManager.addToBottom(a);
+    }
+
+    public void att(AbstractGameAction a) {
+        AbstractDungeon.actionManager.addToTop(a);
     }
     
     public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) { }
