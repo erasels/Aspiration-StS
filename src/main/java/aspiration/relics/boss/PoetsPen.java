@@ -1,6 +1,6 @@
 package aspiration.relics.boss;
 
-import aspiration.patches.Fields.AbstractCardPoetsPendField;
+import aspiration.patches.Fields.AbstractCardFields;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 
@@ -65,8 +65,8 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>,
 
 	@Override
 	public void onAfterUseCard(AbstractCard c, UseCardAction useCardAction) {
-		if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
-			AbstractCardPoetsPendField.ppTriggered.set(c, false);
+		if(AbstractCardFields.ppTriggered.get(c)) {
+			AbstractCardFields.ppTriggered.set(c, false);
 		} else {
 			if(c.type == CardType.ATTACK) {
 				flash();

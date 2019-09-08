@@ -1,6 +1,6 @@
 package aspiration.actions.unique;
 
-import aspiration.patches.Fields.AbstractCardPoetsPendField;
+import aspiration.patches.Fields.AbstractCardFields;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DiscardSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.EmptyDeckShuffleAction;
@@ -55,7 +55,7 @@ public class PoetsPenAction
         AbstractDungeon.player.drawPile.group.remove(card);
         AbstractDungeon.getCurrRoom().souls.remove(card);
 
-        AbstractCardPoetsPendField.ppTriggered.set(card, true);
+        AbstractCardFields.ppTriggered.set(card, true);
         //Uncomment if discareded/not played cards should be exhausted as well
         //card.exhaustOnUseOnce = this.exhaustCards;
         if(card.freeToPlayOnce) {
@@ -74,7 +74,7 @@ public class PoetsPenAction
         card.targetDrawScale = 0.75F;
         if (!card.canUse(AbstractDungeon.player, (AbstractMonster)this.target) || (weak && !(card.type == CardType.ATTACK)))
         {
-          AbstractCardPoetsPendField.ppTriggered.set(card, false);
+          AbstractCardFields.ppTriggered.set(card, false);
           if(!wasFtPO){
             card.freeToPlayOnce = false;
           }

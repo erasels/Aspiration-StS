@@ -2,7 +2,7 @@ package aspiration.relics.boss;
 
 import aspiration.Aspiration;
 import aspiration.actions.unique.PoetsPenAction;
-import aspiration.patches.Fields.AbstractCardPoetsPendField;
+import aspiration.patches.Fields.AbstractCardFields;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
@@ -29,8 +29,8 @@ public class PoetsPen_weak extends AspirationRelic implements OnAfterUseCardReli
     
     @Override
     public void onAfterUseCard(AbstractCard c, UseCardAction useCardAction) {
-        if(AbstractCardPoetsPendField.ppTriggered.get(c)) {
-            AbstractCardPoetsPendField.ppTriggered.set(c, false);
+        if(AbstractCardFields.ppTriggered.get(c)) {
+            AbstractCardFields.ppTriggered.set(c, false);
         } else {
             if(c.type == CardType.ATTACK) {
                 flash();
