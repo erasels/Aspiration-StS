@@ -6,7 +6,7 @@
     <!--The author name(s) as they appear in MTS and any other comments are in your ModTheSpire.json-->
     <groupId>watdis</groupId>
     <artifactId>WatDis</artifactId>
-    <version>1.2.0-Beta</version>
+    <version>1.4.0-Beta</version>
     <name>Aspiration</name>
     <description>A mod containing my first attempts at modding.</description>
 
