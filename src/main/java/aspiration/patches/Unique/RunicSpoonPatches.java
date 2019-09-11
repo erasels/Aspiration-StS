@@ -2,7 +2,6 @@ package aspiration.patches.Unique;
 
 import aspiration.patches.Fields.AbstractCardFields;
 import aspiration.relics.boss.RunicSpoon;
-import basemod.ReflectionHacks;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
@@ -11,7 +10,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
 import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
@@ -19,13 +17,13 @@ import javassist.CtBehavior;
 import java.util.ArrayList;
 
 public class RunicSpoonPatches {
-    @SpirePatch(clz = CardGlowBorder.class, method = SpirePatch.CONSTRUCTOR)
+    @SpirePatch(clz = CardGlowBorder.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, AbstractCard.GlowColor.class})
     public static class CardGlowPatch {
-        public static void Postfix(CardGlowBorder __instance, AbstractCard c) {
+        @SpirePostfixPatch
+        public static void patch(CardGlowBorder __instance, AbstractCard c, AbstractCard.GlowColor gC, @ByRef Color[] ___color) {
             AbstractRelic rs = AbstractDungeon.player.getRelic(RunicSpoon.ID);
             if(rs != null && rs.checkTrigger()) {
-                Color color = Color.PURPLE.cpy();
-                ReflectionHacks.setPrivate(__instance, AbstractGameEffect.class, "color", color);
+                ___color[0] = Color.PURPLE.cpy();
             }
         }
     }
@@ -48,10 +46,9 @@ public class RunicSpoonPatches {
     @SpirePatch(clz = UseCardAction.class, method = "update")
     public static class resetPlayerPlayed {
         @SpirePostfixPatch
-        public static void reset(UseCardAction __instance) {
+        public static void reset(UseCardAction __instance, AbstractCard ___targetCard) {
             if(__instance.isDone) {
-                AbstractCard tCard = (AbstractCard)ReflectionHacks.getPrivate(__instance,UseCardAction.class, "targetCard");
-                AbstractCardFields.playerPlayed.set(tCard, false);
+                AbstractCardFields.playerPlayed.set(___targetCard, false);
             }
         }
     }
