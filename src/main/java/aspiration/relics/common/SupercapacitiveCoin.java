@@ -59,8 +59,6 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 				AbstractDungeon.actionManager.addToBottom(new VFXAction(AbstractDungeon.player, new MindblastEffect(AbstractDungeon.player.dialogX, AbstractDungeon.player.dialogY, AbstractDungeon.player.flipHorizontal), 0.1f));
 	            for (AbstractMonster m : AbstractDungeon.getMonsters().monsters) {
 	            	if(!m.isDeadOrEscaped()) {
-						m.damageFlash = true;
-						m.damageFlashFrames = 4;
 						AbstractDungeon.actionManager.addToBottom(new SFXAction("THUNDERCLAP"));
 						AbstractDungeon.actionManager.addToBottom(new VFXAction(new LightningEffect(m.drawX, m.drawY)));
 						AbstractDungeon.actionManager.addToBottom(new VFXAction(new FlashAtkImgEffect(m.hb.cX, m.hb.cY, AttackEffect.FIRE)));

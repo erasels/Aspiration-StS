@@ -15,7 +15,7 @@ public class RandomNobGenerator extends AspirationRelic {
     public static final String ID = "aspiration:RandomNobGenerator";
 
     private static final int ENERGY_AMT = 2;
-    private static final int NOB_CHANCE = 35;
+    private static final int NOB_CHANCE = 40;
     private static final float FINAL_XOFFSET = 150F;
     private static final float FINAL_YOFFSET = 10F;
 
