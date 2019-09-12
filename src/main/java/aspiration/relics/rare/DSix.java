@@ -9,15 +9,13 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-import java.util.stream.IntStream;
-
 public class DSix extends AspirationRelic implements ClickableRelic {
     public static final String ID = "aspiration:DSix";
 
     private static final int STARTING = 6;
 
     public DSix() {
-        super(ID, "ChemicalBlood.png", RelicTier.RARE, LandingSound.SOLID);
+        super(ID, "DSix.png", RelicTier.RARE, LandingSound.SOLID);
         counter = STARTING;
     }
 
@@ -29,7 +27,7 @@ public class DSix extends AspirationRelic implements ClickableRelic {
     @Override
     public void onRightClick() {
         if(pulse && !Aspiration.dsixTriggered) {
-            if(IntStream.of(countRewards()).sum() > 0) {
+            if(countRewards() > 0) {
                 Aspiration.dsixTriggered = true;
             } else {
                 pulse = false;
@@ -56,16 +54,16 @@ public class DSix extends AspirationRelic implements ClickableRelic {
         reduceCounter();
     }
 
-    public int[] countRewards() {
-        int p = 0, r = 0;
+    public int countRewards() {
+        int c = 0;
         for(RewardItem ri : AbstractDungeon.combatRewardScreen.rewards) {
             if(ri.type == RewardItem.RewardType.POTION) {
-                p++;
+                c++;
             } else if(ri.type == RewardItem.RewardType.RELIC) {
-                r++;
+                c++;
             }
         }
-        return new int[]{p,r};
+        return c;
     }
 
     private void reduceCounter() {
@@ -80,7 +78,7 @@ public class DSix extends AspirationRelic implements ClickableRelic {
     @Override
     public void update() {
         super.update();
-        if(pulse && IntStream.of(countRewards()).sum() < 1) {
+        if(pulse && countRewards() < 1) {
             stopPulse();
         }
     }

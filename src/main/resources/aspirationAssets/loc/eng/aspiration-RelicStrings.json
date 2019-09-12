@@ -535,7 +535,7 @@
     "NAME": "The D6",
     "FLAVOR": "Destiny, but a dice roll away.",
     "DESCRIPTIONS": [
-      "Reroll all #yRelic and #yPotion rewards in the current combat reward screen. Works #b",
+      "Reroll all #yRelic and #yPotion rewards in the current reward screen. Works #b",
       " times."
     ]
   }
