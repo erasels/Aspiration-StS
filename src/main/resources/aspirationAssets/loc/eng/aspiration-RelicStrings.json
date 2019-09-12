@@ -530,6 +530,14 @@
       "Whenever you spend #b2 or more [E] [REMOVE_SPACE], gain #yMantra equal to the amount spent.",
       " NL NL #yMulticlass Watcher"
     ]
+  },
+  "aspiration:DSix": {
+    "NAME": "The D6",
+    "FLAVOR": "Destiny, but a dice roll away.",
+    "DESCRIPTIONS": [
+      "Reroll all #yRelic and #yPotion rewards in the current combat reward screen. Works #b",
+      " times."
+    ]
   }
 }
  
