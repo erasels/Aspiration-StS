@@ -500,7 +500,7 @@
   },
   "aspiration:BardSkillbook": {
     "NAME": "Bard's Skillbook",
-    "FLAVOR": "A notebook used as a book for notes. ",
+    "FLAVOR": "A notebook used as a book for notes.",
     "DESCRIPTIONS": [
       "Each card you play may also #ybard:Queue #ybard:Notes. At the end of your turn, #ybard:Queue a [WildNote] [REMOVE_SPACE].",
       " NL NL #yMulticlass Bard",
@@ -521,6 +521,14 @@
     "DESCRIPTIONS": [
       "In each combat, add a copy of every #b",
       " card you personally play into your hand."
+    ]
+  },
+  "aspiration:WatcherSkillbook": {
+    "NAME": "Watcher's Skillbook",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Whenever you spend #b2 or more [E] [REMOVE_SPACE], gain #yMantra equal to the amount spent.",
+      " NL NL #yMulticlass Watcher"
     ]
   }
 }

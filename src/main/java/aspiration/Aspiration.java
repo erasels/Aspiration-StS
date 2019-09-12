@@ -391,6 +391,7 @@ public class Aspiration implements
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
         BaseMod.addRelic(new DefectSkillbook(), RelicType.SHARED);
         BaseMod.addRelic(new SilentSkillbook(), RelicType.SHARED);
+        BaseMod.addRelic(new WatcherSkillbook(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
