@@ -1,0 +1,9 @@
+{
+  "aspiration:ChestSnatcher": {
+    "NAME": "Chest Snatcher",
+    "DESCRIPTION": [
+      "The first chest you open is empty.",
+      "Future chests are unmolested."
+    ]
+  }
+}

@@ -487,8 +487,6 @@ public class Aspiration implements
     private String languageSupport()
     {
         switch (Settings.language) {
-            case RUS:
-                return "rus";
             case ZHS:
                 return "zhs";
             default:
@@ -507,6 +505,7 @@ public class Aspiration implements
         BaseMod.loadCustomStringsFile(OrbStrings.class, assetPath(path + "aspiration-OrbStrings.json"));
         BaseMod.loadCustomStringsFile(CardStrings.class, assetPath(path + "aspiration-CardStrings.json"));
         BaseMod.loadCustomStringsFile(KeywordStrings.class, assetPath(path + "aspiration-KeywordStrings.json"));
+        BaseMod.loadCustomStringsFile(BlightStrings.class, assetPath(path + "aspiration-BlightStrings.json"));
     }
 
     @Override
