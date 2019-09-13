@@ -2,6 +2,7 @@ package aspiration.patches;
 
 import aspiration.Aspiration;
 import aspiration.Utility.RelicUtils;
+import aspiration.blights.ChestSnatcher;
 import aspiration.relics.rare.DSix;
 import aspiration.relics.uncommon.Nostalgia;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
@@ -25,15 +26,35 @@ public class NeowRewardPatches {
     public static NeowReward.NeowRewardType NOSTALGIA;
     @SpireEnum
     public static NeowReward.NeowRewardType DSIX;
+    @SpireEnum
+    public static NeowReward.NeowRewardDrawback PUNISHING;
+
+    @SpirePatch(clz = NeowReward.class, method = "getRewardDrawbackOptions")
+    public static class NewDrawback {
+        @SpirePostfixPatch
+        public static ArrayList<NeowReward.NeowRewardDrawbackDef> patch(ArrayList<NeowReward.NeowRewardDrawbackDef> __result, NeowReward __instance) {
+            String tmp;
+            switch (Settings.language) {
+                case ZHS:
+                    tmp = FontHelper.colorString("\u4f60\u6253\u5f00\u7684\u7b2c\u4e00\u4e2a\u80f8\u90e8\u662f\u7a7a\u7684", "r");
+                    break;
+                default:
+                    tmp = FontHelper.colorString("First opened chest is empty", "r") + " ";
+            }
+            __result.add(new NeowReward.NeowRewardDrawbackDef(PUNISHING, "[ " + tmp));
+            return __result;
+        }
+    }
 	
 	@SpirePatch(
             clz = NeowReward.class,
             method = "getRewardOptions"
     )
-    public static class blessAddNostalgia {
+    public static class AddRewards {
 	    @SpirePostfixPatch
         public static ArrayList<NeowRewardDef> patch(ArrayList<NeowRewardDef> __result, NeowReward __instance, final int category) {
-            if (category == 2 && __instance.drawback != NeowReward.NeowRewardDrawback.CURSE) {
+            if (category == 2 && __instance.drawback == PUNISHING) {
+                __result.clear();
                 String tmp;
                 switch (Settings.language) {
                     case ZHS:
@@ -67,17 +88,18 @@ public class NeowRewardPatches {
     public static class ActivatePatch {
 	    @SpirePrefixPatch
         public static void patch(NeowReward __instance) {
+	        if(__instance.drawback == PUNISHING) {
+	            AbstractDungeon.getCurrRoom().spawnBlightAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new ChestSnatcher());
+            }
+
             if (__instance.type == NOSTALGIA) {
                 AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new Nostalgia(Aspiration.uncommonNostalgia()));
                 AbstractDungeon.uncommonRelicPool.removeIf(relic -> relic.equals(Nostalgia.ID));
                 AbstractDungeon.shopRelicPool.removeIf(relic -> relic.equals(Nostalgia.ID));
-            }
-            if (__instance.type == DSIX) {
+            } else if (__instance.type == DSIX) {
                 AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new DSix());
                 RelicUtils.removeRelicFromPool(DSix.ID, true);
             }
         }
     }
-	
-	
 }
