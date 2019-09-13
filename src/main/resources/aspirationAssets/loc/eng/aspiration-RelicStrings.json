@@ -520,7 +520,7 @@
     "FLAVOR": "Maybe you could read the runes if the spoon didn't wiggle around so much.",
     "DESCRIPTIONS": [
       "In each combat, add a copy of every #b",
-      " card you personally play into your hand."
+      " card you manually play into your hand."
     ]
   },
   "aspiration:WatcherSkillbook": {
