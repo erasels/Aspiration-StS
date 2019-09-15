@@ -33,7 +33,6 @@ public class WatcherSkillbook extends SkillbookRelic implements OnEnergyUse {
     @Override
     public int onEnergyUse(int amount) {
         if(amount > 1) {
-            flash();
             atb(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new MantraPower(AbstractDungeon.player, amount), amount));
         }
         return amount;

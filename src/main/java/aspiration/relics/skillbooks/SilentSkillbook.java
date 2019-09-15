@@ -36,7 +36,6 @@ public class SilentSkillbook extends SkillbookRelic {
     @Override
     public void onUseCard(AbstractCard card, UseCardAction uac) {
         manipCharge(1);
-        flash();
         if(counter > 3) {
             beginLongPulse();
         }

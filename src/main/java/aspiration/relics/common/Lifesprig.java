@@ -24,7 +24,6 @@ public static final String ID = "aspiration:Lifesprig";
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
     		if(c.type == CardType.ATTACK) {
-    			flash();
     			manipCharge(1);
     		}
     }
