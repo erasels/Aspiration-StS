@@ -20,10 +20,10 @@ public class RunicSpoonPatches {
     @SpirePatch(clz = CardGlowBorder.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, Color.class})
     public static class CardGlowPatch {
         @SpirePostfixPatch
-        public static void patch(CardGlowBorder __instance, AbstractCard c, Color col) {
+        public static void patch(CardGlowBorder __instance, AbstractCard c, Color col, @ByRef Color[] ___color) {
             AbstractRelic rs = AbstractDungeon.player.getRelic(RunicSpoon.ID);
             if(rs != null && rs.checkTrigger()) {
-               col = Color.PURPLE.cpy();
+                ___color[0] =  Color.PURPLE.cpy();
             }
         }
     }
