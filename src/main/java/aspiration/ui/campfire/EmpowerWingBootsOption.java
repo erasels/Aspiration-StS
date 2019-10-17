@@ -3,14 +3,12 @@ package aspiration.ui.campfire;
 import aspiration.Aspiration;
 import aspiration.patches.Fields.WingBootsCampfireactionField;
 import aspiration.vfx.campfire.EmpowerWingBootsAction;
-import basemod.ReflectionHacks;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.UIStrings;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.WingBoots;
 import com.megacrit.cardcrawl.ui.campfire.AbstractCampfireOption;
 
@@ -45,8 +43,7 @@ public class EmpowerWingBootsOption extends AbstractCampfireOption
                 Aspiration.logger.info(e);
             }
             //wb.initializeTips();
-
-            ReflectionHacks.setPrivate(wb, AbstractRelic.class, "img", ImageMaster.loadImage(Aspiration.assetPath("img/relics/winged.png")));
+            wb.grayscale = false;
             wb.setCounter(CHARGES);
         } else if(wb.counter < 1) {
             wb.setCounter(CHARGES);
