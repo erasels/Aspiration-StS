@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.Sozu;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import org.apache.commons.lang3.math.NumberUtils;
 
@@ -68,6 +69,12 @@ public class ChemicalBlood extends AspirationRelic {
     }
 
     private void potionReward() {
+        AbstractRelic sozu = AbstractDungeon.player.getRelic(Sozu.ID);
+        if(sozu != null) {
+            sozu.flash();
+            flash();
+            return;
+        }
         int freeSlots = freePSlots();
         boolean openScreen = freeSlots < poverflow;
 
