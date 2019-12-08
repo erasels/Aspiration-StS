@@ -111,6 +111,10 @@ public class ChemicalBlood extends AspirationRelic {
     }
 
     private static void removePotionsFromRewards() {
+        AbstractRelic sozu = AbstractDungeon.player.getRelic(Sozu.ID);
+        if(sozu != null) {
+            return;
+        }
         AbstractDungeon.getCurrRoom().rewards.removeIf(i -> i.type == RewardItem.RewardType.POTION);
         AbstractDungeon.combatRewardScreen.rewards.removeIf(i -> i.type == RewardItem.RewardType.POTION);
     }
