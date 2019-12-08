@@ -18,8 +18,8 @@ public class CultistTraining extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
 
     private int chosen_option;
-    private static final float PERDAMAGE = 0.07f;
-    private static final float ASC_PERDAMAGE = 0.1f;
+    private static final float PERDAMAGE = 0.15f;
+    private static final float ASC_PERDAMAGE = 0.2f;
 
     private State state;
 
@@ -33,16 +33,16 @@ public class CultistTraining extends AbstractImageEvent {
         if (AbstractDungeon.player.hasRelic("CultistMask")) {
             this.imageEventText.optionList.add(new RelicPreviewEventButton(0, CultistTraining.OPTIONS[0], new RitualStick()));
             if (AbstractDungeon.ascensionLevel >= 15) {
-                this.imageEventText.setDialogOption(CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.1f) + CultistTraining.OPTIONS[5], true);
+                this.imageEventText.setDialogOption(CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * ASC_PERDAMAGE) + CultistTraining.OPTIONS[5], true);
             } else {
-                this.imageEventText.setDialogOption(CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.07f) + CultistTraining.OPTIONS[5], true);
+                this.imageEventText.setDialogOption(CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * PERDAMAGE) + CultistTraining.OPTIONS[5], true);
             }
         } else {
             this.imageEventText.setDialogOption(CultistTraining.OPTIONS[3], true);
             if (AbstractDungeon.ascensionLevel >= 15) {
-                this.imageEventText.optionList.add(new RelicPreviewEventButton(1, CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.1f) + CultistTraining.OPTIONS[5], new RitualStick()));
+                this.imageEventText.optionList.add(new RelicPreviewEventButton(1, CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * ASC_PERDAMAGE) + CultistTraining.OPTIONS[5], new RitualStick()));
             } else {
-                this.imageEventText.optionList.add(new RelicPreviewEventButton(1, CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * 0.07f) + CultistTraining.OPTIONS[5], new RitualStick()));
+                this.imageEventText.optionList.add(new RelicPreviewEventButton(1, CultistTraining.OPTIONS[1] + MathUtils.round(AbstractDungeon.player.maxHealth * PERDAMAGE) + CultistTraining.OPTIONS[5], new RitualStick()));
             }
         }
 
