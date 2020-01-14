@@ -191,8 +191,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     	pl.add(new JuggernautPower(AbstractDungeon.player, 3));							//Deal 3 damage for each time you gain defense this turn
     	pl.add(new IntangiblePlayerPower(AbstractDungeon.player, 3));
     	pl.add(new MayhemPower(AbstractDungeon.player, 3));								//At the start of your turn play the three top most cards in your draw pile
-    	pl.add(new PlatedArmorPower(AbstractDungeon.player, 8));						//Gain 8 plated armor						
-    	pl.add(new RitualPower(AbstractDungeon.player, 2));								//Gain 2 Strength at the start of each turn
+    	pl.add(new PlatedArmorPower(AbstractDungeon.player, 8));						//Gain 8 plated armor
     	pl.add(new ThornsPower(AbstractDungeon.player, 8));
     	
     	//Add card powers
