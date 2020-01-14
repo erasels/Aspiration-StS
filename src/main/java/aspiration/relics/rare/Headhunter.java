@@ -165,7 +165,6 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
     	} else if (22 <= charge && charge <=24) {
     		buffList.add(new BarricadePower(AbstractDungeon.player));								//Don't lose block at end of turn
     		buffList.add(new PanachePower(AbstractDungeon.player, 5));								//Deal 5 damage for every 5 cards played
-    		buffList.add(new RitualPower(AbstractDungeon.player, 1));								//Gain 1 Strength at the start of each turn
     	} else if (25 <= charge && charge <=27) {
     		buffList.add(new ArtifactPower(AbstractDungeon.player, 5));
     		buffList.add(new IntangiblePlayerPower(AbstractDungeon.player, 3));	
