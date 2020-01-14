@@ -117,7 +117,7 @@
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Every time you play an #yAttack [REMOVE_SPACE], play the top card of your draw pile. NL Start combat with #r",
+	  "Whenever you play an #yAttack [REMOVE_SPACE], play the top card of your draw pile. NL Start combat with #r",
 	  " stacks of #yWeak [REMOVE_SPACE], #yFrail and #yVulnerable on you, reduced by #yExperience [REMOVE_SPACE].",
 	  "#b1 for every #b",
 	  " floors visited with the associated relic in hand and every boss killed before pickup.",
@@ -128,7 +128,7 @@
     "NAME": "Poet's Pen",
     "FLAVOR": "In every piece of prose, lies a tiny spark of magic. With this tool, you may craft beauty even on this most dreary of canvasses.",
     "DESCRIPTIONS": [
-	  "Every time you play an #yAttack [REMOVE_SPACE], play the top card of your draw pile if it's an #yAttack [REMOVE_SPACE], otherwise discard it."
+	  "Whenever you play an #yAttack [REMOVE_SPACE], play the top card of your draw pile if it's an #yAttack [REMOVE_SPACE], otherwise discard it."
     ]
   },
   "aspiration:EnhancedActuators": {
@@ -500,7 +500,7 @@
   },
   "aspiration:BardSkillbook": {
     "NAME": "Bard's Skillbook",
-    "FLAVOR": "A notebook used as a book for notes. ",
+    "FLAVOR": "A notebook used as a book for notes.",
     "DESCRIPTIONS": [
       "Each card you play may also #ybard:Queue #ybard:Notes. At the end of your turn, #ybard:Queue a [WildNote] [REMOVE_SPACE].",
       " NL NL #yMulticlass Bard",
@@ -520,7 +520,23 @@
     "FLAVOR": "Maybe you could read the runes if the spoon didn't wiggle around so much.",
     "DESCRIPTIONS": [
       "In each combat, add a copy of every #b",
-      " card you personally play into your hand."
+      " card you manually play into your hand."
+    ]
+  },
+  "aspiration:WatcherSkillbook": {
+    "NAME": "Watcher's Skillbook",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "Whenever you spend #b2 or more [E] [REMOVE_SPACE], gain #yMantra equal to the amount spent.",
+      " NL NL #yMulticlass Watcher"
+    ]
+  },
+  "aspiration:DSix": {
+    "NAME": "The D6",
+    "FLAVOR": "Destiny, but a dice roll away.",
+    "DESCRIPTIONS": [
+      "Reroll all #yRelic and #yPotion rewards in the current reward screen. Works #b",
+      " times."
     ]
   }
 }

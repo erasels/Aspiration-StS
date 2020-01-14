@@ -65,13 +65,15 @@ public class Aspiration implements
         PostDungeonInitializeSubscriber,
         AddAudioSubscriber,
         EditKeywordsSubscriber,
-        RelicGetSubscriber
+        RelicGetSubscriber,
+        PostUpdateSubscriber
 {
 	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
     private static SpireConfig modConfig = null;
     public static SpireConfig otherSaveData = null;
     public static TextureAtlas powerAtlas;
     public static final int SKILLBOOK_SPAWN_AMOUNT = 3;
+    public static boolean dsixTriggered;
 
     // Crossover checks
     public static final boolean hasMarisa;
@@ -386,11 +388,13 @@ public class Aspiration implements
         BaseMod.addRelic(new HiddenCompartment(), RelicType.SHARED);
         BaseMod.addRelic(new HatOfInfinitePower(), RelicType.SHARED);
         BaseMod.addRelic(new RunicSpoon(), RelicType.SHARED);
+        BaseMod.addRelic(new DSix(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
         BaseMod.addRelic(new DefectSkillbook(), RelicType.SHARED);
         BaseMod.addRelic(new SilentSkillbook(), RelicType.SHARED);
+        BaseMod.addRelic(new WatcherSkillbook(), RelicType.SHARED);
     	
     	//Special relics
     	BaseMod.addRelic(new BabyByrd(), RelicType.SHARED);
@@ -452,6 +456,20 @@ public class Aspiration implements
     }
 
     @Override
+    public void receivePostUpdate() {
+        if (!CardCrawlGame.isInARun()) return;
+        if (AbstractDungeon.screen == AbstractDungeon.CurrentScreen.COMBAT_REWARD) {
+            if (dsixTriggered) {
+                dsixTriggered = false;
+                DSix d = (DSix) AbstractDungeon.player.getRelic(DSix.ID);
+                if(d != null) {
+                    d.replaceRewards();
+                }
+            }
+        }
+    }
+
+    @Override
     public void receiveEditKeywords() {
         Gson gson = new Gson();
         String keywordStrings = Gdx.files.internal(assetPath("loc/" + languageSupport() + "/" +"aspiration-KeywordStrings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
@@ -469,8 +487,6 @@ public class Aspiration implements
     private String languageSupport()
     {
         switch (Settings.language) {
-            case RUS:
-                return "rus";
             case ZHS:
                 return "zhs";
             default:
@@ -489,6 +505,7 @@ public class Aspiration implements
         BaseMod.loadCustomStringsFile(OrbStrings.class, assetPath(path + "aspiration-OrbStrings.json"));
         BaseMod.loadCustomStringsFile(CardStrings.class, assetPath(path + "aspiration-CardStrings.json"));
         BaseMod.loadCustomStringsFile(KeywordStrings.class, assetPath(path + "aspiration-KeywordStrings.json"));
+        BaseMod.loadCustomStringsFile(BlightStrings.class, assetPath(path + "aspiration-BlightStrings.json"));
     }
 
     @Override
@@ -503,6 +520,7 @@ public class Aspiration implements
     @Override
     public void receivePostDungeonInitialize()
     {
+        dsixTriggered = false;
         if (weakPoetsPenEnabled()) {
             if (RelicUtils.removeRelicFromPool(PoetsPen.ID)) {
                 logger.info(PoetsPen.ID + " removed.");

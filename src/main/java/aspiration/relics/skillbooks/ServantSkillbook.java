@@ -2,6 +2,7 @@ package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
 import aspiration.relics.abstracts.OnReducePower;
+import basemod.ReflectionHacks;
 import blackrusemod.characters.TheServant;
 import blackrusemod.patches.LibraryTypeEnum;
 import blackrusemod.powers.ProtectionPower;
@@ -15,7 +16,6 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
@@ -44,13 +44,7 @@ public class ServantSkillbook extends SkillbookRelic implements OnReducePower {
     public int OnReducePower(AbstractPower powerInstance, int amount) {
         if(powerInstance.ID.equals(SatellitePower.POWER_ID)) {
             int satDamage = SAT_ATK;
-            try {
-                Field satDmg = SatellitePower.class.getDeclaredField("damage");
-                satDmg.setAccessible(true);
-                satDamage = (int) satDmg.get(powerInstance);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            satDamage = (int) ReflectionHacks.getPrivate(powerInstance, SatellitePower.class, "damage");
 
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ProtectionPower(AbstractDungeon.player, satDamage), satDamage));
         }
@@ -60,7 +54,7 @@ public class ServantSkillbook extends SkillbookRelic implements OnReducePower {
     @Override
     public void atTurnStart() {
         if(!took_dmg) {
-            this.flash();
+            flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new SatellitePower(AbstractDungeon.player, SAT_AMT), SAT_AMT));
         }

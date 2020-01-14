@@ -6,7 +6,8 @@
     <!--The author name(s) as they appear in MTS and any other comments are in your ModTheSpire.json-->
     <groupId>watdis</groupId>
     <artifactId>WatDis</artifactId>
-    <version>1.4.0</version>
+    <version>1.4.1</version>
+
     <name>Aspiration</name>
     <description>A mod containing my first attempts at modding.</description>
 
@@ -163,9 +164,7 @@
                         <configuration>
                             <target>
                                 <!-- This moves your mod into a common folder where all mods you make can go. -->
-                                <copy file="target/${project.artifactId}.jar" tofile="../mods/Aspiration.jar"/>
                                 <copy file="target/${project.artifactId}.jar" tofile="K:/Steam/steamapps/common/SlayTheSpire/mods/Aspiration.jar"/>
-                                <copy file="target/${project.artifactId}.jar" tofile="../raw_resources/Uploads/Aspiration/content/Aspiration.jar"/>>
                             </target>
                         </configuration>
                         <goals>

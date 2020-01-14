@@ -60,6 +60,11 @@ public abstract class SkillbookRelic extends AspirationRelic implements Skillboo
         initializeTips();
     }
 
+    @Override
+    public int changeNumberOfCardsInReward(int numberOfCards) {
+        return numberOfCards + 1;
+    }
+
     public static boolean hasSkillbookRelic(AbstractPlayer p) {
         for(AbstractRelic r : p.relics) {
             if(r instanceof SkillbookRelic) {
