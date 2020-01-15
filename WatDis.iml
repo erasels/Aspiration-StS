@@ -11,7 +11,7 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library name="Maven: com.megacrit.cardcrawl:slaythespire:01-23-2019">
+      <library name="Maven: com.megacrit.cardcrawl:slaythespire:14-01-2019">
         <CLASSES>
           <root url="jar://K:/Steam/steamapps/common/SlayTheSpire/desktop-1.0.jar!/" />
         </CLASSES>
@@ -20,7 +20,7 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="Maven: com.evacipated.cardcrawl:modthespire:3.8.0">
+      <library name="Maven: com.evacipated.cardcrawl:modthespire:3.15.0">
         <CLASSES>
           <root url="jar://K:/Steam/steamapps/workshop/content/646570/1605060445/ModTheSpire.jar!/" />
         </CLASSES>
