@@ -7,8 +7,8 @@ import com.megacrit.cardcrawl.mod.replay.orbs.*;
 import com.megacrit.cardcrawl.orbs.*;
 import com.megacrit.cardcrawl.random.Random;
 import conspire.orbs.Water;
-import eatyourbeets.orbs.Earth;
-import eatyourbeets.orbs.Fire;
+import eatyourbeets.orbs.animator.Earth;
+import eatyourbeets.orbs.animator.Fire;
 
 import java.util.ArrayList;
 
