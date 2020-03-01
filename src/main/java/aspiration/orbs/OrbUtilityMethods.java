@@ -128,7 +128,7 @@ public class OrbUtilityMethods {
         if (Aspiration.hasReplay) {
             orbs.add(new CrystalOrb(), WeightedList.WEIGHT_COMMON);
             orbs.add(new HellFireOrb(), WeightedList.WEIGHT_COMMON);
-            orbs.add(new ReplayLightOrb(), WeightedList.WEIGHT_RARE);
+            //orbs.add(new ReplayLightOrb(), WeightedList.WEIGHT_RARE);
 
             if (Aspiration.hasMarisa) {
                 orbs.add(new ManaSparkOrb(), WeightedList.WEIGHT_UNCOMMON);
