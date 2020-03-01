@@ -16,8 +16,6 @@ public class FrozenJewel extends AspirationRelic {
 	public static final String ID = "aspiration:FrozenJewel";
 	
     private static final int BLOCK_GAIN = 2;
-    private int mon_counter = 0;
-    private int atk_counter = 0;
 
     public FrozenJewel() {
         super(ID, "FrozenJewel.png", RelicTier.UNCOMMON, LandingSound.CLINK);
@@ -30,7 +28,10 @@ public class FrozenJewel extends AspirationRelic {
     
     @Override
     public void onPlayerEndTurn() {
-    	for (AbstractMonster mo : AbstractDungeon.getCurrRoom().monsters.monsters) {
+		int mon_counter = 0;
+		int atk_counter = 0;
+
+    	for (AbstractMonster mo : AbstractDungeon.getMonsters().monsters) {
     		if(!mo.isDeadOrEscaped()) {
             	mon_counter++;
             
@@ -46,8 +47,6 @@ public class FrozenJewel extends AspirationRelic {
     		AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
     		AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new BlurPower(AbstractDungeon.player, 1), 1));
     	}
-    	atk_counter = 0;
-    	mon_counter = 0;
     }
 
     public AbstractRelic makeCopy() {
