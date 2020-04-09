@@ -504,8 +504,8 @@
     "DESCRIPTIONS": [
       "每当你演奏是， #ybard:谱曲 一个 #ybard:音符 。 你的回合结束时， #ybard:谱曲 一个 [WildNote] 。",
       " NL NL #y多职业： 游吟诗人",
-      "Note Mechanics",
-      "The #yNotes #yQueued depend on the type of the card played and are shown in the card's tooltips。"
+      "音符机制",
+      "卡牌顶部标记的音符将会被谱写在 #y乐谱 上。"
     ]
   },
   "aspiration:Earplugs": {
@@ -513,6 +513,30 @@
     "FLAVOR": "对一个技能的信心在某种程度上总是有用的。。",
     "DESCRIPTIONS": [
       "每当你将获得 #ybard:灵感 ，替换为每 #b25 灵感给予随机一名敌人 #b1 层 #y虚弱 和 #y易伤 。"
+    ]
+  },
+  "aspiration:RunicSpoon": {
+    "NAME": "符文勺子",
+    "FLAVOR": "如果不是这勺子晃来晃去，也许能看清上面的符文。",
+    "DESCRIPTIONS": [
+      "每当战斗，将主动打出的前 #b",
+      " 张牌的复制品加入手牌。"
+    ]
+  },
+  "aspiration:WatcherSkillbook": {
+    "NAME": "观者技能书",
+    "FLAVOR": "",
+    "DESCRIPTIONS": [
+      "每当你使用了 #b2 个以上 [E] 时，获得等于耗能数量的 #y真言 。",
+      " NL NL #y多职业 ：观者"
+    ]
+  },
+  "aspiration:DSix": {
+    "NAME": "六面骰子",
+    "FLAVOR": "一切皆允，骰子落定。",
+    "DESCRIPTIONS": [
+      "将当前奖励页面的 #y遗物 和 #y药水 奖励随机。还能随机 #b",
+      " 次。"
     ]
   }
 }

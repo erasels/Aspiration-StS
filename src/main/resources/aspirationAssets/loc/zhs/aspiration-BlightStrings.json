@@ -1,9 +1,9 @@
 {
   "aspiration:ChestSnatcher": {
-    "NAME": "Chest Snatcher",
+    "NAME": "窃箱器",
     "DESCRIPTION": [
-      "The first chest you open is empty.",
-      "Future chests are unmolested."
+      "下一个你打开的宝箱将是空的。",
+      "之后的宝箱不受影响。"
     ]
   }
 }
