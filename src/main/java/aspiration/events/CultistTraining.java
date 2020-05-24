@@ -18,8 +18,8 @@ public class CultistTraining extends AbstractImageEvent {
     private static final String[] OPTIONS = eventStrings.OPTIONS;
 
     private int chosen_option;
-    private static final float PERDAMAGE = 0.15f;
-    private static final float ASC_PERDAMAGE = 0.2f;
+    private static final float PERDAMAGE = 0.2f;
+    private static final float ASC_PERDAMAGE = 0.25f;
 
     private State state;
 
