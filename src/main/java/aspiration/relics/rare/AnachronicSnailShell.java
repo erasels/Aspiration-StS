@@ -23,7 +23,7 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
 	private boolean duringTurn = true;
 
     public AnachronicSnailShell() {
-        super(ID, "AnachronicSnailShell.png", RelicTier.RARE, LandingSound.MAGICAL);
+        super(ID, "AnachronicSnailShell.png", RelicTier.RARE, LandingSound.CLINK);
     }
 
     @Override
@@ -47,15 +47,15 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
 
     @Override
     public int betterOnLoseHp(DamageInfo info, int Amount) {
-        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) && !duringTurn && info.owner != AbstractDungeon.player && info.type == DamageType.NORMAL) {
+        if ((AbstractDungeon.getCurrRoom().phase == AbstractRoom.RoomPhase.COMBAT) && !duringTurn && info.owner != AbstractDungeon.player && info.type == DamageType.NORMAL && Amount > 1) {
             flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new SFXAction("POWER_TIME_WARP"));
             beginLongPulse();
 
-            Amount = MathUtils.floor((float)Amount /2);
-            manipCharge(Amount);
-            return Amount;
+            int tmp = MathUtils.floor((float)Amount /2);
+            manipCharge(tmp);
+            return Amount - tmp;
         }
         return Amount;
     }
