@@ -311,8 +311,7 @@
     "NAME": "Ironclad's Skillbook",
     "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
     "DESCRIPTIONS": [
-      "At the end of each turn, if you have more than #b",
-      " #yBlock [REMOVE_SPACE], gain #b",
+      "Before the start of your turn, if you have #yBlock[REMOVE_SPACE], gain #b",
       " #yStrength [REMOVE_SPACE]. At the end of combat, heal #b",
       " HP.",
       " NL NL #yMulticlass Ironclad"
@@ -527,7 +526,7 @@
     "NAME": "Watcher's Skillbook",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "Whenever you spend #b2 or more [E] [REMOVE_SPACE], gain #yMantra equal to the amount spent.",
+      "Whenever you play an #yAttack and then a #ySkill or vice versa, gain #b1 #yMantra [REMOVE_SPACE].",
       " NL NL #yMulticlass Watcher"
     ]
   },

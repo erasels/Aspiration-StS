@@ -308,13 +308,12 @@
     ]
   },
   "aspiration:IroncladSkillbook": {
-    "NAME": "铁甲战士技能书",
-    "FLAVOR": "这本破烂的书籍中潦草的内容似乎是由一个愤怒的存在写下的。",
+    "NAME": "Ironclad's Skillbook",
+    "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
     "DESCRIPTIONS": [
-      "在你的回合结束时，如果你拥有大于 #b",
-      " 点 #y格挡 ， 获得 #b",
-      " 点 #y力量 。每场战斗结束后，回复 #b",
-      " 生命。",
+      "Before the start of your turn, if you have #yBlock [REMOVE_SPACE], gain #b",
+      " #yStrength [REMOVE_SPACE]. At the end of combat, heal #b",
+      " HP.",
       " NL NL #y多职业： 铁甲战士"
     ]
   },
@@ -527,7 +526,7 @@
     "NAME": "观者技能书",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "每当你使用了 #b2 个以上 [E] 时，获得等于耗能数量的 #y真言 。",
+      "Whenever you play an #yAttack and then a #ySkill or vice versa, gain #b1 #yMantra [REMOVE_SPACE].",
       " NL NL #y多职业 ：观者"
     ]
   },

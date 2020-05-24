@@ -308,14 +308,13 @@
     ]
   },
   "aspiration:IroncladSkillbook": {
-    "NAME": "Книга навыков Латоносца",
-    "FLAVOR": "Ужасно-выглядящая книга, содержащая гневные каракули.",
+    "NAME": "Ironclad's Skillbook",
+    "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
     "DESCRIPTIONS": [
-      "Если у вас более #b",
-      " #yЗащиты в конце вашего хода, даёт #b",
-      " #yСилы. Восполняет #b",
-      " ОЗ в конце боя.",
-      " NL NL #yМультикласс Латоносец"
+      "Before the start of your turn, if you have #yBlock [REMOVE_SPACE], gain #b",
+      " #yStrength [REMOVE_SPACE]. At the end of combat, heal #b",
+      " HP.",
+      " NL NL #yMulticlass Ironclad"
     ]
   },
   "aspiration:DefectSkillbook": {

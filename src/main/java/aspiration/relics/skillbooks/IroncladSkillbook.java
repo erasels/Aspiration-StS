@@ -1,6 +1,7 @@
 package aspiration.relics.skillbooks;
 
 import aspiration.Aspiration;
+import aspiration.relics.abstracts.AtEndOfRound;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -14,10 +15,9 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class IroncladSkillbook extends SkillbookRelic {
+public class IroncladSkillbook extends SkillbookRelic implements AtEndOfRound {
     public static final String ID = "aspiration:IroncladSkillbook";
 
-    private static final int STR_THRESHOLD = 20;
     private static final int STR_AMT = 1;
     private static final int HEAL_AMT = 4;
 
@@ -28,15 +28,15 @@ public class IroncladSkillbook extends SkillbookRelic {
     @Override
     public String getUpdatedDescription() {
         if(Aspiration.skillbookCardpool()) {
-            return DESCRIPTIONS[0] + STR_THRESHOLD + DESCRIPTIONS[1] + STR_AMT +DESCRIPTIONS[2] + HEAL_AMT + DESCRIPTIONS[3] + DESCRIPTIONS[4];
+            return DESCRIPTIONS[0] + STR_AMT +DESCRIPTIONS[1] + HEAL_AMT + DESCRIPTIONS[2] + DESCRIPTIONS[3];
         } else {
-            return DESCRIPTIONS[0] + STR_THRESHOLD + DESCRIPTIONS[1] + STR_AMT +DESCRIPTIONS[2] + HEAL_AMT + DESCRIPTIONS[3];
+            return DESCRIPTIONS[0] + STR_AMT +DESCRIPTIONS[1] + HEAL_AMT + DESCRIPTIONS[2];
         }
     }
 
     @Override
-    public void onPlayerEndTurn() {
-        if(AbstractDungeon.player.currentBlock >= STR_THRESHOLD) {
+    public void atEndOfRound() {
+        if(AbstractDungeon.player.currentBlock > 0) {
             this.flash();
             AbstractDungeon.actionManager.addToBottom(new RelicAboveCreatureAction(AbstractDungeon.player, this));
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, STR_AMT), STR_AMT));
