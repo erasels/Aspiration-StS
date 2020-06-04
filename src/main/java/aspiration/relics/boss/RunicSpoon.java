@@ -1,16 +1,17 @@
 package aspiration.relics.boss;
 
+import aspiration.Utility.RelicStatsHelper;
 import aspiration.patches.Fields.AbstractCardFields;
-import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.relics.abstracts.StatRelic;
 import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 
-public class RunicSpoon extends AspirationRelic {
+public class RunicSpoon extends StatRelic {
     public static final String ID = "aspiration:RunicSpoon";
 
+    private static final String STAT1 = "Cards duplicated: ";
     private static final int START_CHARGE = 0;
     private static final int CARDS_TO_TRIGGER = 3;
     private boolean wasTriggered = false;
@@ -26,6 +27,7 @@ public class RunicSpoon extends AspirationRelic {
             flash();
             manipCharge(1);
             if (wasTriggered) {
+                RelicStatsHelper.incrementStat(this, STAT1);
                 atb(new MakeTempCardInHandAction(c));
                 wasTriggered = false;
             }
@@ -64,7 +66,8 @@ public class RunicSpoon extends AspirationRelic {
 
     public boolean checkTrigger() { return pulse; }
 
-    public AbstractRelic makeCopy() {
-        return new RunicSpoon();
+    @Override
+    public void statsInit() {
+        stats.put(STAT1, 0);
     }
 }
