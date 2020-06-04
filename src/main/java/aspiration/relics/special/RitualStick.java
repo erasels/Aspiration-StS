@@ -1,7 +1,8 @@
 package aspiration.relics.special;
 
+import aspiration.Utility.RelicStatsHelper;
 import aspiration.powers.P_RitualPower;
-import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.relics.abstracts.StatRelic;
 import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,11 +11,13 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.CultistMask;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
-public class RitualStick extends AspirationRelic implements CustomSavable<Integer> {
+public class RitualStick extends StatRelic implements CustomSavable<Integer> {
     public static final String ID = "aspiration:RitualStick";
     private boolean wasApplied = false;
     private int ritualAmount = 1;
     private boolean hasCM = false;
+
+    private static final String STAT1 = "Times triggered: ";
 
     public RitualStick() {
         super(ID, "RitualStick.png", RelicTier.SPECIAL, LandingSound.FLAT);
@@ -33,6 +36,7 @@ public class RitualStick extends AspirationRelic implements CustomSavable<Intege
                 AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new P_RitualPower(AbstractDungeon.player, ritualAmount), ritualAmount));
                 stopPulse();
                 wasApplied = true;
+                RelicStatsHelper.incrementStat(this, STAT1);
             }
 
             if (hasCM) {
@@ -76,10 +80,6 @@ public class RitualStick extends AspirationRelic implements CustomSavable<Intege
         stopPulse();
     }
 
-    public AbstractRelic makeCopy() {
-        return new RitualStick();
-    }
-
     @Override
     public Integer onSave() {
         return ritualAmount;
@@ -101,5 +101,10 @@ public class RitualStick extends AspirationRelic implements CustomSavable<Intege
         this.tips.add(new PowerTip(name, DESCRIPTIONS[0] + ritualAmount + DESCRIPTIONS[1]));
         this.initializeTips();
         this.description = getUpdatedDescription();
+    }
+
+    @Override
+    public void statsInit() {
+        stats.put(STAT1, 0);
     }
 }
