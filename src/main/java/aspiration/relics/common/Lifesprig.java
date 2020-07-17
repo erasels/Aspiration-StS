@@ -17,7 +17,7 @@ public static final String ID = "aspiration:Lifesprig";
 	private static final int REGEN_AMT = 1;
 	
     public Lifesprig() {
-        super(ID, "Lifesprig.png", RelicTier.COMMON, LandingSound.FLAT);
+        super(ID, "Lifesprig.png", RelicTier.COMMON, LandingSound.SOLID);
     }
     
     @Override
@@ -34,7 +34,7 @@ public static final String ID = "aspiration:Lifesprig";
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + ATTACKS_TO_TRIGGER + DESCRIPTIONS[1] + REGEN_AMT + DESCRIPTIONS[2];
+        return DESCRIPTIONS[0] + ATTACKS_TO_TRIGGER + DESCRIPTIONS[1] + DESCRIPTIONS[2];
     }
     
     @Override
