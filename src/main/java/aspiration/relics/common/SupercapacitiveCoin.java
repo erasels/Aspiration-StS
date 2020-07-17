@@ -30,7 +30,7 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	private boolean duringTurn = true;
 	
     public SupercapacitiveCoin() {
-        super(ID, "SupercapacitiveCoin.png", RelicTier.COMMON, LandingSound.CLINK);
+        super(ID, "SupercapacitiveCoin.png", RelicTier.SPECIAL, LandingSound.CLINK);
         this.tips.clear();
         this.tips.add(new PowerTip(name, description));
         this.tips.add(new PowerTip(DESCRIPTIONS[9] + new Ectoplasm().name, DESCRIPTIONS[6]));
