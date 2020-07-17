@@ -1,9 +1,9 @@
 package aspiration.relics.boss;
 
 import aspiration.Utility.RelicStatsHelper;
+import aspiration.actions.unique.RSCopyAction;
 import aspiration.patches.Fields.AbstractCardFields;
 import aspiration.relics.abstracts.StatRelic;
-import com.megacrit.cardcrawl.actions.common.MakeTempCardInHandAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
@@ -28,7 +28,7 @@ public class RunicSpoon extends StatRelic {
             manipCharge(1);
             if (wasTriggered) {
                 RelicStatsHelper.incrementStat(this, STAT1);
-                atb(new MakeTempCardInHandAction(c));
+                atb(new RSCopyAction(c));
                 wasTriggered = false;
             }
         }

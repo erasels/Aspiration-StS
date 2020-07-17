@@ -199,8 +199,8 @@
     "FLAVOR": "From the weakest slime to the strongest abomination, hostile life thrives in the spire. Maybe, so can you.",
     "DESCRIPTIONS": [
 	  "Every time you play #b",
-	  " #yAttacks [REMOVE_SPACE], gain #b",
-	  " #yRegen [REMOVE_SPACE]."
+	  " #yAttacks in a single turn [REMOVE_SPACE], gain [E]",
+	  " next turn."
     ]
   },
   "aspiration:RitualDagger": {
@@ -519,7 +519,7 @@
     "FLAVOR": "Maybe you could read the runes if the spoon didn't wiggle around so much.",
     "DESCRIPTIONS": [
       "In each combat, add a copy of every #b",
-      " card you manually play into your hand."
+      " card you manually play into your hand, it costs #b1 more until played."
     ]
   },
   "aspiration:WatcherSkillbook": {
