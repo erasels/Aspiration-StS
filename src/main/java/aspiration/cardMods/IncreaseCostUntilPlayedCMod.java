@@ -1,7 +1,9 @@
 package aspiration.cardMods;
 
+import aspiration.actions.unique.ModifyCostAction;
 import basemod.abstracts.AbstractCardModifier;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 
 public class IncreaseCostUntilPlayedCMod extends AbstractCardModifier {
     private int originalCost;
@@ -19,10 +21,7 @@ public class IncreaseCostUntilPlayedCMod extends AbstractCardModifier {
 
     @Override
     public void onRemove(AbstractCard card) {
-        card.updateCost(-costInc);
-        if(card.cost == originalCost) {
-            card.isCostModified = false;
-        }
+        AbstractDungeon.actionManager.addToTop(new ModifyCostAction(costInc, originalCost, card));
     }
 
     @Override
