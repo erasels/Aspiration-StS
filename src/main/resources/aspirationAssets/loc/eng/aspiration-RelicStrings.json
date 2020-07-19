@@ -311,7 +311,7 @@
     "NAME": "Ironclad's Skillbook",
     "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
     "DESCRIPTIONS": [
-      "Before the start of your turn, if you have #yBlock[REMOVE_SPACE], gain #b",
+      "Before the start of your turn, if you have #yBlock [REMOVE_SPACE], gain #b",
       " #yStrength [REMOVE_SPACE]. At the end of combat, heal #b",
       " HP.",
       " NL NL #yMulticlass Ironclad"
