@@ -1,7 +1,6 @@
 package aspiration.patches;
 
 import aspiration.events.MeetingTheSilent;
-import aspiration.events.TheDarkMirror;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.megacrit.cardcrawl.characters.TheSilent;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -17,11 +16,6 @@ public class EventSpawnPatches {
                 AbstractDungeon.eventList.remove(MeetingTheSilent.ID);
                 AbstractDungeon.shrineList.remove(MeetingTheSilent.ID);
             }
-
-            if(AbstractDungeon.eventRng.randomBoolean()) {
-                AbstractDungeon.shrineList.remove(TheDarkMirror.ID);
-            }
-
         }
     }
 }
