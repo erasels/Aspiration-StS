@@ -27,6 +27,7 @@ import basemod.interfaces.*;
 import blackrusemod.patches.AbstractCardEnum;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -346,7 +347,7 @@ public class Aspiration implements
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
 
-        BaseMod.addEvent(new AddEventParams.Builder(TheDarkMirror.ID, TheDarkMirror.class).eventType(EventUtils.EventType.ONE_TIME).dungeonID(TheCity.ID).create());
+        BaseMod.addEvent(new AddEventParams.Builder(TheDarkMirror.ID, TheDarkMirror.class).eventType(EventUtils.EventType.NORMAL).bonusCondition(() -> MathUtils.randomBoolean(0.1f)).dungeonID(TheCity.ID).create());
         BaseMod.addEvent(new AddEventParams.Builder(MeetingTheSilent.ID, MeetingTheSilent.class).spawnCondition(() -> !(AbstractDungeon.player instanceof TheSilent)).eventType(EventUtils.EventType.SHRINE).create());
 
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
