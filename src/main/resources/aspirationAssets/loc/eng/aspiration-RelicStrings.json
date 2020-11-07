@@ -209,7 +209,7 @@
     "DESCRIPTIONS": [
 	  "Lose #r",
 	  " HP at the start of your turn.",
-	  " When you would die in combat, heal to your Max HP instead and gain #yAwoken (works once)."
+	  " When you would die in combat, heal to your Max HP instead and gain permanently #yAwoken (works once)."
     ]
   },
   "aspiration:KaomsHeart": {
