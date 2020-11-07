@@ -20,6 +20,8 @@ import aspiration.relics.uncommon.*;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
 import basemod.helpers.RelicType;
 import basemod.interfaces.*;
 import blackrusemod.patches.AbstractCardEnum;
@@ -32,6 +34,7 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireConfig;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.megacrit.cardcrawl.characters.TheSilent;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
@@ -339,11 +342,12 @@ public class Aspiration implements
 
         BaseMod.registerModBadge(ImageMaster.loadImage(assetPath("img/UI/modBadge.png")), "Aspiration", "Erasels", "A mod, boyo.", settingsPanel);
 
-    	
-        BaseMod.addEvent(TheDarkMirror.ID, TheDarkMirror.class, TheCity.ID);
+
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
-        BaseMod.addEvent(MeetingTheSilent.ID, MeetingTheSilent.class);
+
+        BaseMod.addEvent(new AddEventParams.Builder(TheDarkMirror.ID, TheDarkMirror.class).eventType(EventUtils.EventType.ONE_TIME).dungeonID(TheCity.ID).create());
+        BaseMod.addEvent(new AddEventParams.Builder(MeetingTheSilent.ID, MeetingTheSilent.class).spawnCondition(() -> !(AbstractDungeon.player instanceof TheSilent)).eventType(EventUtils.EventType.SHRINE).create());
 
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
     }
