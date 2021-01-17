@@ -44,7 +44,7 @@
 	  " 层 #y中毒 ，获得 [E] ，每回合最多 #b",
 	  " 次。 NL 你的回合结束时，如果没有敌人 #y被中毒 ，给予你 #b",
 	  " 层 #y中毒 。",
-	  "The Contagion is sated for now。",
+	  "传染目前已经停止",
 	  " NL NL 本回合能获得 [E] 的次数: #b"
     ]
   },
@@ -71,7 +71,7 @@
       "每当你杀死一名敌人时，获得 #y充能 。这些 #y充能 的多少决定了你在战斗开始时获得的额外增益效果。进入非怪物房间则根据房间类型获得 #y充能 。 #g右键获得更多相关信息 。",
       "#y杀死敌人获得的充能： NL 普通： #b",
       " ， NL 精英： #b",
-      " ， NL Boss: #b",
+      " ， NL 首领: #b",
       " 。 NL 失去充能的非怪物房： 休息处： #r",
       " ， NL 商人： #r",
       " ， NL 未知： #r",
@@ -81,17 +81,17 @@
     ]
   },
   "aspiration:Legacy_Headhunter": {
-    "NAME": "Legacy Headhunter",
-    "FLAVOR": "Such a lucky find! A rarity amongst rarities will surely lead to an exalted run。",
+    "NAME": "传奇猎头",
+    "FLAVOR": "真是幸运的发现！稀世珍品中的稀世珍品，必定会带来一次绝佳的冒险。",
     "DESCRIPTIONS": [
-      "[Unbalanced and broken, but useable。] 获得 #b1 tiered, random #yBuff after winning a battle, every #yBuff gained this way will be applied at the start of battle for the next #b",
-	  " battles。",
-      "Applied Powers: ",
-      "Energy"
+      "[不平衡且有bug，但能用] 赢得战斗后获得 #b1 层随机 #y增益 ， 每层通过此方式获得的增益会被施加到 于下 #b",
+	  " 场战斗的开始。",
+      "施加能力: ",
+      "能量"
     ]
   },
   "aspiration:AnachronicSnailShell": {
-    "NAME": "时代倒错蜗牛壳",
+    "NAME": "时差蜗牛壳",
     "FLAVOR": "这片蜗牛壳抵抗着时间的流动，以其自相矛盾的速度流动。",
     "DESCRIPTIONS": [
       "每当你因受到敌人攻击失去生命时，推迟其一半的伤害到下一回合结束。"
@@ -198,9 +198,9 @@
     "NAME": "带叶树枝",
     "FLAVOR": "从最弱的粘液到最恐怖的存在，整座高塔都充满了敌意。可能，你也是。",
     "DESCRIPTIONS": [
-	  "每当你打出 #b",
-      " #yAttacks in a single turn [REMOVE_SPACE], gain [E]",
-      " next turn."
+	  "每当你再一回合内打出 #b",
+      " #y攻击牌 ，获得 [E]",
+      " 于下回合。"
     ]
   },
   "aspiration:RitualDagger": {
@@ -308,12 +308,12 @@
     ]
   },
   "aspiration:IroncladSkillbook": {
-    "NAME": "Ironclad's Skillbook",
-    "FLAVOR": "An abused book that contains the hasty scribbles of an angry being.",
+    "NAME": "铁甲战士技能书",
+    "FLAVOR": "一本被滥用的书，里面有一个愤怒的人匆忙的涂鸦。",
     "DESCRIPTIONS": [
-      "Before the start of your turn, if you have #yBlock [REMOVE_SPACE], gain #b",
-      " #yStrength [REMOVE_SPACE]. At the end of combat, heal #b",
-      " HP.",
+      "回合开始前，如果有格挡，获得 #b",
+      " #y力量 。战斗结束后，治疗 #b",
+      " 生命。",
       " NL NL #y多职业： 铁甲战士"
     ]
   },
@@ -346,12 +346,12 @@
     ]
   },
   "aspiration:BeakedSkillbook": {
-    "NAME": "Beaked's 技能书",
-    "FLAVOR": "These religious texts depict the awakening of the \"Chosen One\" before devolving into nonesense。",
+    "NAME": "邪教徒技能书",
+    "FLAVOR": "这些宗教经文描述了被选中之人的觉醒，然后就变成了一派胡言。",
     "DESCRIPTIONS": [
-      "At the start of each turn, if you only played #yattacks last turn, 获得 #b",
-      " #yStrength and heal HP equal to your #yStrength 。",
-      " NL NL #y多职业： Beaked"
+      "每回合开始时，如果上回合只打出过 #y攻击牌 ，获得 #b",
+      " #y力量 和等同于力量的治疗量。",
+      " NL NL #y多职业： 邪教徒"
     ]
   },
   "aspiration:MobileForge": {
@@ -386,8 +386,8 @@
     ]
   },
   "aspiration:OniichanSword": {
-    "NAME": "Hmmm",
-    "FLAVOR": "A Mushroom concealed in your skirt in case of danger。",
+    "NAME": "大哥之剑",
+    "FLAVOR": "裙下蘑菇，以防不测。",
     "DESCRIPTIONS": [
       "每场战斗第一次受到未被格挡的伤害，造成 #b"
     ]
@@ -421,8 +421,8 @@
     "NAME": "刽子吊绳",
     "FLAVOR": "努力摆脱不可避免的事情只会加速它的发展。",
     "DESCRIPTIONS": [
-      "Whenever an enemy below or at #b50% HP attacks, it loses #b",
-      " HP。"
+      "低于50%血量的敌人发动攻击时，其流失 #b",
+      " 点生命。"
     ]
   },
   "aspiration:RandomNobGenerator": {
@@ -454,7 +454,7 @@
     "DESCRIPTIONS": [
       "每当你失去等于你最大生命的 #b",
       "% 的生命，获得一瓶随机药水。",
-      "Can't carry all your blood!"
+      "装不下这么多的血！"
     ]
   },
   "aspiration:StickyExplosives_weak": {
@@ -465,11 +465,11 @@
     ]
   },
   "aspiration:ScribeSkillbook": {
-    "NAME": "Spell Scribe's 技能书",
+    "NAME": "咒术抄本",
     "FLAVOR": "一本满是各种咒语的大部头书。",
     "DESCRIPTIONS": [
       "每当你获得一个增益效果，获得随机一种 #yscribe:Spell_Effect 。",
-      " NL NL #y多职业： Spell Scribe"
+      " NL NL #y多职业： 咒术抄写员"
     ]
   },
   "aspiration:SecretTechniqueScroll": {
@@ -519,14 +519,14 @@
     "FLAVOR": "如果不是这勺子晃来晃去，也许能看清上面的符文。",
     "DESCRIPTIONS": [
       "每当战斗，将主动打出的前 #b",
-      " 张牌的复制品加入手牌, it costs #b1 more until played。"
+      " 张牌的复制品加入手牌，下次打出时能量消耗多加 #b1 点。"
     ]
   },
   "aspiration:WatcherSkillbook": {
     "NAME": "观者技能书",
     "FLAVOR": "",
     "DESCRIPTIONS": [
-      "Whenever you play an #yAttack and then a #ySkill or vice versa, gain #b1 #yMantra [REMOVE_SPACE].",
+      "每当你打出攻击/技能牌后，若紧接着再打出技能/攻击牌，则获得 #b1 #y真言 [REMOVE_SPACE] 。",
       " NL NL #y多职业 ：观者"
     ]
   },
