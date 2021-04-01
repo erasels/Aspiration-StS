@@ -103,13 +103,6 @@
             <systemPath>${Steam.path}/workshop/content/646570/1610128058/InfiniteSpire.jar</systemPath>
         </dependency>
         <dependency>
-            <groupId>vexMod</groupId>
-            <artifactId>vexMod</artifactId>
-            <version>1.6</version>
-            <scope>system</scope>
-            <systemPath>${Steam.path}/workshop/content/646570/1678617599/vexMod.jar</systemPath>
-        </dependency>
-        <dependency>
             <groupId>thescribe</groupId>
             <artifactId>TheScribe</artifactId>
             <version>0.5.9</version>

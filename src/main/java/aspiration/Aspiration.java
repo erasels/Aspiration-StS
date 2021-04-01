@@ -87,7 +87,6 @@ public class Aspiration implements
     public static final boolean hasReplay;
     public static final boolean hasConspire;
     public static final boolean hasInfinite;
-    public static final boolean hasVex;
     public static final boolean hasScribe;
     public static final boolean hasAnimator;
     public static final boolean hasHubris;
@@ -121,10 +120,6 @@ public class Aspiration implements
         hasInfinite = Loader.isModLoaded("infinitespire");
         if (hasInfinite) {
             Aspiration.logger.info("Detected Mod: Infinite Spire");
-        }
-        hasVex = Loader.isModLoaded("vexMod");
-        if (hasVex) {
-            Aspiration.logger.info("Detected Mod: VexMod");
         }
         hasScribe = Loader.isModLoaded("thescribe");
         if (hasScribe) {

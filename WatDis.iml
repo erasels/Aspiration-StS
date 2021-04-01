@@ -110,15 +110,6 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
-      <library name="Maven: vexMod:vexMod:1.6">
-        <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1678617599/vexMod.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="Maven: thescribe:TheScribe:0.5.9">
         <CLASSES>
           <root url="jar://K:/Steam/steamapps/workshop/content/646570/1639744503/TheScribe.jar!/" />
