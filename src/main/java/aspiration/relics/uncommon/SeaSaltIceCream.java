@@ -47,9 +47,11 @@ public class SeaSaltIceCream extends AspirationRelic {
             AbstractDungeon.dynamicBanner.hide();
             AbstractDungeon.overlayMenu.cancelButton.hide();
             AbstractDungeon.previousScreen = AbstractDungeon.screen;
+            AbstractDungeon.closeCurrentScreen();
         }
         roomPhase = AbstractDungeon.getCurrRoom().phase;
         AbstractDungeon.getCurrRoom().phase = AbstractRoom.RoomPhase.INCOMPLETE;
+
 
         openRelicSelect();
     }
