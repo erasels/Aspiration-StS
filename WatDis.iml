@@ -139,7 +139,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl.mod:bard:1.0.1">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1744254855/Bard.jar!/" />
+          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1744254855/bard.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
