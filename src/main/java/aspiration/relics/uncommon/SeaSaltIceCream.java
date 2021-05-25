@@ -13,9 +13,11 @@ import com.google.gson.JsonSyntaxException;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
+import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.mod.replay.relics.GrabBag;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.Circlet;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 import java.io.File;
@@ -31,9 +33,14 @@ public class SeaSaltIceCream extends AspirationRelic {
     private boolean fakeHover = false;
     private static boolean debug = false;
     private AbstractRoom.RoomPhase roomPhase;
+    private AbstractRelic savedRelic;
 
     public SeaSaltIceCream() {
         super(ID, "SeaSaltIceCream.png", RelicTier.UNCOMMON, LandingSound.FLAT);
+        savedRelic = RelicLibrary.getRelic(getSavedItem());
+        if(savedRelic != null && !(savedRelic instanceof Circlet)) {
+            tips.add(new PowerTip(savedRelic.name, savedRelic.getUpdatedDescription()));
+        }
     }
 
     @Override
@@ -80,7 +87,7 @@ public class SeaSaltIceCream extends AspirationRelic {
         if (!relicSelected) {
             if (relicSelectScreen.doneSelecting()) {
                 relicSelected = true;
-                AbstractRelic tmp = null;
+                AbstractRelic tmp;
 
                 try {
                     tmp = RelicLibrary.getRelic(getSavedItem()).makeCopy();
