@@ -3,6 +3,7 @@ package aspiration.relics.uncommon;
 import aspiration.Aspiration;
 import aspiration.Utility.RelicUtils;
 import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.relics.shop.Nostalgia;
 import aspiration.ui.screens.RelicSelectScreen;
 import aspiration.vfx.ObtainRelicLater;
 import com.badlogic.gdx.Gdx;

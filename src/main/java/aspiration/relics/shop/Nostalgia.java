@@ -1,4 +1,4 @@
-package aspiration.relics.uncommon;
+package aspiration.relics.shop;
 
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.vfx.ObtainRelicLater;

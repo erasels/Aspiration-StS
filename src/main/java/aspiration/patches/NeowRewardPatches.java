@@ -3,7 +3,7 @@ package aspiration.patches;
 import aspiration.Utility.RelicUtils;
 import aspiration.blights.ChestSnatcher;
 import aspiration.relics.rare.DSix;
-import aspiration.relics.uncommon.Nostalgia;
+import aspiration.relics.shop.Nostalgia;
 import com.evacipated.cardcrawl.modthespire.lib.SpireEnum;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePostfixPatch;

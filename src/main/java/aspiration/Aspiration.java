@@ -14,6 +14,7 @@ import aspiration.relics.common.*;
 import aspiration.relics.crossovers.*;
 import aspiration.relics.rare.*;
 import aspiration.relics.shop.Earplugs;
+import aspiration.relics.shop.Nostalgia;
 import aspiration.relics.skillbooks.*;
 import aspiration.relics.special.*;
 import aspiration.relics.uncommon.*;
