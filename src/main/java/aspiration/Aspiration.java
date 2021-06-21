@@ -146,7 +146,6 @@ public class Aspiration implements
         try {
             Properties defaults = new Properties();
             defaults.put("WeakPoetsPen", Boolean.toString(true));
-            defaults.put("WeakSE", Boolean.toString(true));
             defaults.put("SkillbookCardpool", Boolean.toString(true));
             defaults.put("SpawnRNG", Boolean.toString(false));
             defaults.put("HoverSpeed", Boolean.toString(false));
@@ -167,14 +166,6 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("WeakPoetsPen");
-    }
-
-    public static boolean weakSE()
-    {
-        if (modConfig == null) {
-            return false;
-        }
-        return modConfig.getBool("WeakSE");
     }
 
     public static boolean skillbookCardpool()
@@ -261,21 +252,6 @@ public class Aspiration implements
         settingsPanel.addUIElement(PPBtn);
         yPos -= 50;
 
-        ModLabeledToggleButton SEBtn = new ModLabeledToggleButton(TEXT[4], 350, yPos, Settings.CREAM_COLOR, FontHelper.charDescFont, weakSE(), settingsPanel, l -> {},
-                button ->
-                {
-                    if (modConfig != null) {
-                        modConfig.setBool("WeakSE", button.enabled);
-                        try {
-                            modConfig.save();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-        settingsPanel.addUIElement(SEBtn);
-        yPos -= 50;
-
         ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton(TEXT[2], 350, yPos, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
                 button ->
                 {
@@ -348,8 +324,8 @@ public class Aspiration implements
     	BaseMod.addRelic(new PoetsPen(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
-    	BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
-        BaseMod.addRelic(new StickyExplosives_weak(), RelicType.SHARED);
+    	//BaseMod.addRelic(new StickyExplosives(), RelicType.SHARED);
+        //BaseMod.addRelic(new StickyExplosives_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	//BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
     	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
@@ -511,16 +487,6 @@ public class Aspiration implements
         } else {
             if (RelicUtils.removeRelicFromPool(PoetsPen_weak.ID)) {
                 logger.info(PoetsPen_weak.ID + " removed.");
-            }
-        }
-
-        if (weakSE()) {
-            if (RelicUtils.removeRelicFromPool(StickyExplosives.ID)) {
-                logger.info(StickyExplosives.ID + " removed.");
-            }
-        } else {
-            if (RelicUtils.removeRelicFromPool(StickyExplosives_weak.ID)) {
-                logger.info(StickyExplosives_weak.ID + " removed.");
             }
         }
 
