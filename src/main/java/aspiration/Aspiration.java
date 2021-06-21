@@ -349,6 +349,7 @@ public class Aspiration implements
         BaseMod.addRelic(new HatOfInfinitePower(), RelicType.SHARED);
         BaseMod.addRelic(new RunicSpoon(), RelicType.SHARED);
         BaseMod.addRelic(new DSix(), RelicType.SHARED);
+        BaseMod.addRelic(new MechanicalEye(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);

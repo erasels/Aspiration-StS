@@ -535,6 +535,13 @@
       "将当前奖励页面的 #y遗物 和 #y药水 奖励随机。还能随机 #b",
       " 次。"
     ]
+  },
+  "aspiration:MechanicalEye": {
+    "NAME": "Mechanical Eye",
+    "FLAVOR": "20/20 Hindsight.",
+    "DESCRIPTIONS": [
+      "At the start of the first #b%d turns each combat, put a card from your draw pile into your hand."
+    ]
   }
 }
  

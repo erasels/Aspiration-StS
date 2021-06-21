@@ -522,7 +522,7 @@
   },
   "aspiration:WatcherSkillbook": {
     "NAME": "Watcher's Skillbook",
-    "FLAVOR": "",
+    "FLAVOR": "These pages just seem to have a bunch of random indentations...",
     "DESCRIPTIONS": [
       "Whenever you play an #yAttack and then a #ySkill or vice versa, gain #b1 #yMantra [REMOVE_SPACE].",
       " NL NL #yMulticlass Watcher"
@@ -534,6 +534,13 @@
     "DESCRIPTIONS": [
       "Reroll all #yRelic and #yPotion rewards in the current reward screen. Works #b",
       " times."
+    ]
+  },
+  "aspiration:MechanicalEye": {
+    "NAME": "Mechanical Eye",
+    "FLAVOR": "20/20 Hindsight.",
+    "DESCRIPTIONS": [
+      "At the start of the first #b%d turns each combat, put a card from your draw pile into your hand."
     ]
   }
 }
