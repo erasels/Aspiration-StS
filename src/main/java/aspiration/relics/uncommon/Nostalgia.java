@@ -12,18 +12,9 @@ import java.util.ArrayList;
 public class Nostalgia extends AspirationRelic{
 	public static final String ID = "aspiration:Nostalgia";
 
-	private boolean picked_rarity = false;
-	//private static final boolean SETTING_UNCMN = Aspiration.uncommonNostalgia();
-
 	public Nostalgia() {
 		super(ID, "Nostalgia.png", RelicTier.SHOP, LandingSound.MAGICAL);
-		picked_rarity = false;
 	}
-
-    public Nostalgia(boolean uncmn_rarity) {
-        super(ID, "Nostalgia.png", (uncmn_rarity) ? RelicTier.UNCOMMON : RelicTier.SHOP, LandingSound.MAGICAL);
-        picked_rarity = uncmn_rarity;
-    }
 
     @Override
     public String getUpdatedDescription() {
@@ -49,6 +40,6 @@ public class Nostalgia extends AspirationRelic{
     }
 
     public AbstractRelic makeCopy() {
-        return new Nostalgia(picked_rarity);
+        return new Nostalgia();
     }
 }

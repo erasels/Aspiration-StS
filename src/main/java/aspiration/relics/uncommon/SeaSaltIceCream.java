@@ -95,7 +95,7 @@ public class SeaSaltIceCream extends AspirationRelic {
                     RelicUtils.removeRelicFromPool(tmp, true);
                 } catch (NullPointerException npe) {
                     Aspiration.logger.info("Trying to retrieve stored relic threw NPE, adding Nostlagia instead. \nException:" + npe.toString());
-                    tmp = new Nostalgia(false);
+                    tmp = new Nostalgia();
                     RelicUtils.removeRelicFromPool(tmp, true);
                 }
                 AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(tmp));

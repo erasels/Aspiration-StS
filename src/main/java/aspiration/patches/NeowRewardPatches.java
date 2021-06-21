@@ -1,6 +1,5 @@
 package aspiration.patches;
 
-import aspiration.Aspiration;
 import aspiration.Utility.RelicUtils;
 import aspiration.blights.ChestSnatcher;
 import aspiration.relics.rare.DSix;
@@ -93,8 +92,7 @@ public class NeowRewardPatches {
             }
 
             if (__instance.type == NOSTALGIA) {
-                AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new Nostalgia(Aspiration.uncommonNostalgia()));
-                AbstractDungeon.uncommonRelicPool.removeIf(relic -> relic.equals(Nostalgia.ID));
+                AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new Nostalgia());
                 AbstractDungeon.shopRelicPool.removeIf(relic -> relic.equals(Nostalgia.ID));
             } else if (__instance.type == DSIX) {
                 AbstractDungeon.getCurrRoom().spawnRelicAndObtain(Settings.WIDTH / 3, Settings.HEIGHT / 2, new DSix());

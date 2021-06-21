@@ -147,7 +147,6 @@ public class Aspiration implements
             Properties defaults = new Properties();
             defaults.put("WeakPoetsPen", Boolean.toString(true));
             defaults.put("WeakSE", Boolean.toString(true));
-            defaults.put("uncommonNostalgia", Boolean.toString(false));
             defaults.put("SkillbookCardpool", Boolean.toString(true));
             defaults.put("SpawnRNG", Boolean.toString(false));
             defaults.put("HoverSpeed", Boolean.toString(false));
@@ -176,14 +175,6 @@ public class Aspiration implements
             return false;
         }
         return modConfig.getBool("WeakSE");
-    }
-    
-    public static boolean uncommonNostalgia()
-    {
-        if (modConfig == null) {
-            return false;
-        }
-        return modConfig.getBool("uncommonNostalgia");
     }
 
     public static boolean skillbookCardpool()
@@ -252,7 +243,10 @@ public class Aspiration implements
         String[] TEXT = buttonStrings.TEXT;
 
         ModPanel settingsPanel = new ModPanel();
-        ModLabeledToggleButton PPBtn = new ModLabeledToggleButton(TEXT[0], 350, 700, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
+
+        int yPos = 700;
+
+        ModLabeledToggleButton PPBtn = new ModLabeledToggleButton(TEXT[0], 350, yPos, Settings.CREAM_COLOR, FontHelper.charDescFont, weakPoetsPenEnabled(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -265,8 +259,9 @@ public class Aspiration implements
                     }
                 });
         settingsPanel.addUIElement(PPBtn);
+        yPos -= 50;
 
-        ModLabeledToggleButton SEBtn = new ModLabeledToggleButton(TEXT[4], 350, 650, Settings.CREAM_COLOR, FontHelper.charDescFont, weakSE(), settingsPanel, l -> {},
+        ModLabeledToggleButton SEBtn = new ModLabeledToggleButton(TEXT[4], 350, yPos, Settings.CREAM_COLOR, FontHelper.charDescFont, weakSE(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -279,22 +274,9 @@ public class Aspiration implements
                     }
                 });
         settingsPanel.addUIElement(SEBtn);
-        
-        ModLabeledToggleButton nostalgiaBtn = new ModLabeledToggleButton(TEXT[1], 350, 600, Settings.CREAM_COLOR, FontHelper.charDescFont, uncommonNostalgia(), settingsPanel, l -> {},
-                button ->
-                {
-                    if (modConfig != null) {
-                        modConfig.setBool("uncommonNostalgia", button.enabled);
-                        try {
-                            modConfig.save();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-        settingsPanel.addUIElement(nostalgiaBtn);
+        yPos -= 50;
 
-        ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton(TEXT[2], 350, 550, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
+        ModLabeledToggleButton skillbookBtn = new ModLabeledToggleButton(TEXT[2], 350, yPos, Settings.CREAM_COLOR, FontHelper.charDescFont, skillbookCardpool(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -307,8 +289,9 @@ public class Aspiration implements
                     }
                 });
         settingsPanel.addUIElement(skillbookBtn);
+        yPos -= 50;
 
-        ModLabeledToggleButton rngButton = new ModLabeledToggleButton(TEXT[3], 350, 500, Settings.CREAM_COLOR, FontHelper.charDescFont, SpawnRNG(), settingsPanel, l -> {},
+        ModLabeledToggleButton rngButton = new ModLabeledToggleButton(TEXT[3], 350, yPos, Settings.CREAM_COLOR, FontHelper.charDescFont, SpawnRNG(), settingsPanel, l -> {},
                 button ->
                 {
                     if (modConfig != null) {
@@ -373,7 +356,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
         BaseMod.addRelic(new KaomsHeart_nothing(), RelicType.SHARED);
-    	BaseMod.addRelic(new Nostalgia(uncommonNostalgia()), RelicType.SHARED);
+    	BaseMod.addRelic(new Nostalgia(), RelicType.SHARED);
         //BaseMod.addRelic(new TrainingWeights(), RelicType.SHARED);
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
