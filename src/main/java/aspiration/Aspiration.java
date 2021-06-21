@@ -471,7 +471,8 @@ public class Aspiration implements
         String language = languageSupport();
 
         loadLocStrings("eng");
-        loadLocStrings(language);
+        if(!language.equals("eng"))
+            loadLocStrings(language);
     }
 
     @Override
