@@ -320,7 +320,7 @@ public class Aspiration implements
     	BaseMod.addRelic(new Legacy_Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new AnachronicSnailShell(), RelicType.SHARED);
-    	BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
+    	//BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen(), RelicType.SHARED);
     	BaseMod.addRelic(new PoetsPen_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FetidBarrel(), RelicType.SHARED);
