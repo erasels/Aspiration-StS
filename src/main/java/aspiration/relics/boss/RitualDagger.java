@@ -35,7 +35,6 @@ public class RitualDagger extends AspirationRelic implements CustomSavable<Boole
 
     public RitualDagger() {
         super(ID, "RitualDagger.png", RelicTier.BOSS, LandingSound.SOLID);
-        this.initializeTips();
     }
 
     @Override
