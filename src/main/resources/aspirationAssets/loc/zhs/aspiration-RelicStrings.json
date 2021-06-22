@@ -207,7 +207,9 @@
     "NAME": "仪式匕首",
     "FLAVOR": "每做一个动作，你都会感到匕首深深地刺进你的身体。 你害怕自己会变成什么样子。",
     "DESCRIPTIONS": [
-      "Lose #r%d HP at the start of your turn. When you would die in combat, fully heal instead. NL Once revived, at the end of every combat, heal #b%d HP."
+	  "回合开始时，失去 #r",
+	  " 生命。",
+	  " 当你在战斗中死亡时，满血复活并获得 #y觉醒 （只能生效一次）。"
     ]
   },
   "aspiration:KaomsHeart": {

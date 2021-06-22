@@ -207,7 +207,9 @@
     "NAME": "Ritual Dagger",
     "FLAVOR": "With every move you make, you feel the dagger dig in deeper into your being. You fear what you may become if you give in.",
     "DESCRIPTIONS": [
-	  "Lose #r%d HP at the start of your turn. When you would die in combat, fully heal instead. NL Once revived, at the end of every combat, heal #b%d HP."
+	  "Lose #r",
+	  " HP at the start of your turn.",
+	  " When you would die in combat, heal to your Max HP instead and gain permanently #yAwoken (works once)."
     ]
   },
   "aspiration:KaomsHeart": {
