@@ -437,7 +437,7 @@
     "NAME": "Stellarator",
     "FLAVOR": "Who needs the Inserter if you can just squeeze!",
     "DESCRIPTIONS": [
-      "Whenever #ychanneling an orb fills your orb slots, #yEvoke your next orb and #yaspiration:Fuse all remaining orbs."
+      "The first time each turn when #ychanneling an orb fills your orb slots, #yaspiration:Fuse all orbs."
     ]
   },
   "aspiration:FaultyCoupler": {

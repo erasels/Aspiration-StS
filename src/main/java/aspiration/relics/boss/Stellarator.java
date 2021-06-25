@@ -4,8 +4,6 @@ import aspiration.actions.FuseValidOrbsAction;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.skillbooks.DefectSkillbook;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
-import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
-import com.megacrit.cardcrawl.actions.defect.EvokeOrbAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
@@ -24,15 +22,24 @@ public class Stellarator extends AspirationRelic implements OnChannelRelic {
     }
 
     @Override
+    public void atTurnStart() {
+        beginLongPulse();
+    }
+
+    @Override
     public void onChannel(AbstractOrb abstractOrb) {
-        if (AbstractDungeon.player.filledOrbCount() == AbstractDungeon.player.orbs.size()) {
+        if (pulse && AbstractDungeon.player.filledOrbCount() == AbstractDungeon.player.orbs.size()) {
             flash();
+            stopPulse();
             if(AbstractDungeon.player.orbs.size() > 1) {
-                AbstractDungeon.actionManager.addToTop(new FuseValidOrbsAction());
+                addToTop(new FuseValidOrbsAction());
             }
-            AbstractDungeon.actionManager.addToTop(new EvokeOrbAction(1));
-            AbstractDungeon.actionManager.addToTop(new AnimateOrbAction(1));
         }
+    }
+
+    @Override
+    public void onVictory() {
+        stopPulse();
     }
 
     @Override

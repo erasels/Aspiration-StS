@@ -437,7 +437,7 @@
     "NAME": "仿星器",
     "FLAVOR": "能插入的话谁会想要推球呢！",
     "DESCRIPTIONS": [
-      "每当你向一个有充能球的栏位 #y生成 充能球时， #y激发 下一位的充能球并 #yaspiration:融合 全部剩余的充能球。"
+      "The first time each turn when #ychanneling an orb fills your orb slots, #yaspiration:Fuse all orbs."
     ]
   },
   "aspiration:FaultyCoupler": {
