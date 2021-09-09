@@ -8,9 +8,13 @@ import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Nostalgia extends AspirationRelic{
 	public static final String ID = "aspiration:Nostalgia";
+
+	private static final ArrayList<String> bannedStarters = new ArrayList<>(Arrays.asList("Slimebound:AbsorbEndCombat","champ:ChampionCrown", "hexamod:SpiritBrand", "sneckomod:SneckoSoul", "bronze:BronzeCore", "Uniform", "HollowMod:VesselMask", "TheKombatant:ShinnoksAmuletRelic",
+			"animator:LivingPicture", "animator:TheMissingPiece", "TheTemplar:CodeOfChivalry", "theSenshi:TransformationBroochRelic", "bard:PitchPipe", "wariomod:TheHat"));
 
 	public Nostalgia() {
 		super(ID, "Nostalgia.png", RelicTier.SHOP, LandingSound.MAGICAL);
@@ -24,18 +28,20 @@ public class Nostalgia extends AspirationRelic{
     @Override
     public void onEquip() {
     	Random rng = AbstractDungeon.relicRng;
-    	ArrayList<AbstractRelic> tmp = new ArrayList<AbstractRelic>();
+    	ArrayList<String> tmp = new ArrayList<>();
     	//AbstractDungeon.player.loseRelic(ID);
     	for(AbstractRelic r : RelicLibrary.starterList) {
     		if(!AbstractDungeon.player.hasRelic(r.relicId)) {
-    			tmp.add(r.makeCopy());
+    			tmp.add(r.relicId);
     		}
     	}
 
-    	if(!tmp.isEmpty()) {
-			AbstractRelic starter = tmp.get(rng.random(tmp.size() - 1));
+		tmp.removeIf(bannedStarters::contains);
 
-			AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(starter));
+    	if(!tmp.isEmpty()) {
+			String starter = tmp.get(rng.random(tmp.size() - 1));
+
+			AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(RelicLibrary.getRelic(starter).makeCopy()));
 		}
     }
 
