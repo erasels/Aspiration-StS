@@ -11,7 +11,10 @@ import aspiration.events.TheDarkMirror;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.boss.*;
 import aspiration.relics.common.*;
-import aspiration.relics.crossovers.*;
+import aspiration.relics.crossovers.EmptySkull;
+import aspiration.relics.crossovers.MobileForge;
+import aspiration.relics.crossovers.PocketMushroom;
+import aspiration.relics.crossovers.TrustyKnives;
 import aspiration.relics.rare.*;
 import aspiration.relics.shop.Earplugs;
 import aspiration.relics.shop.Nostalgia;
@@ -28,7 +31,6 @@ import basemod.interfaces.*;
 import blackrusemod.patches.AbstractCardEnum;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
-import com.badlogic.gdx.math.MathUtils;
 import com.evacipated.cardcrawl.mod.bard.characters.Bard;
 import com.evacipated.cardcrawl.mod.stslib.Keyword;
 import com.evacipated.cardcrawl.modthespire.Loader;
@@ -50,6 +52,7 @@ import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.relics.PrismaticShard;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -302,7 +305,7 @@ public class Aspiration implements
         BaseMod.addEvent(ElementalEggBirdNest.ID, ElementalEggBirdNest.class, Exordium.ID);
         BaseMod.addEvent(CultistTraining.ID, CultistTraining.class, TheCity.ID);
 
-        BaseMod.addEvent(new AddEventParams.Builder(TheDarkMirror.ID, TheDarkMirror.class).eventType(EventUtils.EventType.NORMAL).bonusCondition(() -> MathUtils.randomBoolean(0.1f)).dungeonID(TheCity.ID).create());
+        BaseMod.addEvent(new AddEventParams.Builder(TheDarkMirror.ID, TheDarkMirror.class).eventType(EventUtils.EventType.NORMAL).spawnCondition(() -> AbstractDungeon.player.hasRelic(PrismaticShard.ID)).dungeonID(TheCity.ID).create());
         BaseMod.addEvent(new AddEventParams.Builder(MeetingTheSilent.ID, MeetingTheSilent.class).spawnCondition(() -> !(AbstractDungeon.player instanceof TheSilent)).eventType(EventUtils.EventType.SHRINE).create());
 
         powerAtlas = new TextureAtlas(Gdx.files.internal(assetPath("img/powers/powers.atlas")));
