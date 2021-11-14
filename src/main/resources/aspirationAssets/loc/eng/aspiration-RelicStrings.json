@@ -544,6 +544,13 @@
     "DESCRIPTIONS": [
       "At the start of the first #b%d turns each combat, put a card from your draw pile into your hand."
     ]
+  },
+  "aspiration:Mageblood": {
+    "NAME": "Mageblood",
+    "FLAVOR": "Rivers of power course through your veins.",
+    "DESCRIPTIONS": [
+      "You cannot use potions. You cannot have rare potions. NL At the start of combat, gain all your potion effects."
+    ]
   }
 }
  

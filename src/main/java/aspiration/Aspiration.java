@@ -49,6 +49,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
@@ -74,7 +75,8 @@ public class Aspiration implements
         AddAudioSubscriber,
         EditKeywordsSubscriber,
         RelicGetSubscriber,
-        PostUpdateSubscriber
+        PostUpdateSubscriber,
+        PotionGetSubscriber
 {
 	public static final Logger logger = LogManager.getLogger(Aspiration.class.getName());
     private static SpireConfig modConfig = null;
@@ -353,6 +355,7 @@ public class Aspiration implements
         BaseMod.addRelic(new RunicSpoon(), RelicType.SHARED);
         BaseMod.addRelic(new DSix(), RelicType.SHARED);
         BaseMod.addRelic(new MechanicalEye(), RelicType.SHARED);
+        BaseMod.addRelic(new Mageblood(), RelicType.SHARED);
 
         //Vanilla skillbooks
         BaseMod.addRelic(new IroncladSkillbook(), RelicType.SHARED);
@@ -535,6 +538,14 @@ public class Aspiration implements
             if (r instanceof  AspirationRelic) {
                 ((AspirationRelic)r).onRelicGet(rel);
             }
+        }
+    }
+
+    @Override
+    public void receivePotionGet(AbstractPotion abstractPotion) {
+        Mageblood r = (Mageblood) AbstractDungeon.player.getRelic(Mageblood.ID);
+        if(r != null) {
+            r.onPotionGet(abstractPotion);
         }
     }
 }
