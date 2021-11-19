@@ -1,15 +1,24 @@
 package aspiration.relics.boss;
 
+import aspiration.Aspiration;
+import aspiration.Utility.TextureLoader;
 import aspiration.relics.abstracts.AspirationRelic;
+import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.evacipated.cardcrawl.modthespire.Loader;
 import com.evacipated.cardcrawl.modthespire.ModInfo;
-import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;
+import com.evacipated.cardcrawl.modthespire.lib.*;
+import com.megacrit.cardcrawl.actions.defect.AnimateOrbAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.rewards.RewardItem;
 import javassist.*;
 import org.clapper.util.classutil.*;
 
@@ -117,6 +126,42 @@ public class Mageblood extends AspirationRelic {
 
         public static boolean hasBlood() {
            return AbstractDungeon.player.hasRelic(Mageblood.ID);
+        }
+    }
+
+    public static Texture cross = TextureLoader.getTexture(Aspiration.assetPath("img/UI/cross.png"));
+
+    @SpirePatch2(clz = AbstractPotion.class, method = "shopRender")
+    public static class RarePotionWarningShop {
+        @SpirePostfixPatch
+        public static void patch(AbstractPotion __instance, SpriteBatch sb) {
+            if(__instance.rarity == AbstractPotion.PotionRarity.RARE && AbstractDungeon.player.hasRelic(ID)) {
+                Color c = sb.getColor();
+                sb.setColor(Color.WHITE);
+                sb.draw(cross, __instance.hb.x, __instance.hb.y);
+                sb.setColor(c);
+            }
+        }
+    }
+
+    @SpirePatch2(clz = RewardItem.class, method = "render")
+    public static class RarePotionWarningReward {
+        @SpireInsertPatch(locator = Locator.class)
+        public static void patch(RewardItem __instance, SpriteBatch sb) {
+            if(__instance.potion.rarity == AbstractPotion.PotionRarity.RARE && AbstractDungeon.player.hasRelic(ID)) {
+                Color c = sb.getColor();
+                sb.setColor(Color.WHITE);
+                sb.draw(cross, __instance.potion.posX - __instance.potion.hb.width/2f, __instance.potion.posY - __instance.potion.hb.height/2f);
+                sb.setColor(c);
+            }
+        }
+
+        private static class Locator extends SpireInsertLocator {
+            @Override
+            public int[] Locate(CtBehavior ctMethodToPatch) throws Exception {
+                Matcher finalMatcher = new Matcher.MethodCallMatcher(AbstractPotion.class, "generateSparkles");
+                return LineFinder.findInOrder(ctMethodToPatch, finalMatcher);
+            }
         }
     }
 }
