@@ -33,7 +33,7 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
 	private int desc_state = 0;
 
     public Headhunter() {
-        super(ID, "Headhunter.png", RelicTier.RARE, LandingSound.FLAT);
+        super(ID, "Headhunter.png", RelicTier.SPECIAL, LandingSound.FLAT);
     }
 
     @Override

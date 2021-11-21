@@ -34,7 +34,7 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     private ArrayList<timedPower> buff_list;
 
     public Legacy_Headhunter() {
-        super(ID, "Legacy_Headhunter.png", RelicTier.RARE, LandingSound.MAGICAL);
+        super(ID, "Legacy_Headhunter.png", RelicTier.SPECIAL, LandingSound.MAGICAL);
         
         Normal_buffs = new ArrayList<AbstractPower>();
         //fillBuffListNorm(Normal_buffs);
