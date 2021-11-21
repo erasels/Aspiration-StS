@@ -10,26 +10,33 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
+import com.megacrit.cardcrawl.ui.panels.TopPanel;
 
 public class FaultyCoupler extends AspirationRelic implements OnChannelRelic {
     public static final String ID = "aspiration:FaultyCoupler";
-    public static final int AMA_CHANCE = 20;
+    public static final int AMA_COUNTER = 5;
 
     public FaultyCoupler() {
         super(ID, "FaultyCoupler.png", RelicTier.UNCOMMON, LandingSound.CLINK);
+        setCounter(0);
     }
 
     @Override
     public String getUpdatedDescription() {
-        return DESCRIPTIONS[0] + AMA_CHANCE + DESCRIPTIONS[1];
+        return String.format(DESCRIPTIONS[0], AMA_COUNTER+TopPanel.getOrdinalNaming(AMA_COUNTER));
     }
 
     @Override
     public void onChannel(AbstractOrb orbyBoi) {
-        if(AbstractDungeon.player.filledOrbCount() > 1 && !orbyBoi.ID.equals(AmalgamateOrb.ORB_ID) && OrbUtilityMethods.isValidAmalgamateComponent(orbyBoi)) {
-            if (AbstractDungeon.cardRandomRng.random(99) <= AMA_CHANCE) {
-                AbstractDungeon.actionManager.addToTop(new FaultyCouplerAction(orbyBoi));
-            }
+        setCounter(counter + 1);
+        if(counter >= AMA_COUNTER) {
+            beginLongPulse();
+        }
+        if(pulse && AbstractDungeon.player.filledOrbCount() > 1 && !orbyBoi.ID.equals(AmalgamateOrb.ORB_ID) && OrbUtilityMethods.isValidAmalgamateComponent(orbyBoi)) {
+            flash();
+            setCounter(0);
+            stopPulse();
+            AbstractDungeon.actionManager.addToTop(new FaultyCouplerAction(orbyBoi));
         }
     }
 

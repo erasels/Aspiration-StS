@@ -444,6 +444,7 @@
     "NAME": "故障耦合器",
     "FLAVOR": "…… 孤独的……只有……敌人……",
     "DESCRIPTIONS": [
+      "Every #b%s orb that is #ychanneled will #yaspiration:Fuse with a copy of a currently #ychanneled orb.",
       "每当你 #y生成 一个充能球，会有 #b",
       "% 的概率 #yaspiration:融合 一个目前所 #y生成 的充能球的复制。"
     ]

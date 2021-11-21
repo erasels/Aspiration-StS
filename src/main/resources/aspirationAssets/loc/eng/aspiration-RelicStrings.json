@@ -444,8 +444,7 @@
     "NAME": "Faulty Coupler",
     "FLAVOR": "... Loneliness is... the enemy...",
     "DESCRIPTIONS": [
-      "Whenever an orb is #ychanneled [REMOVE_SPACE], there is a #b",
-      "% chance for it to #yaspiration:Fuse with a copy of a currently #ychanneled orb."
+      "Every #b%s orb that is #ychanneled will #yaspiration:Fuse with a copy of a currently #ychanneled orb."
     ]
   },
   "aspiration:ChemicalBlood": {
