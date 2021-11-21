@@ -334,7 +334,7 @@ public class Aspiration implements
         //BaseMod.addRelic(new StickyExplosives_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	//BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
-    	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
+    	//BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
         BaseMod.addRelic(new KaomsHeart_nothing(), RelicType.SHARED);
@@ -343,7 +343,7 @@ public class Aspiration implements
         BaseMod.addRelic(new SeaSaltIceCream(), RelicType.SHARED);
         BaseMod.addRelic(new Stellarator(), RelicType.SHARED);
         BaseMod.addRelic(new FutureDiary(), RelicType.SHARED);
-        //Both of these are boring TODO: Make them less so.
+        //Both of these are boring
         //BaseMod.addRelic(new HeadsmansAxe(), RelicType.SHARED);
         //BaseMod.addRelic(new HangmansNoose(), RelicType.SHARED);
         BaseMod.addRelic(new RandomNobGenerator(), RelicType.SHARED);
