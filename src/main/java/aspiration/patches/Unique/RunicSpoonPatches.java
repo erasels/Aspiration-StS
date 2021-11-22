@@ -1,33 +1,17 @@
 package aspiration.patches.Unique;
 
 import aspiration.patches.Fields.AbstractCardFields;
-import aspiration.relics.boss.RunicSpoon;
-import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.evacipated.cardcrawl.modthespire.patcher.PatchingException;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-import com.megacrit.cardcrawl.vfx.cardManip.CardGlowBorder;
 import javassist.CannotCompileException;
 import javassist.CtBehavior;
 
 import java.util.ArrayList;
 
 public class RunicSpoonPatches {
-    @SpirePatch(clz = CardGlowBorder.class, method = SpirePatch.CONSTRUCTOR, paramtypez = {AbstractCard.class, Color.class})
-    public static class CardGlowPatch {
-        @SpirePostfixPatch
-        public static void patch(CardGlowBorder __instance, AbstractCard c, Color col, @ByRef Color[] ___color) {
-            AbstractRelic rs = AbstractDungeon.player.getRelic(RunicSpoon.ID);
-            if(rs != null && rs.checkTrigger()) {
-                ___color[0] =  Color.PURPLE.cpy();
-            }
-        }
-    }
-
     @SpirePatch(clz = AbstractPlayer.class, method = "playCard")
     public static class PlayerPlayCardDetection {
         @SpireInsertPatch(locator = Locator.class)
