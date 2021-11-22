@@ -1,6 +1,6 @@
 package aspiration.patches.Unique;
 
-import aspiration.Utility.RelicStatsHelper;
+import aspiration.util.RelicStatsHelper;
 import aspiration.relics.abstracts.StatRelic;
 import aspiration.relics.boss.BursterCore;
 import com.evacipated.cardcrawl.modthespire.lib.*;

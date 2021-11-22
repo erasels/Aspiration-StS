@@ -1,6 +1,6 @@
 package aspiration.relics.boss;
 
-import aspiration.Utility.RelicStatsHelper;
+import aspiration.util.RelicStatsHelper;
 import aspiration.actions.unique.RSCopyAction;
 import aspiration.patches.Fields.AbstractCardFields;
 import aspiration.relics.abstracts.StatRelic;

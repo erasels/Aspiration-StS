@@ -1,6 +1,6 @@
 package aspiration.patches;
 
-import aspiration.Utility.RelicUtils;
+import aspiration.util.RelicUtils;
 import aspiration.relics.rare.SneckoTail;
 import aspiration.relics.special.Stabinomicon;
 import com.evacipated.cardcrawl.modthespire.lib.SpirePatch;

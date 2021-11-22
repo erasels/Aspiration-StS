@@ -1,4 +1,4 @@
-package aspiration.Utility;
+package aspiration.util;
 
 import aspiration.relics.abstracts.StatRelic;
 

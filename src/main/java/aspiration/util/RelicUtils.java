@@ -1,4 +1,4 @@
-package aspiration.Utility;
+package aspiration.util;
 
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;

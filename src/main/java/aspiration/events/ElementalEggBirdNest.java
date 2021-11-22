@@ -1,7 +1,7 @@
 package aspiration.events;
 
 import aspiration.Aspiration;
-import aspiration.Utility.RelicUtils;
+import aspiration.util.RelicUtils;
 import aspiration.relics.special.BabyByrd;
 import aspiration.ui.events.RelicPreviewEventButton;
 import com.badlogic.gdx.math.MathUtils;

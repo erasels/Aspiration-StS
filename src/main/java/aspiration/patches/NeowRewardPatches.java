@@ -1,6 +1,6 @@
 package aspiration.patches;
 
-import aspiration.Utility.RelicUtils;
+import aspiration.util.RelicUtils;
 import aspiration.blights.ChestSnatcher;
 import aspiration.relics.rare.DSix;
 import aspiration.relics.shop.Nostalgia;

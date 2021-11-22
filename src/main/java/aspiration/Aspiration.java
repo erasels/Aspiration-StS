@@ -1,6 +1,6 @@
 package aspiration;
 
-import aspiration.Utility.RelicUtils;
+import aspiration.util.RelicUtils;
 import aspiration.cards.Runesmith.UnbridledHammer;
 import aspiration.cards.blue.Polymerization;
 import aspiration.cards.green.Lunge;

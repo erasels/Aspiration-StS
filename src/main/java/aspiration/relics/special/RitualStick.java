@@ -1,6 +1,6 @@
 package aspiration.relics.special;
 
-import aspiration.Utility.RelicStatsHelper;
+import aspiration.util.RelicStatsHelper;
 import aspiration.powers.P_RitualPower;
 import aspiration.relics.abstracts.StatRelic;
 import basemod.abstracts.CustomSavable;

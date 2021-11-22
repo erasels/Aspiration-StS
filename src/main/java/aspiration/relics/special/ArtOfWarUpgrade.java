@@ -1,7 +1,7 @@
 package aspiration.relics.special;
 
 import aspiration.Aspiration;
-import aspiration.Utility.RelicUtils;
+import aspiration.util.RelicUtils;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;

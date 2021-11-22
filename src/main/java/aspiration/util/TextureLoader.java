@@ -1,4 +1,4 @@
-package aspiration.Utility;
+package aspiration.util;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.Texture.TextureFilter;

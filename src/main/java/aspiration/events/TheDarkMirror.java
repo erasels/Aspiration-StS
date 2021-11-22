@@ -1,7 +1,7 @@
 package aspiration.events;
 
 import aspiration.Aspiration;
-import aspiration.Utility.RelicUtils;
+import aspiration.util.RelicUtils;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.colorless.Apotheosis;
