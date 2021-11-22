@@ -8,6 +8,7 @@ import aspiration.GeneralUtility.WeightedList;
 import aspiration.patches.Fields.AbstractPowerScribeBookField;
 import basemod.interfaces.CloneablePowerInterface;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
+import com.evacipated.cardcrawl.mod.stslib.relics.OnReceivePowerRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -22,7 +23,7 @@ import java.util.Arrays;
 
 import static aspiration.Aspiration.logger;
 
-public class ScribeSkillbook extends SkillbookRelic {
+public class ScribeSkillbook extends SkillbookRelic implements OnReceivePowerRelic {
     public static final String ID = "aspiration:ScribeSkillbook";
 
     private static final int DMG_SPELL = 5;
@@ -48,11 +49,10 @@ public class ScribeSkillbook extends SkillbookRelic {
         }
     }
 
-
     @Override
-    public void onApplyPower(AbstractPower pow, AbstractCreature target, AbstractCreature source) {
+    public boolean onReceivePower(AbstractPower pow, AbstractCreature source) {
         AbstractPlayer p = AbstractDungeon.player;
-        if (pow.type == AbstractPower.PowerType.BUFF && target == p && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !(pow instanceof InvisiblePower)) {
+        if (pow.type == AbstractPower.PowerType.BUFF && !AbstractPowerScribeBookField.ssbTriggered.get(pow) && !(pow instanceof InvisiblePower)) {
             if (firstTrigger) {
                 weightedEFFECTS = new WeightedList<>();
                 weightedEFFECTS.addAll(new ArrayList<>(Arrays.asList(new SpellAttack(p, DMG_SPELL), new SpellBlock(p, BLOCK_SPELL), new SpellPoison(p, POISON_SPELL))), WeightedList.WEIGHT_COMMON);
@@ -68,6 +68,7 @@ public class ScribeSkillbook extends SkillbookRelic {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, spell, spell.amount));
 
         }
+        return true;
     }
 
     @Override
@@ -92,55 +93,3 @@ public class ScribeSkillbook extends SkillbookRelic {
         return new ScribeSkillbook();
     }
 }
-
-
-//boolean havePow = true;
-//boolean rarePow = false;
-//int tmp;
-            /*while(havePow) {
-                havePow = false;
-                tmp = rng.random(1, SPELL_EFFECT_AMT);
-                if(tmp == SPELL_EFFECT_AMT) {
-                    if(!rarePow) {
-                        rarePow = true;
-                        havePow = true;
-                        continue;
-                    }
-                } else {
-                    rarePow = false;
-                }
-                //logger.info("num: " + tmp + "rare: " + rarePow + " triggered: " + AbstractPowerScribeBookField.ssbTriggered.get(pow) + " name: " + pow.name);
-
-                switch (tmp) {
-                    case 1:
-                        SpellAttack sa = new SpellAttack(p, DMG_SPELL);
-                        AbstractPowerScribeBookField.ssbTriggered.set(sa, true);
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, sa, DMG_SPELL));
-                        break;
-                    case 2:
-                        SpellBlock sb = new SpellBlock(p, BLOCK_SPELL);
-                        AbstractPowerScribeBookField.ssbTriggered.set(sb, true);
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, sb, BLOCK_SPELL));
-                        break;
-                    case 3:
-                        SpellPoison sp = new SpellPoison(p, POISON_SPELL);
-                        AbstractPowerScribeBookField.ssbTriggered.set(sp, true);
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, sp, POISON_SPELL));
-                        break;
-                    case 4:
-                        SpellClarity sc = new SpellClarity(p, ENERGY_SPELL);
-                        AbstractPowerScribeBookField.ssbTriggered.set(sc, true);
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, sc, ENERGY_SPELL));
-                        break;
-                    case 5:
-                        SpellEffectiveness se = new SpellEffectiveness(p, EFFECT_SPELL);
-                        AbstractPowerScribeBookField.ssbTriggered.set(se, true);
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, se, EFFECT_SPELL));
-                        break;
-                    case 6:
-                        SpellSplit ss = new SpellSplit(p, SPLIT_SPELL);
-                        AbstractPowerScribeBookField.ssbTriggered.set(ss, true);
-                        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(p, p, ss, SPLIT_SPELL));
-                        break;
-                }
-            }*/

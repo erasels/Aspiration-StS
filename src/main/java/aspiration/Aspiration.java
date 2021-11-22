@@ -10,7 +10,10 @@ import aspiration.events.MeetingTheSilent;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.boss.*;
-import aspiration.relics.common.*;
+import aspiration.relics.common.ChemicalBlood;
+import aspiration.relics.common.EnhancedActuators;
+import aspiration.relics.common.HiddenCompartment;
+import aspiration.relics.common.VileToxins;
 import aspiration.relics.crossovers.EmptySkull;
 import aspiration.relics.crossovers.MobileForge;
 import aspiration.relics.crossovers.PocketMushroom;
@@ -39,7 +42,6 @@ import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.characters.TheSilent;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -50,7 +52,6 @@ import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.RelicLibrary;
 import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.potions.AbstractPotion;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.random.Random;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.PrismaticShard;
@@ -70,7 +71,6 @@ public class Aspiration implements
         EditStringsSubscriber,
         EditRelicsSubscriber,
         EditCardsSubscriber,
-        PostPowerApplySubscriber,
         PostDungeonInitializeSubscriber,
         AddAudioSubscriber,
         EditKeywordsSubscriber,
@@ -519,15 +519,6 @@ public class Aspiration implements
         if(!skillbookPool.isEmpty()) {
             if(AbstractDungeon.bossRelicPool.removeIf(relic -> RelicLibrary.getRelic(relic) instanceof SkillbookRelic && skillbookPool.contains(RelicLibrary.getRelic(relic)))) {
                 skillbookPool.forEach(sb -> logger.info("Removed Skillbook: " + sb.name));
-            }
-        }
-    }
-    
-    @Override
-    public void receivePostPowerApplySubscriber(AbstractPower p, AbstractCreature target, AbstractCreature source) {
-        for (AbstractRelic r : AbstractDungeon.player.relics) {
-            if (r instanceof  AspirationRelic) {
-                ((AspirationRelic)r).onApplyPower(p, target, source);
             }
         }
     }

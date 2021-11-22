@@ -4,10 +4,8 @@ import aspiration.Aspiration;
 import com.badlogic.gdx.graphics.Texture;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public abstract class AspirationRelic extends AbstractRelic
@@ -53,7 +51,6 @@ public abstract class AspirationRelic extends AbstractRelic
     public void att(AbstractGameAction a) {
         AbstractDungeon.actionManager.addToTop(a);
     }
-    
-    public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) { }
+
     public void onRelicGet(AbstractRelic r) { }
 }

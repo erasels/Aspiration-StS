@@ -1,5 +1,6 @@
 package aspiration.relics.boss;
 
+import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
@@ -14,7 +15,7 @@ import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import aspiration.relics.abstracts.AspirationRelic;
 
-public class Contagion extends AspirationRelic {
+public class Contagion extends AspirationRelic implements OnApplyPowerRelic {
 	public static final String ID = "aspiration:Contagion";
 	
 	private static final int START_CHARGE = 0;
@@ -36,7 +37,7 @@ public class Contagion extends AspirationRelic {
     }
 
     @Override
-    public void onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
+    public boolean onApplyPower(AbstractPower p, AbstractCreature target, AbstractCreature source) {
         if (p.ID.equals(PoisonPower.POWER_ID) && target != AbstractDungeon.player && !target.hasPower(ArtifactPower.POWER_ID) && source == AbstractDungeon.player) {
         	manipCharge(p.amount);
         	
@@ -56,6 +57,8 @@ public class Contagion extends AspirationRelic {
         		}
         	}
         }
+
+        return true;
     }
     
     @Override
