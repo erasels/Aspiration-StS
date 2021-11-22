@@ -69,4 +69,34 @@ public class TomeofQuesting extends AspirationRelic /*implements OnQuestRemovedS
     public AbstractRelic makeCopy() {
         return new TomeofQuesting();
     }
+
+    /*
+    @SpirePatch(
+        cls = "infinitespire.quests.QuestLog",
+        method = "receivePostUpdate",
+        optional = true
+)
+public class Infinite_TomeofQuestingPatch {
+    public static ExprEditor Instrument() {
+        return new ExprEditor() {
+            @Override
+            public void edit(MethodCall m) throws CannotCompileException {
+                if (m.getMethodName().equals("giveReward")) {
+                    m.replace("{" +
+                            Infinite_TomeofQuestingPatch.class.getName() +".triggerTome(this.get(i));" +
+                            "$_ = $proceed($$);" +
+                            "}");
+                }
+            }
+        };
+    }
+
+    public static void triggerTome(Object q) {
+        TomeofQuesting relic = (TomeofQuesting) AbstractDungeon.player.getRelic(TomeofQuesting.ID);
+        if (relic != null) {
+            relic.onTrigger((Quest)q);
+        }
+    }
+}
+     */
 }
