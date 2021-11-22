@@ -3,8 +3,7 @@
     "NAME": "极恶毒素",
     "FLAVOR": "极恶的混合物，甚至让所有有机和无机生物都敬而远之。",
     "DESCRIPTIONS": [
-      "每当你给予一名没有 #y中毒 的敌人 #y中毒 ，同时给予 #b",
-	  " 层 #y易伤 和 #y虚弱 。"
+      "#y毒药 造成 #b%d 额外伤害。"
     ]
   },
   "aspiration:RingOfOuroboros": {

@@ -1,10 +1,9 @@
 {
   "aspiration:VileToxins": {
     "NAME": "Vile Toxins",
-    "FLAVOR": "A mix so vile, it even makes organic and inorganic beings alike recoil in horror.",
+    "FLAVOR": "It bubbles menacingly.",
     "DESCRIPTIONS": [
-      "Whenever you apply #yPoison to an enemy that wasn't #ypoisoned [REMOVE_SPACE], apply #b",
-	  " #yVulnerable and #yWeak [REMOVE_SPACE]."
+      "#yPoison deals #b%d additional damage."
     ]
   },
   "aspiration:RingOfOuroboros": {
