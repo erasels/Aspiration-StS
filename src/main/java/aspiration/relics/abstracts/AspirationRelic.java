@@ -3,6 +3,7 @@ package aspiration.relics.abstracts;
 import aspiration.Aspiration;
 import basemod.abstracts.CustomRelic;
 import com.badlogic.gdx.graphics.Texture;
+import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
@@ -40,4 +41,12 @@ public abstract class AspirationRelic extends CustomRelic {
     }
 
     public void onRelicGet(AbstractRelic r) { }
+
+    public static void atb(AbstractGameAction action) {
+        AbstractDungeon.actionManager.addToBottom(action);
+    }
+
+    public static void att(AbstractGameAction action) {
+        AbstractDungeon.actionManager.addToTop(action);
+    }
 }
