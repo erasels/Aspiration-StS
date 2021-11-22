@@ -82,7 +82,7 @@ public class Aspiration implements
     private static SpireConfig modConfig = null;
     public static SpireConfig otherSaveData = null;
     public static TextureAtlas powerAtlas;
-    public static final int SKILLBOOK_SPAWN_AMOUNT = 3;
+    public static final int SKILLBOOK_SPAWN_AMOUNT = 2;
     public static boolean dsixTriggered;
 
     // Crossover checks
