@@ -150,4 +150,23 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 	public AbstractRelic makeCopy() {
         return new SupercapacitiveCoin();
     }
+
+	/*@SpirePatch(
+			clz= AbstractPlayer.class,
+			method="gainGold",
+			paramtypez={
+					int.class
+			}
+	)
+	public static class GainGold_postfix_SupercapacitiveCoin {
+		public static void Postfix(AbstractPlayer __instance, int amount)
+		{
+			if (AbstractDungeon.player.hasRelic(SupercapacitiveCoin.ID) && AbstractDungeon.player.hasRelic(Ectoplasm.ID))
+			{
+				AbstractDungeon.player.getRelic(SupercapacitiveCoin.ID).flash();
+				AbstractDungeon.player.getRelic(SupercapacitiveCoin.ID).getUpdatedDescription();
+			}
+		}
+
+	}*/
 }
