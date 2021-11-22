@@ -35,9 +35,4 @@ public class MechanicalEye extends AspirationRelic {
         stopPulse();
         grayscale = false;
     }
-
-    @Override
-    public AbstractRelic makeCopy() {
-        return new MechanicalEye();
-    }
 }

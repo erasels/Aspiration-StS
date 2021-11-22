@@ -5,7 +5,6 @@ import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.abstracts.OnEnergyUse;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import conspire.relics.SlowCooker;
 
 public class HatOfInfinitePower extends AspirationRelic implements OnEnergyUse {
@@ -69,9 +68,5 @@ public class HatOfInfinitePower extends AspirationRelic implements OnEnergyUse {
 
     public boolean isTriggered() {
         return triggered;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new HatOfInfinitePower();
     }
 }

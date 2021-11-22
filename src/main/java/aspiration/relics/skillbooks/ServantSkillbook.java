@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
@@ -93,9 +92,5 @@ public class ServantSkillbook extends SkillbookRelic implements OnReducePower {
     public boolean canSpawn()
     {
         return !(AbstractDungeon.player instanceof TheServant) && !hasSkillbookRelic(AbstractDungeon.player);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new ServantSkillbook();
     }
 }

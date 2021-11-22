@@ -44,8 +44,4 @@ public class Nostalgia extends AspirationRelic{
 			AbstractDungeon.effectsQueue.add(0, new ObtainRelicLater(RelicLibrary.getRelic(starter).makeCopy()));
 		}
     }
-
-    public AbstractRelic makeCopy() {
-        return new Nostalgia();
-    }
 }

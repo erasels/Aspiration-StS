@@ -67,11 +67,6 @@ public class Mageblood extends AspirationRelic {
         }
     }
 
-    @Override
-    public AbstractRelic makeCopy() {
-        return new Mageblood();
-    }
-
     //Dynamically patch canUse of potions to check if the player has mageblood
     @SpirePatch(clz = CardCrawlGame.class, method = SpirePatch.CONSTRUCTOR)
     public static class CantUsePotionPatch {

@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.LoseHPAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ChokePower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
 public class HangmansNoose extends AspirationRelic {
@@ -32,9 +31,5 @@ public class HangmansNoose extends AspirationRelic {
             AbstractDungeon.actionManager.addToTop(new LoseHPAction(info.owner, AbstractDungeon.player, HP_LOSS_AMT, AbstractGameAction.AttackEffect.NONE));
         }
         return damageAmount;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new HangmansNoose();
     }
 }

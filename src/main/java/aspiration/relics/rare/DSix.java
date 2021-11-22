@@ -5,7 +5,6 @@ import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.ClickableRelic;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rewards.RewardItem;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
@@ -93,9 +92,5 @@ public class DSix extends AspirationRelic implements ClickableRelic {
     @Override
     public boolean canSpawn() {
         return AbstractDungeon.bossCount < 2 || Settings.isEndless;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new DSix();
     }
 }

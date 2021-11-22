@@ -1,11 +1,13 @@
 package aspiration.relics.boss;
 
+import aspiration.actions.unique.PoetsPenAction;
 import aspiration.patches.Fields.AbstractCardFields;
+import aspiration.relics.abstracts.AspirationRelic;
+import basemod.abstracts.CustomSavable;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnAfterUseCardRelic;
-import com.megacrit.cardcrawl.actions.utility.UseCardAction;
-
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -13,12 +15,7 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.FrailPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
-
-import aspiration.actions.unique.PoetsPenAction;
-import aspiration.relics.abstracts.AspirationRelic;
-import basemod.abstracts.CustomSavable;
 
 public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>, OnAfterUseCardRelic {
 	public static final String ID = "aspiration:PoetsPen";
@@ -108,10 +105,6 @@ public class PoetsPen extends AspirationRelic implements CustomSavable<Integer>,
             counter = 0;
         }
         setCounter(counter + amt);
-    }
-    
-    public AbstractRelic makeCopy() {
-        return new PoetsPen();
     }
 
     private void updateTip() {

@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import com.megacrit.cardcrawl.vfx.cardManip.CardFlashVfx;
 
@@ -94,9 +93,5 @@ public class FutureDiary extends AspirationRelic {
 
     public void onUnequip() {
         AbstractDungeon.player.energy.energyMaster -= 1;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new FutureDiary();
     }
 }

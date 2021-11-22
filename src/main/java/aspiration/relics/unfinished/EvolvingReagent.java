@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Sozu;
 
 import java.util.ArrayList;
@@ -182,9 +181,5 @@ public class EvolvingReagent extends AspirationRelic implements BetterOnUsePotio
             	evolutions[i] = p[i];
             }
     	}
-    }
-	
-	public AbstractRelic makeCopy() {
-        return new EvolvingReagent();
     }
 }

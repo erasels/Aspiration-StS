@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.vfx.FlameBallParticleEffect;
 
 public class KaomsHeart extends AspirationRelic{
@@ -105,8 +104,4 @@ public class KaomsHeart extends AspirationRelic{
 	public boolean canSpawn() {
 		return !(AbstractDungeon.floorNum > 49);
 	}
-
-    public AbstractRelic makeCopy() {
-        return new KaomsHeart();
-    }
 }

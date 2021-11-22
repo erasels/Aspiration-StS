@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.UpgradeRandomCardAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import runesmith.patches.EnhanceCountField;
 
 public class MobileForge extends AspirationRelic {
@@ -33,9 +32,5 @@ public class MobileForge extends AspirationRelic {
             flash();
             AbstractDungeon.actionManager.addToBottom(new UpgradeRandomCardAction());
         }
-    }
-
-    public AbstractRelic makeCopy() {
-        return new MobileForge();
     }
 }

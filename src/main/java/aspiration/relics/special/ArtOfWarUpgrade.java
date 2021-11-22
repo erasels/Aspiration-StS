@@ -1,8 +1,8 @@
 package aspiration.relics.special;
 
 import aspiration.Aspiration;
-import aspiration.util.RelicUtils;
 import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.util.RelicUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainEnergyAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.DoubleDamagePower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.ArtOfWar;
 
 public class ArtOfWarUpgrade extends AspirationRelic {
@@ -78,10 +77,6 @@ public class ArtOfWarUpgrade extends AspirationRelic {
     public void onVictory()
     {
         this.pulse = false;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new ArtOfWarUpgrade();
     }
 
     @Override

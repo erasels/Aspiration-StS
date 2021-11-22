@@ -1,14 +1,12 @@
 package aspiration.relics.common;
 
+import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.relics.abstracts.OnOrbSlotChange;
 import com.badlogic.gdx.math.MathUtils;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.relics.abstracts.AspirationRelic;
-import aspiration.relics.abstracts.OnOrbSlotChange;
 
 public class EnhancedActuators extends AspirationRelic implements OnOrbSlotChange{
 public static final String ID = "aspiration:EnhancedActuators";
@@ -57,10 +55,5 @@ public static final String ID = "aspiration:EnhancedActuators";
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new StrengthPower(AbstractDungeon.player, tmp - current_strength_given), tmp - current_strength_given));
 		}
 		current_strength_given = tmp;
-	}
-
-	@Override
-	public AbstractRelic makeCopy() {
-		return new EnhancedActuators();
 	}
 }

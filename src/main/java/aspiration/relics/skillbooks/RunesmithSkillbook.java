@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import runesmith.character.player.RunesmithCharacter;
 import runesmith.patches.LibraryEnum;
 
@@ -103,9 +102,5 @@ public class RunesmithSkillbook extends SkillbookRelic {
             counter = 0;
         }
         setCounter(counter + amt);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new RunesmithSkillbook();
     }
 }

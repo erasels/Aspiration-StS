@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.*;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.EventRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
@@ -255,9 +254,5 @@ public class Headhunter extends AspirationRelic implements CustomSavable<Integer
         
         buffsetInfo = getBuffSetInfo(getBuffList(counter));
         changeTip(buffsetInfo);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new Headhunter();
     }
 }

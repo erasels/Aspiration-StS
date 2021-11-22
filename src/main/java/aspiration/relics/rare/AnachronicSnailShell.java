@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.TimeWarpPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashPowerEffect;
 
@@ -100,9 +99,5 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
             counter = 0;
         }
         setCounter(counter + amt);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new AnachronicSnailShell();
     }
 }

@@ -7,7 +7,6 @@ import com.evacipated.cardcrawl.mod.stslib.relics.OnChannelRelic;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.orbs.AbstractOrb;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class Stellarator extends AspirationRelic implements OnChannelRelic {
     public static final String ID = "aspiration:Stellarator";
@@ -45,9 +44,5 @@ public class Stellarator extends AspirationRelic implements OnChannelRelic {
     @Override
     public boolean canSpawn() {
         return (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT || AbstractDungeon.player.hasRelic(DefectSkillbook.ID));
-    }
-
-    public AbstractRelic makeCopy() {
-        return new Stellarator();
     }
 }

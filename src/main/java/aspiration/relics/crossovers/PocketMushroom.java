@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 
 public class PocketMushroom extends AspirationRelic implements BetterOnLoseHpRelic {
@@ -46,9 +45,5 @@ public class PocketMushroom extends AspirationRelic implements BetterOnLoseHpRel
     public void onVictory() {
         hasTriggered = false;
         stopPulse();
-    }
-
-    public AbstractRelic makeCopy() {
-        return new PocketMushroom();
     }
 }

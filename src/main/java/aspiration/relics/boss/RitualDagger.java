@@ -19,7 +19,6 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.ImageMaster;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.MarkOfTheBloom;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.GlowyFireEyesEffect;
@@ -112,10 +111,6 @@ public class RitualDagger extends AspirationRelic implements CustomSavable<Boole
     
     public boolean isUsedUp() {
     	return usedUp;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new RitualDagger();
     }
 
 	@Override

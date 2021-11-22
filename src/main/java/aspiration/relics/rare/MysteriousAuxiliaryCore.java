@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.actions.defect.ChannelAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class MysteriousAuxiliaryCore extends AspirationRelic{
 public static final String ID = "aspiration:MysteriousAuxiliaryCore";
@@ -64,9 +63,5 @@ public static final String ID = "aspiration:MysteriousAuxiliaryCore";
             counter = 0;
         }
         setCounter(counter + amt);
-    }
-    
-    public AbstractRelic makeCopy() {
-        return new MysteriousAuxiliaryCore();
     }
 }

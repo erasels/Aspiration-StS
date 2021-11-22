@@ -181,8 +181,4 @@ public class SeaSaltIceCream extends AspirationRelic {
             relicSelectScreen.render(sb);
         }
     }
-
-    public AbstractRelic makeCopy() {
-        return new SeaSaltIceCream();
-    }
 }

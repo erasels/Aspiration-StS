@@ -1,14 +1,12 @@
 package aspiration.relics.uncommon;
 
+import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.RelicAboveCreatureAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.relics.abstracts.AspirationRelic;
 
 public class FetidBarrel extends AspirationRelic {
 	public static final String ID = "aspiration:FetidBarrel";
@@ -36,8 +34,4 @@ public class FetidBarrel extends AspirationRelic {
           }
         }
       }
-
-    public AbstractRelic makeCopy() {
-        return new FetidBarrel();
-    }
 }

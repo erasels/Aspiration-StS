@@ -13,7 +13,6 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.*;
 import com.megacrit.cardcrawl.random.Random;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.MonsterRoom;
 import com.megacrit.cardcrawl.rooms.MonsterRoomBoss;
 import com.megacrit.cardcrawl.rooms.MonsterRoomElite;
@@ -101,10 +100,6 @@ public class Legacy_Headhunter extends AspirationRelic implements CustomSavable<
     	}
     	
     	updateTip();
-    }
-
-    public AbstractRelic makeCopy() {
-        return new Legacy_Headhunter();
     }
     
     private void applyBuffs(boolean isOnLoad) {

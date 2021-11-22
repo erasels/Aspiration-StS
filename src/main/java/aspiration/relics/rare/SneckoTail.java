@@ -53,8 +53,4 @@ public class SneckoTail extends AspirationRelic {
     public boolean canSpawn() {
     	return deckDescriptionSearch(PoisonPower.NAME, PoisonPower.POWER_ID);
     }
-
-    public AbstractRelic makeCopy() {
-        return new SneckoTail();
-    }
 }

@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class HummingbirdHeart extends AspirationRelic {
     public static final String ID = "aspiration:HummingbirdHeart";
@@ -71,9 +70,5 @@ public class HummingbirdHeart extends AspirationRelic {
 
     private void manipCharge(int amt) {
         setCounter(counter + amt);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new HummingbirdHeart();
     }
 }

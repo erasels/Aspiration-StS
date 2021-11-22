@@ -14,7 +14,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo.DamageType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Ectoplasm;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.vfx.combat.FlashAtkImgEffect;
@@ -144,11 +143,6 @@ public class SupercapacitiveCoin extends AspirationRelic implements ClickableRel
 			beginLongPulse();
 		}
         setCounter(counter + amt);
-    }
-
-	
-	public AbstractRelic makeCopy() {
-        return new SupercapacitiveCoin();
     }
 
 	/*@SpirePatch(

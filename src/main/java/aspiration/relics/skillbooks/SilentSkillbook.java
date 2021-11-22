@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.TheSilent;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
@@ -87,9 +86,5 @@ public class SilentSkillbook extends SkillbookRelic {
     public boolean canSpawn()
     {
         return !(AbstractDungeon.player instanceof TheSilent) && !hasSkillbookRelic(AbstractDungeon.player);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new SilentSkillbook();
     }
 }

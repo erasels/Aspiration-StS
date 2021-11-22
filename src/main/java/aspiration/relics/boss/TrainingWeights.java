@@ -5,7 +5,6 @@ import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class TrainingWeights extends AspirationRelic {
     public static final String ID = "aspiration:TrainingWeights";
@@ -40,9 +39,5 @@ public class TrainingWeights extends AspirationRelic {
     public void onUnequip()
     {
         AbstractDungeon.player.energy.energyMaster -= 1;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new TrainingWeights();
     }
 }

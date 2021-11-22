@@ -123,8 +123,4 @@ public class ChemicalBlood extends AspirationRelic {
         //System.out.println("MHP: " + AbstractDungeon.player.maxHealth + " PT: " + PERC + " Erg: " + MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC));
         return NumberUtils.max(MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC), 1);
     }
-
-    public AbstractRelic makeCopy() {
-        return new ChemicalBlood();
-    }
 }

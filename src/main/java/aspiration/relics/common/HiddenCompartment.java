@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class HiddenCompartment extends AspirationRelic {
     public static final String ID = "aspiration:HiddenCompartment";
@@ -63,9 +62,5 @@ public class HiddenCompartment extends AspirationRelic {
             this.tips.add(new PowerTip(this.name, this.description));
             this.initializeTips();
         }
-    }
-
-    public AbstractRelic makeCopy() {
-        return new HiddenCompartment();
     }
 }

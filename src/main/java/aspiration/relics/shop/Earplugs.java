@@ -10,7 +10,6 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
 import com.megacrit.cardcrawl.powers.WeakPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class Earplugs extends AspirationRelic implements OnReceivePowerRelic {
     public static final String ID = "aspiration:Earplugs";
@@ -40,9 +39,5 @@ public class Earplugs extends AspirationRelic implements OnReceivePowerRelic {
 
     private int calcAmt(InspirationPower p) {
         return (p.amount2 / 25);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new Earplugs();
     }
 }

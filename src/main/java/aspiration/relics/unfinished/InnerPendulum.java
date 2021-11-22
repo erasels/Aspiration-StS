@@ -1,12 +1,10 @@
 package aspiration.relics.unfinished;
 
 import aspiration.powers.SappedPower;
+import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.relics.abstracts.AspirationRelic;
 
 public class InnerPendulum extends AspirationRelic {
     public static final String ID = "aspiration:InnerPendulum";
@@ -62,9 +60,5 @@ public class InnerPendulum extends AspirationRelic {
             debuff_turn = !debuff_turn;
             counter -= TURNS_TRIGGER;
         }
-    }
-
-    public AbstractRelic makeCopy() {
-        return new InnerPendulum();
     }
 }

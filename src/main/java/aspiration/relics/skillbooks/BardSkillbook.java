@@ -78,8 +78,4 @@ public class BardSkillbook extends SkillbookRelic {
     public boolean canSpawn() {
         return !(AbstractDungeon.player instanceof Bard) && !hasSkillbookRelic(AbstractDungeon.player);
     }
-
-    public AbstractRelic makeCopy() {
-        return new BardSkillbook();
-    }
 }

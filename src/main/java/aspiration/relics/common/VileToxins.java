@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.characters.TheSilent;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import javassist.CtBehavior;
 
 public class VileToxins extends AspirationRelic {
@@ -29,10 +28,6 @@ public class VileToxins extends AspirationRelic {
     public boolean canSpawn() //Checked when? AbstractDungeon.returnRandomRelicKey
     {
     	return deckDescriptionSearch(PoisonPower.NAME, PoisonPower.POWER_ID) || AbstractDungeon.player instanceof TheSilent;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new VileToxins();
     }
 
     //Increase damage dealt by poison lose hp action

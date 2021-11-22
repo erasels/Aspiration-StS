@@ -83,8 +83,4 @@ public class WatcherSkillbook extends SkillbookRelic implements OnAfterUseCardRe
     {
         return !(AbstractDungeon.player instanceof Watcher) && !hasSkillbookRelic(AbstractDungeon.player);
     }
-
-    public AbstractRelic makeCopy() {
-        return new WatcherSkillbook();
-    }
 }

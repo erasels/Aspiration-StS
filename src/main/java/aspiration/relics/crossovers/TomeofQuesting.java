@@ -3,7 +3,6 @@ package aspiration.relics.crossovers;
 import aspiration.Aspiration;
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import infinitespire.InfiniteSpire;
 import infinitespire.abstracts.Quest;
 import infinitespire.effects.QuestLogUpdateEffect;
@@ -64,10 +63,6 @@ public class TomeofQuesting extends AspirationRelic /*implements OnQuestRemovedS
         InfiniteSpire.questLog.add(q.createNew());
         AbstractDungeon.topLevelEffects.add(new QuestLogUpdateEffect());
         InfiniteSpire.publishOnQuestAdded(q);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new TomeofQuesting();
     }
 
     /*

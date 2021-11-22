@@ -7,7 +7,6 @@ import blackrusemod.powers.ProtectionPower;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class TrustyKnives extends AspirationRelic implements OnReducePower {
     public static final String ID = "aspiration:TrustyKnives";
@@ -37,9 +36,5 @@ public class TrustyKnives extends AspirationRelic implements OnReducePower {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new ProtectionPower(AbstractDungeon.player, amount), amount));
         }
         return amount;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new TrustyKnives();
     }
 }

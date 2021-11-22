@@ -41,9 +41,4 @@ public class SecretTechniqueScroll extends AspirationRelic {
             AbstractDungeon.actionManager.addToTop(new AddActionPostActionAction(new FastMakeTempCardInDrawPileAction(c, 1, true), (action) -> action instanceof EmptyDeckShuffleAction));
         }
     }
-
-    @Override
-    public AbstractRelic makeCopy() {
-        return new SecretTechniqueScroll();
-    }
 }

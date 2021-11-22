@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.monsters.exordium.GremlinNob;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import static java.lang.Math.min;
 
@@ -52,9 +51,5 @@ public class RandomNobGenerator extends AspirationRelic {
             }
             AbstractDungeon.actionManager.addToTop(new SpawnMonsterAction(new GremlinNob(offsetX - (FINAL_XOFFSET * Settings.scale), offsetY - (FINAL_YOFFSET * Settings.scale)), false));
         }
-    }
-
-    public AbstractRelic makeCopy() {
-        return new RandomNobGenerator();
     }
 }

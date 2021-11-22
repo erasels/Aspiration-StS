@@ -6,7 +6,6 @@ import com.megacrit.cardcrawl.actions.common.MakeTempCardInDrawPileAction;
 import com.megacrit.cardcrawl.actions.utility.UseCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class EmptySkull extends AspirationRelic {
     public static final String ID = "aspiration:EmptySkull";
@@ -29,9 +28,5 @@ public class EmptySkull extends AspirationRelic {
             flash();
             AbstractDungeon.actionManager.addToBottom(new MakeTempCardInDrawPileAction(new Inspiration(), INSP_AMT, true, true));
         }
-    }
-
-    public AbstractRelic makeCopy() {
-        return new EmptySkull();
     }
 }

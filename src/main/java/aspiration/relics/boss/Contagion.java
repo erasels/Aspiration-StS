@@ -1,5 +1,6 @@
 package aspiration.relics.boss;
 
+import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.relics.OnApplyPowerRelic;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -11,9 +12,6 @@ import com.megacrit.cardcrawl.helpers.PowerTip;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.ArtifactPower;
 import com.megacrit.cardcrawl.powers.PoisonPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.relics.abstracts.AspirationRelic;
 
 public class Contagion extends AspirationRelic implements OnApplyPowerRelic {
 	public static final String ID = "aspiration:Contagion";
@@ -102,9 +100,5 @@ public class Contagion extends AspirationRelic implements OnApplyPowerRelic {
     public boolean canSpawn()
     {
     	return deckDescriptionSearch(PoisonPower.NAME, PoisonPower.POWER_ID);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new Contagion();
     }
 }

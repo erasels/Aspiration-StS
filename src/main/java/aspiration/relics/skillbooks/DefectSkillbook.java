@@ -12,7 +12,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.Defect;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
@@ -95,9 +94,5 @@ public class DefectSkillbook extends SkillbookRelic {
     @Override
     public boolean canSpawn() {
         return !(AbstractDungeon.player instanceof Defect) && !hasSkillbookRelic(AbstractDungeon.player);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new DefectSkillbook();
     }
 }

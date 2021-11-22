@@ -1,7 +1,7 @@
 package aspiration.relics.special;
 
-import java.util.ArrayList;
-
+import aspiration.relics.abstracts.AspirationRelic;
+import basemod.abstracts.CustomSavable;
 import com.megacrit.cardcrawl.actions.AbstractGameAction.AttackEffect;
 import com.megacrit.cardcrawl.actions.animations.TalkAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -19,12 +19,10 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.DexterityPower;
 import com.megacrit.cardcrawl.powers.FocusPower;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.rooms.RestRoom;
 
-import aspiration.relics.abstracts.AspirationRelic;
-import basemod.abstracts.CustomSavable;
+import java.util.ArrayList;
 
 public class BabyByrd extends AspirationRelic implements CustomSavable<Integer>{
 	public static final String ID = "aspiration:BabyByrd";
@@ -172,9 +170,5 @@ public class BabyByrd extends AspirationRelic implements CustomSavable<Integer>{
         }
         
         egg_type = p;
-    }
-    
-    public AbstractRelic makeCopy() {
-        return new BabyByrd();
     }
 }

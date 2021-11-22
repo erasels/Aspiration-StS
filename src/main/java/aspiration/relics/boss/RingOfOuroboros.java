@@ -45,10 +45,6 @@ public class RingOfOuroboros extends AspirationRelic implements ClickableRelic {
     {
     	return AbstractDungeon.player.hasRelic(SnakeRing.ID);
     }
-
-    public AbstractRelic makeCopy() {
-        return new RingOfOuroboros();
-    }
     
     @Override
 	public void obtain() {

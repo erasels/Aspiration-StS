@@ -16,7 +16,6 @@ import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -87,9 +86,5 @@ public class ScribeSkillbook extends SkillbookRelic implements OnReceivePowerRel
     @Override
     public boolean canSpawn() {
         return !(AbstractDungeon.player instanceof TheScribe) && !hasSkillbookRelic(AbstractDungeon.player);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new ScribeSkillbook();
     }
 }

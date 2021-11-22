@@ -44,8 +44,4 @@ public class FaultyCoupler extends AspirationRelic implements OnChannelRelic {
     public boolean canSpawn() {
         return (AbstractDungeon.player.chosenClass == AbstractPlayer.PlayerClass.DEFECT || AbstractDungeon.player.hasRelic(DefectSkillbook.ID));
     }
-
-    public AbstractRelic makeCopy() {
-        return new FaultyCoupler();
-    }
 }

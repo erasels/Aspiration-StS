@@ -7,7 +7,6 @@ import com.megacrit.cardcrawl.cards.AbstractCard.CardType;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.EnergizedBluePower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class Lifesprig extends AspirationRelic {
 public static final String ID = "aspiration:Lifesprig";
@@ -58,9 +57,5 @@ public static final String ID = "aspiration:Lifesprig";
 			AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(AbstractDungeon.player, AbstractDungeon.player, new EnergizedBluePower(AbstractDungeon.player, REGEN_AMT), REGEN_AMT));
 			counter -= ATTACKS_TO_TRIGGER;
 		}
-    }
-    
-    public AbstractRelic makeCopy() {
-        return new Lifesprig();
     }
 }

@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.characters.Ironclad;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.CardLibrary;
 import com.megacrit.cardcrawl.powers.StrengthPower;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.ArrayList;
 
@@ -70,9 +69,5 @@ public class IroncladSkillbook extends SkillbookRelic implements AtEndOfRound {
     public boolean canSpawn()
     {
         return !(AbstractDungeon.player instanceof Ironclad) && !hasSkillbookRelic(AbstractDungeon.player);
-    }
-
-    public AbstractRelic makeCopy() {
-        return new IroncladSkillbook();
     }
 }

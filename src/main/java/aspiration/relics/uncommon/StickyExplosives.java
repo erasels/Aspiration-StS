@@ -1,15 +1,13 @@
 package aspiration.relics.uncommon;
 
+import aspiration.powers.AftershockPower;
+import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.GameActionManager;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
-
-import aspiration.powers.AftershockPower;
-import aspiration.relics.abstracts.AspirationRelic;
 
 public class StickyExplosives extends AspirationRelic{
 public static final String ID = "aspiration:StickyExplosives";
@@ -48,9 +46,5 @@ public static final String ID = "aspiration:StickyExplosives";
     	tips.add(new PowerTip(name, description));
 		tips.add(new PowerTip(AftershockPower.NAME, AftershockPower.DESCRIPTIONS[0] + Math.round(percentagAftershock*100) + AftershockPower.DESCRIPTIONS[1]));
     	initializeTips();
-    }
-    
-    public AbstractRelic makeCopy() {
-        return new StickyExplosives();
     }
 }

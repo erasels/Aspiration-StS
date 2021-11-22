@@ -1,7 +1,6 @@
 package aspiration.relics.special;
 
 import aspiration.relics.abstracts.AspirationRelic;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class KaomsHeart_nothing extends AspirationRelic {
     public static final String ID = "aspiration:KMNothing";
@@ -18,9 +17,5 @@ public class KaomsHeart_nothing extends AspirationRelic {
     @Override
     public int getPrice() {
         return 0;
-    }
-
-    public AbstractRelic makeCopy() {
-        return new KaomsHeart_nothing();
     }
 }

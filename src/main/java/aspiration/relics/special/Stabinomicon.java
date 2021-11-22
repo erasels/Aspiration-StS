@@ -11,7 +11,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 import java.util.Random;
 
@@ -56,10 +55,5 @@ public class Stabinomicon extends AspirationRelic {
         } else if (rng.nextInt(10) == 0) {
             this.hasSpoken = false;
         }
-    }
-
-
-    public AbstractRelic makeCopy() {
-        return new Stabinomicon();
     }
 }

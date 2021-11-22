@@ -8,7 +8,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.helpers.PowerTip;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 
 public class StickyExplosives_weak extends AspirationRelic{
     public static final String ID = "aspiration:StickyExplosives_weak";
@@ -52,9 +51,5 @@ public class StickyExplosives_weak extends AspirationRelic{
         tips.add(new PowerTip(name, description));
         tips.add(new PowerTip(AftershockPower_weak.NAME, (AftershockPower_weak.DESCRIPTIONS[0] + turnAmt + AftershockPower_weak.DESCRIPTIONS[1] + MathUtils.round(percentagAftershock*100) + AftershockPower_weak.DESCRIPTIONS[2])));
         initializeTips();
-    }
-
-    public AbstractRelic makeCopy() {
-        return new StickyExplosives_weak();
     }
 }
