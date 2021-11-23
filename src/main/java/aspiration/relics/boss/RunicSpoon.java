@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 
 public class RunicSpoon extends StatRelic {
@@ -27,8 +28,8 @@ public class RunicSpoon extends StatRelic {
             CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo() {
                 @Override
                 public boolean test(AbstractCard c) {
-                    RunicSpoon r = (RunicSpoon) AbstractDungeon.player.getRelic(ID);
-                    if (r != null) {
+                    AbstractRelic r = AbstractDungeon.player.getRelic(ID);
+                    if (r instanceof RunicSpoon) {
                         return r.checkTrigger();
                     }
                     return false;
@@ -50,9 +51,9 @@ public class RunicSpoon extends StatRelic {
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
         if(AbstractCardFields.playerPlayed.get(c)) {
-            flash();
             manipCharge(1);
             if (wasTriggered) {
+                flash();
                 RelicStatsHelper.incrementStat(this, STAT1);
                 atb(new RSCopyAction(c));
                 wasTriggered = false;
