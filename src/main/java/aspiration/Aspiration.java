@@ -1,6 +1,5 @@
 package aspiration;
 
-import aspiration.util.RelicUtils;
 import aspiration.cards.Runesmith.UnbridledHammer;
 import aspiration.cards.blue.Polymerization;
 import aspiration.cards.green.Lunge;
@@ -10,10 +9,7 @@ import aspiration.events.MeetingTheSilent;
 import aspiration.events.TheDarkMirror;
 import aspiration.relics.abstracts.AspirationRelic;
 import aspiration.relics.boss.*;
-import aspiration.relics.common.ChemicalBlood;
-import aspiration.relics.common.EnhancedActuators;
-import aspiration.relics.common.HiddenCompartment;
-import aspiration.relics.common.VileToxins;
+import aspiration.relics.common.*;
 import aspiration.relics.crossovers.EmptySkull;
 import aspiration.relics.crossovers.MobileForge;
 import aspiration.relics.crossovers.PocketMushroom;
@@ -24,6 +20,7 @@ import aspiration.relics.shop.Nostalgia;
 import aspiration.relics.skillbooks.*;
 import aspiration.relics.special.*;
 import aspiration.relics.uncommon.*;
+import aspiration.util.RelicUtils;
 import basemod.BaseMod;
 import basemod.ModLabeledToggleButton;
 import basemod.ModPanel;
@@ -334,7 +331,7 @@ public class Aspiration implements
         //BaseMod.addRelic(new StickyExplosives_weak(), RelicType.SHARED);
     	BaseMod.addRelic(new FrozenJewel(), RelicType.SHARED);
     	//BaseMod.addRelic(new EvolvingReagent(), RelicType.SHARED);
-    	//BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
+    	BaseMod.addRelic(new Lifesprig(), RelicType.SHARED);
     	BaseMod.addRelic(new RitualDagger(), RelicType.SHARED);
     	BaseMod.addRelic(new KaomsHeart(), RelicType.SHARED);
         BaseMod.addRelic(new KaomsHeart_nothing(), RelicType.SHARED);

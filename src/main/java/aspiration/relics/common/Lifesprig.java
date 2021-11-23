@@ -16,7 +16,7 @@ public static final String ID = "aspiration:Lifesprig";
 	private static final int REGEN_AMT = 1;
 	
     public Lifesprig() {
-        super(ID, "Lifesprig.png", RelicTier.COMMON, LandingSound.SOLID);
+        super(ID, "Lifesprig.png", RelicTier.SPECIAL, LandingSound.SOLID);
     }
     
     @Override
