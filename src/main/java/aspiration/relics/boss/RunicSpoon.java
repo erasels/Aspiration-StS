@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.ui.panels.TopPanel;
 
 public class RunicSpoon extends StatRelic {
@@ -24,12 +23,12 @@ public class RunicSpoon extends StatRelic {
         super(ID, "RunicSpoon.png", RelicTier.BOSS, LandingSound.CLINK);
         setCounter(START_CHARGE);
 
-        if(CardBorderGlowManager.getGlowInfo("AspirationRunicSpoonGlow") == null) {
+        if (CardBorderGlowManager.getGlowInfo("AspirationRunicSpoonGlow") == null) {
             CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo() {
                 @Override
                 public boolean test(AbstractCard c) {
-                    AbstractRelic r = AbstractDungeon.player.getRelic(ID);
-                    if (r instanceof RunicSpoon) {
+                    RunicSpoon r = (RunicSpoon) AbstractDungeon.player.getRelic(ID);
+                    if (r != null) {
                         return r.checkTrigger();
                     }
                     return false;
@@ -50,7 +49,7 @@ public class RunicSpoon extends StatRelic {
 
     @Override
     public void onPlayCard(AbstractCard c, AbstractMonster m) {
-        if(AbstractCardFields.playerPlayed.get(c)) {
+        if (AbstractCardFields.playerPlayed.get(c)) {
             manipCharge(1);
             if (wasTriggered) {
                 flash();
@@ -91,7 +90,9 @@ public class RunicSpoon extends StatRelic {
         }
     }
 
-    public boolean checkTrigger() { return pulse; }
+    public boolean checkTrigger() {
+        return pulse;
+    }
 
     @Override
     public void statsInit() {
