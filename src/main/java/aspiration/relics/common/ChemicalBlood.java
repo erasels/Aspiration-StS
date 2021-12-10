@@ -7,14 +7,13 @@ import com.megacrit.cardcrawl.potions.AbstractPotion;
 import com.megacrit.cardcrawl.potions.PotionSlot;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 import com.megacrit.cardcrawl.relics.Sozu;
-import com.megacrit.cardcrawl.rewards.RewardItem;
 import org.apache.commons.lang3.math.NumberUtils;
 
 public class ChemicalBlood extends AspirationRelic {
     public static final String ID = "aspiration:ChemicalBlood";
 
     private static final int PERCENTAGE_TRIGGER = 25;
-    private static final float PERC = PERCENTAGE_TRIGGER/100F;
+    private static final float PERC = PERCENTAGE_TRIGGER / 100F;
     private int poverflow = 0;
 
     public ChemicalBlood() {
@@ -33,7 +32,7 @@ public class ChemicalBlood extends AspirationRelic {
 
     @Override
     public void onLoseHp(int damageAmount) {
-        if(damageAmount > 0) {
+        if (damageAmount > 0) {
             flash();
             changeCharge(damageAmount);
         }
@@ -41,15 +40,9 @@ public class ChemicalBlood extends AspirationRelic {
 
     @Override
     public void atTurnStart() {
-        removePotionsFromRewards();
-        if(poverflow>0) {
+        if (poverflow > 0) {
             potionReward();
         }
-    }
-
-    @Override
-    public void onVictory() {
-        removePotionsFromRewards();
     }
 
     private void startingCharges() {
@@ -59,10 +52,10 @@ public class ChemicalBlood extends AspirationRelic {
     private void changeCharge(int amt) {
         setCounter(counter - amt);
 
-        while(counter <= 0) {
+        while (counter <= 0) {
             poverflow++;
             setCounter(counter + healthPercent());
-            if(poverflow <= freePSlots()) {
+            if (poverflow <= freePSlots()) {
                 potionReward();
             }
         }
@@ -70,31 +63,14 @@ public class ChemicalBlood extends AspirationRelic {
 
     private void potionReward() {
         AbstractRelic sozu = AbstractDungeon.player.getRelic(Sozu.ID);
-        if(sozu != null) {
+        if (sozu != null) {
             sozu.flash();
             flash();
             return;
         }
-        int freeSlots = freePSlots();
-        boolean openScreen = freeSlots < poverflow;
 
-        for (int i = 0; i < poverflow; i++) {
-            if (openScreen) {
-                AbstractDungeon.getCurrRoom().addPotionToRewards(AbstractDungeon.returnRandomPotion());
-            } else {
-                AbstractDungeon.player.obtainPotion(AbstractDungeon.returnRandomPotion());
-            }
-        }
-        if (openScreen) {
-            AbstractDungeon.combatRewardScreen.open(DESCRIPTIONS[2]);
-            AbstractDungeon.combatRewardScreen.rewards.removeIf(i -> i.type != RewardItem.RewardType.POTION);
-            if(AbstractDungeon.combatRewardScreen.rewards.size()>poverflow) {
-                int diff = AbstractDungeon.combatRewardScreen.rewards.size() - poverflow;
-                if (diff > 0) {
-                    AbstractDungeon.combatRewardScreen.rewards.subList(0, diff).clear();
-                }
-            }
-            AbstractDungeon.getCurrRoom().rewardPopOutTimer = 0;
+        for (int i = 0; i < freePSlots(); i++) {
+            AbstractDungeon.player.obtainPotion(AbstractDungeon.returnRandomPotion());
         }
         poverflow = 0;
         flash();
@@ -110,17 +86,8 @@ public class ChemicalBlood extends AspirationRelic {
         return freeSlots;
     }
 
-    private static void removePotionsFromRewards() {
-        AbstractRelic sozu = AbstractDungeon.player.getRelic(Sozu.ID);
-        if(sozu != null) {
-            return;
-        }
-        AbstractDungeon.getCurrRoom().rewards.removeIf(i -> i.type == RewardItem.RewardType.POTION);
-        AbstractDungeon.combatRewardScreen.rewards.removeIf(i -> i.type == RewardItem.RewardType.POTION);
-    }
-
     private int healthPercent() {
         //System.out.println("MHP: " + AbstractDungeon.player.maxHealth + " PT: " + PERC + " Erg: " + MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC));
-        return NumberUtils.max(MathUtils.round(((float)AbstractDungeon.player.maxHealth)*PERC), 1);
+        return NumberUtils.max(MathUtils.round(((float) AbstractDungeon.player.maxHealth) * PERC), 1);
     }
 }
