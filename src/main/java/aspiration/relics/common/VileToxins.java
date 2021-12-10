@@ -45,7 +45,7 @@ public class VileToxins extends AspirationRelic {
     public static class FixDescription {
         @SpirePostfixPatch
         public static void patch(PoisonPower __instance) {
-            if(AbstractDungeon.player.hasRelic(ID)) {
+            if(AbstractDungeon.player != null && AbstractDungeon.player.hasRelic(ID)) {
                 __instance.description = __instance.description.replace(Integer.toString(__instance.amount), Integer.toString(__instance.amount + ADD_DMG));
             }
         }
