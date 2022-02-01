@@ -94,6 +94,7 @@ public class Aspiration implements
     public static final boolean hasAnimator;
     public static final boolean hasHubris;
     public static final boolean hasBard;
+    public static final boolean hasWidePot;
 
     static {
         hasMarisa = Loader.isModLoaded("TS05_Marisa");
@@ -140,6 +141,7 @@ public class Aspiration implements
         if (hasBard) {
             Aspiration.logger.info("Detected Character: Bard");
         }
+        hasWidePot = Loader.isModLoaded("widepotions");
     }
 
     public static void initialize()

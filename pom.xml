@@ -6,7 +6,7 @@
     <!--The author name(s) as they appear in MTS and any other comments are in your ModTheSpire.json-->
     <groupId>watdis</groupId>
     <artifactId>WatDis</artifactId>
-    <version>1.9.2</version>
+    <version>1.9.3</version>
 
     <name>Aspiration</name>
     <description>A mod containing my first attempts at modding.</description>
@@ -129,6 +129,13 @@
             <version>1.0.1</version>
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/1744254855/bard.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl.mod</groupId>
+            <artifactId>widepotions</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/2368513093/WidePotions.jar</systemPath>
         </dependency>
     </dependencies>
 

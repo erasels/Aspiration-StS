@@ -3,6 +3,7 @@ package aspiration.relics.boss;
 import aspiration.Aspiration;
 import aspiration.util.TextureLoader;
 import aspiration.relics.abstracts.AspirationRelic;
+import aspiration.util.WidePotionsDependencyHelper;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -47,6 +48,10 @@ public class Mageblood extends AspirationRelic {
                     p.use(AbstractDungeon.player);
                 }
             }
+        }
+
+        if(Aspiration.hasWidePot) {
+            WidePotionsDependencyHelper.useWidePotionSlot();
         }
     }
 

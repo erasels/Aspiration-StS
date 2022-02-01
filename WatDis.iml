@@ -145,5 +145,14 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="module-library">
+      <library name="Maven: com.evacipated.cardcrawl.mod:widepotions:1.0.0">
+        <CLASSES>
+          <root url="jar://K:/Steam/steamapps/workshop/content/646570/2368513093/WidePotions.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
   </component>
 </module>
