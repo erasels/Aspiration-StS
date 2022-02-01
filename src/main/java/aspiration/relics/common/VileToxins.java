@@ -13,7 +13,7 @@ import javassist.CtBehavior;
 public class VileToxins extends AspirationRelic {
 	public static final String ID = "aspiration:VileToxins";
 
-    private static final int ADD_DMG = 5;
+    private static final int ADD_DMG = 4;
 
     public VileToxins() {
         super(ID, "VileToxins.png", RelicTier.COMMON, LandingSound.CLINK);
