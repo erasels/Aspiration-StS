@@ -4,7 +4,6 @@ import aspiration.relics.abstracts.AspirationRelic;
 import com.evacipated.cardcrawl.mod.stslib.patches.powerInterfaces.HealthBarRenderPowerPatch;
 import com.evacipated.cardcrawl.modthespire.lib.*;
 import com.megacrit.cardcrawl.actions.unique.PoisonLoseHpAction;
-import com.megacrit.cardcrawl.characters.TheSilent;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.powers.PoisonPower;
@@ -22,12 +21,6 @@ public class VileToxins extends AspirationRelic {
     @Override
     public String getUpdatedDescription() {
         return String.format(DESCRIPTIONS[0], ADD_DMG);
-    }
-    
-    @Override
-    public boolean canSpawn() //Checked when? AbstractDungeon.returnRandomRelicKey
-    {
-    	return deckDescriptionSearch(PoisonPower.NAME, PoisonPower.POWER_ID) || AbstractDungeon.player instanceof TheSilent;
     }
 
     //Increase damage dealt by poison lose hp action
