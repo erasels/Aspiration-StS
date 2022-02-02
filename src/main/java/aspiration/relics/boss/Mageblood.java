@@ -63,6 +63,10 @@ public class Mageblood extends AspirationRelic {
                 AbstractDungeon.topPanel.destroyPotion(p.slot);
             }
         }
+
+        if(Aspiration.hasWidePot) {
+            WidePotionsDependencyHelper.removeWideRarePotion();
+        }
     }
 
     public void onPotionGet(AbstractPotion potion) {

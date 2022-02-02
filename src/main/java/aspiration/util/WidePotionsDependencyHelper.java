@@ -19,4 +19,15 @@ public class WidePotionsDependencyHelper {
             }
         }
     }
+
+    public static void removeWideRarePotion() {
+        for(AbstractPotion p : WidePotionSlot.Field.widepotions.get(AbstractDungeon.player)) {
+            if (!(p instanceof PotionSlot)) {
+                if(p.rarity == AbstractPotion.PotionRarity.RARE) {
+                    AbstractDungeon.player.removePotion(p);
+                    return;
+                }
+            }
+        }
+    }
 }
