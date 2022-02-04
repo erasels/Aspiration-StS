@@ -322,7 +322,7 @@ public class Aspiration implements
     {
     	//"Normal" Relics
     	BaseMod.addRelic(new HummingbirdHeart(), RelicType.SHARED);
-    	BaseMod.addRelic(new Legacy_Headhunter(), RelicType.SHARED);
+    	//BaseMod.addRelic(new Legacy_Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new Headhunter(), RelicType.SHARED);
     	BaseMod.addRelic(new AnachronicSnailShell(), RelicType.SHARED);
     	//BaseMod.addRelic(new SupercapacitiveCoin(), RelicType.SHARED);
@@ -376,9 +376,11 @@ public class Aspiration implements
     	//Defect Only
     	BaseMod.addRelic(new EnhancedActuators(), RelicType.BLUE);
     	BaseMod.addRelic(new MysteriousAuxiliaryCore(), RelicType.BLUE);
-    	
+
+        //Silent only
+        BaseMod.addRelic(new VileToxins(), RelicType.GREEN);
+
     	//If poison card in deck
-        BaseMod.addRelic(new VileToxins(), RelicType.SHARED);
         //BaseMod.addRelic(new Contagion(), RelicType.SHARED);
         BaseMod.addRelic(new SneckoTail(), RelicType.SHARED);
 
