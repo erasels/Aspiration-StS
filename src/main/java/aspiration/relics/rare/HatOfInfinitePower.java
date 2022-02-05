@@ -2,6 +2,8 @@ package aspiration.relics.rare;
 
 import aspiration.relics.abstracts.AspirationRelic;
 import com.megacrit.cardcrawl.actions.GameActionManager;
+import com.megacrit.cardcrawl.actions.utility.UseCardAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class HatOfInfinitePower extends AspirationRelic {
     public static final String ID = "aspiration:HatOfInfinitePower";
@@ -14,6 +16,13 @@ public class HatOfInfinitePower extends AspirationRelic {
     @Override
     public String getUpdatedDescription() {
         return DESCRIPTIONS[0];
+    }
+
+    @Override
+    public void onUseCard(AbstractCard targetCard, UseCardAction useCardAction) {
+        if(targetCard.type == AbstractCard.CardType.POWER && shouldMakePowersFree()) {
+            flash();
+        }
     }
 
     //Called in CardCostModifcationPatches
