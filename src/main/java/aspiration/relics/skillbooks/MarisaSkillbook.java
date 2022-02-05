@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 import static aspiration.Aspiration.logger;
 
-public class MarisaSkillbook extends SkillbookRelic /*implements OnEnergyUse*/ {
+public class MarisaSkillbook extends SkillbookRelic {
     public static final String ID = "aspiration:MarisaSkillbook";
 
     private static final int CHARGE_STACK = 1;
