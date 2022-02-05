@@ -7,7 +7,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 
 public class HatOfInfinitePower extends AspirationRelic {
     public static final String ID = "aspiration:HatOfInfinitePower";
-    public static final int TURNS = 1;
+    public static final int TURNS = 2;
 
     public HatOfInfinitePower() {
         super(ID, "HatOfInfinitePower.png", RelicTier.RARE, LandingSound.MAGICAL);

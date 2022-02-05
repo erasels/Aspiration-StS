@@ -93,7 +93,7 @@
     "NAME": "Anachronic Snail Shell",
     "FLAVOR": "This piece of a snail's shell resists the flow of time, tumbling along at its own paradoxical pace.",
     "DESCRIPTIONS": [
-      "存储来自敌人的最多 #b%d 次不受阻挡的伤害，直到你的下一回合结束。"
+      "Store up to #b%d unblocked damage taken from enemies until the end of your next turn."
     ]
   },
   "aspiration:SupercapacitiveCoin": {
@@ -492,7 +492,7 @@
     "NAME": "Hat of Infinite Power",
     "FLAVOR": "It's brimming with energy as if powered by one thousand explosions!",
     "DESCRIPTIONS": [
-      "During the first turn of combat, all #yPowers are free."
+      "During the first two turns of combat, all #yPowers are free."
     ]
   },
   "aspiration:BardSkillbook": {
