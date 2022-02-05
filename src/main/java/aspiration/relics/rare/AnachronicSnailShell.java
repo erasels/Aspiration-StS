@@ -78,9 +78,9 @@ public class AnachronicSnailShell extends AspirationRelic implements BetterOnLos
     public void renderCounter(SpriteBatch sb, boolean inTopPanel) {
         if (this.counter > -1) {
             if (inTopPanel) {
-                Color c = Color.WHITE;
-                if(counter >= THRESHOLD) {
-                    c = Color.SALMON;
+                Color c = Color.WHITE.cpy();
+                if(counter != 0) {
+                    c.lerp(Color.SALMON, (float)counter/(float)THRESHOLD);
                 }
                 FontHelper.renderFontRightTopAligned(sb, FontHelper.topPanelInfoFont, counter + "/" + THRESHOLD, ((float)ReflectionHacks.getPrivateStatic(AbstractRelic.class, "offsetX")) + currentX + 30.0F * Settings.scale, currentY - 7.0F * Settings.scale, c);
             } else {
