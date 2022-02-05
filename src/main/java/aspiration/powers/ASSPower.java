@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.mod.stslib.patches.NeutralPowertypePatch;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.HealthBarRenderPower;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.InvisiblePower;
+import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.relics.AbstractRelic;
 
@@ -28,6 +29,10 @@ public class ASSPower extends AspirationPower implements InvisiblePower, HealthB
 
     @Override
     public Color getColor() {
-        return Color.WHITE;
+        if(reference.counter > owner.currentBlock) {
+            return Color.WHITE;
+        } else {
+            return Settings.BLUE_TEXT_COLOR;
+        }
     }
 }
