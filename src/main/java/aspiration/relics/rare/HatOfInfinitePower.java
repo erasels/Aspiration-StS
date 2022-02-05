@@ -17,7 +17,7 @@ public class HatOfInfinitePower extends AspirationRelic {
     }
 
     //Called in CardCostModifcationPatches
-    public boolean shouldMakePowersFree() {
+    public static boolean shouldMakePowersFree() {
         return GameActionManager.turn <= TURNS;
     }
 }
