@@ -25,6 +25,18 @@ public class HatOfInfinitePower extends AspirationRelic {
         }
     }
 
+    @Override
+    public void atTurnStart() {
+        if(GameActionManager.turn > TURNS) {
+            grayscale = true;
+        }
+    }
+
+    @Override
+    public void onVictory() {
+        grayscale = false;
+    }
+
     //Called in CardCostModifcationPatches
     public static boolean shouldMakePowersFree() {
         return GameActionManager.turn <= TURNS;
