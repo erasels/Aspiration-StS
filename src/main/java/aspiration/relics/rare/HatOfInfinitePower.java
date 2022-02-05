@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.GameActionManager;
 
 public class HatOfInfinitePower extends AspirationRelic {
     public static final String ID = "aspiration:HatOfInfinitePower";
+    public static final int TURNS = 1;
 
     public HatOfInfinitePower() {
         super(ID, "HatOfInfinitePower.png", RelicTier.RARE, LandingSound.MAGICAL);
@@ -17,6 +18,6 @@ public class HatOfInfinitePower extends AspirationRelic {
 
     //Called in CardCostModifcationPatches
     public boolean shouldMakePowersFree() {
-        return GameActionManager.turn == 1;
+        return GameActionManager.turn <= TURNS;
     }
 }
