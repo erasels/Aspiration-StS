@@ -1,4 +1,4 @@
-package aspiration.relics.rare;
+package aspiration.relics.unfinished;
 
 import aspiration.Aspiration;
 import aspiration.relics.abstracts.AspirationRelic;
