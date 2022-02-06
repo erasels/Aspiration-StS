@@ -29,7 +29,7 @@ public class ASSPower extends AspirationPower implements InvisiblePower, HealthB
 
     @Override
     public Color getColor() {
-        if(reference.counter > owner.currentBlock) {
+        if(reference.counter <= owner.currentBlock) {
             return Color.WHITE;
         } else {
             return Settings.BLUE_TEXT_COLOR;
