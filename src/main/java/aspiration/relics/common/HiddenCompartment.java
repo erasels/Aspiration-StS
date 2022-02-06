@@ -13,7 +13,6 @@ public class HiddenCompartment extends AspirationRelic {
     public static final String ID = "aspiration:HiddenCompartment";
 
     public AbstractCard storedCard = null;
-    private boolean firstShuffle = true;
 
     public HiddenCompartment() {
         super(ID, "HiddenCompartment.png", RelicTier.COMMON, LandingSound.SOLID);
@@ -32,8 +31,8 @@ public class HiddenCompartment extends AspirationRelic {
 
     @Override
     public void onShuffle() {
-        if(firstShuffle) {
-            firstShuffle = false;
+        if(!grayscale) {
+            grayscale = true;
             if(storedCard != null) {
                 AbstractDungeon.actionManager.addToBottom(new MakeTempCardInHandAction(storedCard));
                 setStoredCard(null);
@@ -44,7 +43,7 @@ public class HiddenCompartment extends AspirationRelic {
     @Override
     public void onVictory() {
         setStoredCard(null);
-        firstShuffle = true;
+        grayscale = false;
     }
 
     public void setStoredCard(AbstractCard c) {
