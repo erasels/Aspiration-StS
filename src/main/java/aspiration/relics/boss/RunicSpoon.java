@@ -27,9 +27,11 @@ public class RunicSpoon extends StatRelic {
             CardBorderGlowManager.addGlowInfo(new CardBorderGlowManager.GlowInfo() {
                 @Override
                 public boolean test(AbstractCard c) {
-                    RunicSpoon r = (RunicSpoon) AbstractDungeon.player.getRelic(ID);
-                    if (r != null) {
-                        return r.checkTrigger();
+                    if(AbstractDungeon.player != null) {
+                        RunicSpoon r = (RunicSpoon) AbstractDungeon.player.getRelic(ID);
+                        if (r != null) {
+                            return r.checkTrigger();
+                        }
                     }
                     return false;
                 }
