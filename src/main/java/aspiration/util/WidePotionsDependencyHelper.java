@@ -12,7 +12,8 @@ public class WidePotionsDependencyHelper {
             if(!(p instanceof PotionSlot)) {
                 if(p.isThrown) {
                     AbstractMonster target = AbstractDungeon.getRandomMonster(null);
-                    p.use(target);
+                    if(target != null)
+                        p.use(target);
                 } else {
                     p.use(AbstractDungeon.player);
                 }

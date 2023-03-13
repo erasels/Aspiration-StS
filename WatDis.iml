@@ -13,7 +13,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.megacrit.cardcrawl:slaythespire:14-01-2019">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/common/SlayTheSpire/desktop-1.0.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/common/SlayTheSpire/desktop-1.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -22,7 +22,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl:modthespire:3.15.0">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1605060445/ModTheSpire.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1605060445/ModTheSpire.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -31,7 +31,7 @@
     <orderEntry type="module-library">
       <library name="Maven: basemod:basemod:5.0.0">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1605833019/BaseMod.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1605833019/BaseMod.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -40,7 +40,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl.mod:StSLib:1.3.2">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1609158507/StSLib.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1609158507/StSLib.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -49,7 +49,7 @@
     <orderEntry type="module-library">
       <library name="Maven: ThMod:ThMod:v0.14.17">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1614104912/TS05_Marisa.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1614104912/TS05_Marisa.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -58,7 +58,7 @@
     <orderEntry type="module-library">
       <library name="Maven: BlackRuseMods:StS-BlackRuse:0.9.3">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1615745539/BlackRuseMod.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1615745539/BlackRuseMod.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -67,7 +67,7 @@
     <orderEntry type="module-library">
       <library name="Maven: beakedthecultist:BeakedTheCultist:0.0.1">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1609820830/BeakedTheCultist.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1609820830/BeakedTheCultist.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -76,7 +76,7 @@
     <orderEntry type="module-library">
       <library name="Maven: therunesmith:therunesmith:v.0.3.2">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1633549612/TheRunesmith.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1633549612/TheRunesmith.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -85,7 +85,7 @@
     <orderEntry type="module-library">
       <library name="Maven: ReplayTheSpireMod:ReplayTheSpireMod:2.10.0">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1610173938/ReplayTheSpireMod.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1610173938/ReplayTheSpireMod.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -94,7 +94,7 @@
     <orderEntry type="module-library">
       <library name="Maven: conspire:Conspire:1.5.5">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1612329757/Conspire.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1612329757/Conspire.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -103,7 +103,7 @@
     <orderEntry type="module-library">
       <library name="Maven: InfiniteSpire:InfiniteSpire:0.15.1">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1610128058/InfiniteSpire.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1610128058/InfiniteSpire.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -112,7 +112,7 @@
     <orderEntry type="module-library">
       <library name="Maven: thescribe:TheScribe:0.5.9">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1639744503/TheScribe.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1639744503/TheScribe.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -121,7 +121,7 @@
     <orderEntry type="module-library">
       <library name="Maven: eatyourbeetsvg:eatyourbeetsvg:1.0.0">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1638308801/TheAnimator.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1638308801/TheAnimator.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -130,7 +130,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl.mod:hubris:0.22.0">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1609159603/Hubris.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1609159603/Hubris.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -139,7 +139,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl.mod:bard:1.0.1">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/1744254855/bard.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/1744254855/bard.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -148,7 +148,7 @@
     <orderEntry type="module-library">
       <library name="Maven: com.evacipated.cardcrawl.mod:widepotions:1.0.0">
         <CLASSES>
-          <root url="jar://K:/Steam/steamapps/workshop/content/646570/2368513093/WidePotions.jar!/" />
+          <root url="jar://E:/SteamLibrary/steamapps/workshop/content/646570/2368513093/WidePotions.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

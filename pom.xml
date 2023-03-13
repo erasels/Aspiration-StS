@@ -6,7 +6,7 @@
     <!--The author name(s) as they appear in MTS and any other comments are in your ModTheSpire.json-->
     <groupId>watdis</groupId>
     <artifactId>WatDis</artifactId>
-    <version>1.9.4</version>
+    <version>1.9.5</version>
 
     <name>Aspiration</name>
     <description>A mod containing my first attempts at modding.</description>
@@ -17,7 +17,7 @@
         <SlayTheSpire.version>14-01-2019</SlayTheSpire.version>
         <ModTheSpire.version>3.15.0</ModTheSpire.version>
         <!--CHANGE THIS TO YOUR STEAM INSTALLATION-->
-        <Steam.path>K:\Steam\steamapps</Steam.path>
+        <Steam.path>E:\SteamLibrary\steamapps</Steam.path>
     </properties>
 
     <dependencies>
