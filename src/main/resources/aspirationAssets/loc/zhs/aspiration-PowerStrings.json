@@ -10,7 +10,7 @@
     "NAME": "觉醒",
     "DESCRIPTIONS": [
       "回复你造成的 #b",
-	  "% 的未被格挡的攻击伤害。每当一名敌人给予你一层负面状态，获得 #b1 点 #y力量 [REMOVE_SPACE]。"
+	  "% 的未被格挡的攻击伤害的生命。每当一名敌人给予你一层负面状态，获得 #b1 点 #y力量 [REMOVE_SPACE]。"
     ]
   },
   "aspiration:Sapped": {
@@ -31,16 +31,16 @@
   "aspiration:ChannelOrb": {
     "NAME": "生成",
     "DESCRIPTIONS": [
-      "在你的 #b",
-      " 回合内，",
-      " 回合内，",
+      "在你的下 #b",
+      " 个回合开始时，",
+      " 个回合开始时，",
     ", #y生成 一个随机充能球。"
     ]
   },
   "aspiration:GrievousWounds": {
     "NAME": "疼痛伤口",
     "DESCRIPTIONS": [
-      "每当受到未被格挡的伤害，提高 #b",
+      "每当受到未被格挡的伤害，将该伤害提高 #b",
       " 伤害 [REMOVE_SPACE]。",
       " NL 每回合失去一半的层数",
       " "
