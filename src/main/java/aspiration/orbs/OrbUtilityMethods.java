@@ -9,6 +9,8 @@ import com.megacrit.cardcrawl.random.Random;
 import conspire.orbs.Water;
 import eatyourbeets.orbs.animator.Earth;
 import eatyourbeets.orbs.animator.Fire;
+import neatTheSpire.orbs.NeatTheSpireLightOrb;
+import neatTheSpire.orbs.NeatTheSpireMagneticOrb;
 
 import java.util.ArrayList;
 
@@ -94,6 +96,12 @@ public class OrbUtilityMethods {
             if (Aspiration.hasMarisa) {
                 orbs.add(new ManaSparkOrb());
             }
+        }
+
+        if (Aspiration.hasNeat) {
+            orbs.add(new NeatTheSpireMagneticOrb());
+            if (!forAmalgamate)
+                orbs.add(new NeatTheSpireLightOrb());
         }
 
         if (withAmalgamate) {

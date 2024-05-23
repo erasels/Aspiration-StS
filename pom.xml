@@ -137,6 +137,13 @@
             <scope>system</scope>
             <systemPath>${Steam.path}/workshop/content/646570/2368513093/WidePotions.jar</systemPath>
         </dependency>
+        <dependency>
+            <groupId>neatthespire</groupId>
+            <artifactId>neatthespire</artifactId>
+            <version>1.0.0</version>
+            <scope>system</scope>
+            <systemPath>${Steam.path}/workshop/content/646570/2653810941/neatTheSpire.jar</systemPath>
+        </dependency>
     </dependencies>
 
 
